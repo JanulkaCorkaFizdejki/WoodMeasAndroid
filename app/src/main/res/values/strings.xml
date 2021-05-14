@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="log_length">Długość kłody</string>
+    <string name="log_width">Szerokość kłody</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0.00</string>
+    <string name="default_text">Tekst domyślny</string>
+    <string name="centimeters_short">cm</string>
+    <string name="meters_short">m</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="volume_calculator">Kalkulator miąższości</string>
+    <string name="measurement_width_bark">Pomiar z korą</string>
+    <string name="wood_packages">Pakiet drewna</string>
+    <string name="select">Wybierz</string>
+    <string name="create">Utwórz</string>
+    <string name="delete">Usuń</string>
+    <string name="cancel">Anuluj</string>
+    <string name="yes">Tak</string>
+    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
+    <string name="absence">Brak</string>
+    <string name="create_wood_package">Utwórz pakiet drewna</string>
+    <string name="created_wood_package">Utworzono pakiet drewa</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
+    <string name="add_to_wood_package">Dodaj do pakietu</string>
+    <string name="added_to_wood_package">Dodano do pakietu</string>
+    <string name="select_or_create_wood_package">Wybierz lub stwórz pakiet drewna.</string>
+    <string name="length_width_log_min_info">Długość oraz szerokość kłody powinna być większa od zera.</string>
+    <string name="your_wood_packages_list">Twoje pakiety drewna</string>
+    <string name="creation_date">Data utworzenia:</string>
+    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="count_log">Ilość kłód:</string>
+    <string name="sum">Suma:</string>
+
+</resources>

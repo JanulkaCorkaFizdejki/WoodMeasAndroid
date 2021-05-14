@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="32dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="32dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_wood_package_name"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+    <EditText
+        android:id="@+id/editTextWoodPackageName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        tools:ignore="LabelFor" />
+
+</LinearLayout>
