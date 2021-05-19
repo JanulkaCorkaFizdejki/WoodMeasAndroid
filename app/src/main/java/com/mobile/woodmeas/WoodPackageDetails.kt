@@ -13,6 +13,7 @@ import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.WoodenLogListAdapter
+import com.mobile.woodmeas.helpers.EmailManager
 import com.mobile.woodmeas.helpers.FileManager
 import com.mobile.woodmeas.helpers.PrintFormatter
 import com.mobile.woodmeas.helpers.TimeDateFormatter
@@ -196,27 +197,16 @@ class WoodPackageDetails : AppCompatActivity(), AppActivityManager {
                     fileExcel.createNewFile()
 
 
-                    val sheetName = fileNames.second.replace(".xls", "")
-
                     PrintFormatter.createXlsRapport(
                         xlsFilePath,
                         woodenLogList,
                         woodPackages,
-                        treeList,
-                        sheetName
+                        treeList
                     )
 
 
-
-                    val fileProvider = FileProvider.getUriForFile(applicationContext, "${BuildConfig.APPLICATION_ID}.provider", File(pdfFilePath))
-                     val intent =   Intent(Intent.ACTION_SEND).apply {
-                            type = "text/html"
-                            putExtra(Intent.EXTRA_EMAIL, arrayOf("jan@example.com")) // recipients
-                            putExtra(Intent.EXTRA_SUBJECT, "Email subject")
-                            putExtra(Intent.EXTRA_TEXT, "Email message text")
-                            putExtra(Intent.EXTRA_STREAM, fileProvider)
-                        }
-                        startActivity(intent)
+                    val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdfFilePath, xlsFilePath))
+                        startActivity(intentEmail)
                 }
             }
         }

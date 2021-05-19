@@ -34,7 +34,9 @@
             android:name=".VolumeCalculatorActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.WoodMeas.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

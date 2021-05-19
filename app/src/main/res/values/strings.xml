@@ -30,5 +30,6 @@
     <string name="last_update_date">Data ostatniej modyfikacji</string>
     <string name="count_log">Ilość kłód:</string>
     <string name="sum">Suma:</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
 
 </resources>

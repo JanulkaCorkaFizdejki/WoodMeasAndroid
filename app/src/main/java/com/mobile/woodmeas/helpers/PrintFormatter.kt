@@ -5,13 +5,12 @@ import android.graphics.pdf.*
 import android.os.Build
 import android.text.TextPaint
 import androidx.annotation.RequiresApi
-import com.mobile.woodmeas.model.PrintTbStruct
-import com.mobile.woodmeas.model.Trees
-import com.mobile.woodmeas.model.WoodPackages
-import com.mobile.woodmeas.model.WoodenLog
-import org.apache.poi.hssf.usermodel.HSSFRichTextString
+import com.mobile.woodmeas.model.*
+import org.apache.poi.hssf.usermodel.HSSFCellStyle
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
-import java.io.ByteArrayOutputStream
+import org.apache.poi.hssf.util.HSSFColor
+import org.apache.poi.ss.usermodel.CellStyle
+import org.apache.poi.xssf.usermodel.XSSFFont
 import java.io.File
 import java.io.FileOutputStream
 import java.lang.Exception
@@ -223,18 +222,182 @@ object PrintFormatter {
         filePath: String,
         woodenLogList: List<WoodenLog>,
         woodPackage: WoodPackages,
-        treesList: List<Trees>,
-        sheetName: String
+        treesList: List<Trees>
     ) {
         val workBook = HSSFWorkbook()
-        val sheet = workBook.createSheet(sheetName)
+        val sheet = workBook.createSheet(woodPackage.name)
 
-        val row1 = sheet.createRow(0)
 
-        for (i in 0..3) {
-            val cell = row1.createCell(0)
-            cell.setCellValue(HSSFRichTextString("$i"))
+        // header cell style _______________________________________________________________________
+        val headerCellStyle = workBook.createCellStyle().apply {
+            fillForegroundColor = HSSFColor.LIGHT_GREEN.index
+            fillPattern = HSSFCellStyle.SOLID_FOREGROUND
+            alignment = CellStyle.ALIGN_CENTER
         }
+
+        val headerFont = workBook.createFont().apply {
+            fontHeightInPoints = 10
+            boldweight = XSSFFont.BOLDWEIGHT_BOLD
+        }
+        headerCellStyle.setFont(headerFont)
+        // _________________________________________________________________________________________
+
+        // date font style -------------------------------------------------------------------------
+        val dateFont = workBook.createFont().apply {
+            fontHeightInPoints = 6
+        }
+        val dateCellStyle = workBook.createCellStyle().apply {
+            setFont(dateFont)
+        }
+        // _________________________________________________________________________________________
+
+        // text center style _______________________________________________________________________
+        val textCenterStyle = workBook.createCellStyle().apply {
+            alignment = CellStyle.ALIGN_CENTER
+        }
+        // _________________________________________________________________________________________
+
+        // cubic sum style _________________________________________________________________________
+        val cubicSumFont = workBook.createFont().apply {
+            fontHeightInPoints = 16
+            boldweight = XSSFFont.BOLDWEIGHT_BOLD
+        }
+
+        val cubicSumStyle = workBook.createCellStyle().apply {
+            setFont(cubicSumFont)
+        }
+        // _________________________________________________________________________________________
+
+        // set column width
+        for (i in 1..7) {
+            sheet.setColumnWidth(i, 20 * 256)
+        }
+
+
+        // set package name
+        sheet.createRow(0).let { hssfRow ->
+            val cellPackageName = hssfRow.createCell(0)
+            val packageName = "Package: ${woodPackage.name}"
+            cellPackageName.setCellValue(packageName)
+        }
+
+        // set date created and updated
+        sheet.createRow(1).let { hssfRow ->
+            val cellCreatedLabel = hssfRow.createCell(0)
+            cellCreatedLabel.setCellValue("Created: ")
+            cellCreatedLabel.setCellStyle(dateCellStyle)
+            woodPackage.addDate?.let {
+                val cellCreatedDate = hssfRow.createCell(1)
+                cellCreatedDate.setCellValue(DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM).format(it))
+                cellCreatedDate.setCellStyle(dateCellStyle)
+
+            }
+        }
+
+        sheet.createRow(2).let { hssfRow ->
+            val cellUpdatedLabel = hssfRow.createCell(0)
+            cellUpdatedLabel.setCellValue("Updated: ")
+            cellUpdatedLabel.setCellStyle(dateCellStyle)
+            woodenLogList.maxByOrNull { w-> w.id }?.let { wl ->
+                wl.addDate?.let {
+                    val cellUpdatedDate = hssfRow.createCell(1)
+                    cellUpdatedDate.setCellValue(DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM).format(it))
+                    cellUpdatedDate.setCellStyle(dateCellStyle)
+                }
+            }
+        }
+
+        sheet.createRow(3).let { hssfRow ->
+            val cellId = hssfRow.createCell(0)
+            cellId.setCellValue(PrintTbStruct.WoodenLogHeaderCells.ID)
+            cellId.setCellStyle(headerCellStyle)
+
+            val cellLength =  hssfRow.createCell(1)
+            cellLength.setCellValue(PrintTbStruct.WoodenLogHeaderCells.LENGTH)
+            cellLength.setCellStyle(headerCellStyle)
+
+            val cellWidth =  hssfRow.createCell(2)
+            cellWidth.setCellValue(PrintTbStruct.WoodenLogHeaderCells.WIDTH)
+            cellWidth.setCellStyle(headerCellStyle)
+
+            val cellCubic =  hssfRow.createCell(3)
+            cellCubic.setCellValue(PrintTbStruct.WoodenLogHeaderCells.CUBIC)
+            cellCubic.setCellStyle(headerCellStyle)
+
+            val cellTree =  hssfRow.createCell(4)
+            cellTree.setCellValue(PrintTbStruct.WoodenLogHeaderCells.TREE)
+            cellTree.setCellStyle(headerCellStyle)
+
+            val cellBark =  hssfRow.createCell(5)
+            cellBark.setCellValue(PrintTbStruct.WoodenLogHeaderCells.BARK)
+            cellBark.setCellStyle(headerCellStyle)
+
+            val cellDate =  hssfRow.createCell(6)
+            cellDate.setCellValue(PrintTbStruct.WoodenLogHeaderCells.DATE)
+            cellDate.setCellStyle(headerCellStyle)
+        }
+
+        woodenLogList.forEachIndexed { index, woodenLog ->
+            val rowPosition = index + 4
+            sheet.createRow(rowPosition).let { harrow->
+                // set id
+                woodenLog.id.also {
+                    val cell =  harrow.createCell(0)
+                    cell.setCellValue((index + 1).toDouble())
+                    cell.setCellStyle(textCenterStyle)
+                }
+
+                // set length
+                woodenLog.logLengthCm.also {
+                    val cell =  harrow.createCell(1)
+                    cell.setCellValue(it.toDouble())
+                }
+
+                // set width
+                woodenLog.logWidthCm.also {
+                    val cell =  harrow.createCell(2)
+                    cell.setCellValue(it.toDouble())
+                }
+
+                // set cubic
+                woodenLog.cubicCm.also {
+                    val cell =  harrow.createCell(3)
+                    val cubic = "%.2f".format(it.toDouble() / 100.00).replace(",", ".").toDouble()
+                    cell.setCellValue(cubic)
+                }
+
+                // set tree
+                woodenLog.treeId.also {
+                    val tree = treesList.first { t-> t.id == it }
+                    val cell =  harrow.createCell(4)
+                    cell.setCellValue(tree.name)
+                    cell.setCellStyle(textCenterStyle)
+                }
+
+                // set bark
+                woodenLog.barkOn.also {
+                    val barkVal = if (it > 0) "Y" else "N"
+                    val cell =  harrow.createCell(5)
+                    cell.setCellValue(barkVal)
+                    cell.setCellStyle(textCenterStyle)
+                }
+
+                // set date
+                woodenLog.addDate?.also {
+                    val cell =  harrow.createCell(6)
+                    cell.setCellValue(DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM).format(it))
+                    cell.setCellStyle(dateCellStyle)
+                }
+            }
+        }
+
+        sheet.createRow(woodenLogList.size + 6).let { hssfRow ->
+            val cell = hssfRow.createCell(3)
+            val lastCell = (woodenLogList.size + 4).toString()
+            cell.cellFormula = "SUM(D5:D$lastCell)"
+            cell.setCellStyle(cubicSumStyle)
+        }
+
 
         File(filePath).let {
             val fos = FileOutputStream(it)
@@ -246,7 +409,7 @@ object PrintFormatter {
     fun setFileName(woodPackageId: Int): Pair<String, String> {
         val unixTime = System.currentTimeMillis() / 1000
         return Pair(
-            "${com.mobile.woodmeas.model.Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.pdf",
-            "${com.mobile.woodmeas.model.Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.xls")
+            "${Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.pdf",
+            "${Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.xls")
     }
 }
