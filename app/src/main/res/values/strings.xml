@@ -31,5 +31,17 @@
     <string name="count_log">Ilość kłód:</string>
     <string name="sum">Suma:</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Pakiety drewna</string>
+    <string name="menu_name_calculators">Kalkulatory</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
 
 </resources>

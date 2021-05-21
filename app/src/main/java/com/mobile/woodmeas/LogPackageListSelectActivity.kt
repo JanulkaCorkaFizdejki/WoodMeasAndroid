@@ -8,13 +8,13 @@ import com.mobile.woodmeas.controller.WoodPackageListSelectAdapter
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import kotlin.concurrent.thread
 
-class WoodPackageListActivity : AppCompatActivity() {
+class LogPackageListSelectActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewWooPackageListSelect: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wood_package_list)
+        setContentView(R.layout.activity_log_package_list_select)
 
         recyclerViewWooPackageListSelect = findViewById(R.id.recyclerViewWooPackageListSelect)
 

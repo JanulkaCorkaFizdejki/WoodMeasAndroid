@@ -24,10 +24,7 @@ class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
     private val deleteOnList: ArrayList<Boolean> = arrayListOf()
 
     init {
-        for (i in woodenLogList.indices) {
-            deleteOnList.add(false)
-        }
-        println(deleteOnList)
+        for (i in woodenLogList.indices) { deleteOnList.add(false) }
     }
 
     override fun onCreateViewHolder(

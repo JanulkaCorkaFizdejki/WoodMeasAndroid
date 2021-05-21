@@ -24,7 +24,7 @@ import com.mobile.woodmeas.model.WoodenLog
 import java.io.File
 import kotlin.concurrent.thread
 
-class WoodPackageDetails : AppCompatActivity(), AppActivityManager {
+class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var textViewWoodPackageName: TextView
     private lateinit var textViewWoodPackageCreationDate: TextView
     private lateinit var textViewPackageLastUpdateDate: TextView
@@ -36,7 +36,7 @@ class WoodPackageDetails : AppCompatActivity(), AppActivityManager {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wood_package_details)
+        setContentView(R.layout.activity_log_package_details)
 
         textViewWoodPackageName         = findViewById(R.id.textViewWoodPackageName)
         textViewWoodPackageCreationDate = findViewById(R.id.textViewWoodPackageCreationDate)

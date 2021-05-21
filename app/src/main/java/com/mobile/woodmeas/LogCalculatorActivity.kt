@@ -19,7 +19,7 @@ import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 import kotlin.properties.Delegates
 
-class VolumeCalculatorActivity : AppCompatActivity() {
+class LogCalculatorActivity : AppCompatActivity() {
 
     enum class CurrentSize  {
         LENGTH, WIDTH
@@ -59,7 +59,7 @@ class VolumeCalculatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_volume_calculator)
+        setContentView(R.layout.activity_log_calculator)
 
         textViewLengthValueCm       = findViewById(R.id.textViewLengthValueCm)
         textViewLengthValueM        = findViewById(R.id.textViewLengthValueM)
@@ -267,7 +267,7 @@ class VolumeCalculatorActivity : AppCompatActivity() {
 
     // BUTTONS for Wood Packages ___________________________________________________________________
     fun onClickBtnSelect(view: View) {
-        val intent = Intent(this, WoodPackageListActivity::class.java)
+        val intent = Intent(this, LogPackageListSelectActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
@@ -340,7 +340,7 @@ class VolumeCalculatorActivity : AppCompatActivity() {
     fun onClickGetWoodPackageDetails(view: View) {
         if (woodPackagesCurrent == null) return
 
-        val intent = Intent(this, WoodPackageDetails::class.java)
+        val intent = Intent(this, LogPackageDetailsActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         intent.putExtra(Settings.IntentsPutValues.WOOD_PACKAGE_ID, woodPackagesCurrent!!.id)
         startActivity(intent)

@@ -1,5 +1,6 @@
 package com.mobile.woodmeas
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,18 +9,26 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.mobile.woodmeas.controller.MenuItemsAdapter
+import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.model.DatabaseManager
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     lateinit var imageViewWoodMain: ImageView
     lateinit var textViewMenuItemName: TextView
+    lateinit var imageButtonMenuItemPackages: ImageButton
+    lateinit var imageButtonMenuItemCalculators: ImageButton
+    lateinit var imageViewMenuItemIcon: ImageView
     private var rotateAnimation: RotateAnimation? = null
+    private lateinit var recyclerViewMenuItems: RecyclerView
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +36,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         imageViewWoodMain = findViewById(R.id.imageViewWoodMain)
+        imageButtonMenuItemPackages = findViewById(R.id.imageButtonMenuItemPackages)
+        imageButtonMenuItemCalculators = findViewById(R.id.imageButtonMenuItemCalculators)
         textViewMenuItemName = findViewById(R.id.textViewMenuItemName)
+        imageViewMenuItemIcon = findViewById(R.id.imageViewMenuItemIcon)
+        recyclerViewMenuItems = findViewById(R.id.recyclerViewMenuItems)
 
-        textViewMenuItemName.text = "Kalkulatory"
+
+//        recyclerViewMenuItems.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+//            val layoutManager =  recyclerViewMenuItems.layoutManager
+//            if (layoutManager != null) {
+//                val o = layoutManager.getPosition(view)
+//                println("::::::$o")
+//            }
+//        }
+
+
+        setCurrencyMenu(MenuType.CALCULATORS, null)
 
         thread { dbManager() }
 
@@ -60,26 +83,59 @@ class MainActivity : AppCompatActivity() {
         rotateAnimation = null
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun onClickMenuButton(view: View) {
+        if (view !is ImageButton) return
+
         when(view.context.resources.getResourceEntryName(view.id)) {
-            "imageButtonMenuItemStack" ->  {
-                textViewMenuItemName.text = "Pakiety drewna"
-            }
-            "imageButtonMenuItemCalculator" -> {
-                textViewMenuItemName.text = "Kalkulatory"
-            }
-
+            "imageButtonMenuItemPackages"       -> setCurrencyMenu(MenuType.PACKAGES, view)
+            "imageButtonMenuItemCalculators"    -> setCurrencyMenu(MenuType.CALCULATORS, view)
             "imageButtonMenuItemInfo" -> {
-
+                Intent(this, InfoActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                }.let {
+                    startActivity(it)
+                }
             }
-
             "imageButtonMenuItemSettings" -> {
+                Intent(this, SettingsActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                }.let {
+                    startActivity(it)
+                }
+            }
+            else -> return
+        }
+    }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun setCurrencyMenu (menuType: MenuType, sender: ImageButton?) {
+        if (menuType == MenuType.PACKAGES) {
+            textViewMenuItemName.text = applicationContext.resources.getString(R.string.menu_name_packages)
+            imageViewMenuItemIcon.setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_stack_14))
+            sender?.apply {
+                setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_stack_fill))
+            }?.let {
+                imageButtonMenuItemCalculators.setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_calculator))
             }
 
-            else -> {
-                return
+            val menuItemNames = applicationContext.resources.getStringArray(R.array.menu_packages).toList()
+            recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
+            recyclerViewMenuItems.adapter = MenuItemsAdapter(menuItemNames, menuType)
+        }
+        else {
+            textViewMenuItemName.text = applicationContext.resources.getString(R.string.menu_name_calculators)
+            imageViewMenuItemIcon.setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_calculator_14))
+            sender?.apply {
+                setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_calculator_fill))
+            }?.let {
+                imageButtonMenuItemPackages.setImageDrawable(applicationContext.getDrawable(R.drawable.ic_menu_item_stack))
             }
+
+            val menuItemNames = applicationContext.resources.getStringArray(R.array.menu_calculators).toList()
+            recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
+            recyclerViewMenuItems.adapter = MenuItemsAdapter(menuItemNames, menuType)
         }
     }
 
