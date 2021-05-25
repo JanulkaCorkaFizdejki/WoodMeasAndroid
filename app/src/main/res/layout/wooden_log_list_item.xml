@@ -77,7 +77,7 @@
             tools:ignore="SmallSp" />
 
         <TextView
-            android:id="@+id/textViewWoodenLogListAddDate"
+            android:id="@+id/tvWoodenLogPackageListItemId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

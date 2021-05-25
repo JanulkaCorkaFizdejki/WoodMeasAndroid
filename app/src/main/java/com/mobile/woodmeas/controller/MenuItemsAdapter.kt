@@ -2,6 +2,7 @@ package com.mobile.woodmeas.controller
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.LayoutInflater
@@ -11,9 +12,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.mobile.woodmeas.R
+import com.mobile.woodmeas.*
 import com.mobile.woodmeas.datamodel.MenuType
+import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
 
 class MenuItemsAdapter (private val menuItems: List<String>, private val menuType: MenuType): RecyclerView.Adapter<MenuItemsAdapterViewHolder>() {
 
@@ -42,11 +45,34 @@ class MenuItemsAdapter (private val menuItems: List<String>, private val menuTyp
 
         holder.itemView.findViewById<ConstraintLayout>(R.id.constraintLayoutMainMenuItem).apply {
             setOnClickListener {
-                println("Klik")
+                if (menuType == MenuType.PACKAGES) {
+                    val activityClass = when(position) {
+                        0 -> LogPackageListActivity::class.java
+                        1 -> PlankPackageListActivity::class.java
+                        else -> StackPackageListActivity::class.java
+                    }
+                    Intent(context, activityClass).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    }.let {
+                        ContextCompat.startActivity(context, it, null)
+                    }
+                }
+                else {
+                    val activityClass = when(position) {
+                        0 -> LogCalculatorActivity::class.java
+                        1 -> PlankCalculatorActivity::class.java
+                        else -> StackCalculatorActivity::class.java
+                    }
+                    Intent(context, activityClass).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    }.let {
+                        ContextCompat.startActivity(context, it, null)
+                    }
+                }
             }
+
+
         }
-
-
     }
 
     override fun getItemCount(): Int = menuItems.size

@@ -46,7 +46,7 @@ class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
         val textViewWoodenLogListCubic: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListCubic)
         val textViewTypeOfTree: TextView            = holder.itemView.findViewById(R.id.textViewTypeOfTree)
         val textViewWoodenLogListBarkOn: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListBarkOn)
-        val textViewWoodenLogListAddDate: TextView  = holder.itemView.findViewById(R.id.textViewWoodenLogListAddDate)
+        val textViewWoodenLogListAddDate: TextView  = holder.itemView.findViewById(R.id.tvWoodenLogPackageListItemId)
         val imageButtonDeleteWoodenLogItem: ImageButton      = holder.itemView.findViewById(R.id.imageButtonDeleteWoodenLogItem)
 
         textViewWoodenLogListId.text = "${position + 1}. "

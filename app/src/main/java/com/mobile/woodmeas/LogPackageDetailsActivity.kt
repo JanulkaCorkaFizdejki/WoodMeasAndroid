@@ -49,7 +49,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             if (woodPackageId >= 0) {
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                        databaseManagerDao.woodPackagesDao().selectWithId(woodPackageId).let { woodPackages ->
+                        databaseManagerDao.woodenLogPackagesDao().selectWithId(woodPackageId).let { woodPackages ->
 
                             treeList = databaseManagerDao.treesDao().selectAll()
                             currentWoodPackageId = woodPackages.id
@@ -58,7 +58,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                                 textViewWoodPackageName.text = woodPackages.name
                                 textViewWoodPackageCreationDate.text = woodPackages.addDate?.toString()
                             }
-                            databaseManagerDao.woodenLog().selectWithWoodPackageId(woodPackages.id).let { woodenLogList: List<WoodenLog> ->
+                            databaseManagerDao.woodenLogDao().selectWithWoodPackageId(woodPackages.id).let { woodenLogList: List<WoodenLog> ->
                                 this.runOnUiThread{
                                     woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
                                         woodenLog.addDate?.let {
@@ -87,7 +87,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     override fun loadView() {
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLog().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
+                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
                     this.runOnUiThread{
                         woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
                             woodenLog.addDate?.let {
@@ -106,7 +106,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
     override fun removeItem(item: Int) {
         thread {
-            DatabaseManagerDao.getDataBase(this)?.woodenLog()?.deleteItem(item)
+            DatabaseManagerDao.getDataBase(this)?.woodenLogDao()?.deleteItem(item)
         }
     }
 
@@ -115,8 +115,8 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLog().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
-                    val woodPackages = databaseManagerDao.woodPackagesDao().selectWithId(currentWoodPackageId)
+                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
+                    val woodPackages = databaseManagerDao.woodenLogPackagesDao().selectWithId(currentWoodPackageId)
                     val bitmapLogo = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.wood_meas_150)
                     val dateDocumentCreated = TimeDateFormatter.dateFromCalendarToString()
 
@@ -163,8 +163,8 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     fun onClickSendByEmailWoodPackage(view: View) {
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLog().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
-                    val woodPackages = databaseManagerDao.woodPackagesDao().selectWithId(currentWoodPackageId)
+                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
+                    val woodPackages = databaseManagerDao.woodenLogPackagesDao().selectWithId(currentWoodPackageId)
                     val bitmapLogo = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.wood_meas_150)
                     val dateDocumentCreated = TimeDateFormatter.dateFromCalendarToString()
 

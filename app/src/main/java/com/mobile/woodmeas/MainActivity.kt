@@ -2,9 +2,11 @@ package com.mobile.woodmeas
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
@@ -13,23 +15,26 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.MenuItemsAdapter
 import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.model.DatabaseManager
+import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
-    lateinit var imageViewWoodMain: ImageView
-    lateinit var textViewMenuItemName: TextView
-    lateinit var imageButtonMenuItemPackages: ImageButton
-    lateinit var imageButtonMenuItemCalculators: ImageButton
-    lateinit var imageViewMenuItemIcon: ImageView
+    private lateinit var imageViewWoodMain: ImageView
+    private lateinit var textViewMenuItemName: TextView
+    private lateinit var imageButtonMenuItemPackages: ImageButton
+    private lateinit var imageButtonMenuItemCalculators: ImageButton
+    private lateinit var imageViewMenuItemIcon: ImageView
     private var rotateAnimation: RotateAnimation? = null
     private lateinit var recyclerViewMenuItems: RecyclerView
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,28 +47,19 @@ class MainActivity : AppCompatActivity() {
         imageViewMenuItemIcon = findViewById(R.id.imageViewMenuItemIcon)
         recyclerViewMenuItems = findViewById(R.id.recyclerViewMenuItems)
 
+        recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
 
-//        recyclerViewMenuItems.setOnScrollChangeListener { view, i, i2, i3, i4 ->
-//            val layoutManager =  recyclerViewMenuItems.layoutManager
-//            if (layoutManager != null) {
-//                val o = layoutManager.getPosition(view)
-//                println("::::::$o")
-//            }
-//        }
+        Resources.getSystem().displayMetrics.heightPixels.also {
+            if (it < 900) {
+                recyclerViewMenuItems.layoutParams.height = 100
+            }
+        }
 
 
         setCurrencyMenu(MenuType.CALCULATORS, null)
 
         thread { dbManager() }
 
-
-
-
-//        itemVolumeCalculator.setOnClickListener {
-//            val intent = Intent(this, VolumeCalculatorActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-//            startActivity(intent)
-//        }
     }
 
     override fun onStart() {
@@ -81,6 +77,10 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         imageViewWoodMain.clearAnimation()
         rotateAnimation = null
+    }
+
+    fun onClickLayout(view: View) {
+        println("xxxxxxxxxxxx")
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -121,7 +121,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             val menuItemNames = applicationContext.resources.getStringArray(R.array.menu_packages).toList()
-            recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
             recyclerViewMenuItems.adapter = MenuItemsAdapter(menuItemNames, menuType)
         }
         else {
@@ -134,7 +133,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             val menuItemNames = applicationContext.resources.getStringArray(R.array.menu_calculators).toList()
-            recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
             recyclerViewMenuItems.adapter = MenuItemsAdapter(menuItemNames, menuType)
         }
     }

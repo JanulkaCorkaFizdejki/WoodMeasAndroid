@@ -54,7 +54,7 @@ class LogCalculatorActivity : AppCompatActivity() {
     private lateinit var spinnerTreesList: Spinner
     private var currentSpinnerItem: Int = Settings.VolumeCalculatorView.currentTree
     private lateinit var textViewWoodPackagesName: TextView
-    private var woodPackagesCurrent: WoodPackages? = null
+    private var woodPackagesCurrent: WoodenLogPackages? = null
     private var mediaBleep: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -243,7 +243,7 @@ class LogCalculatorActivity : AppCompatActivity() {
             )
 
             thread {
-                DatabaseManagerDao.getDataBase(this)?.woodenLog()?.insert(woodenLog)
+                DatabaseManagerDao.getDataBase(this)?.woodenLogDao()?.insert(woodenLog)
                 this.runOnUiThread {
                     mediaBleep = null
                     mediaBleep = MediaPlayer.create(this, R.raw.bleep)
@@ -283,12 +283,12 @@ class LogCalculatorActivity : AppCompatActivity() {
 
         alertDialog.setNegativeButton("Utwórz") { _: DialogInterface, _: Int ->
             if(editTextWoodPackages.text.isNotEmpty()) {
-                val woodPackages =  WoodPackages(0,
+                val woodPackages =  WoodenLogPackages(0,
                     editTextWoodPackages.text.toString(),
                     Date())
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let {
-                        it.woodPackagesDao().insert(woodPackages)
+                        it.woodenLogPackagesDao().insert(woodPackages)
                         this.runOnUiThread {
                             Toast.makeText(this, R.string.created_wood_package, Toast.LENGTH_SHORT)
                                 .show()
@@ -299,13 +299,13 @@ class LogCalculatorActivity : AppCompatActivity() {
         }
         alertDialog.setPositiveButton("Utwórz i użyj") {_: DialogInterface, _: Int ->
             if(editTextWoodPackages.text.isNotEmpty()) {
-                val woodPackages =  WoodPackages(0,
+                val woodPackages =  WoodenLogPackages(0,
                     editTextWoodPackages.text.toString(),
                     Date())
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let {
-                        it.woodPackagesDao().insert(woodPackages)
-                        woodPackagesCurrent = it.woodPackagesDao().selectLast()
+                        it.woodenLogPackagesDao().insert(woodPackages)
+                        woodPackagesCurrent = it.woodenLogPackagesDao().selectLast()
                         woodPackagesCurrent?.let { woodPackagesCurr ->
                             this.runOnUiThread {
                                 textViewWoodPackagesName.text = woodPackagesCurr.name
@@ -449,7 +449,7 @@ class LogCalculatorActivity : AppCompatActivity() {
             Settings.VolumeCalculatorView.woodPackageFromSelectIndex = - 1
             thread {
                 DatabaseManagerDao.getDataBase(this)?.let {
-                    it.woodPackagesDao().selectWithId(woodPackageIndex).let { woodPackages ->
+                    it.woodenLogPackagesDao().selectWithId(woodPackageIndex).let { woodPackages ->
                         woodPackagesCurrent = woodPackages
                         this.runOnUiThread {
                             textViewWoodPackagesName.text = woodPackagesCurrent?.name

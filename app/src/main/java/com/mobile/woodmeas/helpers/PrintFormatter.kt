@@ -29,7 +29,7 @@ object PrintFormatter {
     fun createPdfRapport(
         filePath: String,
         woodenLogList: List<WoodenLog>,
-        woodPackage: WoodPackages,
+        woodPackage: WoodenLogPackages,
         treesList: List<Trees>,
         logo: Bitmap,
         dateDocumentCreate: String)
@@ -221,7 +221,7 @@ object PrintFormatter {
     fun createXlsRapport(
         filePath: String,
         woodenLogList: List<WoodenLog>,
-        woodPackage: WoodPackages,
+        woodPackage: WoodenLogPackages,
         treesList: List<Trees>
     ) {
         val workBook = HSSFWorkbook()

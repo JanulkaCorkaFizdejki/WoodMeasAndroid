@@ -11,9 +11,10 @@ object DbConf {
     const val DB_NAME = "wood_meas"
 
     object TableNames {
-        const val TREES         = "trees"
-        const val WOOD_PACKAGES = "wood_packages"
-        const val WOODEN_LOG    = "wooden_log"
+        const val TREES                     = "trees"
+        const val WOODEN_LOG_PACKAGES       = "wooden_log_packages"
+        const val WOODEN_LOG_PACKAGES_FTS   = "wooden_log_packages_fts"
+        const val WOODEN_LOG                = "wooden_log"
     }
 
     object TablesStruct {
@@ -25,10 +26,16 @@ object DbConf {
             const val DIM_3 = "dim_3"
             const val DIM_4 = "dim_4"
         }
-        object WoodPackages {
+
+        object WoodenLogPackages {
             const val ID        = "id"
             const val NAME      = "name"
             const val ADD_DATE  = "add_date"
+        }
+
+        object WoodenLogPackagesFts {
+            const val ID        = "id"
+            const val NAME      = "name"
         }
 
         object WoodenLog {
@@ -100,28 +107,50 @@ object DatabaseManager {
         fun insert(trees: Trees)
     }
 
-@Entity (tableName = DbConf.TableNames.WOOD_PACKAGES)
-    data class WoodPackages(
+// WOODEN LOG PACKAGES _____________________________________________________________________________
+@Entity (tableName = DbConf.TableNames.WOODEN_LOG_PACKAGES)
+    data class WoodenLogPackages(
     @PrimaryKey (autoGenerate = true) val id: Int = 0,
-    @ColumnInfo(name = DbConf.TablesStruct.WoodPackages.NAME) val name: String,
-    @ColumnInfo(name = DbConf.TablesStruct.WoodPackages.ADD_DATE) val addDate: Date?
+    @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.NAME) val name: String,
+    @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.ADD_DATE) val addDate: Date?
     )
 
 @Dao
-    interface WoodPackagesDao {
-        @Query("SELECT * FROM ${DbConf.TableNames.WOOD_PACKAGES} ORDER BY ${DbConf.TablesStruct.WoodPackages.ID} DESC")
-        fun selectAll(): List<WoodPackages>
+    interface WoodenLogPackagesDao {
+        @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} ORDER BY ${DbConf.TablesStruct.WoodenLogPackages.ID} DESC")
+        fun selectAll(): List<WoodenLogPackages>
 
-        @Query("SELECT * FROM ${DbConf.TableNames.WOOD_PACKAGES} ORDER BY " +
-                "${DbConf.TablesStruct.WoodPackages.ID} DESC LIMIT 1")
-        fun selectLast(): WoodPackages
+        @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} ORDER BY " +
+                "${DbConf.TablesStruct.WoodenLogPackages.ID} DESC LIMIT 1")
+        fun selectLast(): WoodenLogPackages
 
-        @Query("SELECT * FROM ${DbConf.TableNames.WOOD_PACKAGES} WHERE ${DbConf.TablesStruct.WoodPackages.ID} = :id")
-        fun selectWithId(id: Int): WoodPackages
+        @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
+        fun selectWithId(id: Int): WoodenLogPackages
 
         @Insert
-        fun insert(woodPackages: WoodPackages)
+        fun insert(woodPackages: WoodenLogPackages)
+
+        @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
+        fun deleteItem(id: Int)
+
     }
+
+@Fts4(contentEntity = WoodenLogPackages::class)
+@Entity(tableName = DbConf.TableNames.WOODEN_LOG_PACKAGES_FTS)
+    class WoodenLogPackagesFts(val id: String, val name: String)
+
+@Dao
+    interface WoodenLogPackagesDaoFts {
+        @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} JOIN ${DbConf.TableNames.WOODEN_LOG_PACKAGES_FTS} ON " +
+            "${DbConf.TableNames.WOODEN_LOG_PACKAGES}.${DbConf.TablesStruct.WoodenLogPackages.ID} == " +
+                "${DbConf.TableNames.WOODEN_LOG_PACKAGES_FTS}.${DbConf.TablesStruct.WoodenLogPackagesFts.ID} WHERE " +
+                "${DbConf.TableNames.WOODEN_LOG_PACKAGES_FTS}.${DbConf.TablesStruct.WoodenLogPackagesFts.NAME} MATCH :text GROUP BY " +
+                "${DbConf.TableNames.WOODEN_LOG_PACKAGES}.${DbConf.TablesStruct.WoodenLogPackages.ID}")
+        fun selectFromSearchText(text: String): List<WoodenLogPackages>
+
+}
+
+//__________________________________________________________________________________________________
 
 @Entity(tableName = DbConf.TableNames.WOODEN_LOG)
 data class WoodenLog(
@@ -141,11 +170,17 @@ data class WoodenLog(
             "= :woodPackageId ORDER BY ${DbConf.TablesStruct.WoodenLog.ID} DESC")
     fun selectWithWoodPackageId(woodPackageId: Int): List<WoodenLog>
 
+    @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG}")
+    fun selectAll(): List<WoodenLog>
+
     @Insert
     fun insert(woodenLog: WoodenLog)
 
     @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.ID} = :id")
     fun deleteItem(id: Int)
+
+    @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
+    fun deleteItemWithPackages(id: Int)
 }
 
 class Converters {
@@ -161,13 +196,13 @@ class Converters {
 }
 
 
-@Database(entities = [Trees::class, WoodPackages::class, WoodenLog::class], version = 1)
+@Database(entities = [Trees::class, WoodenLogPackages::class, WoodenLogPackagesFts::class, WoodenLog::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class DatabaseManagerDao : RoomDatabase() {
     abstract fun treesDao(): TreesDao
-    abstract fun woodPackagesDao(): WoodPackagesDao
-    abstract fun woodenLog(): WoodenLogDao
-
+    abstract fun woodenLogPackagesDao(): WoodenLogPackagesDao
+    abstract fun woodenLogPackagesDaoFts(): WoodenLogPackagesDaoFts
+    abstract fun woodenLogDao(): WoodenLogDao
     companion object {
         private var INSTANCE: DatabaseManagerDao? = null
         fun getDataBase(context: Context): DatabaseManagerDao? {

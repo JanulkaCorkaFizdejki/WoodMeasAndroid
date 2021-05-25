@@ -11,9 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.R
 import com.mobile.woodmeas.model.Settings
-import com.mobile.woodmeas.model.WoodPackages
+import com.mobile.woodmeas.model.WoodenLogPackages
 
-class WoodPackageListSelectAdapter (private val woodPackagesList: List<WoodPackages>, private val appCompatActivity: AppCompatActivity):
+class WoodPackageListSelectAdapter (private val woodPackagesList: List<WoodenLogPackages>, private val appCompatActivity: AppCompatActivity):
     RecyclerView.Adapter<WoodPackageListSelectViewHolder>() {
     private lateinit var context: Context
 

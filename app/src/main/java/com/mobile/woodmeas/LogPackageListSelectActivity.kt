@@ -20,7 +20,7 @@ class LogPackageListSelectActivity : AppCompatActivity() {
 
         thread {
             DatabaseManagerDao.getDataBase(this)?.let {
-                it.woodPackagesDao().selectAll().let { woodPackageList ->
+                it.woodenLogPackagesDao().selectAll().let { woodPackageList ->
                     this.runOnUiThread {
                             recyclerViewWooPackageListSelect
                                 .layoutManager = LinearLayoutManager(applicationContext)
