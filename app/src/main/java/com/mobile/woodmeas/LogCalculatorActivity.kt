@@ -275,7 +275,7 @@ class LogCalculatorActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
     fun onClickBtnCreate(view: View) {
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle(R.string.create_wood_package)
+        alertDialog.setTitle(R.string.create_package)
         val viewAlertInflate: View = View.inflate(this, R.layout.add_wood_package, null)
         val editTextWoodPackages: EditText = viewAlertInflate.findViewById(R.id.editTextWoodPackageName)
         alertDialog.setView(viewAlertInflate)

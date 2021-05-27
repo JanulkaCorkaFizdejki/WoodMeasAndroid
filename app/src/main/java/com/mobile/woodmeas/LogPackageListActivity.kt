@@ -1,6 +1,7 @@
 package com.mobile.woodmeas
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -20,6 +22,7 @@ import com.mobile.woodmeas.datamodel.MenuData
 import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.model.DatabaseManagerDao
+import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.WoodenLogPackages
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import java.util.*
@@ -31,6 +34,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var imageButtonAddingAndSearchingAdd: ImageButton
     private lateinit var editTextAddingAndSearching: EditText
     private lateinit var imageButtonAddPackageFromNoData: ImageButton
+    private lateinit var imageButtonAddingAndSearchingDelAll: ImageButton
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,14 +47,17 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
         imageButtonAddingAndSearchingAdd        = findViewById(R.id.imageButtonAddingAndSearchingAdd)
         editTextAddingAndSearching              = findViewById(R.id.editTextAddingAndSearching)
         imageButtonAddPackageFromNoData         = findViewById(R.id.imageButtonAddPackageFromNoData)
+        imageButtonAddingAndSearchingDelAll     = findViewById(R.id.imageButtonAddingAndSearchingDelAll)
 
         recyclerViewWoodenLogPackageListItem.layoutManager = LinearLayoutManager(applicationContext)
 
 
         loadView()
 
-        editTextAddingAndSearching.addTextChangedListener(object : TextWatcher{
+
+        editTextAddingAndSearching.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+
             override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (editTextAddingAndSearching.text.isNotEmpty()) {
                     val text = "${editTextAddingAndSearching.text}*"
@@ -68,8 +75,29 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
         })
 
 
-        imageButtonAddingAndSearchingAdd.setOnClickListener { createNewPackages() }
+        imageButtonAddingAndSearchingAdd.setOnClickListener {
+            createNewPackages()
+        }
+
         imageButtonAddPackageFromNoData.setOnClickListener { createNewPackages() }
+
+        imageButtonAddingAndSearchingDelAll.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setTitle(R.string.delete_all_packages_question)
+            alertDialog.setNeutralButton(R.string.cancel) {_: DialogInterface, _:Int ->}
+            alertDialog.setPositiveButton(R.string.delete) {_: DialogInterface, _:Int ->
+                thread {
+                    DatabaseManagerDao.getDataBase(applicationContext)?.let { databaseManagerDao ->
+                        databaseManagerDao.apply {
+                            woodenLogDao().deleteAll()
+                            woodenLogPackagesDao().deleteAll()
+                        }
+                        loadView()
+                    }
+                }
+            }
+            alertDialog.show()
+        }
     }
 
     override fun loadView() {
@@ -99,6 +127,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
                 databaseManagerDao.woodenLogPackagesDao().deleteItem(item)
                 loadView()
                 this.runOnUiThread {
+                    editTextAddingAndSearching.clearFocus()
                     Toast.makeText(this, R.string.package_has_been_removed, Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -108,7 +137,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
 
     private fun createNewPackages() {
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle(R.string.create_wood_package)
+        alertDialog.setTitle(R.string.create_package)
         val viewAlertInflate: View = View.inflate(this, R.layout.add_wood_package, null)
         val editTextWoodPackages: EditText = viewAlertInflate.findViewById(R.id.editTextWoodPackageName)
         alertDialog.setView(viewAlertInflate)
@@ -125,6 +154,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
                         it.woodenLogPackagesDao().insert(woodPackages)
                         loadView()
                         this.runOnUiThread {
+                            editTextAddingAndSearching.clearFocus()
                             Toast.makeText(this, R.string.created_wood_package, Toast.LENGTH_SHORT)
                                 .show()
                         }
@@ -138,6 +168,33 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
     private fun loadListFromSearch(woodenLogPackages: List<WoodenLogPackages>) {
         this.runOnUiThread {
             recyclerViewWoodenLogPackageListItem.adapter = WoodenPackagesListAdapter(woodenLogPackages)
+        }
+    }
+    
+
+    override fun goToActivity(id: Int) {
+        thread {
+            DatabaseManagerDao.getDataBase(applicationContext)?.let { databaseManagerDao ->
+                val countItems = databaseManagerDao.woodenLogDao().count(id)
+
+                println(id)
+                if (countItems > 0) {
+                    this.runOnUiThread {
+                        val intent = Intent(this, LogPackageDetailsActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        intent.putExtra(Settings.IntentsPutValues.WOOD_PACKAGE_ID, id)
+                        startActivity(intent)
+                    }
+                }
+                else {
+                    this.runOnUiThread {
+                        val alertDialog = AlertDialog.Builder(this)
+                        alertDialog.setMessage(R.string.package_is_empty)
+                        alertDialog.setPositiveButton("OK"){_: DialogInterface, _: Int ->}
+                        alertDialog.show()
+                    }
+                }
+            }
         }
     }
 }

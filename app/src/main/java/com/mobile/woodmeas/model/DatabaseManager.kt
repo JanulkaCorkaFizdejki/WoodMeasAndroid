@@ -133,6 +133,9 @@ object DatabaseManager {
         @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
         fun deleteItem(id: Int)
 
+        @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES}")
+        fun deleteAll()
+
     }
 
 @Fts4(contentEntity = WoodenLogPackages::class)
@@ -179,8 +182,14 @@ data class WoodenLog(
     @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.ID} = :id")
     fun deleteItem(id: Int)
 
+    @Query("SELECT count(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
+    fun count(id: Int): Int
+
     @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
     fun deleteItemWithPackages(id: Int)
+
+    @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG}")
+    fun deleteAll()
 }
 
 class Converters {

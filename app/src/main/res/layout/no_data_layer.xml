@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/create_wood_package"
+        android:text="@string/create_package"
         android:textColor="@color/white"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,6 +12,8 @@
         android:layout_height="match_parent"
         android:gravity="right"
         android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,21 +34,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:maxLength="50"
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            android:importantForAutofill="no" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center|right"
-            android:orientation="horizontal"
-            tools:ignore="RtlHardcoded">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonAddingAndSearchingDelAll"
+                android:layout_width="40dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_red_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_plus_12_white_rotate"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/imageButtonAddingAndSearchingAdd"
+                android:layout_width="40dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_plus_12_white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@string/remove_all_packages"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButtonAddingAndSearchingDelAll"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:id="@+id/textView27"
@@ -55,19 +93,16 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:text="@string/create_wood_package"
-                android:textColor="@color/white" />
-
-            <ImageButton
-                android:id="@+id/imageButtonAddingAndSearchingAdd"
-                android:layout_width="60dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_1"
-                app:srcCompat="@drawable/ic_plus_12_white"
-                tools:ignore="ContentDescription" />
-
-        </LinearLayout>
+                android:text="@string/create_package"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonAddingAndSearchingAdd"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

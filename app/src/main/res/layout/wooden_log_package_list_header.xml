@@ -8,59 +8,31 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
-        android:background="@drawable/rounded_green_medium_bg"
+        android:background="@drawable/rounded_white_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButtonWoodenLogPackageListItemDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="0.2"
-            android:background="@drawable/circle_dark_green_bg"
-            android:contentDescription="@string/info_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButtonWoodenLogPackageListItemDeleteItem"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_eye_10_20" />
-
-        <ImageButton
-            android:id="@+id/imageButtonWoodenLogPackageListItemDeleteItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="clip_vertical"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/circle_dark_green_bg"
-            android:contentDescription="@string/info_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_cancel_10" />
 
         <TextView
             android:id="@+id/textView100"
             style="@style/PackageItemText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginRight="88dp"
             android:layout_weight="1"
-            android:alpha="0.8"
-            android:text="@string/default_text"
-            android:textSize="8sp"
+            android:text="@string/created_date"
+            android:textAllCaps="true"
+            android:textColor="@color/wm_green_dark"
+            android:textSize="6sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButtonWoodenLogPackageListItemDetails"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SmallSp" />
 
@@ -72,10 +44,14 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_weight="0.2"
-            android:text="@string/default_number"
+            android:text="@string/id"
+            android:textAllCaps="true"
+            android:textColor="@color/wm_green_dark"
+            android:textSize="6sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/textView102"
@@ -87,12 +63,15 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:text="@string/default_text"
-            android:textStyle="bold"
+            android:text="@string/package_name"
+            android:textAllCaps="true"
+            android:textColor="@color/wm_green_dark"
+            android:textSize="6sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView100"
             app:layout_constraintStart_toEndOf="@+id/textView101"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

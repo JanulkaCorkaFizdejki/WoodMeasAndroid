@@ -18,7 +18,7 @@
     <string name="yes">Tak</string>
     <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
     <string name="absence">Brak</string>
-    <string name="create_wood_package">Utwórz pakiet drewna</string>
+    <string name="create_package">Utwórz pakiet</string>
     <string name="created_wood_package">Utworzono pakiet drewa</string>
     <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
     <string name="add_to_wood_package">Dodaj do pakietu</string>
@@ -51,4 +51,7 @@
     </string-array>
     <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
     <string name="package_has_been_removed">Pakiet został usunięty</string>
+    <string name="package_is_empty">Pakiet jest pusty</string>
+    <string name="remove_all_packages">Usuń pakiety</string>
+    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
 </resources>
