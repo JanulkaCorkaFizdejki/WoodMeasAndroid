@@ -54,4 +54,11 @@
     <string name="package_is_empty">Pakiet jest pusty</string>
     <string name="remove_all_packages">Usuń pakiety</string>
     <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
+    <string name="length">Długość</string>
+    <string name="width">Szerokość</string>
+    <string name="thickness">Grubość</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Dodaj do pakietu</string>
+    <string name="hold_down_to_add">Aby dodać przyprzymaj przycisk</string>
+    <string name="packages">Pakiet</string>
 </resources>

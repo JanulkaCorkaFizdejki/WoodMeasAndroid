@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MeasurementBaseTextStyleRight" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/wm_gray_dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+    <style name="MeasurementBaseTextStyleLeft" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/wm_gray_dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingLeft">2dp</item>
+    </style>
+</resources>

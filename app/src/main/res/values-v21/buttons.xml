@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonGreen" parent="Widget.AppCompat.Button">
+        <!--        <item name="colorPrimaryVariant">@color/red_base</item>-->
+        <!--        <item name="colorPrimary">@color/red_base</item>-->
+        <item name="android:textColor">@color/white</item>
+        <!--        <item name="android:textColorHighlight">@color/white_smoke</item>-->
+        <!--        <item name="android:textColorLink">@color/white_smoke</item>-->
+        <item name="android:backgroundTint">@color/wm_green_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/oval_green</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+    </style>
+</resources>

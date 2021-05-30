@@ -9,11 +9,21 @@ import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 
-class PlankCalculatorActivity : AppCompatActivity() {
+class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plank_calculator)
         NavigationManager.topNavigation(this, MenuData(MenuType.CALCULATORS, MenuItemsType.PLANK))
+
+        super.setSpinnerTrees(this)
+    }
+
+    override fun loadView() {
+
+    }
+
+    override fun removeItem(item: Int) {
+
     }
 }

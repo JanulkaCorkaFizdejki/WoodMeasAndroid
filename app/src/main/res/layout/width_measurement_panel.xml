@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/rounded_white_bg"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="24dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="24dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewMeasureWidthIco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_ruler_12_16"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textViewMeasureWidthName"
+            style="@style/MeasurementTitleTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="@string/width" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewMeasureWidthCmVal"
+            style="@style/MeasurementBaseTextStyleRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/default_number" />
+
+        <TextView
+            android:id="@+id/textViewMeasureWidthCm"
+            style="@style/MeasurementBaseTextStyleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/centimeters_short" />
+
+        <TextView
+            android:id="@+id/textViewMeasureWidthMVal"
+            style="@style/MeasurementBaseTextStyleRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/default_number" />
+
+        <TextView
+            android:id="@+id/textViewMeasureWidthM"
+            style="@style/MeasurementBaseTextStyleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/meters_short" />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBarMeasureWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imageButtonMeasureWidthMinus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/oval_green"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_minus_12_white"
+            tools:ignore="ContentDescription" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/imageButtonMeasureWidthPlus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/oval_green"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_plus_12_white"
+            tools:ignore="ContentDescription" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

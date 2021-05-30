@@ -25,6 +25,7 @@ object DbConf {
             const val DIM_2 = "dim_2"
             const val DIM_3 = "dim_3"
             const val DIM_4 = "dim_4"
+            const val TYPE  = "type"
         }
 
         object WoodenLogPackages {
@@ -95,7 +96,8 @@ object DatabaseManager {
     @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_1) val dim1: Int,
     @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_2) val dim2: Int,
     @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_3) val dim3: Int,
-    @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_4) val dim4: Int
+    @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_4) val dim4: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Trees.TYPE) val type: Int
     )
 
 @Dao

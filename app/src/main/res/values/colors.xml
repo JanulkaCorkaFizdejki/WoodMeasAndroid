@@ -9,7 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="wm_green_dark">#051915</color>
     <color name="wm_green_medium">#12594B</color>
-    <color name="wm_gray">#1C1C1C</color>
+    <color name="wm_green_light">#1c8b75</color>
+    <color name="wm_gray">#313435</color>
     <color name="wm_gray_dark">#18191A</color>
     <color name="wm_red">#c75450</color>
+    <color name="wm_red_light">#e1706c</color>
+    <color name="wm_other_green_1">#28C7A7</color>
+    <color name="wm_other_green_2">#3D7A6E</color>
+    <color name="wm_other_yellow_1">#DBAD16</color>
+    <color name="wm_other_yellow_2">#8F7315</color>
+    <color name="wm_other_blue_1">#3592C4</color>
+    <color name="wm_other_blue_2">#5eaad3</color>
 </resources>
