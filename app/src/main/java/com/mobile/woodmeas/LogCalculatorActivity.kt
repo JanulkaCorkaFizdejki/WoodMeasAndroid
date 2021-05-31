@@ -387,6 +387,7 @@ class LogCalculatorActivity : AppCompatActivity() {
 
         timer = object : CountDownTimer(10000, 10) {
             override fun onTick(p0: Long) {
+                println("xzxzxzxzxzx")
                 if (!imgBtn.isPressed) { cancel() }
 
                 if (currentSize == CurrentSize.LENGTH) {

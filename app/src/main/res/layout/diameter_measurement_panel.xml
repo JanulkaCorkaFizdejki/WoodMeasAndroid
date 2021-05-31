@@ -21,7 +21,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageViewMeasureWidthIco"
+            android:id="@+id/imageViewMeasureDiameterIco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,7 +29,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/textViewMeasureWidthName"
+            android:id="@+id/textViewMeasureDiameterName"
             style="@style/MeasurementTitleTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewMeasureWidthCmVal"
+                android:id="@+id/textViewMeasureDiameterCmVal"
                 style="@style/MeasurementBaseTextStyleRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,14 +61,12 @@
                 tools:ignore="NestedWeights" />
 
             <TextView
-                android:id="@+id/textViewMeasureWidthCm"
+                android:id="@+id/textViewMeasureDiameterCm"
                 style="@style/MeasurementBaseTextStyleLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/centimeters_short"
-                />
-
+                android:text="@string/centimeters_short" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +76,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewMeasureWidthMVal"
+                android:id="@+id/textViewMeasureDiameterMVal"
                 style="@style/MeasurementBaseTextStyleRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,20 +85,18 @@
                 tools:ignore="NestedWeights" />
 
             <TextView
-                android:id="@+id/textViewMeasureWidthM"
+                android:id="@+id/textViewMeasureDiameterM"
                 style="@style/MeasurementBaseTextStyleLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/meters_short"
-                 />
-
+                android:text="@string/meters_short" />
         </LinearLayout>
 
     </LinearLayout>
 
     <SeekBar
-        android:id="@+id/seekBarMeasureWidth"
+        android:id="@+id/seekBarMeasureDiameter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="@integer/max_log_width"
@@ -118,7 +114,7 @@
             android:layout_weight="1" />
 
         <ImageButton
-            android:id="@+id/imageButtonMeasureWidthMinus"
+            android:id="@+id/imageButtonMeasureDiameterMinus"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
@@ -134,7 +130,7 @@
             android:layout_weight="1" />
 
         <ImageButton
-            android:id="@+id/imageButtonMeasureWidthPlus"
+            android:id="@+id/imageButtonMeasureDiameterPlus"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"

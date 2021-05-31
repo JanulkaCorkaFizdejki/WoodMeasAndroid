@@ -3,6 +3,9 @@ package com.mobile.woodmeas.math
 import com.mobile.woodmeas.model.Trees
 
 object Calculator {
+
+    fun rectangular(length: Int, width: Int, height: Int ): Int = length * width * height
+
     fun calculate(length: Int, width: Int, tree: Trees?): String {
         if (tree == null) {
             val v = 3.14F * (width * width).toFloat() * (length.toFloat() / 100.0F) / 40000.0F

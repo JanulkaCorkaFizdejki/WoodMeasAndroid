@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView32"
+            android:id="@+id/textViewMeasResultM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -142,7 +142,7 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_weight="1" />
 
             <Button
@@ -157,7 +157,7 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_weight="1" />
 
             <Button
