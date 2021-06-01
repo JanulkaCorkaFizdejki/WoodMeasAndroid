@@ -2,6 +2,7 @@ package com.mobile.woodmeas.model
 
 import android.content.Context
 import androidx.room.*
+import com.mobile.woodmeas.PlankCalculatorActivity
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -15,6 +16,9 @@ object DbConf {
         const val WOODEN_LOG_PACKAGES       = "wooden_log_packages"
         const val WOODEN_LOG_PACKAGES_FTS   = "wooden_log_packages_fts"
         const val WOODEN_LOG                = "wooden_log"
+        const val PLANK                     = "plank"
+        const val PLANK_PACKAGES            = "plank_packages"
+        const val PLANK_PACKAGES_FTS        = "plank_packages_fts"
     }
 
     object TablesStruct {
@@ -47,6 +51,28 @@ object DbConf {
             const val CUBIC_CM          = "cubic_cm"
             const val TREE_ID           = "tree_id"
             const val BARK_ON           = "bark_on"
+            const val ADD_DATE          = "add_date"
+        }
+
+        object PlankPackages {
+            const val ID        = "id"
+            const val NAME      = "name"
+            const val ADD_DATE  = "add_date"
+        }
+
+        object PlankPackagesFts {
+            const val ID        = "id"
+            const val NAME      = "name"
+        }
+
+        object Plank {
+            const val ID                = "id"
+            const val PLANK_PACKAGES_ID = "plank_packages_id"
+            const val LENGTH            = "length"
+            const val WIDTH             = "width"
+            const val HEIGHT            = "height"
+            const val CUBIC_CM          = "cubic_cm"
+            const val TREE_ID           = "tree_id"
             const val ADD_DATE          = "add_date"
         }
     }
@@ -108,6 +134,47 @@ object DatabaseManager {
         @Insert (onConflict = OnConflictStrategy.REPLACE)
         fun insert(trees: Trees)
     }
+
+// PLANK PACKAGES __________________________________________________________________________________
+@Entity(tableName = DbConf.TableNames.PLANK_PACKAGES)
+    data class PlankPackages(
+    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.NAME) val name: String,
+    @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.ADD_DATE) val addDate: Date?
+    )
+@Dao
+    interface PlankPackagesDao {
+
+    }
+
+@Fts4(contentEntity = PlankPackages::class)
+@Entity(tableName = DbConf.TableNames.PLANK_PACKAGES_FTS)
+    class PlankPackagesFts(val id: String, val name: String)
+
+@Dao
+    interface PlankPackagesDaoFts {
+
+    }
+// _________________________________________________________________________________________________
+
+// Plank ___________________________________________________________________________________________
+@Entity(tableName = DbConf.TableNames.PLANK)
+data class Plank(
+    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.PLANK_PACKAGES_ID) val plankPackagesId: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.LENGTH) val length: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.WIDTH) val width: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.HEIGHT) val height: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.CUBIC_CM) val cubicCm: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.TREE_ID) val treeId: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Plank.ADD_DATE) val addDate: Date?
+)
+
+@Dao
+    interface PlankDao {
+
+    }
+
 
 // WOODEN LOG PACKAGES _____________________________________________________________________________
 @Entity (tableName = DbConf.TableNames.WOODEN_LOG_PACKAGES)
@@ -207,13 +274,25 @@ class Converters {
 }
 
 
-@Database(entities = [Trees::class, WoodenLogPackages::class, WoodenLogPackagesFts::class, WoodenLog::class], version = 1, exportSchema = false)
+@Database(entities = [
+    Trees::class,
+    WoodenLogPackages::class,
+    WoodenLogPackagesFts::class,
+    WoodenLog::class,
+    PlankPackages::class,
+    PlankPackagesFts::class,
+    Plank::class
+                     ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class DatabaseManagerDao : RoomDatabase() {
     abstract fun treesDao(): TreesDao
     abstract fun woodenLogPackagesDao(): WoodenLogPackagesDao
     abstract fun woodenLogPackagesDaoFts(): WoodenLogPackagesDaoFts
     abstract fun woodenLogDao(): WoodenLogDao
+    abstract fun plankPackagesDao(): PlankPackagesDao
+    abstract fun plankPackagesDaoFts(): PlankPackagesDaoFts
+    abstract fun plankDao(): PlankDao
+
     companion object {
         private var INSTANCE: DatabaseManagerDao? = null
         fun getDataBase(context: Context): DatabaseManagerDao? {

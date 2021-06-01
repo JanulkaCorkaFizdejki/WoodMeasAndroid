@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonAddToPackage"
             style="@style/ButtonGreen"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -80,17 +80,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:paddingStart="8dp"
-            android:paddingLeft="8dp"
+            android:gravity="center"
+            android:paddingBottom="4dp"
             android:text="@string/packages"
             android:textAllCaps="true"
             android:textColor="@color/wm_other_yellow_1"
             android:textSize="8sp"
+            android:textStyle="bold"
             tools:ignore="RtlSymmetry,SmallSp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutPackageWrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
             android:background="@drawable/rounded_yellow_bg"
             android:padding="8dp">
 
@@ -98,26 +101,24 @@
                 android:id="@+id/imageButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/oval_gray_dark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView36"
                 app:srcCompat="@drawable/ic_eye_10_20_yellow" />
 
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
+                android:gravity="center"
                 android:text="@string/absence"
                 android:textColor="@color/wm_gray_dark"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,51 +126,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="clip_horizontal|center"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            android:paddingTop="16dp"
+            android:orientation="vertical"
             android:paddingBottom="32dp">
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/create"
-                android:textSize="8sp"
-                app:backgroundTint="@color/button_green"
-                tools:ignore="SmallSp" />
-
-            <Space
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_weight="1" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/select"
-                android:textSize="8sp"
-                app:backgroundTint="@color/button_blue"
-                tools:ignore="SmallSp" />
+                <ImageButton
+                    android:id="@+id/imageButtonMeasResultAddPackage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/oval_green"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_plus_12_white" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_weight="1" />
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/delete"
-                android:textSize="8sp"
-                app:backgroundTint="@color/button_red"
-                tools:ignore="SmallSp" />
+                <ImageButton
+                    android:id="@+id/imageButtonMeasResultUsePackage"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/oval_blue"
+                    android:padding="4dp"
+                    app:srcCompat="@drawable/ic_product_white" />
 
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonMeasResultDeletePackage"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/oval_red"
+                    app:srcCompat="@drawable/ic_trash_white" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

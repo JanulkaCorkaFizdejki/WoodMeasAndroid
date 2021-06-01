@@ -249,7 +249,7 @@ class LogCalculatorActivity : AppCompatActivity() {
                     mediaBleep = MediaPlayer.create(this, R.raw.bleep)
                     mediaBleep?.start()
 
-                    Toast.makeText(this, R.string.added_to_wood_package, Toast.LENGTH_SHORT)
+                    Toast.makeText(this, R.string.added_to_package, Toast.LENGTH_SHORT)
                         .show()
 
                 }

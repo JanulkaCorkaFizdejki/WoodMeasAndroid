@@ -1,9 +1,13 @@
 package com.mobile.woodmeas
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
+import android.media.MediaPlayer
 import android.os.CountDownTimer
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.mobile.woodmeas.controller.TreeAdapter
 import com.mobile.woodmeas.datamodel.Measure
 import com.mobile.woodmeas.math.Calculator
@@ -44,35 +48,7 @@ interface AppActivityManager {
 
     fun calculationManager(appCompatActivity: AppCompatActivity) {
 
-        var timer: CountDownTimer? = null
-
-        fun timerCancel() {
-            timer?.cancel()
-            timer = null
-        }
-
-        fun timerStart(threshold: Int, imageButton: ImageButton, seekBar: SeekBar) {
-            timer = object : CountDownTimer(100000, 10) {
-                override fun onTick(p0: Long) {
-                    if (!imageButton.isPressed) { timerCancel() }
-
-                    if (threshold == 0) {
-                        if (seekBar.progress == seekBar.max) { timerCancel() }
-                        seekBar.progress = seekBar.progress + 1
-                    }
-
-                    else {
-                        if (seekBar.progress == 0) { timerCancel() }
-                        seekBar.progress = seekBar.progress - 1
-                    }
-                }
-
-                override fun onFinish() {}
-            }.start()
-        }
-
         val textViewMeasResultM:TextView = appCompatActivity.findViewById(R.id.textViewMeasResultM)
-
 
         val measures: List<Measure> =
             if (appCompatActivity is PlankCalculatorActivity) {
@@ -84,10 +60,9 @@ interface AppActivityManager {
 
         val seekBarsValues = IntArray(measures.size)
 
-
         fun setResult() {
             if (seekBarsValues.any { it == 0 }) {
-                textViewMeasResultM.text = 0.00.toString()
+                textViewMeasResultM.text = appCompatActivity.getString(R.string.default_number_float)
             }
 
             else {
@@ -96,7 +71,7 @@ interface AppActivityManager {
                         .rectangular(seekBarsValues[0], seekBarsValues[1], seekBarsValues[2])
                         .let { result ->
                             "%.2f".format(result.toFloat() /  1000000.00F).let { resultFormat ->
-                                textViewMeasResultM.text = resultFormat
+                                textViewMeasResultM.text = resultFormat.replace(".", ",")
                             }
                         }
                 }
@@ -104,11 +79,41 @@ interface AppActivityManager {
         }
 
         measures.forEachIndexed { index, measure ->
+            val imageButtonPlus: ImageButton = appCompatActivity.findViewById(measure.getImageButtonPlus())
+            val imageButtonMinus: ImageButton = appCompatActivity.findViewById(measure.getImageButtonMinus())
+
             val textViewCm: TextView = appCompatActivity.findViewById(measure.getTextViewCmVal())
             val textViewM: TextView = appCompatActivity.findViewById(measure.getTextViewMVal())
 
-
             val seekBar: SeekBar = appCompatActivity.findViewById(measure.getSeekBar())
+
+            var timer: CountDownTimer? = null
+            fun timerCancel() {
+                timer?.cancel()
+                timer = null
+            }
+            fun timerStart(threshold: Int, currentImageButton: ImageButton) {
+                timer = object : CountDownTimer(100000, 10) {
+                    override fun onTick(p0: Long) {
+
+                        if (imageButtonPlus.isPressed && imageButtonMinus.isPressed) { timerCancel() }
+
+                        if (!currentImageButton.isPressed) { timerCancel() }
+
+                        if (threshold == 0) {
+                            if (seekBar.progress == seekBar.max) { timerCancel() }
+                            seekBar.progress = seekBar.progress + 1
+                        }
+
+                        else {
+                            if (seekBar.progress == 0) { timerCancel() }
+                            seekBar.progress = seekBar.progress - 1
+                        }
+                    }
+                    override fun onFinish() {}
+                }.start()
+            }
+
             seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
                 @SuppressLint("SetTextI18n")
                 override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
@@ -121,35 +126,57 @@ interface AppActivityManager {
                 override fun onStopTrackingTouch(p0: SeekBar?) {}
             })
 
-            // Plus Image Button
-            appCompatActivity.findViewById<ImageButton>(measure.getImageButtonPlus()).apply {
+            imageButtonPlus.apply {
                 setOnClickListener {
-                    if(seekBar.progress < seekBar.max) {
-                        seekBar.progress = seekBar.progress + 1
-                    }
+                    if(seekBar.progress < seekBar.max) { seekBar.progress = seekBar.progress + 1 }
                 }
-
                 setOnLongClickListener {
-                    timerStart(0, it as ImageButton, seekBar)
+                    timerStart(0, this)
                     return@setOnLongClickListener true
                 }
             }
 
-
-            // Minus Image Button
-            appCompatActivity.findViewById<ImageButton>(measure.getImageButtonMinus()).apply {
+            imageButtonMinus.apply {
                 setOnClickListener {
-                    if(seekBar.progress > 0) {
-                        seekBar.progress = seekBar.progress - 1
-                    }
+                    if(seekBar.progress > 0) { seekBar.progress = seekBar.progress - 1 }
                 }
-
                 setOnLongClickListener {
-                    timerStart(seekBar.max, it as ImageButton, seekBar)
+                    timerStart(seekBar.max, this)
                     return@setOnLongClickListener true
                 }
             }
+        }
 
+        val constraintLayoutPackageWrapper: ConstraintLayout = appCompatActivity.findViewById(R.id.constraintLayoutPackageWrapper)
+
+
+        appCompatActivity.findViewById<Button>(R.id.buttonAddToPackage).apply {
+            setOnLongClickListener {
+                val alphaConstraintLayout = (constraintLayoutPackageWrapper.alpha * 100).toInt()
+                if (alphaConstraintLayout < 100) {
+                    val alertDialog = AlertDialog.Builder(appCompatActivity)
+                    alertDialog.setTitle(R.string.select_or_create_wood_package)
+                    alertDialog.setPositiveButton(R.string.ok) {_:DialogInterface, _: Int ->}
+                    alertDialog.show()
+                    return@setOnLongClickListener true
+                }
+
+                if (seekBarsValues.any { it == 0 }) {
+                    val alertDialog = AlertDialog.Builder(appCompatActivity)
+                    alertDialog.setTitle(R.string.enter_all_dimensions)
+                    alertDialog.setPositiveButton(R.string.ok) {_:DialogInterface, _: Int ->}
+                    alertDialog.show()
+                    return@setOnLongClickListener true
+                }
+
+                MediaPlayer.create(appCompatActivity, R.raw.bleep).start()
+
+                if (appCompatActivity is PackageManager) {
+                    appCompatActivity.addItemToPackage()
+                }
+
+                return@setOnLongClickListener true
+            }
         }
     }
 }
