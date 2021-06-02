@@ -10,7 +10,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -155,7 +154,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
                         loadView()
                         this.runOnUiThread {
                             editTextAddingAndSearching.clearFocus()
-                            Toast.makeText(this, R.string.created_wood_package, Toast.LENGTH_SHORT)
+                            Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }

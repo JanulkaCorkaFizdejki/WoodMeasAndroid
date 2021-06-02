@@ -121,6 +121,7 @@ class LogCalculatorActivity : AppCompatActivity() {
         }
 
 
+
         seekBarLogLength.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
                 lengthValueCm = progress
@@ -290,7 +291,7 @@ class LogCalculatorActivity : AppCompatActivity() {
                     DatabaseManagerDao.getDataBase(this)?.let {
                         it.woodenLogPackagesDao().insert(woodPackages)
                         this.runOnUiThread {
-                            Toast.makeText(this, R.string.created_wood_package, Toast.LENGTH_SHORT)
+                            Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }
@@ -309,7 +310,7 @@ class LogCalculatorActivity : AppCompatActivity() {
                         woodPackagesCurrent?.let { woodPackagesCurr ->
                             this.runOnUiThread {
                                 textViewWoodPackagesName.text = woodPackagesCurr.name
-                                Toast.makeText(this, R.string.created_wood_package, Toast.LENGTH_SHORT)
+                                Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                     .show()
                             }
                         }

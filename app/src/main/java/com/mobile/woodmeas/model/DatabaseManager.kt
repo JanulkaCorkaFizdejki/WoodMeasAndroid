@@ -144,7 +144,20 @@ object DatabaseManager {
     )
 @Dao
     interface PlankPackagesDao {
+        @Insert
+        fun insert(plankPackages: PlankPackages)
 
+        @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES}")
+        fun selectAll(): List<PlankPackages>
+
+        @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} ORDER BY ${DbConf.TablesStruct.PlankPackages.ID} DESC LIMIT 1")
+        fun selectLast(): PlankPackages
+
+        @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} WHERE ${DbConf.TablesStruct.PlankPackages.ID} = :id")
+        fun selectItem(id: Int): PlankPackages
+
+        @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.PLANK_PACKAGES}")
+        fun countAll(): Int
     }
 
 @Fts4(contentEntity = PlankPackages::class)
@@ -172,6 +185,8 @@ data class Plank(
 
 @Dao
     interface PlankDao {
+        @Insert
+        fun insert(plank: Plank)
 
     }
 

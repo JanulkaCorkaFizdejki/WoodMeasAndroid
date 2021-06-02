@@ -12,6 +12,7 @@ import com.mobile.woodmeas.controller.TreeAdapter
 import com.mobile.woodmeas.datamodel.Measure
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.DatabaseManagerDao
+import com.mobile.woodmeas.model.Settings
 import kotlin.concurrent.thread
 
 interface AppActivityManager {
@@ -47,6 +48,8 @@ interface AppActivityManager {
     }
 
     fun calculationManager(appCompatActivity: AppCompatActivity) {
+
+        Settings.PackagesSelect.id = 0
 
         val textViewMeasResultM:TextView = appCompatActivity.findViewById(R.id.textViewMeasResultM)
 

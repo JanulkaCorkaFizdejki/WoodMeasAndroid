@@ -19,7 +19,7 @@
     <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
     <string name="absence">Brak</string>
     <string name="create_package">Utwórz pakiet</string>
-    <string name="created_wood_package">Utworzono pakiet drewa</string>
+    <string name="created_package">Pakiet został utworzony</string>
     <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
     <string name="add_to_wood_package">Dodaj do pakietu</string>
     <string name="added_to_package">Dodano do pakietu</string>
@@ -64,4 +64,5 @@
     <string name="ok">OK</string>
     <string name="enter_all_dimensions">Wprowadź wszystkie wymiary.</string>
     <string name="create_and_use">Utwórz i użyj</string>
+    <string name="no_packages">Brak pakietów.</string>
 </resources>

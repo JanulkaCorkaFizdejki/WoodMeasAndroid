@@ -7,6 +7,10 @@ object Settings {
         var  woodPackageFromSelectIndex: Int = -1
     }
 
+    object PackagesSelect {
+        var id: Int = 0
+    }
+
     object IntentsPutValues {
         const val WOOD_PACKAGE_ID = "wood_package_id"
     }
