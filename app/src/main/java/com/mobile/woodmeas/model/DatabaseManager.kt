@@ -147,7 +147,7 @@ object DatabaseManager {
         @Insert
         fun insert(plankPackages: PlankPackages)
 
-        @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES}")
+        @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} ORDER BY ${DbConf.TablesStruct.PlankPackages.ID} DESC")
         fun selectAll(): List<PlankPackages>
 
         @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} ORDER BY ${DbConf.TablesStruct.PlankPackages.ID} DESC LIMIT 1")
@@ -188,6 +188,17 @@ data class Plank(
         @Insert
         fun insert(plank: Plank)
 
+        @Query("SELECT * FROM ${DbConf.TableNames.PLANK} WHERE ${DbConf.TablesStruct.Plank.PLANK_PACKAGES_ID} = :id ORDER BY ${DbConf.TablesStruct.Plank.ID} DESC")
+        fun selectWithPackageId(id: Int): List<Plank>
+
+        @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.PLANK} WHERE ${DbConf.TablesStruct.Plank.PLANK_PACKAGES_ID} = :id")
+        fun countWithPackageId(id: Int): Int
+
+        @Query("DELETE  FROM ${DbConf.TableNames.PLANK} WHERE ${DbConf.TablesStruct.Plank.PLANK_PACKAGES_ID} = :id")
+        fun deleteWithPackageId(id: Int)
+
+        @Query("DELETE  FROM ${DbConf.TableNames.PLANK} WHERE ${DbConf.TablesStruct.Plank.ID} = :id")
+        fun deleteItem(id: Int)
     }
 
 
@@ -209,10 +220,13 @@ data class Plank(
         fun selectLast(): WoodenLogPackages
 
         @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
-        fun selectWithId(id: Int): WoodenLogPackages
+        fun selectItem(id: Int): WoodenLogPackages
 
         @Insert
         fun insert(woodPackages: WoodenLogPackages)
+
+        @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES}")
+        fun countAll(): Int
 
         @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
         fun deleteItem(id: Int)
@@ -265,6 +279,9 @@ data class WoodenLog(
 
     @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.ID} = :id")
     fun deleteItem(id: Int)
+
+    @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
+    fun countWithPackageId(id: Int): Int
 
     @Query("SELECT count(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
     fun count(id: Int): Int

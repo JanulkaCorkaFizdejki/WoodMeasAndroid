@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.media.MediaPlayer
 import android.os.CountDownTimer
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.mobile.woodmeas.datamodel.Measure
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
+import com.mobile.woodmeas.model.Trees
 import kotlin.concurrent.thread
 
 interface AppActivityManager {
@@ -54,12 +56,20 @@ interface AppActivityManager {
         val textViewMeasResultM:TextView = appCompatActivity.findViewById(R.id.textViewMeasResultM)
 
         val measures: List<Measure> =
-            if (appCompatActivity is PlankCalculatorActivity) {
-                listOf(
-                    Measure.LENGTH,
-                    Measure.WIDTH,
-                    Measure.THICKNESS
-                ) } else listOf()
+            when (appCompatActivity) {
+                is PlankCalculatorActivity -> {
+                    listOf(
+                        Measure.LENGTH,
+                        Measure.WIDTH,
+                        Measure.THICKNESS
+                    ) }
+                is LogCalculatorActivity -> {
+                    listOf(
+                        Measure.LENGTH,
+                        Measure.DIAMETER
+                    ) }
+                else -> listOf()
+            }
 
         val seekBarsValues = IntArray(measures.size)
 
@@ -77,6 +87,16 @@ interface AppActivityManager {
                                 textViewMeasResultM.text = resultFormat.replace(".", ",")
                             }
                         }
+                }
+                else if (appCompatActivity is LogCalculatorActivity) {
+                    val tree: Trees? =
+                        if (appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).isChecked)
+                            { appCompatActivity.findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees }
+                        else null
+
+                    Calculator.logFormat(seekBarsValues[0], seekBarsValues[1], tree).let { result ->
+                        textViewMeasResultM.text = result.replace(".", ",")
+                    }
                 }
             }
         }
@@ -181,5 +201,18 @@ interface AppActivityManager {
                 return@setOnLongClickListener true
             }
         }
+
+        if (appCompatActivity is LogCalculatorActivity) {
+            appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).setOnClickListener { setResult() }
+            appCompatActivity.findViewById<Spinner>(R.id.spinnerTreeModuleTrees)
+                .onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    setResult()
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {}
+            }
+        }
+
     }
 }

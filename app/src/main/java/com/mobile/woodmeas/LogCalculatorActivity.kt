@@ -1,464 +1,218 @@
 package com.mobile.woodmeas
 
+
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.mobile.woodmeas.datamodel.MenuData
+import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.*
+import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
-import kotlin.properties.Delegates
 
-class LogCalculatorActivity : AppCompatActivity() {
 
-    enum class CurrentSize  {
-        LENGTH, WIDTH
-    }
+class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageManager {
 
-    enum class ButtonChanges {
-        PLUS, MINUS
-    }
+    private var logPackages: WoodenLogPackages? = null
 
-    private lateinit var textViewLengthValueCm: TextView
-    private lateinit var textViewLengthValueM: TextView
-    private lateinit var textViewWidthValueCm: TextView
-    private lateinit var textViewWidthValueM: TextView
-    lateinit var seekBarLogLength: SeekBar
-    lateinit var seekBarLogWidth: SeekBar
-    private var lengthValueCm: Int = 0
-    private var widthValueCm: Int = 0
-    private var lengthValueM: Float = 0.0F
-    private var widthValueM: Float = 0.0F
-    private lateinit var textViewResume: TextView
-    lateinit var imageButtonLengthMinus: ImageButton
-    private lateinit var imageButtonLengthPlus: ImageButton
-    private lateinit var imageButtonWidthMinus: ImageButton
-    private lateinit var imageButtonWidthPlus: ImageButton
-    private lateinit var imageButtonAddWoodenLog: ImageButton
-    lateinit var switchTreeBark: Switch
-    private var timer: CountDownTimer? = null
-    private var maxLogLength by Delegates.notNull<Int>()
-    private var maxLogWidth by Delegates.notNull<Int>()
-    private val treesList: ArrayList<Trees> = arrayListOf()
-    private val spinnerList: ArrayList<String> = arrayListOf()
-    private lateinit var spinnerTreesList: Spinner
-    private var currentSpinnerItem: Int = Settings.VolumeCalculatorView.currentTree
-    private lateinit var textViewWoodPackagesName: TextView
-    private var woodPackagesCurrent: WoodenLogPackages? = null
-    private var mediaBleep: MediaPlayer? = null
-
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_calculator)
+        NavigationManager.topNavigation(this, MenuData(MenuType.CALCULATORS, MenuItemsType.LOG))
+        super.setSpinnerTrees(this)
+        super.calculationManager(this)
 
-        textViewLengthValueCm       = findViewById(R.id.textViewLengthValueCm)
-        textViewLengthValueM        = findViewById(R.id.textViewLengthValueM)
-        textViewWidthValueCm        = findViewById(R.id.textViewWidthValueCm)
-        textViewWidthValueM         = findViewById(R.id.textViewWidthValueM)
-        seekBarLogLength            = findViewById(R.id.seekBarLogLength)
-        seekBarLogWidth             = findViewById(R.id.seekBarLogWidth)
-        textViewResume              = findViewById(R.id.textViewResume)
-        imageButtonLengthMinus      = findViewById(R.id.imageButtonLengthMinus)
-        imageButtonLengthPlus       = findViewById(R.id.imageButtonLengthPlus)
-        imageButtonWidthMinus       = findViewById(R.id.imageButtonWidthMinus)
-        imageButtonWidthPlus        = findViewById(R.id.imageButtonWidthPlus)
-        spinnerTreesList            = findViewById(R.id.spinnerTreesList)
-        switchTreeBark              = findViewById(R.id.switchTreeBark)
-        textViewWoodPackagesName    = findViewById(R.id.textViewWoodPackagesName)
-        imageButtonAddWoodenLog     = findViewById(R.id.imageButtonAddWoodenLog)
-        maxLogLength = applicationContext.resources.getInteger(R.integer.max_log_length)
-        maxLogWidth = applicationContext.resources.getInteger(R.integer.max_log_width)
-
-        thread {
-            DatabaseManagerDao.getDataBase(this)?.let {
-                it.treesDao().selectAll().forEach { item ->
-                    treesList.add(item)
-                    spinnerList.add(item.name)
-                }
-                this.runOnUiThread {
-                  val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this,
-                      android.R.layout.simple_spinner_dropdown_item,
-                      spinnerList)
-
-                    arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    spinnerTreesList.adapter = arrayAdapter
-                    spinnerTreesList.setSelection(Settings.VolumeCalculatorView.currentTree)
-                }
-            }
-        }
-
-        // SET VIEW ________________________________________________________________________________
-            setView()
-        // _________________________________________________________________________________________
+        loadView()
+    }
 
 
-        spinnerTreesList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, index: Int, p3: Long) {
-                    currentSpinnerItem = index
-                    Settings.VolumeCalculatorView.currentTree = currentSpinnerItem
-                    if (switchTreeBark.isChecked) {
-                        setResult()
-                    }
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) { }
-        }
-
-        switchTreeBark.setOnClickListener {
-           // spinnerTreesList.isEnabled = switchTreeBark.isChecked
-            Settings.VolumeCalculatorView.barkOn = switchTreeBark.isChecked
-            setResult()
-        }
-
-
-
-        seekBarLogLength.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
-                lengthValueCm = progress
-                setValuesView(CurrentSize.LENGTH)
-                setResult()
-            }
-            override fun onStartTrackingTouch(p0: SeekBar?) { }
-            override fun onStopTrackingTouch(p0: SeekBar?) { }
-
-        })
-
-        seekBarLogWidth.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
-                widthValueCm = progress
-                setValuesView(CurrentSize.WIDTH)
-                setResult()
-
-            }
-            override fun onStartTrackingTouch(p0: SeekBar?) {  }
-            override fun onStopTrackingTouch(p0: SeekBar?) {  }
-        })
-
-
-        // LOG LENGTH BUTTONS  _____________________________________________________________________
-        // Minus
-        imageButtonLengthMinus.setOnClickListener {
-            if (lengthValueCm == 0) return@setOnClickListener
-
-            lengthValueCm --
-            seekBarLogLength.progress = lengthValueCm
-        }
-
-        imageButtonLengthMinus.setOnLongClickListener {
-            if (lengthValueCm == 0) return@setOnLongClickListener true
-
-            valuesLooper(it as ImageButton, CurrentSize.LENGTH, ButtonChanges.MINUS)
-            return@setOnLongClickListener true
-        }
-
-        // Plus
-        imageButtonLengthPlus.setOnClickListener {
-            if (lengthValueCm == maxLogLength) return@setOnClickListener
-
-            lengthValueCm ++
-            seekBarLogLength.progress = lengthValueCm
-        }
-
-        imageButtonLengthPlus.setOnLongClickListener {
-            if (lengthValueCm == maxLogLength) return@setOnLongClickListener true
-
-            valuesLooper(it as ImageButton, CurrentSize.LENGTH, ButtonChanges.PLUS)
-            return@setOnLongClickListener true
-        }
-        // _________________________________________________________________________________________
-
-        // LOG WIDTH BUTTONS _______________________________________________________________________
-        // Minus
-        imageButtonWidthMinus.setOnClickListener{
-            if (widthValueCm == 0) return@setOnClickListener
-
-            widthValueCm --
-            seekBarLogWidth.progress = widthValueCm
-        }
-
-        imageButtonWidthMinus.setOnLongClickListener {
-            if (widthValueCm == 0) return@setOnLongClickListener true
-
-            valuesLooper(it as ImageButton, CurrentSize.WIDTH, ButtonChanges.MINUS)
-            return@setOnLongClickListener true
-        }
-
-        // Plus
-        imageButtonWidthPlus.setOnClickListener {
-            if (widthValueCm == maxLogWidth) return@setOnClickListener
-
-            widthValueCm ++
-            seekBarLogWidth.progress = widthValueCm
-        }
-
-        imageButtonWidthPlus.setOnLongClickListener {
-            if (widthValueCm == maxLogWidth) return@setOnLongClickListener true
-
-            valuesLooper(it as ImageButton, CurrentSize.WIDTH, ButtonChanges.PLUS)
-            return@setOnLongClickListener true
-        }
-        // _________________________________________________________________________________________
-
-        // Add Wooden Log to Package _______________________________________________________________
-        imageButtonAddWoodenLog.setOnLongClickListener {
-            if  (woodPackagesCurrent == null )  {
-                val alertDialog = AlertDialog.Builder(this)
-                alertDialog.setMessage(R.string.select_or_create_wood_package)
-                alertDialog.setNegativeButton("Ok") {_:DialogInterface, _: Int ->}
-                alertDialog.show()
-                return@setOnLongClickListener true
-            }
-
-            if (lengthValueCm < 1 || widthValueCm < 1) {
-                val alertDialog = AlertDialog.Builder(this)
-                alertDialog.setMessage(R.string.length_width_log_min_info)
-                alertDialog.setNegativeButton("Ok") {_:DialogInterface, _: Int ->}
-                alertDialog.show()
-                return@setOnLongClickListener true
-            }
-
-
-
-            val cubicCm: Int = (textViewResume.text.toString().replace(",", ".")
-                .toFloat() * 100.0F).toInt()
-
-
-            val woodenLog = WoodenLog(
-                0,
-                woodPackagesCurrent!!.id,
-                lengthValueCm,
-                widthValueCm, cubicCm,
-                treesList[currentSpinnerItem].id,
-                if (switchTreeBark.isChecked) 1 else 0,
-                Date()
-            )
-
+    override fun onStart() {
+        super.onStart()
+        if (Settings.PackagesSelect.id > 0) {
             thread {
-                DatabaseManagerDao.getDataBase(this)?.woodenLogDao()?.insert(woodenLog)
-                this.runOnUiThread {
-                    mediaBleep = null
-                    mediaBleep = MediaPlayer.create(this, R.raw.bleep)
-                    mediaBleep?.start()
-
-                    Toast.makeText(this, R.string.added_to_package, Toast.LENGTH_SHORT)
-                        .show()
-
-                }
-            }
-            return@setOnLongClickListener true
-        }
-
-    }
-
-    private fun setView() {
-        switchTreeBark.isChecked = Settings.VolumeCalculatorView.barkOn
-        //spinnerTreesList.isEnabled = Settings.VolumeCalculatorView.barkOn
-    }
-
-
-    // BUTTONS for Wood Packages ___________________________________________________________________
-    fun onClickBtnSelect(view: View) {
-        val intent = Intent(this, LogPackageListSelectActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(intent)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun onClickBtnCreate(view: View) {
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle(R.string.create_package)
-        val viewAlertInflate: View = View.inflate(this, R.layout.add_wood_package, null)
-        val editTextWoodPackages: EditText = viewAlertInflate.findViewById(R.id.editTextWoodPackageName)
-        alertDialog.setView(viewAlertInflate)
-        alertDialog.setNeutralButton("Anuluj") {_: DialogInterface, _: Int -> }
-
-        alertDialog.setNegativeButton("Utwórz") { _: DialogInterface, _: Int ->
-            if(editTextWoodPackages.text.isNotEmpty()) {
-                val woodPackages =  WoodenLogPackages(0,
-                    editTextWoodPackages.text.toString(),
-                    Date())
-                thread {
-                    DatabaseManagerDao.getDataBase(this)?.let {
-                        it.woodenLogPackagesDao().insert(woodPackages)
+                DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                    databaseManagerDao.woodenLogPackagesDao().selectItem(Settings.PackagesSelect.id).let {
+                        logPackages = it
+                        Settings.PackagesSelect.id = 0
                         this.runOnUiThread {
-                            Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
-                                .show()
+                            packageIsActive(true)
                         }
                     }
                 }
             }
         }
-        alertDialog.setPositiveButton("Utwórz i użyj") {_: DialogInterface, _: Int ->
-            if(editTextWoodPackages.text.isNotEmpty()) {
-                val woodPackages =  WoodenLogPackages(0,
-                    editTextWoodPackages.text.toString(),
-                    Date())
+    }
+
+    override fun loadView() {
+
+        // Go Package List Select Activity
+        findViewById<ImageButton>(R.id.imageButtonMeasResultUsePackage).let {imageButtonMeasResultUsePackage ->
+            imageButtonMeasResultUsePackage.setOnClickListener {
                 thread {
-                    DatabaseManagerDao.getDataBase(this)?.let {
-                        it.woodenLogPackagesDao().insert(woodPackages)
-                        woodPackagesCurrent = it.woodenLogPackagesDao().selectLast()
-                        woodPackagesCurrent?.let { woodPackagesCurr ->
+                    DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                        if  (databaseManagerDao.woodenLogPackagesDao().countAll() > 0){
                             this.runOnUiThread {
-                                textViewWoodPackagesName.text = woodPackagesCurr.name
-                                Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
-                                    .show()
+                                val intent = Intent(this, LogPackageListSelectActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                startActivity(intent)
+                            }
+                        } else {
+                            this.runOnUiThread {
+                                val alertDialog = AlertDialog.Builder(this)
+                                alertDialog.setTitle(R.string.no_packages)
+                                alertDialog.setNegativeButton(R.string.ok) {_: DialogInterface, _:Int ->}
+                                alertDialog.show()
                             }
                         }
                     }
                 }
             }
         }
-        alertDialog.show()
 
-    }
+        findViewById<ImageButton>(R.id.imageButtonMeasResultAddPackage).let { imageButtonMeasResultUsePackage ->
+            imageButtonMeasResultUsePackage.setOnClickListener {
+                val alertDialog = AlertDialog.Builder(this)
+                alertDialog.setTitle(R.string.create_package)
+                val viewAlertInflate: View = View.inflate(this, R.layout.add_wood_package, null)
+                val editTextWoodPackages: EditText = viewAlertInflate.findViewById(R.id.editTextWoodPackageName)
+                alertDialog.setView(viewAlertInflate)
 
-    fun onClickBtnRemove(view: View) {
-        if (woodPackagesCurrent == null) return
+                alertDialog.setPositiveButton(R.string.create_and_use) {_: DialogInterface, _: Int ->
+                    if (editTextWoodPackages.text.toString().isNotEmpty()) {
+                        thread {
+                            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                                databaseManagerDao.woodenLogPackagesDao()
+                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date()))
 
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setMessage(R.string.do_you_want_to_delete_wood_package_from_currency_view)
-        alertDialog.setPositiveButton(R.string.yes){_:DialogInterface, _: Int ->
-            woodPackagesCurrent = null
-            textViewWoodPackagesName.text = applicationContext.getText(R.string.absence)
-        }
-        alertDialog.setNegativeButton(R.string.cancel) {_: DialogInterface, _:Int ->}
-        alertDialog.show()
+                                databaseManagerDao.woodenLogPackagesDao().selectLast().let {
+                                    logPackages = it
+                                    this.runOnUiThread {
+                                        packageIsActive(true)
+                                        Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
+                                            .show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 
-    }
-    // _____________________________________________________________________________________________
-
-
-    fun onClickGetWoodPackageDetails(view: View) {
-        if (woodPackagesCurrent == null) return
-
-        val intent = Intent(this, LogPackageDetailsActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        intent.putExtra(Settings.IntentsPutValues.WOOD_PACKAGE_ID, woodPackagesCurrent!!.id)
-        startActivity(intent)
-    }
-
-
-    @SuppressLint("SetTextI18n")
-    private fun setResult() {
-        if (lengthValueCm == 0 || widthValueCm == 0) {
-            textViewResume.text = "0.00"
-        }
-
-        else {
-            if (switchTreeBark.isChecked) {
-                val tree = treesList[currentSpinnerItem]
-                textViewResume.text = Calculator.calculate(lengthValueCm, widthValueCm, tree)
-            } else {
-                textViewResume.text = Calculator.calculate(lengthValueCm, widthValueCm, null)
+                alertDialog.setNegativeButton(R.string.create) {_: DialogInterface, _: Int ->
+                    if (editTextWoodPackages.text.toString().isNotEmpty()) {
+                        thread {
+                            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                                databaseManagerDao.woodenLogPackagesDao()
+                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                this.runOnUiThread {
+                                    Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
+                                        .show()
+                                }
+                            }
+                        }
+                    }
+                }
+                alertDialog.setNeutralButton(R.string.cancel) {_: DialogInterface, _: Int -> }
+                alertDialog.show()
             }
+        }
 
+        findViewById<ImageButton>(R.id.imageButtonMeasResultDeletePackage).apply {
+            setOnClickListener {
+                logPackages = null
+                packageIsActive(false)
+            }
+        }
+
+        findViewById<ImageButton>(R.id.imageButtonShowPackage).let { imageButtonShowPackage ->
+            imageButtonShowPackage.setOnClickListener {
+                thread {
+                    logPackages?.let { logPackages ->
+                        thread {
+                            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                                if (databaseManagerDao.woodenLogDao().countWithPackageId(logPackages.id) > 0) {
+                                    this.runOnUiThread {
+                                        val intent = Intent(this, LogPackageDetailsActivity::class.java)
+                                        intent.putExtra(Settings.IntentsPutValues.PACKAGE_ID, logPackages.id)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        startActivity(intent)
+                                    }
+                                }
+                                else {
+                                    this.runOnUiThread {
+                                        val alertDialog = AlertDialog.Builder(this)
+                                        alertDialog.setTitle(R.string.package_is_empty)
+                                        alertDialog.setNegativeButton(R.string.ok) {_:DialogInterface, _:Int ->}
+                                        alertDialog.show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    override fun removeItem(item: Int) {
+        TODO("Not yet implemented")
+    }
+
+    @SuppressLint("CutPasteId", "UseSwitchCompatOrMaterialCode")
+    override fun addItemToPackage() {
+        val length          = findViewById<SeekBar>(R.id.seekBarMeasureLength).progress
+        val diameter        = findViewById<SeekBar>(R.id.seekBarMeasureDiameter).progress
+        val tree: Trees     = findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees
+        val switchBarkOn    = findViewById<Switch>(R.id.switchTreeModuleBark)
+
+        val treeForCalc: Trees? = if (switchBarkOn.isChecked) { tree } else null
+
+        val calculateResult = Calculator.logFormat(length, diameter, treeForCalc).replace(",", ".")
+        val resultCm = (calculateResult.toFloat() * 1000000.0F).toInt()
+
+        thread {
+            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                logPackages?.id?.let {
+                    databaseManagerDao.woodenLogDao().insert(
+                        WoodenLog(
+                            0,
+                            it,
+                            length,
+                            diameter,
+                            resultCm,
+                            tree.id,
+                            if (switchBarkOn.isChecked) 1 else 0,
+                            Date()
+                        )
+                    )
+                    this.runOnUiThread {
+                        Toast.makeText(this, R.string.added_to_package, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 
-    private fun setValuesView(currentSize: CurrentSize) {
-        if (currentSize == CurrentSize.LENGTH) {
-            lengthValueM = lengthValueCm.toFloat() / 100.0F
-            textViewLengthValueCm.text = lengthValueCm.toString()
-            val lengthValueMFormat = "%.2f".format(lengthValueM)
-            textViewLengthValueM.text = lengthValueMFormat
+    private fun packageIsActive(on: Boolean) {
+        findViewById<ConstraintLayout>(R.id.constraintLayoutPackageWrapper)
+            .alpha = if (on) 1.0F else 0.5F
+        findViewById<ImageButton>(R.id.imageButtonShowPackage).isEnabled = on
+        if (on) {
+            findViewById<TextView>(R.id.textViewMeasResultPackageName).text = logPackages?.name
         } else {
-            widthValueM = widthValueCm.toFloat() / 100.0F
-            textViewWidthValueCm.text = widthValueCm.toString()
-            val widthValueMFormat = "%.2f".format(widthValueM)
-            textViewWidthValueM.text = widthValueMFormat
-        }
-    }
-
-    private fun valuesLooper(imgBtn: ImageButton, currentSize: CurrentSize, buttonChanges: ButtonChanges) {
-
-        fun cancel() {
-            timer?.cancel()
-            timer = null
-        }
-
-        timer = object : CountDownTimer(10000, 10) {
-            override fun onTick(p0: Long) {
-                println("xzxzxzxzxzx")
-                if (!imgBtn.isPressed) { cancel() }
-
-                if (currentSize == CurrentSize.LENGTH) {
-                    if (buttonChanges == ButtonChanges.MINUS) {
-                        if (lengthValueCm == 0) {
-                            seekBarLogLength.progress = lengthValueCm
-                            cancel()
-                        }
-                        else {
-                            lengthValueCm --
-                            seekBarLogLength.progress = lengthValueCm
-                        }
-                    }
-                    else {
-
-                        if (lengthValueCm == maxLogLength) {
-                            seekBarLogLength.progress = lengthValueCm
-                            cancel()
-                        }
-                        else {
-                            lengthValueCm ++
-                            seekBarLogLength.progress = lengthValueCm
-                        }
-                    }
-                }
-
-                else {
-                    if (buttonChanges == ButtonChanges.MINUS) {
-                        if (widthValueCm == 0) {
-                            seekBarLogWidth.progress = widthValueCm
-                            cancel()
-                        }
-                        else {
-                            widthValueCm --
-                            seekBarLogWidth.progress = widthValueCm
-                        }
-                    }
-                    else {
-                        if (widthValueCm == maxLogWidth) {
-                            seekBarLogWidth.progress = widthValueCm
-                            cancel()
-                        }
-                        else {
-                            widthValueCm++
-                            seekBarLogWidth.progress = widthValueCm
-                        }
-                    }
-                }
-                setResult()
-            }
-
-            override fun onFinish() {}
-        }.start()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val woodPackageIndex = Settings.VolumeCalculatorView.woodPackageFromSelectIndex
-        if (woodPackageIndex >= 0) {
-            Settings.VolumeCalculatorView.woodPackageFromSelectIndex = - 1
-            thread {
-                DatabaseManagerDao.getDataBase(this)?.let {
-                    it.woodenLogPackagesDao().selectWithId(woodPackageIndex).let { woodPackages ->
-                        woodPackagesCurrent = woodPackages
-                        this.runOnUiThread {
-                            textViewWoodPackagesName.text = woodPackagesCurrent?.name
-                        }
-                    }
-                }
-            }
+            findViewById<TextView>(R.id.textViewMeasResultPackageName).text = applicationContext.getString(R.string.absence)
         }
     }
 

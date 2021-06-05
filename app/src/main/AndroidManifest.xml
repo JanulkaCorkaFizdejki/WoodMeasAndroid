@@ -57,15 +57,18 @@
         <activity
             android:name=".LogPackageDetailsActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Theme.WoodMeas.NoActionBar"/>
         <activity
             android:name=".LogPackageListSelectActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Theme.WoodMeas.NoActionBar"/>
         <activity
             android:name=".LogCalculatorActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Theme.WoodMeas.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

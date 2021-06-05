@@ -13,6 +13,7 @@ object Settings {
 
     object IntentsPutValues {
         const val WOOD_PACKAGE_ID = "wood_package_id"
+        const val PACKAGE_ID = "package_id"
     }
 
     const val PDF_FILE_NAME_PREFIX = "wood_meas_package_log"

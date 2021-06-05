@@ -65,4 +65,10 @@
     <string name="enter_all_dimensions">Wprowadź wszystkie wymiary.</string>
     <string name="create_and_use">Utwórz i użyj</string>
     <string name="no_packages">Brak pakietów.</string>
+    <string name="print">Drukuj</string>
+    <string name="height">Wysokość</string>
+    <string name="send">Wyślij</string>
+    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
+    <string name="diameter">Średnica</string>
+    <string name="package_details">Zawartość pakietu</string>
 </resources>

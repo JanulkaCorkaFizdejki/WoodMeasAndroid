@@ -8,15 +8,15 @@
     android:background="@drawable/rounded_white_bg"
     android:orientation="vertical"
     android:paddingLeft="8dp"
-    android:paddingTop="24dp"
+    android:paddingTop="16dp"
     android:paddingRight="8dp"
-    android:paddingBottom="24dp">
+    android:paddingBottom="16dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_ruler_12_16"
+            app:srcCompat="@drawable/ic_width_ico_8"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -42,8 +42,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/default_number"
+                android:textColor="@color/wm_gray_dark"
+                android:textStyle="bold"
                 tools:ignore="NestedWeights" />
 
             <TextView
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/centimeters_short"
-                />
+                android:textColor="@color/wm_gray_dark" />
 
         </LinearLayout>
 
@@ -83,7 +85,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/default_number"
+                android:text="@string/default_number_float"
+                android:textColor="@color/wm_gray_dark"
+                android:textStyle="bold"
                 tools:ignore="NestedWeights" />
 
             <TextView
@@ -93,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/meters_short"
-                 />
+                android:textColor="@color/wm_gray_dark" />
 
         </LinearLayout>
 

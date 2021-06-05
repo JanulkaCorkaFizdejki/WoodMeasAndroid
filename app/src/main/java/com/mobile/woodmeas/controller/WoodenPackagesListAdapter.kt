@@ -64,6 +64,7 @@ class WoodenPackagesListAdapter (private val woodenLogPackagesList: List<WoodenL
                 alertDialog.show()
             }
         }
+
     }
 
     override fun getItemCount(): Int = woodenLogPackagesList.size

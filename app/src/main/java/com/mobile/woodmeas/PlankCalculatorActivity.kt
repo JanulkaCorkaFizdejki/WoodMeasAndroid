@@ -138,9 +138,30 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
 
         findViewById<ImageButton>(R.id.imageButtonShowPackage).let { imageButtonShowPackage ->
             imageButtonShowPackage.setOnClickListener {
-                val intent = Intent(this, PlankPackageDetailsActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(intent)
+                thread {
+                    plankPackages?.let { plankPackages ->
+                        thread {
+                            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                                if (databaseManagerDao.plankDao().countWithPackageId(plankPackages.id) > 0) {
+                                    this.runOnUiThread {
+                                        val intent = Intent(this, PlankPackageDetailsActivity::class.java)
+                                        intent.putExtra(Settings.IntentsPutValues.PACKAGE_ID, plankPackages.id)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                        startActivity(intent)
+                                    }
+                                }
+                                else {
+                                    this.runOnUiThread {
+                                        val alertDialog = AlertDialog.Builder(this)
+                                        alertDialog.setTitle(R.string.package_is_empty)
+                                        alertDialog.setNegativeButton(R.string.ok) {_:DialogInterface, _:Int ->}
+                                        alertDialog.show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

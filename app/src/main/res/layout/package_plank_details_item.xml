@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutPackageLogDetails"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/rounded_white_bg">
+
+    <ImageButton
+        android:id="@+id/imageButtonPackagePlankDetailsDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/oval_gray_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cancel_10"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewPlankPackageDetailsId"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/imageViewPackagePlankDetailsTreeIco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_tree_leafy_green_8"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textViewPackagePlankDetailsTreeName"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:text="@string/default_number"
+            android:textColor="@color/wm_green_medium"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewPlankPackageDetailsId"
+        android:layout_width="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/default_number"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonPackagePlankDetailsDelete"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout11"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout10"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_height_ico_8" />
+
+            <TextView
+                android:id="@+id/textViewPackagePlankDetailsHeight"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/wm_gray_dark"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout10"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout7"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_width_ico_8" />
+
+            <TextView
+                android:id="@+id/textViewPackagePlankDetailsWidth"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/wm_gray_dark"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:clipChildren="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_length_ico_8" />
+
+            <TextView
+                android:id="@+id/textViewPackagePlankDetailsLength"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textColor="@color/wm_gray_dark"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewPlankPackageDetailsCubic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:text="@string/default_number"
+                android:textColor="@color/wm_gray_dark"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView25"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/_3"
+                android:textSize="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:text="@string/meters_short"
+                android:textColor="@color/wm_gray_dark"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

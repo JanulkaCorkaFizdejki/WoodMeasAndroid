@@ -11,8 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.R
 import com.mobile.woodmeas.model.PlankPackages
 import com.mobile.woodmeas.model.Settings
+import com.mobile.woodmeas.model.Trees
+import com.mobile.woodmeas.model.WoodenLogPackages
+import java.text.DateFormat
 
-class PackageSelectPlankAdapter (private val plankPackages: List<PlankPackages>, private val appCompatActivity: AppCompatActivity) :
+class PackageSelectPlankAdapter (
+    private val plankPackages: List<PlankPackages>,
+    private val appCompatActivity: AppCompatActivity) :
     RecyclerView.Adapter<PackageSelectViewHolder>(){
     private lateinit var context: Context
 
@@ -33,11 +38,45 @@ class PackageSelectPlankAdapter (private val plankPackages: List<PlankPackages>,
         holder.itemView.findViewById<TextView>(R.id.textViewPackageSelectItemName)
             .text = plankPackages[position].name
 
-        holder.itemView.findViewById<TextView>(R.id.textViewPackageSelectItemDate)
-            .text = plankPackages[position].addDate.toString()
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageSelectItemDate).apply {
+            plankPackages[position].addDate?.let { date->
+                text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(date)
+            }
+        }
+    }
 
+    override fun getItemCount(): Int = plankPackages.size
 
+}
 
+class PackageSelectLogAdapter (
+    private val plankPackages: List<WoodenLogPackages>,
+    private val appCompatActivity: AppCompatActivity) :
+    RecyclerView.Adapter<PackageSelectViewHolder>(){
+    private lateinit var context: Context
+
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackageSelectViewHolder {
+        val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
+        val packageSelectLayout: View = layoutInflater.inflate(R.layout.package_select_item, viewGroup, false)
+        context = viewGroup.context
+        return PackageSelectViewHolder(packageSelectLayout)
+    }
+
+    override fun onBindViewHolder(holder: PackageSelectViewHolder, position: Int) {
+        holder.itemView.findViewById<ConstraintLayout>(R.id.constraintLayoutPackageSelect)
+            .setOnClickListener {
+                Settings.PackagesSelect.id = plankPackages[position].id
+                appCompatActivity.onBackPressed()
+            }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageSelectItemName)
+            .text = plankPackages[position].name
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageSelectItemDate).apply {
+            plankPackages[position].addDate?.let { date->
+                text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(date)
+            }
+        }
     }
 
     override fun getItemCount(): Int = plankPackages.size

@@ -12,6 +12,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mobile.woodmeas.controller.PackageLogDetailsItemAdapter
+import com.mobile.woodmeas.controller.PackagePlankDetailsItemAdapter
 import com.mobile.woodmeas.controller.WoodenLogListAdapter
 import com.mobile.woodmeas.helpers.EmailManager
 import com.mobile.woodmeas.helpers.FileManager
@@ -21,84 +23,79 @@ import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.model.WoodenLog
+import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import java.io.File
+import java.text.DateFormat
 import kotlin.concurrent.thread
 
 class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
-    private lateinit var textViewWoodPackageName: TextView
-    private lateinit var textViewWoodPackageCreationDate: TextView
-    private lateinit var textViewPackageLastUpdateDate: TextView
-    private lateinit var recyclerViewWoodenLogList: RecyclerView
-    private lateinit var textViewWoodenLogSum: TextView
-    private lateinit var textViewCubicSum: TextView
-    private var treeList: List<Trees> = listOf()
-    private var currentWoodPackageId: Int = 0
+    private lateinit var recyclerViewLogPackageDetailsList: RecyclerView
+    private lateinit var textViewActivityLogPackageDetailsPackageName: TextView
+    private lateinit var textViewActivityLogDetailsCreationDate: TextView
+    private lateinit var textViewActivityLogDetailsUpdateDate: TextView
+    private lateinit var textViewActivityLogPackageDetailsSum: TextView
+    private var currentPackageId: Int = 0
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_package_details)
 
-        textViewWoodPackageName         = findViewById(R.id.textViewWoodPackageName)
-        textViewWoodPackageCreationDate = findViewById(R.id.textViewWoodPackageCreationDate)
-        recyclerViewWoodenLogList       = findViewById(R.id.recyclerViewWoodenLogList)
-        textViewPackageLastUpdateDate   = findViewById(R.id.textViewPackageLastUpdateDate)
-        textViewWoodenLogSum            = findViewById(R.id.textViewWoodenLogSum)
-        textViewCubicSum                = findViewById(R.id.textViewCubicSum)
+        recyclerViewLogPackageDetailsList               = findViewById(R.id.recyclerViewLogPackageDetailsList)
+        textViewActivityLogPackageDetailsPackageName    = findViewById(R.id.textViewActivityLogPackageDetailsPackageName)
+        textViewActivityLogDetailsCreationDate          = findViewById(R.id.textViewActivityLogDetailsCreationDate)
+        textViewActivityLogDetailsUpdateDate            = findViewById(R.id.textViewActivityLogDetailsUpdateDate)
+        textViewActivityLogPackageDetailsSum            = findViewById(R.id.textViewActivityLogPackageDetailsSum)
+        recyclerViewLogPackageDetailsList.layoutManager = LinearLayoutManager(this)
 
-        intent.getIntExtra(Settings.IntentsPutValues.WOOD_PACKAGE_ID, -1).let { woodPackageId ->
-            if (woodPackageId >= 0) {
-                thread {
-                    DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                        databaseManagerDao.woodenLogPackagesDao().selectWithId(woodPackageId).let { woodPackages ->
-
-                            treeList = databaseManagerDao.treesDao().selectAll()
-                            currentWoodPackageId = woodPackages.id
-
-                            this.runOnUiThread {
-                                textViewWoodPackageName.text = woodPackages.name
-                                textViewWoodPackageCreationDate.text = woodPackages.addDate?.toString()
-                            }
-                            databaseManagerDao.woodenLogDao().selectWithWoodPackageId(woodPackages.id).let { woodenLogList: List<WoodenLog> ->
-                                this.runOnUiThread{
-                                    woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
-                                        woodenLog.addDate?.let {
-                                            textViewPackageLastUpdateDate.text = it.toString()
-                                        }
-                                    }
-                                    recyclerViewWoodenLogList.layoutManager = LinearLayoutManager(applicationContext)
-                                    recyclerViewWoodenLogList
-                                        .adapter = WoodenLogListAdapter(woodenLogList, treeList, this)
-                                    setResult(woodenLogList)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        NavigationManager.let {
+            it.topNavigation(this, null)
+            it.setTopNavigationBarForPackageDetails(this)
         }
+
+        intent.getIntExtra(Settings.IntentsPutValues.PACKAGE_ID, 0).let { packageId ->
+            if (packageId < 1) {
+                this.onBackPressed()
+                return
+            }
+            currentPackageId = packageId
+            println("$currentPackageId")
+        }
+        loadView()
     }
 
-    private fun setResult(woodenLogList: List<WoodenLog>) {
-        val cubicSum = "%.2f".format(woodenLogList.sumOf { it.cubicCm } / 100.0F)
-        textViewCubicSum.text = cubicSum
-        textViewWoodenLogSum.text = woodenLogList.size.toString()
-    }
+
 
     override fun loadView() {
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
-                    this.runOnUiThread{
-                        woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
-                            woodenLog.addDate?.let {
-                                textViewPackageLastUpdateDate.text = it.toString()
-                            }
+                val woodenLogList = databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentPackageId)
+
+                if (woodenLogList.isEmpty()) { this.runOnUiThread { this.onBackPressed() } }
+
+                val treeList: List<Trees> = databaseManagerDao.treesDao().selectAll()
+
+                databaseManagerDao.woodenLogPackagesDao().selectItem(currentPackageId).let {
+                    this.runOnUiThread {
+                        textViewActivityLogPackageDetailsPackageName.text = it.name
+                        it.addDate?.let { _ ->
+                            textViewActivityLogDetailsCreationDate
+                                .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(it.addDate)
                         }
-                        recyclerViewWoodenLogList.layoutManager = LinearLayoutManager(applicationContext)
-                        recyclerViewWoodenLogList
-                            .adapter = WoodenLogListAdapter(woodenLogList, treeList, this)
-                        setResult(woodenLogList)
                     }
+                }
+                val sum: Long = woodenLogList.sumOf { it.cubicCm.toLong() }
+                val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+
+                this.runOnUiThread {
+                    woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
+                        woodenLog.addDate?.let { _ ->
+                            textViewActivityLogDetailsUpdateDate
+                                .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(woodenLog.addDate)
+                        }
+                    }
+                    textViewActivityLogPackageDetailsSum.text = sumFormat
+                    recyclerViewLogPackageDetailsList.adapter = PackageLogDetailsItemAdapter(woodenLogList, treeList, this)
                 }
             }
         }
@@ -107,110 +104,10 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     override fun removeItem(item: Int) {
         thread {
             DatabaseManagerDao.getDataBase(this)?.woodenLogDao()?.deleteItem(item)
+            loadView()
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun onClickPrintWoodPackage(view: View) {
-
-        thread {
-            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
-                    val woodPackages = databaseManagerDao.woodenLogPackagesDao().selectWithId(currentWoodPackageId)
-                    val bitmapLogo = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.wood_meas_150)
-                    val dateDocumentCreated = TimeDateFormatter.dateFromCalendarToString()
-
-                    val directory = applicationContext.applicationInfo.dataDir + "/files/"
-
-                    if (!File(directory).isDirectory) {
-                        val file = File(applicationContext.applicationInfo.dataDir, "files")
-                        file.mkdir()
-                    }
-
-                    val filePath = directory + PrintFormatter.setFileName(woodPackages.id)
-
-                    FileManager.deletePdfPackagesWoodFiles(directory)
-
-                    PrintFormatter.createPdfRapport(
-                        filePath,
-                        woodenLogList,
-                        woodPackages,
-                        treeList,
-                        bitmapLogo,
-                        dateDocumentCreated
-                    )
-
-
-                    val fileProvider = FileProvider.getUriForFile(applicationContext, "${BuildConfig.APPLICATION_ID}.provider", File(filePath))
-                    val intent =   Intent(Intent.ACTION_VIEW).apply {
-                        type = "application/pdf"
-                        data = fileProvider
-                    }
-
-                    val intentChooser = Intent.createChooser(intent, "Open  file")
-
-                    try {
-                        startActivity(intentChooser)
-                    } catch (ex: ActivityNotFoundException) {
-
-                    }
-                }
-            }
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun onClickSendByEmailWoodPackage(view: View) {
-        thread {
-            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                databaseManagerDao.woodenLogDao().selectWithWoodPackageId(currentWoodPackageId).let { woodenLogList: List<WoodenLog> ->
-                    val woodPackages = databaseManagerDao.woodenLogPackagesDao().selectWithId(currentWoodPackageId)
-                    val bitmapLogo = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.wood_meas_150)
-                    val dateDocumentCreated = TimeDateFormatter.dateFromCalendarToString()
-
-                    val directory = applicationContext.applicationInfo.dataDir + "/files/"
-
-                    if (!File(directory).isDirectory) {
-                        val file = File(applicationContext.applicationInfo.dataDir, "files")
-                        file.mkdir()
-                    }
-
-
-                    val fileNames = PrintFormatter.setFileName(woodPackages.id)
-
-                    val pdfFilePath = directory + fileNames.first
-                    val xlsFilePath = directory + fileNames.second
-
-                    FileManager.deletePdfPackagesWoodFiles(directory)
-
-                    PrintFormatter.createPdfRapport(
-                        pdfFilePath,
-                        woodenLogList,
-                        woodPackages,
-                        treeList,
-                        bitmapLogo,
-                        dateDocumentCreated
-                    )
-
-
-                    val fileExcel = File(xlsFilePath)
-                    fileExcel.createNewFile()
-
-
-                    PrintFormatter.createXlsRapport(
-                        xlsFilePath,
-                        woodenLogList,
-                        woodPackages,
-                        treeList
-                    )
-
-
-                    val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdfFilePath, xlsFilePath))
-                        startActivity(intentEmail)
-                }
-            }
-        }
-    }
 
 
 }
