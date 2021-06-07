@@ -51,10 +51,10 @@
                     android:id="@+id/textView40"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/_3"
                     android:textColor="@color/white"
-                    android:textSize="8sp"
+                    android:textSize="6sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="SmallSp" />
@@ -67,12 +67,10 @@
                     android:layout_marginRight="2dp"
                     android:text="@string/default_number"
                     android:textColor="@color/white"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView42"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.6" />
+                    app:layout_constraintEnd_toStartOf="@+id/textView42" />
 
                 <TextView
                     android:id="@+id/textView42"
@@ -80,12 +78,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
                     android:layout_marginRight="2dp"
+                    android:layout_marginBottom="2dp"
                     android:text="@string/meters_short"
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textView40"
-                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="SmallSp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -93,6 +91,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
@@ -166,8 +165,8 @@
         android:id="@+id/recyclerViewPlankPackageDetailsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         android:padding="4dp"
-        android:paddingTop="4dp"
         app:layout_constraintBottom_toTopOf="@+id/include7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

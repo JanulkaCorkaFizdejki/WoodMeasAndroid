@@ -15,10 +15,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.AppActivityManager
 import com.mobile.woodmeas.R
+import com.mobile.woodmeas.model.Plank
+import com.mobile.woodmeas.model.PlankPackages
 import com.mobile.woodmeas.model.WoodenLogPackages
 import java.text.DateFormat
 
-class WoodenPackagesListAdapter (private val woodenLogPackagesList: List<WoodenLogPackages>) :
+class PlankPackagesListAdapter (private val plankPackagesList: List<PlankPackages>) :
     RecyclerView.Adapter<WoodenPackagesListAdapterViewHolder>(){
 
     private lateinit var context: Context
@@ -37,21 +39,21 @@ class WoodenPackagesListAdapter (private val woodenLogPackagesList: List<WoodenL
     @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: WoodenPackagesListAdapterViewHolder, position: Int) {
         holder.itemView.findViewById<TextView>(R.id.textView101).apply {
-            text = (position + 1).toString() + ". "
+            text = (position + 1).toString() + "."
         }
 
         holder.itemView.findViewById<TextView>(R.id.textView102).apply {
-            text = woodenLogPackagesList[position].name
+            text = plankPackagesList[position].name
         }
 
-        woodenLogPackagesList[position].addDate?.let { addDate ->
+        plankPackagesList[position].addDate?.let { addDate ->
             holder.itemView.findViewById<TextView>(R.id.textView100).apply {
                 text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(addDate)
             }
         }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonWoodenLogPackageListItemDetails).apply {
-           setOnClickListener { (context as AppActivityManager).goToActivity(woodenLogPackagesList[position].id) }
+           setOnClickListener { (context as AppActivityManager).goToActivity(plankPackagesList[position].id) }
         }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonWoodenLogPackageListItemDeleteItem).apply {
@@ -65,7 +67,7 @@ class WoodenPackagesListAdapter (private val woodenLogPackagesList: List<WoodenL
 
                 alertDialog.setPositiveButton(R.string.delete){_: DialogInterface, _: Int ->
                     val app = context as AppActivityManager
-                    app.removeItem(woodenLogPackagesList[position].id)
+                    app.removeItem(plankPackagesList[position].id)
                 }
                 alertDialog.setOnDismissListener {
                     constraintLayoutLogPackageItemListWrapper.background = context.resources.getDrawable(R.drawable.rounded_green_medium_bg, null)
@@ -76,8 +78,8 @@ class WoodenPackagesListAdapter (private val woodenLogPackagesList: List<WoodenL
 
     }
 
-    override fun getItemCount(): Int = woodenLogPackagesList.size
+    override fun getItemCount(): Int = plankPackagesList.size
 
 }
 
-class WoodenPackagesListAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+class PlankPackagesListAdapterViewHolder(view: View) : RecyclerView.ViewHolder(view)

@@ -94,21 +94,21 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageViewPackageLogDetailsBarOnOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_height_ico_8"
+                app:srcCompat="@drawable/ic_bark_off_8"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/textViewPackageLogDetailsHeight"
+                android:id="@+id/textViewPackageLogDetailsBark"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
-                android:text="@string/default_number"
+                android:text="@string/bark"
                 android:textColor="@color/wm_gray_dark"
                 android:textSize="8sp"
                 tools:ignore="SmallSp" />

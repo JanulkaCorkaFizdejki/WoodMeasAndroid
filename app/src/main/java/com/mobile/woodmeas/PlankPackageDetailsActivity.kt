@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackagePlankDetailsItemAdapter
+import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
@@ -37,7 +38,7 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
         NavigationManager.let {
             it.topNavigation(this, null)
-            it.setTopNavigationBarForPackageDetails(this)
+            it.setTopNavigationBarForPackageDetails(this, MenuItemsType.PLANK)
         }
 
         intent.getIntExtra(Settings.IntentsPutValues.PACKAGE_ID, 0).let { packageId ->

@@ -71,4 +71,9 @@
     <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
     <string name="diameter">Średnica</string>
     <string name="package_details">Zawartość pakietu</string>
+    <string name="bark">Kora</string>
+    <string name="plank_package">Pakiet tarcicy</string>
+    <string name="log_package">Pakiet kłód</string>
+    <string name="stack_package">Pakiet stosów</string>
+    <string name="cross_stack">Stos krzyżowy</string>
 </resources>

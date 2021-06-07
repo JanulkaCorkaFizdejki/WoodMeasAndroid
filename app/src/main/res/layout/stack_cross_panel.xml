@@ -27,37 +27,32 @@
             android:layout_marginBottom="8dp">
 
             <ImageView
-                android:id="@+id/imageViewTreePanelOnOffIco"
+                android:id="@+id/imageViewStackCrossPanelOnOffIco"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_bark_off_10"
+                app:srcCompat="@drawable/ic_cross_off_10"
                 tools:ignore="ContentDescription" />
 
             <Switch
-                android:id="@+id/switchTreeModule"
+                android:id="@+id/switchCrossStackModule"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
-                android:text="@string/measurement_width_bark"
+                android:text="@string/cross_stack"
                 android:textAllCaps="true"
                 android:textColor="@color/wm_gray_dark"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageViewTreePanelOnOffIco"
+                app:layout_constraintStart_toEndOf="@+id/imageViewStackCrossPanelOnOffIco"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp,UseSwitchCompatOrMaterialXml" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Spinner
-            android:id="@+id/spinnerTreeModuleTrees"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

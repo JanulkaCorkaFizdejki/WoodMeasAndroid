@@ -56,9 +56,15 @@ object NavigationManager {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun setTopNavigationBarForPackageDetails(appCompatActivity: AppCompatActivity) {
-        appCompatActivity.findViewById<TextView>(R.id.textViewTopBarNavTitle)
-            .text = appCompatActivity.getText(R.string.package_details)
+    fun setTopNavigationBarForPackageDetails(appCompatActivity: AppCompatActivity, menuItemsType: MenuItemsType) {
+        appCompatActivity.findViewById<TextView>(R.id.textViewTopBarNavTitle).let {
+            when(menuItemsType) {
+                MenuItemsType.LOG -> it.text = appCompatActivity.getText(R.string.log_package)
+                MenuItemsType.PLANK -> it.text = appCompatActivity.getText(R.string.plank_package)
+                else -> it.text = appCompatActivity.getText(R.string.stack_package)
+            }
+        }
+
         appCompatActivity.findViewById<ImageView>(R.id.imageViewTopBarNavTitle)
             .setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_menu_item_stack_14, null))
     }

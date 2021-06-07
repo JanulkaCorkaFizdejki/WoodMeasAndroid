@@ -41,9 +41,7 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                 databaseManagerDao.plankPackagesDao().selectItem(Settings.PackagesSelect.id).let {
                     plankPackages = it
                     Settings.PackagesSelect.id = 0
-                    this.runOnUiThread {
-                        packageIsActive(true)
-                        }
+                    this.runOnUiThread { packageIsActive(true) }
                     }
                 }
             }
@@ -54,8 +52,7 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun loadView() {
 
-        val switchBark = findViewById<Switch>(R.id.switchTreeModuleBark)
-        switchBark.visibility = View.GONE
+        (findViewById<Switch>(R.id.switchTreeModule).parent as ConstraintLayout).visibility = View.GONE
 
         // Go Package List Select Activity
        findViewById<ImageButton>(R.id.imageButtonMeasResultUsePackage).let {imageButtonMeasResultUsePackage ->

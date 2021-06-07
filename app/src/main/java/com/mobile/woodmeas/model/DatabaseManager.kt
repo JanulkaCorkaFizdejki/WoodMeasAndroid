@@ -158,6 +158,12 @@ object DatabaseManager {
 
         @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.PLANK_PACKAGES}")
         fun countAll(): Int
+
+        @Query("DELETE FROM ${DbConf.TableNames.PLANK_PACKAGES} WHERE ${DbConf.TablesStruct.PlankPackages.ID}= :id")
+        fun deleteItem(id: Int)
+
+        @Query("DELETE FROM ${DbConf.TableNames.PLANK_PACKAGES}")
+        fun deleteAll()
     }
 
 @Fts4(contentEntity = PlankPackages::class)
@@ -166,7 +172,12 @@ object DatabaseManager {
 
 @Dao
     interface PlankPackagesDaoFts {
-
+    @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} JOIN ${DbConf.TableNames.PLANK_PACKAGES_FTS} ON " +
+            "${DbConf.TableNames.PLANK_PACKAGES}.${DbConf.TablesStruct.PlankPackages.ID} == " +
+            "${DbConf.TableNames.PLANK_PACKAGES_FTS}.${DbConf.TablesStruct.PlankPackagesFts.ID} WHERE " +
+            "${DbConf.TableNames.PLANK_PACKAGES_FTS}.${DbConf.TablesStruct.PlankPackagesFts.NAME} MATCH :text GROUP BY " +
+            "${DbConf.TableNames.PLANK_PACKAGES}.${DbConf.TablesStruct.Plank.ID}")
+    fun selectFromSearchText(text: String): List<PlankPackages>
     }
 // _________________________________________________________________________________________________
 
@@ -199,6 +210,9 @@ data class Plank(
 
         @Query("DELETE  FROM ${DbConf.TableNames.PLANK} WHERE ${DbConf.TablesStruct.Plank.ID} = :id")
         fun deleteItem(id: Int)
+
+        @Query("DELETE  FROM ${DbConf.TableNames.PLANK}")
+        fun deleteAll()
     }
 
 

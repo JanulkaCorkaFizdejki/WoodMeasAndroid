@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackageLogDetailsItemAdapter
 import com.mobile.woodmeas.controller.PackagePlankDetailsItemAdapter
 import com.mobile.woodmeas.controller.WoodenLogListAdapter
+import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.helpers.EmailManager
 import com.mobile.woodmeas.helpers.FileManager
 import com.mobile.woodmeas.helpers.PrintFormatter
@@ -50,7 +51,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
         NavigationManager.let {
             it.topNavigation(this, null)
-            it.setTopNavigationBarForPackageDetails(this)
+            it.setTopNavigationBarForPackageDetails(this, MenuItemsType.LOG)
         }
 
         intent.getIntExtra(Settings.IntentsPutValues.PACKAGE_ID, 0).let { packageId ->

@@ -3,6 +3,7 @@ package com.mobile.woodmeas.controller
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Paint
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -218,6 +219,18 @@ class PackageLogDetailsItemAdapter(
         holder.itemView.findViewById<TextView>(R.id.textViewLogPackageDetailsCubic).apply {
             val textFormat = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 1000000.00F)
             text = textFormat
+        }
+
+        holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsBarOnOff).let {
+            if (woodenLogList[position].barkOn > 0) {
+                it.setImageDrawable(context.getDrawable(R.drawable.ic_bark_on_8))
+            }
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
+            if (woodenLogList[position].barkOn < 1) {
+                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            }
         }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageLogDetailsDelete).apply {

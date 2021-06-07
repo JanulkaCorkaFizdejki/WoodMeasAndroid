@@ -42,7 +42,7 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
         NavigationManager.topNavigation(this, MenuData(MenuType.PACKAGES, MenuItemsType.LOG))
 
         constraintLayoutNoDataLayer             = findViewById(R.id.constraintLayoutNoDataLayer)
-        recyclerViewWoodenLogPackageListItem    = findViewById(R.id.recyclerViewWoodenLogPackageListItem)
+        recyclerViewWoodenLogPackageListItem    = findViewById(R.id.recyclerViewPlankPackageListItem)
         imageButtonAddingAndSearchingAdd        = findViewById(R.id.imageButtonAddingAndSearchingAdd)
         editTextAddingAndSearching              = findViewById(R.id.editTextAddingAndSearching)
         imageButtonAddPackageFromNoData         = findViewById(R.id.imageButtonAddPackageFromNoData)
@@ -175,13 +175,11 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
         thread {
             DatabaseManagerDao.getDataBase(applicationContext)?.let { databaseManagerDao ->
                 val countItems = databaseManagerDao.woodenLogDao().count(id)
-
-                println(id)
                 if (countItems > 0) {
                     this.runOnUiThread {
                         val intent = Intent(this, LogPackageDetailsActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        intent.putExtra(Settings.IntentsPutValues.WOOD_PACKAGE_ID, id)
+                        intent.putExtra(Settings.IntentsPutValues.PACKAGE_ID, id)
                         startActivity(intent)
                     }
                 }

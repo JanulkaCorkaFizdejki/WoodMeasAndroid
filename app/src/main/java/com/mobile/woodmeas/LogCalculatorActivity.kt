@@ -175,7 +175,7 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
         val length          = findViewById<SeekBar>(R.id.seekBarMeasureLength).progress
         val diameter        = findViewById<SeekBar>(R.id.seekBarMeasureDiameter).progress
         val tree: Trees     = findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees
-        val switchBarkOn    = findViewById<Switch>(R.id.switchTreeModuleBark)
+        val switchBarkOn    = findViewById<Switch>(R.id.switchTreeModule)
 
         val treeForCalc: Trees? = if (switchBarkOn.isChecked) { tree } else null
 

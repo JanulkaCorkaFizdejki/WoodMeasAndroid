@@ -3,9 +3,11 @@ package com.mobile.woodmeas
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -37,18 +39,23 @@ interface AppActivityManager {
             }
         }
 
-        appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).apply {
-            setOnClickListener {
-                if (this.isChecked) {
-                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_green_medium))
-                }
-                else {
-                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_gray_dark))
-                }
-            }
-        }
+//        appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).apply {
+//            setOnClickListener {
+//
+//                if (this.isChecked) {
+//                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_green_medium))
+//                }
+//                else {
+//                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_gray_dark))
+//                }
+//            }
+//        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("UseSwitchCompatOrMaterialCode", "ResourceAsColor",
+        "UseCompatLoadingForDrawables"
+    )
     fun calculationManager(appCompatActivity: AppCompatActivity) {
 
         Settings.PackagesSelect.id = 0
@@ -68,6 +75,13 @@ interface AppActivityManager {
                         Measure.LENGTH,
                         Measure.DIAMETER
                     ) }
+                is StackCalculatorActivity -> {
+                    listOf(
+                        Measure.LENGTH,
+                        Measure.WIDTH,
+                        Measure.THICKNESS
+                    )
+                }
                 else -> listOf()
             }
 
@@ -90,7 +104,7 @@ interface AppActivityManager {
                 }
                 else if (appCompatActivity is LogCalculatorActivity) {
                     val tree: Trees? =
-                        if (appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).isChecked)
+                        if (appCompatActivity.findViewById<Switch>(R.id.switchTreeModule).isChecked)
                             { appCompatActivity.findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees }
                         else null
 
@@ -203,7 +217,19 @@ interface AppActivityManager {
         }
 
         if (appCompatActivity is LogCalculatorActivity) {
-            appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).setOnClickListener { setResult() }
+            appCompatActivity.findViewById<Switch>(R.id.switchTreeModule).let { switch ->
+                switch.setOnCheckedChangeListener { _, boolean ->
+                    appCompatActivity.findViewById<ImageView>(R.id.imageViewTreePanelOnOffIco)
+                        .setImageDrawable(
+                            if (boolean)
+                                appCompatActivity.getDrawable(R.drawable.ic_bark_on_10_green)
+                            else appCompatActivity.getDrawable(R.drawable.ic_bark_off_10)
+                        )
+                    setResult()
+                }
+            }
+
+
             appCompatActivity.findViewById<Spinner>(R.id.spinnerTreeModuleTrees)
                 .onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -214,5 +240,20 @@ interface AppActivityManager {
             }
         }
 
+        // Set stack cross panel
+        if (appCompatActivity is StackCalculatorActivity) {
+            appCompatActivity.findViewById<Switch>(R.id.switchCrossStackModule).let { switch ->
+                switch.setOnCheckedChangeListener { _, boolean ->
+                    println("xxxxxxxxx")
+                    appCompatActivity.findViewById<ImageView>(R.id.imageViewStackCrossPanelOnOffIco)
+                        .setImageDrawable(
+                            if (boolean)
+                                appCompatActivity.getDrawable(R.drawable.ic_cross_on_10_green)
+                            else appCompatActivity.getDrawable(R.drawable.ic_cross_off_10)
+                        )
+                   // setResult()
+                }
+            }
+        }
     }
 }
