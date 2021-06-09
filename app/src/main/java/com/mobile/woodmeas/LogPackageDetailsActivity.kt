@@ -60,7 +60,6 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 return
             }
             currentPackageId = packageId
-            println("$currentPackageId")
         }
         loadView()
     }

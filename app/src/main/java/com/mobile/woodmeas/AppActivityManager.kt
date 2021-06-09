@@ -38,18 +38,6 @@ interface AppActivityManager {
                 }
             }
         }
-
-//        appCompatActivity.findViewById<Switch>(R.id.switchTreeModuleBark).apply {
-//            setOnClickListener {
-//
-//                if (this.isChecked) {
-//                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_green_medium))
-//                }
-//                else {
-//                    this.setTextColor(appCompatActivity.resources.getColor(R.color.wm_gray_dark))
-//                }
-//            }
-//        }
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

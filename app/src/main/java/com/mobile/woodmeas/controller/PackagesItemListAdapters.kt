@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.AppActivityManager
 import com.mobile.woodmeas.R
 import com.mobile.woodmeas.model.Plank
+import com.mobile.woodmeas.model.Stack
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.model.WoodenLog
 import java.text.DateFormat
@@ -104,9 +105,9 @@ class PackagePlankDetailsItemAdapter(
     private lateinit var context: Context
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
         val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
-        val packagePlantDetailsView: View = layoutInflater.inflate(R.layout.package_plank_details_item, viewGroup, false)
+        val packagePlankDetailsView: View = layoutInflater.inflate(R.layout.package_plank_details_item, viewGroup, false)
         context = viewGroup.context
-        return PackagesItemListViewHolder(packagePlantDetailsView)
+        return PackagesItemListViewHolder(packagePlankDetailsView)
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -181,9 +182,9 @@ class PackageLogDetailsItemAdapter(
     private lateinit var context: Context
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
         val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
-        val packagePlantDetailsView: View = layoutInflater.inflate(R.layout.package_log_details_item, viewGroup, false)
+        val packageLogDetailsView: View = layoutInflater.inflate(R.layout.package_log_details_item, viewGroup, false)
         context = viewGroup.context
-        return PackagesItemListViewHolder(packagePlantDetailsView)
+        return PackagesItemListViewHolder(packageLogDetailsView)
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -255,6 +256,108 @@ class PackageLogDetailsItemAdapter(
     }
 
     override fun getItemCount(): Int = woodenLogList.size
+
+}
+
+class PackageStackDetailsItemAdapter(
+    private val stackList: List<Stack>,
+    private val trees: List<Trees>,
+    private val appActivityManager: AppActivityManager
+) : RecyclerView.Adapter<PackagesItemListViewHolder>() {
+    private lateinit var context: Context
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
+        val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
+        val packageStackDetailsView: View = layoutInflater.inflate(R.layout.package_stack_details_item, viewGroup, false)
+        context = viewGroup.context
+        return PackagesItemListViewHolder(packageStackDetailsView)
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onBindViewHolder(holder: PackagesItemListViewHolder, position: Int) {
+
+        holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsId).apply {
+            val textFormat = "${position + 1}."
+            text = textFormat
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsLength).apply {
+            val textFormat = "${"%.1f".format(stackList[position].length.toFloat() / 100.00F)} m"
+            text = textFormat
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsWidth).apply {
+            val textFormat = "${"%.1f".format(stackList[position].width.toFloat() / 100.00F)} m"
+            text = textFormat
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsHeight).apply {
+            val textFormat = "${"%.1f".format(stackList[position].height.toFloat() / 100.00F)} m"
+            text = textFormat
+        }
+
+        holder.itemView.findViewById<ImageView>(R.id.imageViewPackageStackDetailsCrossIco).apply {
+            if (stackList[position].cross > 0) {
+                setImageDrawable(context.resources.getDrawable(R.drawable.ic_cross_on_8, null))
+            }
+
+            else {
+                setImageDrawable(context.resources.getDrawable(R.drawable.ic_cross_off_8, null))
+                alpha = 0.5F
+            }
+
+        }
+
+
+        trees.first { it.id == stackList[position].treeId }.let {
+            if (it.type > 0) {
+                holder.itemView.findViewById<ImageView>(R.id.imageViewPackageStackDetailsTreeIco).apply {
+                    setImageDrawable(context.resources.getDrawable(R.drawable.ic_tree_conifer_green_8, null))
+                }
+            }
+            holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsTreeName)
+                .text = it.name
+        }
+
+        holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsCubic).apply {
+            val textFormat = "%.2f".format(stackList[position].cubicCm.toFloat() / 1000000.00F)
+            text = textFormat
+        }
+
+//        holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsBarOnOff).let {
+//            if (woodenLogList[position].barkOn > 0) {
+//                it.setImageDrawable(context.getDrawable(R.drawable.ic_bark_on_8))
+//            }
+//        }
+//
+//        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
+//            if (woodenLogList[position].barkOn < 1) {
+//                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+//            }
+//        }
+
+        holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageStackDetailsDelete).apply {
+            val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageStackDetails)
+
+            setOnClickListener {
+                constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_red_bg, null)
+
+                val alertBuilder = AlertDialog.Builder(context)
+                alertBuilder.setTitle(R.string.do_you_want_delete_element_question)
+                alertBuilder.setNegativeButton(R.string.cancel) {_:DialogInterface, _:Int -> }
+                alertBuilder.setPositiveButton(R.string.ok) {_:DialogInterface, _:Int ->
+                    appActivityManager.removeItem(stackList[position].id)
+                }
+                alertBuilder.setOnDismissListener {
+                    constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_white_bg, null)
+                }
+                alertBuilder.show()
+            }
+        }
+
+    }
+
+    override fun getItemCount(): Int = stackList.size
 
 }
 

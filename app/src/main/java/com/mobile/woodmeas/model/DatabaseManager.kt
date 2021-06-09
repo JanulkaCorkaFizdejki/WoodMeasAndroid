@@ -1,6 +1,7 @@
 package com.mobile.woodmeas.model
 
 import android.content.Context
+import android.database.CrossProcessCursor
 import androidx.room.*
 import com.mobile.woodmeas.PlankCalculatorActivity
 import java.io.File
@@ -19,6 +20,9 @@ object DbConf {
         const val PLANK                     = "plank"
         const val PLANK_PACKAGES            = "plank_packages"
         const val PLANK_PACKAGES_FTS        = "plank_packages_fts"
+        const val STACK                     = "stack"
+        const val STACK_PACKAGES            = "stack_packages"
+        const val STACK_PACKAGES_FTS        = "stack_packages_fts"
     }
 
     object TablesStruct {
@@ -74,6 +78,29 @@ object DbConf {
             const val CUBIC_CM          = "cubic_cm"
             const val TREE_ID           = "tree_id"
             const val ADD_DATE          = "add_date"
+        }
+
+        object Stack {
+            const val ID                = "id"
+            const val STACK_PACKAGES_ID = "stack_packages_id"
+            const val LENGTH            = "length"
+            const val WIDTH             = "width"
+            const val HEIGHT            = "height"
+            const val CUBIC_CM          = "cubic_cm"
+            const val CROSS             = "cross"
+            const val TREE_ID           = "tree_id"
+            const val ADD_DATE          = "add_date"
+        }
+
+        object StackPackages {
+            const val ID        = "id"
+            const val NAME      = "name"
+            const val ADD_DATE  = "add_date"
+        }
+
+        object StackPackagesFts {
+            const val ID        = "id"
+            const val NAME      = "name"
         }
     }
 }
@@ -134,6 +161,90 @@ object DatabaseManager {
         @Insert (onConflict = OnConflictStrategy.REPLACE)
         fun insert(trees: Trees)
     }
+
+// STACK ___________________________________________________________________________________________
+
+@Entity(tableName = DbConf.TableNames.STACK)
+    data class Stack(
+    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.STACK_PACKAGES_ID) val stackPackagesId: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.LENGTH) val length: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.WIDTH) val width: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.HEIGHT) val height: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.CUBIC_CM) val cubicCm: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.CROSS) val cross: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.TREE_ID) val treeId: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Stack.ADD_DATE) val addDate: Date?
+)
+
+@Dao
+    interface StackDao {
+        @Insert
+        fun insert(stack: Stack)
+
+        @Query("SELECT * FROM ${DbConf.TableNames.STACK} ORDER BY ${DbConf.TablesStruct.Stack.ID} DESC")
+        fun selectAll(): List<Stack>
+
+        @Query("SELECT * FROM ${DbConf.TableNames.STACK} WHERE ${DbConf.TablesStruct.Stack.STACK_PACKAGES_ID} = :id ORDER BY ${DbConf.TablesStruct.Stack.ID} DESC")
+        fun selectWithPackageId(id: Int): List<Stack>
+
+        @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.STACK} WHERE ${DbConf.TablesStruct.Stack.STACK_PACKAGES_ID} = :id")
+        fun countWithPackageId(id: Int): Int
+
+        @Query("DELETE  FROM ${DbConf.TableNames.STACK} WHERE ${DbConf.TablesStruct.Stack.STACK_PACKAGES_ID} = :id")
+        fun deleteWithPackageId(id: Int)
+
+        @Query("DELETE  FROM ${DbConf.TableNames.STACK} WHERE ${DbConf.TablesStruct.Stack.ID} = :id")
+        fun deleteItem(id: Int)
+
+        @Query("DELETE  FROM ${DbConf.TableNames.STACK}")
+        fun deleteAll()
+    }
+
+@Entity(tableName = DbConf.TableNames.STACK_PACKAGES)
+data class StackPackages(
+    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = DbConf.TablesStruct.StackPackages.NAME) val name: String,
+    @ColumnInfo(name = DbConf.TablesStruct.StackPackages.ADD_DATE) val addDate: Date?
+)
+
+@Dao
+interface StackPackagesDao {
+    @Insert
+    fun insert(stackPackages: StackPackages)
+
+    @Query("SELECT * FROM ${DbConf.TableNames.STACK_PACKAGES} ORDER BY ${DbConf.TablesStruct.StackPackages.ID} DESC")
+    fun selectAll(): List<StackPackages>
+
+    @Query("SELECT * FROM ${DbConf.TableNames.STACK_PACKAGES} ORDER BY ${DbConf.TablesStruct.StackPackages.ID} DESC LIMIT 1")
+    fun selectLast(): StackPackages
+
+    @Query("SELECT * FROM ${DbConf.TableNames.STACK_PACKAGES} WHERE ${DbConf.TablesStruct.StackPackages.ID} = :id")
+    fun selectItem(id: Int): StackPackages
+
+    @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.STACK_PACKAGES}")
+    fun countAll(): Int
+
+    @Query("DELETE FROM ${DbConf.TableNames.STACK_PACKAGES} WHERE ${DbConf.TablesStruct.StackPackages.ID}= :id")
+    fun deleteItem(id: Int)
+
+    @Query("DELETE FROM ${DbConf.TableNames.STACK_PACKAGES}")
+    fun deleteAll()
+}
+
+@Fts4(contentEntity = StackPackages::class)
+@Entity(tableName = DbConf.TableNames.STACK_PACKAGES_FTS)
+class StackPackagesFts(val id: String, val name: String)
+
+@Dao
+interface StackPackagesDaoFts {
+    @Query("SELECT * FROM ${DbConf.TableNames.STACK_PACKAGES} JOIN ${DbConf.TableNames.STACK_PACKAGES_FTS} ON " +
+            "${DbConf.TableNames.STACK_PACKAGES}.${DbConf.TablesStruct.StackPackages.ID} == " +
+            "${DbConf.TableNames.STACK_PACKAGES_FTS}.${DbConf.TablesStruct.StackPackagesFts.ID} WHERE " +
+            "${DbConf.TableNames.STACK_PACKAGES_FTS}.${DbConf.TablesStruct.StackPackagesFts.NAME} MATCH :text GROUP BY " +
+            "${DbConf.TableNames.STACK_PACKAGES}.${DbConf.TablesStruct.Stack.ID}")
+    fun selectFromSearchText(text: String): List<StackPackages>
+}
 
 // PLANK PACKAGES __________________________________________________________________________________
 @Entity(tableName = DbConf.TableNames.PLANK_PACKAGES)
@@ -327,7 +438,10 @@ class Converters {
     WoodenLog::class,
     PlankPackages::class,
     PlankPackagesFts::class,
-    Plank::class
+    Plank::class,
+    Stack::class,
+    StackPackages::class,
+    StackPackagesFts::class
                      ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class DatabaseManagerDao : RoomDatabase() {
@@ -338,6 +452,9 @@ abstract class DatabaseManagerDao : RoomDatabase() {
     abstract fun plankPackagesDao(): PlankPackagesDao
     abstract fun plankPackagesDaoFts(): PlankPackagesDaoFts
     abstract fun plankDao(): PlankDao
+    abstract fun stackDao(): StackDao
+    abstract fun stackPackagesDao(): StackPackagesDao
+    abstract fun stackPackageDaoFts(): StackPackagesDaoFts
 
     companion object {
         private var INSTANCE: DatabaseManagerDao? = null

@@ -23,6 +23,23 @@ object Calculator {
         }
     }
 
+    fun stackFormat(length: Int, width: Int, height: Int, tree: Trees?, cross: Boolean): String {
+        if (tree == null) {
+            val v = Math.PI * (width * width).toFloat() * (length.toFloat() / 100.0F) / 40000.0F
+            return "%.2f".format(v)
+        }
+
+        else {
+            val widthMinusBark = setWidthMinusBark(width, tree)
+            return if (widthMinusBark > 0) {
+                val v = Math.PI * (widthMinusBark * widthMinusBark).toFloat() * (length.toFloat() / 100.0F) / 40000.0F
+                return "%.2f".format(v)
+            } else {
+                "0.00"
+            }
+        }
+    }
+
     private fun setWidthMinusBark(width: Int, tree: Trees): Int {
         return when (width) {
             in 0..24    ->    width - tree.dim1
