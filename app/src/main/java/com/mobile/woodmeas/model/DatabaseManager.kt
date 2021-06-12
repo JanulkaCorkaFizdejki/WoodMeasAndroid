@@ -2,6 +2,7 @@ package com.mobile.woodmeas.model
 
 import android.content.Context
 import android.database.CrossProcessCursor
+import androidx.appcompat.R
 import androidx.room.*
 import com.mobile.woodmeas.PlankCalculatorActivity
 import java.io.File
@@ -151,7 +152,11 @@ object DatabaseManager {
     @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_3) val dim3: Int,
     @ColumnInfo(name = DbConf.TablesStruct.Trees.DIM_4) val dim4: Int,
     @ColumnInfo(name = DbConf.TablesStruct.Trees.TYPE) val type: Int
-    )
+    ) {
+        fun getNameFromRes(context: Context): String {
+            return context.resources.getStringArray(com.mobile.woodmeas.R.array.trees)[id - 1]
+        }
+    }
 
 @Dao
     interface TreesDao {
@@ -408,7 +413,7 @@ data class WoodenLog(
     @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
     fun countWithPackageId(id: Int): Int
 
-    @Query("SELECT count(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
+    @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")
     fun count(id: Int): Int
 
     @Query("DELETE FROM ${DbConf.TableNames.WOODEN_LOG} WHERE ${DbConf.TablesStruct.WoodenLog.WOOD_PACKAGES_ID} = :id")

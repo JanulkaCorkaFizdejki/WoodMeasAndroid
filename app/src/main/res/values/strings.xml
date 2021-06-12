@@ -76,4 +76,23 @@
     <string name="log_package">Pakiet kłód</string>
     <string name="stack_package">Pakiet stosów</string>
     <string name="cross_stack">Stos krzyżowy</string>
+    <string-array name="trees">
+        <item>Świerk</item>
+        <item>Jodła</item>
+        <item>Sosna</item>
+        <item>Modrzew</item>
+        <item>Brzoza</item>
+        <item>Buk</item>
+        <item>Grab</item>
+        <item>Klon</item>
+        <item>Jesion</item>
+        <item>Jawor</item>
+        <item>Lipa</item>
+        <item>Olcha</item>
+        <item>Osika</item>
+        <item>Topola</item>
+        <item>Wiąz</item>
+        <item>Dąb</item>
+        <item>Akacja</item>
+    </string-array>
 </resources>

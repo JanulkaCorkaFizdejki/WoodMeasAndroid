@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.MenuItemsAdapter
 import com.mobile.woodmeas.datamodel.MenuType
+import com.mobile.woodmeas.helpers.PdfPrinter
 import com.mobile.woodmeas.model.DatabaseManager
 import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
 import kotlin.concurrent.thread
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         thread { dbManager() }
 
+
     }
 
     override fun onStart() {
@@ -79,9 +81,6 @@ class MainActivity : AppCompatActivity() {
         rotateAnimation = null
     }
 
-    fun onClickLayout(view: View) {
-        println("xxxxxxxxxxxx")
-    }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun onClickMenuButton(view: View) {

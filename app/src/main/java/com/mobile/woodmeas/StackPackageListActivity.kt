@@ -1,6 +1,7 @@
 package com.mobile.woodmeas
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ import com.mobile.woodmeas.datamodel.MenuData
 import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.model.DatabaseManagerDao
+import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.StackPackages
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import java.util.*
@@ -162,6 +164,30 @@ class StackPackageListActivity : AppCompatActivity(), AppActivityManager {
     private fun loadListFromSearch(stackPackages: List<StackPackages>) {
         this.runOnUiThread {
             recyclerViewStackPackageListItem.adapter = StackPackagesListAdapter(stackPackages)
+        }
+    }
+
+    override fun goToActivity(id: Int) {
+        thread {
+            DatabaseManagerDao.getDataBase(applicationContext)?.let { databaseManagerDao ->
+                val countItems = databaseManagerDao.stackDao().countWithPackageId(id)
+                if (countItems > 0) {
+                    this.runOnUiThread {
+                        val intent = Intent(this, StackPackageDetailsActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        intent.putExtra(Settings.IntentsPutValues.PACKAGE_ID, id)
+                        startActivity(intent)
+                    }
+                }
+                else {
+                    this.runOnUiThread {
+                        val alertDialog = AlertDialog.Builder(this)
+                        alertDialog.setMessage(R.string.package_is_empty)
+                        alertDialog.setPositiveButton("OK"){_: DialogInterface, _: Int ->}
+                        alertDialog.show()
+                    }
+                }
+            }
         }
     }
 }

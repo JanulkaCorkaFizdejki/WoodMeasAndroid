@@ -40,6 +40,7 @@ object PrintFormatter {
 
         page.canvas.drawBitmap(logo, null, Rect(margin, 30, 120, 70), null)
 
+
         // Add date document create ________________________________________________________________
         TextPaint().apply {
             textSize = 8f

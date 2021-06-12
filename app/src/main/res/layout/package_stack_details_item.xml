@@ -93,7 +93,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_cross_off_8" />
+            app:srcCompat="@drawable/ic_cross_off_8"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:id="@+id/linearLayout10"
