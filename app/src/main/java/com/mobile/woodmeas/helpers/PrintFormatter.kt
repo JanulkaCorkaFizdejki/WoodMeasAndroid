@@ -5,6 +5,8 @@ import android.graphics.pdf.*
 import android.os.Build
 import android.text.TextPaint
 import androidx.annotation.RequiresApi
+import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.model.*
 import org.apache.poi.hssf.usermodel.HSSFCellStyle
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
@@ -407,10 +409,10 @@ object PrintFormatter {
 
     }
 
-    fun setFileName(woodPackageId: Int): Pair<String, String> {
+    fun setFileName(woodPackageId: Int, menuType: MenuItemsType): Pair<String, String> {
         val unixTime = System.currentTimeMillis() / 1000
         return Pair(
-            "${Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.pdf",
-            "${Settings.PDF_FILE_NAME_PREFIX}_${unixTime}_$woodPackageId.xls")
+            "wood_meas_${menuType.chunkFileName()}_${unixTime}_$woodPackageId.pdf",
+            "wood_meas_${menuType.chunkFileName()}_${unixTime}_$woodPackageId.xls")
     }
 }

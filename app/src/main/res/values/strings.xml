@@ -95,4 +95,16 @@
         <item>Dąb</item>
         <item>Akacja</item>
     </string-array>
+    <string name="yes_short">T</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">D/CM</string>
+    <string name="width_short_cm">S/CM</string>
+    <string name="height_short_cm">W/CM</string>
+    <string name="diameter_short_cm">Ś/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">KORA</string>
+    <string name="tree">DRZEWO</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATA</string>
 </resources>

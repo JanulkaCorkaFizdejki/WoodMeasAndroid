@@ -1,18 +1,25 @@
 package com.mobile.woodmeas
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackageStackDetailsItemAdapter
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.helpers.FileManager
+import com.mobile.woodmeas.helpers.PdfPrinter
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
+import java.io.File
 import java.text.DateFormat
 import kotlin.concurrent.thread
 
@@ -24,7 +31,7 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var textViewActivityLogPackageDetailsSum: TextView
     private var currentPackageId: Int = 0
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stack_package_details)
@@ -50,6 +57,26 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
         }
 
         loadView()
+
+        // Bottom email and print nav ______________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtonBottomNavigationPrint).setOnClickListener {
+            val directory = applicationContext.applicationInfo.dataDir + "/files/"
+            if (!File(directory).isDirectory) {
+                File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
+            }
+            FileManager.deletePdfPackagesWoodFiles(directory)
+            thread {
+                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
+                    val fileProvider = FileProvider.getUriForFile(applicationContext, "${BuildConfig.APPLICATION_ID}.provider", File(pdf))
+                    val intent =   Intent(Intent.ACTION_VIEW).apply {
+                        type = "application/pdf"
+                        data = fileProvider
+                    }
+                    try { startActivity(Intent.createChooser(intent, "Open  file"))
+                    } catch (ex: ActivityNotFoundException) { }
+                }
+            }
+        }
     }
 
     override fun loadView() {
@@ -88,6 +115,9 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     }
 
     override fun removeItem(item: Int) {
-        TODO("Not yet implemented")
+        thread {
+            DatabaseManagerDao.getDataBase(this)?.stackDao()?.deleteItem(item)
+            loadView()
+        }
     }
 }
