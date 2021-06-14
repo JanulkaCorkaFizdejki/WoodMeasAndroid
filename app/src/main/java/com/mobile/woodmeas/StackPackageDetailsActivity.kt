@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackageStackDetailsItemAdapter
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.helpers.EmailManager
 import com.mobile.woodmeas.helpers.FileManager
 import com.mobile.woodmeas.helpers.PdfPrinter
+import com.mobile.woodmeas.helpers.XlsPrinter
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
@@ -58,7 +60,7 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
         loadView()
 
-        // Bottom email and print nav ______________________________________________________________
+        // Print bottom navigation button __________________________________________________________
         findViewById<ImageButton>(R.id.imageButtonBottomNavigationPrint).setOnClickListener {
             val directory = applicationContext.applicationInfo.dataDir + "/files/"
             if (!File(directory).isDirectory) {
@@ -74,6 +76,23 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     }
                     try { startActivity(Intent.createChooser(intent, "Open  file"))
                     } catch (ex: ActivityNotFoundException) { }
+                }
+            }
+        }
+
+        // Email bottom navigation button __________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtonBottomNavigationEmail).setOnClickListener {
+            val directory = applicationContext.applicationInfo.dataDir + "/files/"
+            if (!File(directory).isDirectory) {
+                File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
+            }
+            FileManager.deletePdfPackagesWoodFiles(directory)
+            thread {
+                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
+                    XlsPrinter.create(this, currentPackageId, directory)?.let { xls->
+                        val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdf, xls))
+                        startActivity(intentEmail)
+                    }
                 }
             }
         }

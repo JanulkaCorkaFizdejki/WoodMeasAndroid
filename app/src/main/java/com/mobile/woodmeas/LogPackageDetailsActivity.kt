@@ -60,7 +60,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
         }
         loadView()
 
-        // Bottom email and print nav ______________________________________________________________
+        // Print bottom navigation button __________________________________________________________
         findViewById<ImageButton>(R.id.imageButtonBottomNavigationPrint).setOnClickListener {
             val directory = applicationContext.applicationInfo.dataDir + "/files/"
             if (!File(directory).isDirectory) {
@@ -76,6 +76,22 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     }
                     try { startActivity(Intent.createChooser(intent, "Open  file"))
                     } catch (ex: ActivityNotFoundException) { }
+                }
+            }
+        }
+        // Email bottom navigation button __________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtonBottomNavigationEmail).setOnClickListener {
+            val directory = applicationContext.applicationInfo.dataDir + "/files/"
+            if (!File(directory).isDirectory) {
+                File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
+            }
+            FileManager.deletePdfPackagesWoodFiles(directory)
+            thread {
+                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
+                   XlsPrinter.create(this, currentPackageId, directory)?.let { xls->
+                       val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdf, xls))
+                        startActivity(intentEmail)
+                   }
                 }
             }
         }
