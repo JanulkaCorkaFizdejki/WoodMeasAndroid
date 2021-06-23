@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackagePlankDetailsItemAdapter
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.helpers.EmailManager
 import com.mobile.woodmeas.helpers.FileManager
 import com.mobile.woodmeas.helpers.PdfPrinter
@@ -32,6 +33,7 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var textViewActivityPlankDetailsUpdateDate: TextView
     private lateinit var textViewActivityPlankPackageDetailsSum: TextView
     private var currentPackageId: Int = 0
+    private var unitsMeasurement = UnitsMeasurement.CM
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,9 +68,9 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             if (!File(directory).isDirectory) {
                 File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
             }
-            FileManager.deletePdfPackagesWoodFiles(directory)
+            FileManager.deleteRapportFiles(directory)
             thread {
-                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
+                PdfPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { pdf->
                     val fileProvider = FileProvider.getUriForFile(applicationContext, "${BuildConfig.APPLICATION_ID}.provider", File(pdf))
                     val intent =   Intent(Intent.ACTION_VIEW).apply {
                         type = "application/pdf"
@@ -86,10 +88,10 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             if (!File(directory).isDirectory) {
                 File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
             }
-            FileManager.deletePdfPackagesWoodFiles(directory)
+            FileManager.deleteRapportFiles(directory)
             thread {
-                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
-                    XlsPrinter.create(this, currentPackageId, directory)?.let { xls->
+                PdfPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { pdf->
+                    XlsPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { xls->
                         val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdf, xls))
                         startActivity(intentEmail)
                     }
@@ -107,6 +109,9 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 if (plankList.isEmpty()) { this.runOnUiThread { this.onBackPressed() } }
 
                 val treeList: List<Trees> = databaseManagerDao.treesDao().selectAll()
+
+                unitsMeasurement = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
+
                 databaseManagerDao.plankPackagesDao().selectItem(currentPackageId).let {
                     this.runOnUiThread {
                         textViewActivityPlankPackageDetailsPackageName.text = it.name
@@ -118,7 +123,11 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 }
 
                 val sum: Long = plankList.sumOf { it.cubicCm.toLong() }
-                val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                val sumFormat = if(unitsMeasurement == UnitsMeasurement.CM)
+                {"%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")}
+                else {
+                    UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                }
                 this.runOnUiThread {
                     plankList.maxByOrNull { it.id }?.let { plank ->
                         plank.addDate?.let { _ ->
@@ -126,8 +135,9 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                                 .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(plank.addDate)
                         }
                     }
+                    findViewById<TextView>(R.id.textViewUnitMeasurmentLog).text = unitsMeasurement.getNameUnitCubic(this)
                     textViewActivityPlankPackageDetailsSum.text = sumFormat
-                    recyclerViewPlankPackageDetailsList.adapter = PackagePlankDetailsItemAdapter(plankList, treeList, this)
+                    recyclerViewPlankPackageDetailsList.adapter = PackagePlankDetailsItemAdapter(plankList, treeList, this, unitsMeasurement)
                 }
             }
         }

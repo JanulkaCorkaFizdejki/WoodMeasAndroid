@@ -9,6 +9,9 @@ enum class Measure {
         override fun getTextViewMVal(): Int  = R.id.textViewMeasureLengthMVal
         override fun getImageButtonPlus(): Int = R.id.imageButtonMeasureLengthPlus
         override fun getImageButtonMinus(): Int = R.id.imageButtonMeasureLengthMinus
+        override fun getUnitCm(): Int = R.id.textViewMeasureLengthCm
+        override fun getUnitM(): Int = R.id.textViewMeasureLengthM
+
     },
 
     WIDTH {
@@ -17,6 +20,8 @@ enum class Measure {
         override fun getTextViewMVal(): Int  = R.id.textViewMeasureWidthMVal
         override fun getImageButtonPlus(): Int = R.id.imageButtonMeasureWidthPlus
         override fun getImageButtonMinus(): Int = R.id.imageButtonMeasureWidthMinus
+        override fun getUnitCm(): Int = R.id.textViewMeasureWidthCm
+        override fun getUnitM(): Int = R.id.textViewMeasureWidthM
     },
 
     DIAMETER {
@@ -25,6 +30,8 @@ enum class Measure {
         override fun getTextViewMVal(): Int  = R.id.textViewMeasureDiameterMVal
         override fun getImageButtonPlus(): Int = R.id.imageButtonMeasureDiameterPlus
         override fun getImageButtonMinus(): Int = R.id.imageButtonMeasureDiameterMinus
+        override fun getUnitCm(): Int = R.id.textViewMeasureDiameterCm
+        override fun getUnitM(): Int = R.id.textViewMeasureDiameterM
     },
 
     THICKNESS {
@@ -33,6 +40,8 @@ enum class Measure {
         override fun getTextViewMVal(): Int  = R.id.textViewMeasureThicknessMVal
         override fun getImageButtonPlus(): Int = R.id.imageButtonMeasureThicknessPlus
         override fun getImageButtonMinus(): Int = R.id.imageButtonMeasureThicknessMinus
+        override fun getUnitCm(): Int = R.id.textViewMeasureThicknessCm
+        override fun getUnitM(): Int = R.id.textViewMeasureThicknessM
     };
 
     abstract fun getSeekBar(): Int
@@ -40,4 +49,6 @@ enum class Measure {
     abstract fun getTextViewMVal(): Int
     abstract fun getImageButtonPlus(): Int
     abstract fun getImageButtonMinus(): Int
+    abstract fun getUnitCm(): Int
+    abstract fun getUnitM(): Int
 }

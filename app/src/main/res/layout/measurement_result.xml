@@ -29,7 +29,7 @@
             tools:ignore="RtlSymmetry" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/textViewMeasResultMUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

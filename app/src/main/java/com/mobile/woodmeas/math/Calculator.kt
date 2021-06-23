@@ -6,6 +6,8 @@ object Calculator {
 
     fun rectangular(length: Int, width: Int, height: Int ): Int = length * width * height
 
+    fun rectangularToLong(length: Int, width: Int, height: Int ): Long = length.toLong() * width.toLong() * height.toLong()
+
     fun logFormat(length: Int, width: Int, tree: Trees?): String {
         if (tree == null) {
             val v = Math.PI * (width * width).toFloat() * (length.toFloat() / 100.0F) / 40000.0F

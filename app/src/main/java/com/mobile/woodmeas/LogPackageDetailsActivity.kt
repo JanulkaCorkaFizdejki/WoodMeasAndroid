@@ -16,10 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.PackageLogDetailsItemAdapter
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.helpers.*
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
+import com.mobile.woodmeas.viewcontrollers.CubicToMoney
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import java.io.File
 import java.text.DateFormat
@@ -32,6 +34,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var textViewActivityLogDetailsUpdateDate: TextView
     private lateinit var textViewActivityLogPackageDetailsSum: TextView
     private var currentPackageId: Int = 0
+    private var unitsMeasurement = UnitsMeasurement.CM
 
     @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -66,9 +69,9 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             if (!File(directory).isDirectory) {
                 File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
             }
-            FileManager.deletePdfPackagesWoodFiles(directory)
+            FileManager.deleteRapportFiles(directory)
             thread {
-                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
+                PdfPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { pdf->
                     val fileProvider = FileProvider.getUriForFile(applicationContext, "${BuildConfig.APPLICATION_ID}.provider", File(pdf))
                     val intent =   Intent(Intent.ACTION_VIEW).apply {
                         type = "application/pdf"
@@ -85,15 +88,22 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             if (!File(directory).isDirectory) {
                 File(applicationContext.applicationInfo.dataDir, "files").apply { mkdir() }
             }
-            FileManager.deletePdfPackagesWoodFiles(directory)
+            FileManager.deleteRapportFiles(directory)
             thread {
-                PdfPrinter.create(this, currentPackageId, directory)?.let { pdf->
-                   XlsPrinter.create(this, currentPackageId, directory)?.let { xls->
+                PdfPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { pdf->
+                   XlsPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { xls->
                        val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdf, xls))
                         startActivity(intentEmail)
                    }
                 }
             }
+        }
+        // Cubic to Money __________________________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtomBottomNavigationCubicToMoney).setOnClickListener {
+            val m3 = textViewActivityLogPackageDetailsSum.text.toString()
+                .replace(",", ".")
+                .toFloat()
+            CubicToMoney.run(this, m3)
         }
     }
 
@@ -108,6 +118,8 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
                 val treeList: List<Trees> = databaseManagerDao.treesDao().selectAll()
 
+                unitsMeasurement = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
+
                 databaseManagerDao.woodenLogPackagesDao().selectItem(currentPackageId).let {
                     this.runOnUiThread {
                         textViewActivityLogPackageDetailsPackageName.text = it.name
@@ -118,7 +130,11 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     }
                 }
                 val sum: Long = woodenLogList.sumOf { it.cubicCm.toLong() }
-                val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                val sumFormat = if(unitsMeasurement == UnitsMeasurement.CM)
+                    {"%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")}
+                    else {
+                        UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                    }
 
                 this.runOnUiThread {
                     woodenLogList.maxByOrNull { it.id }?.let { woodenLog ->
@@ -127,8 +143,9 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                                 .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(woodenLog.addDate)
                         }
                     }
+                    findViewById<TextView>(R.id.textViewUnitMeasurmentLog).text = unitsMeasurement.getNameUnitCubic(this)
                     textViewActivityLogPackageDetailsSum.text = sumFormat
-                    recyclerViewLogPackageDetailsList.adapter = PackageLogDetailsItemAdapter(woodenLogList, treeList, this)
+                    recyclerViewLogPackageDetailsList.adapter = PackageLogDetailsItemAdapter(woodenLogList, treeList, this, unitsMeasurement)
                 }
             }
         }
@@ -140,7 +157,5 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             loadView()
         }
     }
-
-
 
 }

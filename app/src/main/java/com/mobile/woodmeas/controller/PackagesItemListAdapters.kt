@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.AppActivityManager
 import com.mobile.woodmeas.R
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.model.Plank
 import com.mobile.woodmeas.model.Stack
 import com.mobile.woodmeas.model.Trees
@@ -100,7 +101,8 @@ class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
 class PackagePlankDetailsItemAdapter(
     private val plankList: List<Plank>,
     private val trees: List<Trees>,
-    private val appActivityManager: AppActivityManager
+    private val appActivityManager: AppActivityManager,
+    private val unitsMeasurement: UnitsMeasurement
     ) : RecyclerView.Adapter<PackagesItemListViewHolder>() {
     private lateinit var context: Context
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
@@ -120,17 +122,29 @@ class PackagePlankDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsLength).apply {
-            val textFormat = "${plankList[position].length} cm"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${plankList[position].length} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(plankList[position].length)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsWidth).apply {
-            val textFormat = "${plankList[position].width} cm"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${plankList[position].width} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(plankList[position].width)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsHeight).apply {
-            val textFormat = "${plankList[position].height} cm"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${plankList[position].height} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(plankList[position].height)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
@@ -145,7 +159,12 @@ class PackagePlankDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPlankPackageDetailsCubic).apply {
-            val textFormat = "%.2f".format(plankList[position].cubicCm.toFloat() / 1000000.00F)
+            val cubicCm = "%.2f".format(plankList[position].cubicCm.toFloat() / 1000000.00F)
+            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+            } else {
+                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+            }
             text = textFormat
         }
 
@@ -177,7 +196,9 @@ class PackagePlankDetailsItemAdapter(
 class PackageLogDetailsItemAdapter(
     private val woodenLogList: List<WoodenLog>,
     private val trees: List<Trees>,
-    private val appActivityManager: AppActivityManager
+    private val appActivityManager: AppActivityManager,
+    private val unitsMeasurement: UnitsMeasurement
+
 ) : RecyclerView.Adapter<PackagesItemListViewHolder>() {
     private lateinit var context: Context
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
@@ -196,13 +217,22 @@ class PackageLogDetailsItemAdapter(
             text = textFormat
         }
 
+
         holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsLength).apply {
-            val textFormat = "${woodenLogList[position].logLengthCm} cm"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${woodenLogList[position].logLengthCm} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(woodenLogList[position].logLengthCm)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsDiameter).apply {
-            val textFormat = "${woodenLogList[position].logWidthCm} cm"
+            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${woodenLogList[position].logWidthCm} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(woodenLogList[position].logWidthCm)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
@@ -218,8 +248,13 @@ class PackageLogDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewLogPackageDetailsCubic).apply {
-            val textFormat = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 1000000.00F)
-            text = textFormat
+            val cubicCm = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 1000000.00F)
+            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+            } else {
+                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+            }
+          text = textFormat
         }
 
         holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsBarOnOff).let {
@@ -262,7 +297,8 @@ class PackageLogDetailsItemAdapter(
 class PackageStackDetailsItemAdapter(
     private val stackList: List<Stack>,
     private val trees: List<Trees>,
-    private val appActivityManager: AppActivityManager
+    private val appActivityManager: AppActivityManager,
+    private val unitsMeasurement: UnitsMeasurement
 ) : RecyclerView.Adapter<PackagesItemListViewHolder>() {
     private lateinit var context: Context
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PackagesItemListViewHolder {
@@ -282,17 +318,29 @@ class PackageStackDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsLength).apply {
-            val textFormat = "${"%.1f".format(stackList[position].length.toFloat() / 100.00F)} m"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${stackList[position].length} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(stackList[position].length)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsWidth).apply {
-            val textFormat = "${"%.1f".format(stackList[position].width.toFloat() / 100.00F)} m"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${stackList[position].width} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(stackList[position].width)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsHeight).apply {
-            val textFormat = "${"%.1f".format(stackList[position].height.toFloat() / 100.00F)} m"
+            val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${stackList[position].height} ${unitsMeasurement.getNameUnit(context)}"
+            } else {
+                "${UnitsMeasurement.convertToInchToString(stackList[position].height)} ${unitsMeasurement.getNameUnit(context)}"
+            }
             text = textFormat
         }
 
@@ -320,21 +368,15 @@ class PackageStackDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsCubic).apply {
-            val textFormat = "%.2f".format(stackList[position].cubicCm.toFloat() / 1000000.00F)
+            val cubicCm = "%.2f".format(stackList[position].cubicCm.toFloat() / 1000000.00F)
+            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
+                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+            } else {
+                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+            }
             text = textFormat
         }
 
-//        holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsBarOnOff).let {
-//            if (woodenLogList[position].barkOn > 0) {
-//                it.setImageDrawable(context.getDrawable(R.drawable.ic_bark_on_8))
-//            }
-//        }
-//
-//        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
-//            if (woodenLogList[position].barkOn < 1) {
-//                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//            }
-//        }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageStackDetailsDelete).apply {
             val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageStackDetails)

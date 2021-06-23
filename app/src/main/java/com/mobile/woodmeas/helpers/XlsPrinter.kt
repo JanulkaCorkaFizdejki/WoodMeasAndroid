@@ -8,6 +8,7 @@ import com.mobile.woodmeas.PlankPackageDetailsActivity
 import com.mobile.woodmeas.R
 import com.mobile.woodmeas.StackPackageDetailsActivity
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.model.*
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.hssf.util.HSSFColor
@@ -20,7 +21,7 @@ import java.text.DateFormat
 
 object XlsPrinter {
     @RequiresApi(Build.VERSION_CODES.N)
-    fun create(context: Context, packageId: Int, directory: String): String? {
+    fun create(context: Context, packageId: Int, directory: String, unitsMeasurement: UnitsMeasurement): String? {
         return when (context) {
             is LogPackageDetailsActivity -> {
                 val filePath = directory + PrintFormatter.setFileName(packageId, MenuItemsType.LOG).second
@@ -28,7 +29,7 @@ object XlsPrinter {
                     val trees = databaseManagerDao.treesDao().selectAll()
                     val packageDao = databaseManagerDao.woodenLogPackagesDao().selectItem(packageId)
                     val woodenLog = databaseManagerDao.woodenLogDao().selectWithWoodPackageId(packageId)
-                    val workBook = setXls(context, packageDao, woodenLog, trees)
+                    val workBook = setXls(context, packageDao, woodenLog, trees, unitsMeasurement)
                     val file = File(filePath)
                     try {
                         workBook.write(FileOutputStream(file))
@@ -44,7 +45,7 @@ object XlsPrinter {
                     val trees = databaseManagerDao.treesDao().selectAll()
                     val packageDao = databaseManagerDao.plankPackagesDao().selectItem(packageId)
                     val plank = databaseManagerDao.plankDao().selectWithPackageId(packageId)
-                    val workBook = setXls(context, packageDao, plank, trees)
+                    val workBook = setXls(context, packageDao, plank, trees, unitsMeasurement)
                     val file = File(filePath)
                     try {
                         workBook.write(FileOutputStream(file))
@@ -60,7 +61,7 @@ object XlsPrinter {
                     val trees = databaseManagerDao.treesDao().selectAll()
                     val packageDao = databaseManagerDao.stackPackagesDao().selectItem(packageId)
                     val stack = databaseManagerDao.stackDao().selectWithPackageId(packageId)
-                    val workBook = setXls(context, packageDao, stack, trees)
+                    val workBook = setXls(context, packageDao, stack, trees, unitsMeasurement)
                     val file = File(filePath)
                     try {
                         workBook.write(FileOutputStream(file))
@@ -75,7 +76,7 @@ object XlsPrinter {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun setXls(context: Context, packageDao: WoodenLogPackages, woodenLog: List<WoodenLog>, trees: List<Trees>): HSSFWorkbook {
+    private fun setXls(context: Context, packageDao: WoodenLogPackages, woodenLog: List<WoodenLog>, trees: List<Trees>, unitsMeasurement: UnitsMeasurement): HSSFWorkbook {
         val workBook = HSSFWorkbook()
         val sheet = workBook.createSheet(packageDao.name)
 
@@ -130,11 +131,15 @@ object XlsPrinter {
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(3).apply {
-                setCellValue(context.resources.getString(R.string.length_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.length_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.length_short_in)) }
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(4).apply {
-                setCellValue(context.resources.getString(R.string.diameter_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.diameter_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.diameter_short_in)) }
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(5).apply {
@@ -142,7 +147,9 @@ object XlsPrinter {
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(6).apply {
-                setCellValue(context.resources.getString(R.string.m3_short))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.m3_short))
+                } else { setCellValue(context.resources.getString(R.string.ft3_short)) }
                 setCellStyle(headerCellStyle)
             }
         }
@@ -168,9 +175,26 @@ object XlsPrinter {
                     }
                 }
 
-                hssfRow.createCell(3).setCellValue(woodenLogItem.logLengthCm.toDouble())
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    hssfRow.createCell(3).setCellValue(woodenLogItem.logLengthCm.toDouble())
+                    hssfRow.createCell(4).setCellValue(woodenLogItem.logWidthCm.toDouble())
+                }
+                else {
+                    hssfRow
+                        .createCell(3)
+                        .setCellValue(
+                            "%.2f".format(UnitsMeasurement.convertToFootToFloat(woodenLogItem.logLengthCm.toFloat()))
+                                .replace(",", ".")
+                                .toDouble())
 
-                hssfRow.createCell(4).setCellValue(woodenLogItem.logWidthCm.toDouble())
+                    hssfRow
+                        .createCell(4)
+                        .setCellValue(
+                            "%.2f".format(UnitsMeasurement.convertToFootToFloat(woodenLogItem.logWidthCm.toFloat()))
+                                .replace(",", ".")
+                                .toDouble())
+                }
+
 
                 hssfRow.createCell(5).apply {
                     setCellValue(
@@ -180,7 +204,17 @@ object XlsPrinter {
                     setCellStyle(centerCellStyle)
                 }
 
-                val m3 = "%.2f".format(woodenLogItem.cubicCm.toFloat() / 1000000f).toDouble()
+                val m3 = if(unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(woodenLogItem.cubicCm.toFloat() / 1000000f)
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(woodenLogItem.cubicCm.toFloat() / 1000000f))
+                        .replace(",", ".").
+                        toDouble()
+                }
                 hssfRow.createCell(6).apply {
                     setCellValue(m3)
                     setCellStyle(boldCellStyle)
@@ -213,7 +247,17 @@ object XlsPrinter {
         sheet.createRow(woodenLog.size + 2).let { hssfRow ->
             hssfRow.height = 600
             hssfRow.createCell(6).apply {
-                setCellValue("%.2f".format(woodenLog.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0).toDouble())
+                val result = if (unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(woodenLog.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0)
+                        .replace(",", ".")
+                        .toDouble()
+                } else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(woodenLog.sumOf { it.cubicCm.toLong() }.toFloat() / 1000000.0f))
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                setCellValue(result)
                 val sumFont = workBook.createFont().apply {
                     boldweight = XSSFFont.BOLDWEIGHT_BOLD
                     fontHeightInPoints = 12
@@ -227,7 +271,7 @@ object XlsPrinter {
         }
         return workBook
     }
-    private fun setXls(context: Context, packageDao: PlankPackages, plankList: List<Plank>, trees: List<Trees>): HSSFWorkbook {
+    private fun setXls(context: Context, packageDao: PlankPackages, plankList: List<Plank>, trees: List<Trees>, unitsMeasurement: UnitsMeasurement): HSSFWorkbook {
         val workBook = HSSFWorkbook()
         val sheet = workBook.createSheet(packageDao.name)
 
@@ -283,30 +327,40 @@ object XlsPrinter {
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(3).apply {
-                setCellValue(context.resources.getString(R.string.length_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.length_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.length_short_in)) }
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(4).apply {
-                setCellValue(context.resources.getString(R.string.width_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.width_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.width_short_in)) }
+
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(5).apply {
-                setCellValue(context.resources.getString(R.string.height_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.height_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.height_short_in)) }
+
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(6).apply {
-                setCellValue(context.resources.getString(R.string.m3_short))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.m3_short))
+                } else { setCellValue(context.resources.getString(R.string.ft3_short)) }
                 setCellStyle(headerCellStyle)
             }
         }
         // _________________________________________________________________________________________
-        plankList.forEachIndexed { index, woodenLogItem ->
+        plankList.forEachIndexed { index, plankItem ->
             val xlsIndex = index + 1
             sheet.createRow(xlsIndex).let { hssfRow ->
                 hssfRow.createCell(0)
                     .setCellValue(xlsIndex.toDouble())
 
-                woodenLogItem.addDate?.let { date ->
+                plankItem.addDate?.let { date ->
                     val dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM).format(date)
                     hssfRow.createCell(1).apply {
                         setCellValue(dateFormat)
@@ -314,20 +368,50 @@ object XlsPrinter {
                     }
                 }
 
-                trees.firstOrNull { it.id == woodenLogItem.treeId }?.let { tree ->
+                trees.firstOrNull { it.id == plankItem.treeId }?.let { tree ->
                     hssfRow.createCell(2).apply {
                         setCellValue(tree.getNameFromRes(context))
                         setCellStyle(centerCellStyle)
                     }
                 }
 
-                hssfRow.createCell(3).setCellValue(woodenLogItem.length.toDouble())
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    hssfRow.createCell(3).setCellValue(plankItem.length.toDouble())
+                    hssfRow.createCell(4).setCellValue(plankItem.width.toDouble())
+                    hssfRow.createCell(5).setCellValue(plankItem.height.toDouble())
+                }
+                else {
+                    hssfRow
+                        .createCell(3)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.length))
+                            .replace(",", ".")
+                            .toDouble())
 
-                hssfRow.createCell(4).setCellValue(woodenLogItem.width.toDouble())
+                    hssfRow
+                        .createCell(4)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.width))
+                            .replace(",", ".")
+                            .toDouble())
 
-                hssfRow.createCell(5).setCellValue(woodenLogItem.height.toDouble())
+                    hssfRow
+                        .createCell(5)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.height))
+                            .replace(",", ".")
+                            .toDouble())
+                }
 
-                val m3 = "%.2f".format(woodenLogItem.cubicCm.toFloat() / 1000000f).toDouble()
+
+                val m3 = if(unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(plankItem.cubicCm.toFloat() / 1000000f)
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(plankItem.cubicCm.toFloat() / 1000000f))
+                        .replace(",", ".")
+                        .toDouble()
+                }
                 hssfRow.createCell(6).apply {
                     setCellValue(m3)
                     setCellStyle(boldCellStyle)
@@ -360,7 +444,17 @@ object XlsPrinter {
         sheet.createRow(plankList.size + 2).let { hssfRow ->
             hssfRow.height = 600
             hssfRow.createCell(6).apply {
-                setCellValue("%.2f".format(plankList.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0).toDouble())
+                val result = if (unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(plankList.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0)
+                        .replace(",", ".")
+                        .toDouble()
+                } else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(plankList.sumOf { it.cubicCm.toLong() }.toFloat() / 1000000.0f))
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                setCellValue(result)
                 val sumFont = workBook.createFont().apply {
                     boldweight = XSSFFont.BOLDWEIGHT_BOLD
                     fontHeightInPoints = 12
@@ -374,7 +468,7 @@ object XlsPrinter {
         }
         return workBook
     }
-    private fun setXls(context: Context, packageDao: StackPackages, stackList: List<Stack>, trees: List<Trees>): HSSFWorkbook {
+    private fun setXls(context: Context, packageDao: StackPackages, stackList: List<Stack>, trees: List<Trees>, unitsMeasurement: UnitsMeasurement): HSSFWorkbook {
         val workBook = HSSFWorkbook()
         val sheet = workBook.createSheet(packageDao.name)
         sheet.setColumnWidth(1, 38 * 256)
@@ -429,15 +523,21 @@ object XlsPrinter {
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(3).apply {
-                setCellValue(context.resources.getString(R.string.length_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.length_short_cm))
+                } else {setCellValue(context.resources.getString(R.string.length_short_in))}
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(4).apply {
-                setCellValue(context.resources.getString(R.string.width_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.width_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.width_short_in)) }
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(5).apply {
-                setCellValue(context.resources.getString(R.string.height_short_cm))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.height_short_cm))
+                } else { setCellValue(context.resources.getString(R.string.height_short_in)) }
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(6).apply {
@@ -445,18 +545,20 @@ object XlsPrinter {
                 setCellStyle(headerCellStyle)
             }
             hssfRow.createCell(7).apply {
-                setCellValue(context.resources.getString(R.string.m3_short))
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    setCellValue(context.resources.getString(R.string.m3_short))
+                } else { setCellValue(context.resources.getString(R.string.ft3_short))}
                 setCellStyle(headerCellStyle)
             }
         }
         // _________________________________________________________________________________________
-        stackList.forEachIndexed { index, woodenLogItem ->
+        stackList.forEachIndexed { index, stackItem ->
             val xlsIndex = index + 1
             sheet.createRow(xlsIndex).let { hssfRow ->
                 hssfRow.createCell(0)
                     .setCellValue(xlsIndex.toDouble())
 
-                woodenLogItem.addDate?.let { date ->
+                stackItem.addDate?.let { date ->
                     val dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.MEDIUM).format(date)
                     hssfRow.createCell(1).apply {
                         setCellValue(dateFormat)
@@ -464,28 +566,55 @@ object XlsPrinter {
                     }
                 }
 
-                trees.firstOrNull { it.id == woodenLogItem.treeId }?.let { tree ->
+                trees.firstOrNull { it.id == stackItem.treeId }?.let { tree ->
                     hssfRow.createCell(2).apply {
                         setCellValue(tree.getNameFromRes(context))
                         setCellStyle(centerCellStyle)
                     }
                 }
 
-                hssfRow.createCell(3).setCellValue(woodenLogItem.length.toDouble())
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    hssfRow.createCell(3).setCellValue(stackItem.length.toDouble())
+                    hssfRow.createCell(4).setCellValue(stackItem.width.toDouble())
+                    hssfRow.createCell(5).setCellValue(stackItem.height.toDouble())
+                } else {
+                    hssfRow
+                        .createCell(3)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.length))
+                            .replace(",", ".")
+                            .toDouble())
+                    hssfRow
+                        .createCell(4)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.width))
+                            .replace(",", ".")
+                            .toDouble())
+                    hssfRow
+                        .createCell(5)
+                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.height))
+                            .replace(",", ".")
+                            .toDouble())
+                }
 
-                hssfRow.createCell(4).setCellValue(woodenLogItem.width.toDouble())
-
-                hssfRow.createCell(5).setCellValue(woodenLogItem.height.toDouble())
 
                 hssfRow.createCell(6).apply {
                     setCellValue(
-                        if (woodenLogItem.cross > 1) context.resources.getString(R.string.yes_short)
+                        if (stackItem.cross > 1) context.resources.getString(R.string.yes_short)
                         else context.resources.getString(R.string.no_short)
                     )
                     setCellStyle(centerCellStyle)
                 }
 
-                val m3 = "%.2f".format(woodenLogItem.cubicCm.toFloat() / 1000000f).toDouble()
+                val m3 = if(unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(stackItem.cubicCm.toFloat() / 1000000f)
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(stackItem.cubicCm.toFloat() / 1000000f))
+                        .replace(",", ".")
+                        .toDouble()
+                }
                 hssfRow.createCell(7).apply {
                     setCellValue(m3)
                     setCellStyle(boldCellStyle)
@@ -518,7 +647,17 @@ object XlsPrinter {
         sheet.createRow(stackList.size + 2).let { hssfRow ->
             hssfRow.height = 600
             hssfRow.createCell(7).apply {
-                setCellValue("%.2f".format(stackList.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0).toDouble())
+                val result = if (unitsMeasurement == UnitsMeasurement.CM) {
+                    "%.2f".format(stackList.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0)
+                        .replace(",", ".")
+                        .toDouble()
+                } else {
+                    "%.2f".format(UnitsMeasurement
+                        .convertToFootToFloat(stackList.sumOf { it.cubicCm.toLong() }.toFloat() / 1000000.0f))
+                        .replace(",", ".")
+                        .toDouble()
+                }
+                setCellValue(result)
                 val sumFont = workBook.createFont().apply {
                     boldweight = XSSFFont.BOLDWEIGHT_BOLD
                     fontHeightInPoints = 12

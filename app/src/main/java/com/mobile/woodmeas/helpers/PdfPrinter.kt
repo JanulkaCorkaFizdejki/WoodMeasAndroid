@@ -12,6 +12,7 @@ import com.mobile.woodmeas.PlankPackageDetailsActivity
 import com.mobile.woodmeas.R
 import com.mobile.woodmeas.StackPackageDetailsActivity
 import com.mobile.woodmeas.datamodel.MenuItemsType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.model.*
 import com.mobile.woodmeas.model.Stack
 import java.io.File
@@ -30,7 +31,7 @@ object PdfPrinter {
     private const val widthA4: Int      = 841
 
     @RequiresApi(Build.VERSION_CODES.N)
-    fun create(context: Context, packageId: Int, directory: String): String? {
+    fun create(context: Context, packageId: Int, directory: String, unitsMeasurement: UnitsMeasurement): String? {
         return when (context) {
             is LogPackageDetailsActivity -> {
                 val filePath = directory + PrintFormatter.setFileName(packageId, MenuItemsType.LOG).first
@@ -40,8 +41,13 @@ object PdfPrinter {
                         databaseManagerDao.woodenLogDao().selectWithWoodPackageId(packageId).let { woodenLogList ->
                             val lastUpdateDate = woodenLogList.maxByOrNull { it.id }?.addDate
                             val sum: Long = woodenLogList.sumOf { it.cubicCm.toLong() }
-                            val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
-                            val document = createPages(context, setListParts(woodenLogList) as List<List<WoodenLog>>, trees, packageDao, lastUpdateDate, sumFormat)
+                            val sumFormat = if (unitsMeasurement == UnitsMeasurement.CM) {
+                                "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                            }
+                            else {
+                                UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                            }
+                            val document = createPages(context, setListParts(woodenLogList) as List<List<WoodenLog>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -60,8 +66,13 @@ object PdfPrinter {
                         databaseManagerDao.stackDao().selectWithPackageId(packageId).let { stackList ->
                             val lastUpdateDate = stackList.maxByOrNull { it.id }?.addDate
                             val sum: Long = stackList.sumOf { it.cubicCm.toLong() }
-                            val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
-                            val document = createPages(context, setListParts(stackList) as List<List<Stack>>, trees, packageDao, lastUpdateDate, sumFormat)
+                            val sumFormat = if (unitsMeasurement == UnitsMeasurement.CM) {
+                                "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                            }
+                            else {
+                                UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                            }
+                            val document = createPages(context, setListParts(stackList) as List<List<Stack>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -80,8 +91,13 @@ object PdfPrinter {
                         databaseManagerDao.plankDao().selectWithPackageId(packageId).let { plankList ->
                             val lastUpdateDate = plankList.maxByOrNull { it.id }?.addDate
                             val sum: Long = plankList.sumOf { it.cubicCm.toLong() }
-                            val sumFormat = "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
-                            val document = createPages(context, setListParts(plankList) as List<List<Plank>>, trees, packageDao, lastUpdateDate, sumFormat)
+                            val sumFormat = if (unitsMeasurement == UnitsMeasurement.CM) {
+                                "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                            }
+                            else {
+                                UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                            }
+                            val document = createPages(context, setListParts(plankList) as List<List<Plank>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -104,7 +120,8 @@ object PdfPrinter {
         trees: List<Trees>,
         packageDao: WoodenLogPackages,
         lastUpdateDate: Date?,
-        m3Sum: String): PdfDocument {
+        m3Sum: String,
+        unitsMeasurement: UnitsMeasurement): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -194,10 +211,17 @@ object PdfPrinter {
                 page.canvas.drawText(context.resources.getString(R.string.id_short), margin.toFloat(), 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.date_short), margin.toFloat() + 20f, 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.tree), margin.toFloat() + 100f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.diameter_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.bark_short), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.m3_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
+
+                if (unitsMeasurement == UnitsMeasurement.IN) {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_in), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.diameter_short_in), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.ft3_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
+                } else {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.diameter_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.m3_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
+                }
                 // _____________________________________________________________________________________
             }
 
@@ -217,14 +241,24 @@ object PdfPrinter {
                             tree.getNameFromRes(context), margin.toFloat() + 100f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 }
 
-                page.canvas.drawText(woodenLog.logLengthCm.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
 
-                page.canvas.drawText(woodenLog.logWidthCm.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    page.canvas.drawText(woodenLog.logLengthCm.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(woodenLog.logWidthCm.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                } else {
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(woodenLog.logLengthCm), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(woodenLog.logWidthCm), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                }
+
 
                 val bark = if(woodenLog.barkOn > 0) context.resources.getString(R.string.yes_short) else context.resources.getString(R.string.no_short)
                 page.canvas.drawText(bark, margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
-                val format = "%.2f".format(woodenLog.cubicCm.toFloat() / 1000000f)
+                val format = if(unitsMeasurement == UnitsMeasurement.CM)
+                {"%.2f".format(woodenLog.cubicCm.toFloat() / 1000000f).replace(",", ".")}
+                else {
+                    UnitsMeasurement.convertToFootToString(woodenLog.cubicCm.toFloat() / 1000000f)
+                }
                 page.canvas.drawText(format, margin.toFloat() + 320f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
                 // _________________________________
@@ -267,7 +301,8 @@ object PdfPrinter {
         trees: List<Trees>,
         packageDao: StackPackages,
         lastUpdateDate: Date?,
-        m3Sum: String): PdfDocument {
+        m3Sum: String,
+        unitsMeasurement: UnitsMeasurement): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -357,11 +392,20 @@ object PdfPrinter {
                 page.canvas.drawText(context.resources.getString(R.string.id_short), margin.toFloat(), 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.date_short), margin.toFloat() + 20f, 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.tree), margin.toFloat() + 100f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.width_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.height_short_cm), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                if(unitsMeasurement == UnitsMeasurement.CM) {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.width_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.height_short_cm), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.m3_short), margin.toFloat() + 380f, 160f, textPaintHeaderTable)
+                } else {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_in), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.width_short_in), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.height_short_in), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.ft3_short), margin.toFloat() + 380f, 160f, textPaintHeaderTable)
+                }
+
                 page.canvas.drawText(context.resources.getString(R.string.cross_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.m3_short), margin.toFloat() + 380f, 160f, textPaintHeaderTable)
+
                 // _____________________________________________________________________________________
             }
 
@@ -381,16 +425,25 @@ object PdfPrinter {
                             tree.getNameFromRes(context), margin.toFloat() + 100f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 }
 
-                page.canvas.drawText(stack.length.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    page.canvas.drawText(stack.length.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(stack.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(stack.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                } else {
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                }
 
-                page.canvas.drawText(stack.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-
-                page.canvas.drawText(stack.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
 
                 val cross = if(stack.cross > 0) context.resources.getString(R.string.yes_short) else context.resources.getString(R.string.no_short)
                 page.canvas.drawText(cross, margin.toFloat() + 320f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
-                val format = "%.2f".format(stack.cubicCm.toFloat() / 1000000f)
+                val format = if(unitsMeasurement == UnitsMeasurement.CM)
+                {"%.2f".format(stack.cubicCm.toFloat() / 1000000f).replace(",", ".")}
+                else {
+                    UnitsMeasurement.convertToFootToString("%.2f".format(stack.cubicCm.toFloat() / 1000000f).replace(",", ".").toFloat())
+                }
                 page.canvas.drawText(format, margin.toFloat() + 380f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
                 // _________________________________
@@ -433,7 +486,8 @@ object PdfPrinter {
         trees: List<Trees>,
         packageDao: PlankPackages,
         lastUpdateDate: Date?,
-        m3Sum: String): PdfDocument {
+        m3Sum: String,
+        unitsMeasurement: UnitsMeasurement): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -523,9 +577,17 @@ object PdfPrinter {
                 page.canvas.drawText(context.resources.getString(R.string.id_short), margin.toFloat(), 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.date_short), margin.toFloat() + 20f, 160f, textPaintHeaderTable)
                 page.canvas.drawText(context.resources.getString(R.string.tree), margin.toFloat() + 100f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.width_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
-                page.canvas.drawText(context.resources.getString(R.string.height_short_cm), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                if(unitsMeasurement == UnitsMeasurement.CM) {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.width_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.height_short_cm), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                }
+                else {
+                    page.canvas.drawText(context.resources.getString(R.string.length_short_in), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.width_short_in), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.height_short_in), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                }
+
                 // _____________________________________________________________________________________
             }
 
@@ -545,13 +607,21 @@ object PdfPrinter {
                             tree.getNameFromRes(context), margin.toFloat() + 100f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 }
 
-                page.canvas.drawText(plank.length.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                if (unitsMeasurement == UnitsMeasurement.CM) {
+                    page.canvas.drawText(plank.length.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(plank.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(plank.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
+                } else {
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
+                }
 
-                page.canvas.drawText(plank.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-
-                page.canvas.drawText(plank.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
-
-                val format = "%.2f".format(plank.cubicCm.toFloat() / 1000000f)
+                val format = if(unitsMeasurement == UnitsMeasurement.CM)
+                {"%.2f".format(plank.cubicCm.toFloat() / 1000000f).replace(",", ".")}
+                else {
+                    UnitsMeasurement.convertToFootToString(plank.cubicCm.toFloat() / 1000000f)
+                }
                 page.canvas.drawText(format, margin.toFloat() + 320f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
                 // _________________________________
@@ -590,12 +660,6 @@ object PdfPrinter {
     private fun setListParts(list: List<*>): List<List<*>> {
         if (list.size <= maxFirst)
             return listOf(list)
-
-//        if (list.size <= (maxFirst + maxOther)) {
-//            val first = list.subList(0, maxFirst)
-//            val last = list.subList(maxFirst, list.size)
-//            return listOf(first, last)
-//        }
 
         val outputList: MutableList<List<*>> = mutableListOf()
         outputList.add(list.subList(0, maxFirst))

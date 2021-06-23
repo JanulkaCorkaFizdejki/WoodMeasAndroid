@@ -17,4 +17,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="RadioButtonStyleWhite" parent="@android:style/Widget.CompoundButton">
+        <item name="android:background">@drawable/radio_button_white_style</item>
+        <item name="android:button">@null</item>
+    </style>
 </resources>

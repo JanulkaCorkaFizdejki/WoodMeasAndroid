@@ -70,10 +70,10 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView42" />
+                    app:layout_constraintEnd_toStartOf="@+id/textViewUnitMeasurmentLog" />
 
                 <TextView
-                    android:id="@+id/textView42"
+                    android:id="@+id/textViewUnitMeasurmentLog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"

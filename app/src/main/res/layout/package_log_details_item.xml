@@ -197,7 +197,7 @@
                 android:textSize="8sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView25"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
 
@@ -207,22 +207,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/_3"
-                android:textSize="4sp"
+                android:textSize="5sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SmallSp" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:text="@string/meters_short"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView24"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
 

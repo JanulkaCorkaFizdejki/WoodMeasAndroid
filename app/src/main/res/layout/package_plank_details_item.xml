@@ -45,7 +45,7 @@
 
         <TextView
             android:id="@+id/textViewPackagePlankDetailsTreeName"
-            android:layout_width="40dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
@@ -67,7 +67,8 @@
         android:textSize="6sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -97,7 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_height_ico_8" />
+                app:srcCompat="@drawable/ic_height_ico_8"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/textViewPackagePlankDetailsHeight"
@@ -106,9 +108,10 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/default_number"
                 android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,7 +122,8 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout10"
             app:layout_constraintStart_toEndOf="@+id/linearLayout7"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded">
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -135,9 +139,10 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/default_number"
                 android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
         </LinearLayout>
 
         <LinearLayout
@@ -165,9 +170,10 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/default_number"
                 android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp" />
+                android:textSize="8sp"
+                tools:ignore="SmallSp" />
 
         </LinearLayout>
 
@@ -189,8 +195,9 @@
                 android:textSize="8sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView25"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:id="@+id/textView24"
@@ -198,22 +205,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/_3"
-                android:textSize="4sp"
+                android:textSize="5sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:text="@string/meters_short"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView24"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

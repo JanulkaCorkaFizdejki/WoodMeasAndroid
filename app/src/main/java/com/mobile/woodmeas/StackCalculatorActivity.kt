@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.mobile.woodmeas.datamodel.MenuData
 import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.datamodel.MenuType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.*
 import com.mobile.woodmeas.model.Stack
@@ -23,6 +24,7 @@ import kotlin.concurrent.thread
 
 class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageManager {
     private var stackPackages: StackPackages? = null
+    private var unitsMeasurement = UnitsMeasurement.CM
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +36,13 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
         findViewById<SeekBar>(R.id.seekBarMeasureThickness).max = resources.getInteger(R.integer.max_log_width_long)
 
         super.setSpinnerTrees(this)
-        super.calculationManager(this)
+        super.setSpinnerWoodCoefficients(this)
+        thread {
+            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                unitsMeasurement  = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
+            }
+            this.runOnUiThread { super.calculationManager(this, unitsMeasurement) }
+        }
         loadView()
     }
 
@@ -54,7 +62,7 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
     }
 
     override fun loadView() {
-        (findViewById<Switch>(R.id.switchTreeModule).parent as ConstraintLayout).visibility = View.GONE
+
         // Go Package List Select Activity
         findViewById<ImageButton>(R.id.imageButtonMeasResultUsePackage).let { imageButtonMeasResultUsePackage ->
             imageButtonMeasResultUsePackage.setOnClickListener {

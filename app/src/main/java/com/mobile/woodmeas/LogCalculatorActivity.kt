@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.mobile.woodmeas.datamodel.MenuData
 import com.mobile.woodmeas.datamodel.MenuItemsType
 import com.mobile.woodmeas.datamodel.MenuType
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.*
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
@@ -25,6 +26,7 @@ import kotlin.concurrent.thread
 class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageManager {
 
     private var logPackages: WoodenLogPackages? = null
+    private var unitsMeasurement = UnitsMeasurement.CM
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +34,12 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
         setContentView(R.layout.activity_log_calculator)
         NavigationManager.topNavigation(this, MenuData(MenuType.CALCULATORS, MenuItemsType.LOG))
         super.setSpinnerTrees(this)
-        super.calculationManager(this)
+        thread {
+            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
+                unitsMeasurement  = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
+            }
+            this.runOnUiThread { super.calculationManager(this, unitsMeasurement) }
+        }
 
         loadView()
     }
@@ -56,7 +63,6 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
     }
 
     override fun loadView() {
-
         // Go Package List Select Activity
         findViewById<ImageButton>(R.id.imageButtonMeasResultUsePackage).let {imageButtonMeasResultUsePackage ->
             imageButtonMeasResultUsePackage.setOnClickListener {
@@ -163,7 +169,6 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
                 }
             }
         }
-
     }
 
     override fun removeItem(item: Int) {

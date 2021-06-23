@@ -98,7 +98,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout10"
-            android:layout_width="40dp"
+            android:layout_width="46dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
@@ -115,7 +115,7 @@
 
             <TextView
                 android:id="@+id/textViewPackageStackDetailsHeight"
-                android:layout_width="30dp"
+                android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
@@ -128,7 +128,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout9"
-            android:layout_width="40dp"
+            android:layout_width="46dp"
             android:layout_height="match_parent"
             android:gravity="center|left"
             android:orientation="horizontal"
@@ -147,7 +147,7 @@
 
             <TextView
                 android:id="@+id/textViewPackageStackDetailsWidth"
-                android:layout_width="30dp"
+                android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
@@ -160,7 +160,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout7"
-            android:layout_width="40dp"
+            android:layout_width="46dp"
             android:layout_height="match_parent"
             android:clickable="false"
             android:clipChildren="false"
@@ -179,7 +179,7 @@
 
             <TextView
                 android:id="@+id/textViewPackageStackDetailsLength"
-                android:layout_width="30dp"
+                android:layout_width="36dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
@@ -209,7 +209,7 @@
                 android:textSize="8sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView25"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
 
@@ -219,22 +219,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/_3"
-                android:textSize="4sp"
+                android:textSize="5sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SmallSp" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:text="@string/meters_short"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView24"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
 

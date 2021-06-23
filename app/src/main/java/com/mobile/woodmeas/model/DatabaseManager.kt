@@ -2,12 +2,15 @@ package com.mobile.woodmeas.model
 
 import android.content.Context
 import android.database.CrossProcessCursor
+import android.provider.SettingsSlicesContract
 import androidx.appcompat.R
 import androidx.room.*
 import com.mobile.woodmeas.PlankCalculatorActivity
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.net.IDN
 import java.util.*
 
 object DbConf {
@@ -24,6 +27,7 @@ object DbConf {
         const val STACK                     = "stack"
         const val STACK_PACKAGES            = "stack_packages"
         const val STACK_PACKAGES_FTS        = "stack_packages_fts"
+        const val SETTINGS                  = "settings"
     }
 
     object TablesStruct {
@@ -103,6 +107,12 @@ object DbConf {
             const val ID        = "id"
             const val NAME      = "name"
         }
+
+        object Settings {
+            const val ID            = "id"
+            const val TYPE_UNITS    = "type_units"
+            const val LOCATION      = "location"
+        }
     }
 }
 
@@ -166,6 +176,32 @@ object DatabaseManager {
         @Insert (onConflict = OnConflictStrategy.REPLACE)
         fun insert(trees: Trees)
     }
+
+// SETTINGS ________________________________________________________________________________________
+@Entity(tableName = DbConf.TableNames.SETTINGS)
+    data class SettingsDb(
+        @PrimaryKey (autoGenerate = true) val id: Int = 0,
+        @ColumnInfo(name = DbConf.TablesStruct.Settings.TYPE_UNITS) val typeUnits: Int,
+        @ColumnInfo(name = DbConf.TablesStruct.Settings.LOCATION) val location: Int
+    ) {
+        fun getUnitMeasurement(): UnitsMeasurement  {
+            return if (typeUnits > 0) UnitsMeasurement.IN else UnitsMeasurement.CM
+        }
+    }
+
+@Dao
+    interface SettingsDbDao {
+        @Query("SELECT * FROM ${DbConf.TableNames.SETTINGS} LIMIT 1")
+        fun select(): SettingsDb
+
+        @Update
+        fun update(settingsDb: SettingsDb)
+
+        @Query("UPDATE ${DbConf.TableNames.SETTINGS} " +
+                "SET ${DbConf.TablesStruct.Settings.TYPE_UNITS} = :typeUnits, ${DbConf.TablesStruct.Settings.LOCATION} = :location")
+        fun update(typeUnits: Int, location: Int)
+    }
+// _________________________________________________________________________________________________
 
 // STACK ___________________________________________________________________________________________
 
@@ -446,7 +482,8 @@ class Converters {
     Plank::class,
     Stack::class,
     StackPackages::class,
-    StackPackagesFts::class
+    StackPackagesFts::class,
+    SettingsDb::class
                      ], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class DatabaseManagerDao : RoomDatabase() {
@@ -460,6 +497,7 @@ abstract class DatabaseManagerDao : RoomDatabase() {
     abstract fun stackDao(): StackDao
     abstract fun stackPackagesDao(): StackPackagesDao
     abstract fun stackPackageDaoFts(): StackPackagesDaoFts
+    abstract fun settingsDbDao(): SettingsDbDao
 
     companion object {
         private var INSTANCE: DatabaseManagerDao? = null

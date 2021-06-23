@@ -20,4 +20,6 @@
     <color name="wm_other_yellow_2">#8F7315</color>
     <color name="wm_other_blue_1">#3592C4</color>
     <color name="wm_other_blue_2">#5eaad3</color>
+    <color name="wm_other_smoke_withe_1">#f5f5f5</color>
+    <color name="wm_other_smoke_withe_2">#dcdcdc</color>
 </resources>
