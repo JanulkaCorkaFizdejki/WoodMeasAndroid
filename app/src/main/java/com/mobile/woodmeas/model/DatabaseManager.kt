@@ -45,6 +45,7 @@ object DbConf {
             const val ID        = "id"
             const val NAME      = "name"
             const val ADD_DATE  = "add_date"
+            const val NOTE      = "note"
         }
 
         object WoodenLogPackagesFts {
@@ -67,6 +68,7 @@ object DbConf {
             const val ID        = "id"
             const val NAME      = "name"
             const val ADD_DATE  = "add_date"
+            const val NOTE      = "note"
         }
 
         object PlankPackagesFts {
@@ -101,6 +103,7 @@ object DbConf {
             const val ID        = "id"
             const val NAME      = "name"
             const val ADD_DATE  = "add_date"
+            const val NOTE      = "note"
         }
 
         object StackPackagesFts {
@@ -246,7 +249,8 @@ object DatabaseManager {
 data class StackPackages(
     @PrimaryKey (autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = DbConf.TablesStruct.StackPackages.NAME) val name: String,
-    @ColumnInfo(name = DbConf.TablesStruct.StackPackages.ADD_DATE) val addDate: Date?
+    @ColumnInfo(name = DbConf.TablesStruct.StackPackages.ADD_DATE) val addDate: Date?,
+    @ColumnInfo(name = DbConf.TablesStruct.StackPackages.NOTE) val note: String?
 )
 
 @Dao
@@ -262,6 +266,12 @@ interface StackPackagesDao {
 
     @Query("SELECT * FROM ${DbConf.TableNames.STACK_PACKAGES} WHERE ${DbConf.TablesStruct.StackPackages.ID} = :id")
     fun selectItem(id: Int): StackPackages
+
+    @Query("SELECT ${DbConf.TablesStruct.StackPackages.NOTE} FROM ${DbConf.TableNames.STACK_PACKAGES} WHERE ${DbConf.TablesStruct.StackPackages.ID} = :id")
+    fun selectNote(id: Int): String?
+
+    @Query("UPDATE ${DbConf.TableNames.STACK_PACKAGES} SET ${DbConf.TablesStruct.StackPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.StackPackages.ID} = :id")
+    fun updateNote(note: String, id: Int)
 
     @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.STACK_PACKAGES}")
     fun countAll(): Int
@@ -292,7 +302,8 @@ interface StackPackagesDaoFts {
     data class PlankPackages(
     @PrimaryKey (autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.NAME) val name: String,
-    @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.ADD_DATE) val addDate: Date?
+    @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.ADD_DATE) val addDate: Date?,
+    @ColumnInfo(name = DbConf.TablesStruct.PlankPackages.NOTE) val note: String?
     )
 @Dao
     interface PlankPackagesDao {
@@ -307,6 +318,12 @@ interface StackPackagesDaoFts {
 
         @Query("SELECT * FROM ${DbConf.TableNames.PLANK_PACKAGES} WHERE ${DbConf.TablesStruct.PlankPackages.ID} = :id")
         fun selectItem(id: Int): PlankPackages
+
+        @Query("SELECT ${DbConf.TablesStruct.PlankPackages.NOTE} FROM ${DbConf.TableNames.PLANK_PACKAGES} WHERE ${DbConf.TablesStruct.PlankPackages.ID} = :id")
+        fun selectNote(id: Int): String?
+
+        @Query("UPDATE ${DbConf.TableNames.PLANK_PACKAGES} SET ${DbConf.TablesStruct.PlankPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.PlankPackages.ID} = :id")
+        fun updateNote(note: String, id: Int)
 
         @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.PLANK_PACKAGES}")
         fun countAll(): Int
@@ -373,7 +390,8 @@ data class Plank(
     data class WoodenLogPackages(
     @PrimaryKey (autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.NAME) val name: String,
-    @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.ADD_DATE) val addDate: Date?
+    @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.ADD_DATE) val addDate: Date?,
+    @ColumnInfo(name = DbConf.TablesStruct.WoodenLogPackages.NOTE) val note: String?
     )
 
 @Dao
@@ -387,6 +405,12 @@ data class Plank(
 
         @Query("SELECT * FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID}= :id")
         fun selectItem(id: Int): WoodenLogPackages
+
+        @Query("SELECT ${DbConf.TablesStruct.WoodenLogPackages.NOTE} FROM ${DbConf.TableNames.WOODEN_LOG_PACKAGES} WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID} = :id")
+        fun selectNote(id: Int): String?
+
+        @Query("UPDATE ${DbConf.TableNames.WOODEN_LOG_PACKAGES} SET ${DbConf.TablesStruct.WoodenLogPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID} = :id")
+        fun updateNote(note: String, id: Int)
 
         @Insert
         fun insert(woodPackages: WoodenLogPackages)

@@ -98,7 +98,7 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                         thread {
                             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                 databaseManagerDao.plankPackagesDao()
-                                    .insert(PlankPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                    .insert(PlankPackages(0, editTextWoodPackages.text.toString(), Date(), null))
 
                                 databaseManagerDao.plankPackagesDao().selectLast().let {
                                     plankPackages = it
@@ -118,7 +118,7 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                        thread {
                            DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                databaseManagerDao.plankPackagesDao()
-                                   .insert(PlankPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                   .insert(PlankPackages(0, editTextWoodPackages.text.toString(), Date(), null))
                                this.runOnUiThread {
                                    Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                        .show()

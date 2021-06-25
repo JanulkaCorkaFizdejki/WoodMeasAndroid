@@ -368,7 +368,7 @@ class PackageStackDetailsItemAdapter(
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsCubic).apply {
-            val cubicCm = "%.2f".format(stackList[position].cubicCm.toFloat() / 1000000.00F)
+            val cubicCm = "%.2f".format(stackList[position].cubicCm.toFloat() / 100.00F)
             val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
             } else {

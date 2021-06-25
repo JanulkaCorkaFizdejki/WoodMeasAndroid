@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 
 import android.widget.ImageButton
 import android.widget.TextView
@@ -23,6 +24,7 @@ import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.viewcontrollers.CubicToMoney
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
+import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
 import java.text.DateFormat
 import kotlin.concurrent.thread
@@ -61,6 +63,9 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             }
             currentPackageId = packageId
         }
+
+        NoteManager.set(this, currentPackageId)
+
         loadView()
 
         // Print bottom navigation button __________________________________________________________
@@ -156,6 +161,21 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             DatabaseManagerDao.getDataBase(this)?.woodenLogDao()?.deleteItem(item)
             loadView()
         }
+    }
+
+    override fun onBackPressed() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewLogPackageDetailsList.windowToken, 0)
+        super.onBackPressed()
+    }
+
+    override fun onStop() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewLogPackageDetailsList.windowToken, 0)
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewLogPackageDetailsList.windowToken, 0)
+        super.onDestroy()
     }
 
 }

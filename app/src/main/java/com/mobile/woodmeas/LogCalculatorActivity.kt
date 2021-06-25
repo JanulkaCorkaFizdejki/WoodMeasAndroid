@@ -100,7 +100,7 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
                         thread {
                             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                 databaseManagerDao.woodenLogPackagesDao()
-                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date(), null))
 
                                 databaseManagerDao.woodenLogPackagesDao().selectLast().let {
                                     logPackages = it
@@ -120,7 +120,7 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
                         thread {
                             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                 databaseManagerDao.woodenLogPackagesDao()
-                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                    .insert(WoodenLogPackages(0, editTextWoodPackages.text.toString(), Date(), null))
                                 this.runOnUiThread {
                                     Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                         .show()

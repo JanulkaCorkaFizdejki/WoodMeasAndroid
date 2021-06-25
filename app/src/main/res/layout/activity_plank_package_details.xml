@@ -23,70 +23,68 @@
         android:background="@color/wm_green_dark"
         android:orientation="vertical"
         android:padding="8dp"
+        android:paddingBottom="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include6">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textViewActivityPlankPackageDetailsPackageName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="@string/default_text"
+            android:textColor="@color/wm_other_yellow_1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textViewActivityPlankPackageDetailsPackageName"
-                android:layout_width="match_parent"
+                android:id="@+id/textView40"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/default_text"
-                android:textColor="@color/wm_other_yellow_1"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/_3"
+                android:textColor="@color/white"
+                android:textSize="6sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewUnitMeasurmentLog"
+                tools:ignore="SmallSp" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <TextView
+                android:id="@+id/textViewActivityPlankPackageDetailsSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_number"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView40"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/_3"
-                    android:textColor="@color/white"
-                    android:textSize="6sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:id="@+id/textViewActivityPlankPackageDetailsSum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginRight="2dp"
-                    android:text="@string/default_number"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textViewUnitMeasurmentLog" />
-
-                <TextView
-                    android:id="@+id/textViewUnitMeasurmentLog"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:text="@string/meters_short"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView40"
-                    tools:ignore="SmallSp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+            <TextView
+                android:id="@+id/textViewUnitMeasurmentLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:text="@string/meters_short"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewActivityPlankPackageDetailsSum"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:alpha="0.2">
+                android:alpha="0.4">
 
                 <ImageView
                     android:id="@+id/imageView12"
@@ -130,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:alpha="0.2">
+                android:alpha="0.4">
 
                 <ImageView
                     android:id="@+id/imageView13"
@@ -158,6 +156,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
+
+        <include
+            layout="@layout/note_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

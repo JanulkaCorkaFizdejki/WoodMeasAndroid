@@ -143,7 +143,9 @@ interface AppActivityManager {
                         } else null
 
                         val result = woodCoefficients.setResult(m3, seekBarsValues[0], barkOn, tree, switchCrossStackModule, customFactor)
-                        val resultFormat = "%.2f".format(result).replace(".", ",")
+                        val resultFormat = if(unitsMeasurement == UnitsMeasurement.CM)
+                            { "%.2f".format(result).replace(".", ",") }
+                            else { UnitsMeasurement.convertToFootToString(result) }
                         textViewMeasResultM.text = resultFormat
                     }
                 }
@@ -170,8 +172,8 @@ interface AppActivityManager {
                 timer?.cancel()
                 timer = null
             }
-            fun timerStart(threshold: Int, currentImageButton: ImageButton) {
-                timer = object : CountDownTimer(100000, 10) {
+            fun timerStart(threshold: Int, currentImageButton: ImageButton, countdownInterval: Long = 10) {
+                timer = object : CountDownTimer(1000000, countdownInterval) {
                     override fun onTick(p0: Long) {
 
                         if (imageButtonPlus.isPressed && imageButtonMinus.isPressed) { timerCancel() }
@@ -224,7 +226,10 @@ interface AppActivityManager {
                     if(seekBar.progress < seekBar.max) { seekBar.progress = seekBar.progress + 1 }
                 }
                 setOnLongClickListener {
-                    timerStart(0, this)
+                    if (measure == Measure.LENGTH) {
+                        timerStart(0, this, 1)
+                    } else {timerStart(0, this)}
+
                     return@setOnLongClickListener true
                 }
             }
@@ -234,7 +239,9 @@ interface AppActivityManager {
                     if(seekBar.progress > 0) { seekBar.progress = seekBar.progress - 1 }
                 }
                 setOnLongClickListener {
-                    timerStart(seekBar.max, this)
+                    if (measure == Measure.LENGTH) {
+                        timerStart(seekBar.max, this, 1)
+                    } else {timerStart(seekBar.max, this)}
                     return@setOnLongClickListener true
                 }
             }

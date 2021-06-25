@@ -146,7 +146,8 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
             if (editTextWoodPackages.text.toString().isNotEmpty()) {
                 val woodPackages =  WoodenLogPackages(0,
                     editTextWoodPackages.text.toString(),
-                    Date()
+                    Date(),
+                    null
                 )
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let {

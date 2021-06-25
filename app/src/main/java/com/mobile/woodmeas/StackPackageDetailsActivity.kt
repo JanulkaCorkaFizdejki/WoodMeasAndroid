@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -22,6 +23,7 @@ import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
+import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
 import java.text.DateFormat
 import kotlin.concurrent.thread
@@ -59,6 +61,8 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             }
             currentPackageId = packageId
         }
+
+        NoteManager.set(this, currentPackageId)
 
         loadView()
 
@@ -122,9 +126,9 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 }
                 val sum: Long = stackList.sumOf { it.cubicCm.toLong() }
                 val sumFormat = if(unitsMeasurement == UnitsMeasurement.CM)
-                    {"%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")}
+                    {"%.2f".format(sum.toFloat() / 100.00F).replace(".", ",")}
                         else {
-                            UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                            UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 100.00F).replace(",", ".").toFloat())
                         }
 
                 this.runOnUiThread {
@@ -147,5 +151,20 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             DatabaseManagerDao.getDataBase(this)?.stackDao()?.deleteItem(item)
             loadView()
         }
+    }
+
+    override fun onBackPressed() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewStackPackageDetailsList.windowToken, 0)
+        super.onBackPressed()
+    }
+
+    override fun onStop() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewStackPackageDetailsList.windowToken, 0)
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewStackPackageDetailsList.windowToken, 0)
+        super.onDestroy()
     }
 }

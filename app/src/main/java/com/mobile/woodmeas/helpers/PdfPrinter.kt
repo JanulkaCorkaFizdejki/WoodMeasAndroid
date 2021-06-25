@@ -67,10 +67,10 @@ object PdfPrinter {
                             val lastUpdateDate = stackList.maxByOrNull { it.id }?.addDate
                             val sum: Long = stackList.sumOf { it.cubicCm.toLong() }
                             val sumFormat = if (unitsMeasurement == UnitsMeasurement.CM) {
-                                "%.2f".format(sum.toFloat() / 1000000F).replace(".", ",")
+                                "%.2f".format(sum.toFloat() / 100.00F).replace(".", ",")
                             }
                             else {
-                                UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
+                                UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 100.00F).replace(",", ".").toFloat())
                             }
                             val document = createPages(context, setListParts(stackList) as List<List<Stack>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
                             val file = File(filePath)
@@ -440,9 +440,9 @@ object PdfPrinter {
                 page.canvas.drawText(cross, margin.toFloat() + 320f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 
                 val format = if(unitsMeasurement == UnitsMeasurement.CM)
-                {"%.2f".format(stack.cubicCm.toFloat() / 1000000f).replace(",", ".")}
+                {"%.2f".format(stack.cubicCm.toFloat() / 100.00F).replace(",", ".")}
                 else {
-                    UnitsMeasurement.convertToFootToString("%.2f".format(stack.cubicCm.toFloat() / 1000000f).replace(",", ".").toFloat())
+                    UnitsMeasurement.convertToFootToString("%.2f".format(stack.cubicCm.toFloat() / 100.00F).replace(",", ".").toFloat())
                 }
                 page.canvas.drawText(format, margin.toFloat() + 380f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
 

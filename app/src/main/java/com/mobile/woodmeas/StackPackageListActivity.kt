@@ -143,7 +143,8 @@ class StackPackageListActivity : AppCompatActivity(), AppActivityManager {
             if (editTextPackages.text.toString().isNotEmpty()) {
                 val stackPackages =  StackPackages(0,
                     editTextPackages.text.toString(),
-                    Date()
+                    Date(),
+                    null
                 )
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let {

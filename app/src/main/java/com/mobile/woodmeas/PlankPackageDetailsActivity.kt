@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -22,6 +23,7 @@ import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
+import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
 import java.text.DateFormat
 import kotlin.concurrent.thread
@@ -59,6 +61,8 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             }
             currentPackageId = packageId
         }
+
+        NoteManager.set(this, currentPackageId)
 
         loadView()
 
@@ -148,5 +152,20 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             DatabaseManagerDao.getDataBase(this)?.plankDao()?.deleteItem(item)
             loadView()
         }
+    }
+
+    override fun onBackPressed() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewPlankPackageDetailsList.windowToken, 0)
+        super.onBackPressed()
+    }
+
+    override fun onStop() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewPlankPackageDetailsList.windowToken, 0)
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        (this.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(recyclerViewPlankPackageDetailsList.windowToken, 0)
+        super.onDestroy()
     }
 }

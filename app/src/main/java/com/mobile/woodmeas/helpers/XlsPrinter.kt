@@ -605,13 +605,13 @@ object XlsPrinter {
                 }
 
                 val m3 = if(unitsMeasurement == UnitsMeasurement.CM) {
-                    "%.2f".format(stackItem.cubicCm.toFloat() / 1000000f)
+                    "%.2f".format(stackItem.cubicCm.toFloat() / 100.00F)
                         .replace(",", ".")
                         .toDouble()
                 }
                 else {
                     "%.2f".format(UnitsMeasurement
-                        .convertToFootToFloat(stackItem.cubicCm.toFloat() / 1000000f))
+                        .convertToFootToFloat(stackItem.cubicCm.toFloat() / 100.00F))
                         .replace(",", ".")
                         .toDouble()
                 }
@@ -648,12 +648,12 @@ object XlsPrinter {
             hssfRow.height = 600
             hssfRow.createCell(7).apply {
                 val result = if (unitsMeasurement == UnitsMeasurement.CM) {
-                    "%.2f".format(stackList.sumOf { it.cubicCm.toLong() }.toDouble() / 1000000.0)
+                    "%.2f".format(stackList.sumOf { it.cubicCm.toLong() }.toDouble() / 100.00F)
                         .replace(",", ".")
                         .toDouble()
                 } else {
                     "%.2f".format(UnitsMeasurement
-                        .convertToFootToFloat(stackList.sumOf { it.cubicCm.toLong() }.toFloat() / 1000000.0f))
+                        .convertToFootToFloat(stackList.sumOf { it.cubicCm.toLong() }.toFloat() / 100.00F))
                         .replace(",", ".")
                         .toDouble()
                 }

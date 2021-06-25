@@ -128,8 +128,7 @@ class PlankPackageListActivity : AppCompatActivity(), AppActivityManager {
             if (editTextWoodPackages.text.toString().isNotEmpty()) {
                 val plankPackages =  PlankPackages(0,
                     editTextWoodPackages.text.toString(),
-                    Date()
-                )
+                    Date(), null)
                 thread {
                     DatabaseManagerDao.getDataBase(this)?.let {
                         it.plankPackagesDao().insert(plankPackages)

@@ -11,10 +11,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.mobile.woodmeas.datamodel.MenuData
-import com.mobile.woodmeas.datamodel.MenuItemsType
-import com.mobile.woodmeas.datamodel.MenuType
-import com.mobile.woodmeas.datamodel.UnitsMeasurement
+import com.mobile.woodmeas.datamodel.*
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.*
 import com.mobile.woodmeas.model.Stack
@@ -62,7 +59,6 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
     }
 
     override fun loadView() {
-
         // Go Package List Select Activity
         findViewById<ImageButton>(R.id.imageButtonMeasResultUsePackage).let { imageButtonMeasResultUsePackage ->
             imageButtonMeasResultUsePackage.setOnClickListener {
@@ -100,7 +96,7 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                         thread {
                             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                 databaseManagerDao.stackPackagesDao()
-                                    .insert(StackPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                    .insert(StackPackages(0, editTextWoodPackages.text.toString(), Date(), null))
 
                                 databaseManagerDao.stackPackagesDao().selectLast().let {
                                     stackPackages = it
@@ -120,7 +116,7 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                         thread {
                             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                                 databaseManagerDao.stackPackagesDao()
-                                    .insert(StackPackages(0, editTextWoodPackages.text.toString(), Date()))
+                                    .insert(StackPackages(0, editTextWoodPackages.text.toString(), Date(), null))
                                 this.runOnUiThread {
                                     Toast.makeText(this, R.string.created_package, Toast.LENGTH_SHORT)
                                         .show()
@@ -181,11 +177,30 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
         val length = findViewById<SeekBar>(R.id.seekBarMeasureLength).progress
         val width = findViewById<SeekBar>(R.id.seekBarMeasureWidth).progress
         val height = findViewById<SeekBar>(R.id.seekBarMeasureThickness).progress
-        val tree: Trees = findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees
-        val switchCrossStackModule = findViewById<Switch>(R.id.switchCrossStackModule)
-        val cross = if (switchCrossStackModule.isChecked) 1 else 0
-        val calculateResult = Calculator.stackFormat(length, width, height, null, switchCrossStackModule.isChecked).replace(",", ".")
-        val resultCm = (calculateResult.toFloat() * 1000000.0F).toInt()
+
+        val tree = findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees
+        val cross = findViewById<Switch>(R.id.switchCrossStackModule)
+        
+        val customFactor: Float? = if  (findViewById<Switch>(R.id.switchCustomFactorOnOff).isChecked) {
+            val progress = findViewById<SeekBar>(R.id.seekBarCustomFactor).progress
+            when(findViewById<SeekBar>(R.id.seekBarCustomFactor).progress) {
+                0 -> 0.01F
+                in 0..10 ->  "0.0$progress".toFloat()
+                100 -> 1.00F
+                else -> "0.$progress".toFloat()
+            }
+        } else null
+
+        val woodCoefficients = findViewById<Spinner>(R.id.spinnerWoodCoefficients).selectedItem as WoodCoefficients
+
+        val m3 = woodCoefficients
+            .setResult(
+                Calculator.rectangularToLong(length, width, height).toFloat() / 1000000F,
+                length,
+                findViewById<Switch>(R.id.switchTreeModule).isChecked,
+                tree,
+                cross.isChecked,
+                customFactor)
 
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
@@ -197,8 +212,8 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                             length,
                             width,
                             height,
-                            resultCm,
-                            cross,
+                            (m3 * 100.00F).toInt(),
+                            if (cross.isChecked) 1 else 0,
                             tree.id,
                             Date()
                         )
