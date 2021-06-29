@@ -117,16 +117,33 @@ interface AppActivityManager {
                         val tree: Trees? =
                             if (appCompatActivity.findViewById<Switch>(R.id.switchTreeModule).isChecked) { appCompatActivity.findViewById<Spinner>(R.id.spinnerTreeModuleTrees).selectedItem as Trees } else null
 
-                        Calculator.logFormat(seekBarsValues[0], seekBarsValues[1], tree).let { result ->
-                            textViewMeasResultM.text = result.replace(".", ",")
+                        if (appCompatActivity.getLogMeasUpperMethod()) {
+                            Calculator.thicknessUpperMethod(seekBarsValues[0].toDouble() / 100.0, seekBarsValues[1]).let { result ->
+                                if (unitsMeasurement == UnitsMeasurement.CM) {
+                                    val resultFormat = "%.2f".format(result).replace(".", ",")
+                                    textViewMeasResultM.text = resultFormat
+                                }
+                                else {
+                                    val resultToFloat = "%.2f".format(result).replace(",", ".").toFloat()
+                                    textViewMeasResultM.text = UnitsMeasurement.convertToFootToString(resultToFloat)
+                                }
+                            }
+                        }
+                        else {
+                            Calculator.logFormat(seekBarsValues[0], seekBarsValues[1], tree).let { result ->
+                                if (unitsMeasurement == UnitsMeasurement.CM) {
+                                    textViewMeasResultM.text = result.replace(".", ",")
+                                }
+                                else {
+                                    textViewMeasResultM.text  = UnitsMeasurement.convertToFootToString(result.replace(",", ".").toFloat())
+                                }
+                            }
                         }
                     }
                     is StackCalculatorActivity -> {
                         val m3 = "%.2f".format(Calculator
                             .rectangularToLong(seekBarsValues[0], seekBarsValues[1], seekBarsValues[2]).toFloat() / 1000000.00F)
                             .replace(",", ".").toFloat()
-
-                        println(m3)
 
                         val woodCoefficients = appCompatActivity.findViewById<Spinner>(R.id.spinnerWoodCoefficients).selectedItem as WoodCoefficients
                         val switchCrossStackModule = appCompatActivity.findViewById<Switch>(R.id.switchCrossStackModule).isChecked

@@ -30,4 +30,39 @@ object EmailManager {
                 putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(attachments))
         }
     }
+
+    fun getTextBody(note: String, footer: String): String {
+        return """
+            $note
+            
+            ----
+            $footer
+        """.trimIndent()
+    }
+
+    fun getTextHtml(note: String, footer: String): String {
+        return """
+            <div>
+            <p style="padding-top: 10px; padding-bottom: 10px">$note</p>
+            <hr>
+            <p style="padding-top: 10px; padding-bottom: 10px; font-size: 10px">$footer</p>
+            </div>
+        """.trimIndent()
+    }
+    fun getTextBodyFooter(footer: String): String {
+        return """
+            
+            ----
+            $footer
+        """.trimIndent()
+    }
+
+    fun getTextHtmlFooter(footer: String): String {
+        return """
+            <div style="padding-top: 10px">
+            <hr>
+            <p style="padding-top: 10px; padding-bottom: 10px; font-size: 10px">$footer</p>
+            </div>
+        """.trimIndent()
+    }
 }

@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.MenuItemsAdapter
 import com.mobile.woodmeas.datamodel.MenuType
 import com.mobile.woodmeas.helpers.PdfPrinter
+import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.DatabaseManager
 import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
 import kotlin.concurrent.thread
@@ -56,11 +57,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         setCurrencyMenu(MenuType.CALCULATORS, null)
 
         thread { dbManager() }
-
 
     }
 

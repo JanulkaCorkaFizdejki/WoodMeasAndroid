@@ -10,4 +10,15 @@
         <item name="android:background">@drawable/oval_green</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
     </style>
+
+    <style name="ButtonGrayLearnMore" parent="Widget.AppCompat.Button">
+        <!--        <item name="colorPrimaryVariant">@color/red_base</item>-->
+        <!--        <item name="colorPrimary">@color/red_base</item>-->
+        <item name="android:textColor">@color/wm_other_blue_1</item>
+        <!--        <item name="android:textColorHighlight">@color/white_smoke</item>-->
+        <!--        <item name="android:textColorLink">@color/white_smoke</item>-->
+        <item name="android:textSize">9sp</item>
+        <item name="android:background">@drawable/rounded_gray_medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+    </style>
 </resources>

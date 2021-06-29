@@ -112,9 +112,12 @@ object DbConf {
         }
 
         object Settings {
-            const val ID            = "id"
-            const val TYPE_UNITS    = "type_units"
-            const val LOCATION      = "location"
+            const val ID                = "id"
+            const val TYPE_UNITS        = "type_units"
+            const val LOCATION          = "location"
+            const val ADD_NOTE_TO_EMAIL = "add_note_to_email"
+            const val ADD_NOTE_TO_PDF   = "add_note_to_pdf"
+            const val LOG_MEAS_METHOD   = "log_meas_method"
         }
     }
 }
@@ -183,13 +186,14 @@ object DatabaseManager {
 // SETTINGS ________________________________________________________________________________________
 @Entity(tableName = DbConf.TableNames.SETTINGS)
     data class SettingsDb(
-        @PrimaryKey (autoGenerate = true) val id: Int = 0,
-        @ColumnInfo(name = DbConf.TablesStruct.Settings.TYPE_UNITS) val typeUnits: Int,
-        @ColumnInfo(name = DbConf.TablesStruct.Settings.LOCATION) val location: Int
+    @PrimaryKey (autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = DbConf.TablesStruct.Settings.TYPE_UNITS) val typeUnits: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Settings.LOCATION) val location: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Settings.ADD_NOTE_TO_EMAIL) val addNoteToEmail: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Settings.ADD_NOTE_TO_PDF) val addNoteToPdf: Int,
+    @ColumnInfo(name = DbConf.TablesStruct.Settings.LOG_MEAS_METHOD) val logMeasMethod: Int
     ) {
-        fun getUnitMeasurement(): UnitsMeasurement  {
-            return if (typeUnits > 0) UnitsMeasurement.IN else UnitsMeasurement.CM
-        }
+        fun getUnitMeasurement(): UnitsMeasurement  = if (typeUnits > 0) UnitsMeasurement.IN else UnitsMeasurement.CM
     }
 
 @Dao
@@ -203,6 +207,11 @@ object DatabaseManager {
         @Query("UPDATE ${DbConf.TableNames.SETTINGS} " +
                 "SET ${DbConf.TablesStruct.Settings.TYPE_UNITS} = :typeUnits, ${DbConf.TablesStruct.Settings.LOCATION} = :location")
         fun update(typeUnits: Int, location: Int)
+
+        @Query("UPDATE ${DbConf.TableNames.SETTINGS} " +
+                "SET ${DbConf.TablesStruct.Settings.TYPE_UNITS} = :typeUnits, ${DbConf.TablesStruct.Settings.LOCATION} = :location, " +
+                "${DbConf.TablesStruct.Settings.ADD_NOTE_TO_EMAIL} = :addNoteToEmail, ${DbConf.TablesStruct.Settings.ADD_NOTE_TO_PDF} = :addNoteToPdf, ${DbConf.TablesStruct.Settings.LOG_MEAS_METHOD} = :logMeasMethod")
+        fun update(typeUnits: Int, location: Int, addNoteToEmail: Int, addNoteToPdf: Int, logMeasMethod: Int)
     }
 // _________________________________________________________________________________________________
 
@@ -271,7 +280,7 @@ interface StackPackagesDao {
     fun selectNote(id: Int): String?
 
     @Query("UPDATE ${DbConf.TableNames.STACK_PACKAGES} SET ${DbConf.TablesStruct.StackPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.StackPackages.ID} = :id")
-    fun updateNote(note: String, id: Int)
+    fun updateNote(note: String?, id: Int)
 
     @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.STACK_PACKAGES}")
     fun countAll(): Int
@@ -323,7 +332,7 @@ interface StackPackagesDaoFts {
         fun selectNote(id: Int): String?
 
         @Query("UPDATE ${DbConf.TableNames.PLANK_PACKAGES} SET ${DbConf.TablesStruct.PlankPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.PlankPackages.ID} = :id")
-        fun updateNote(note: String, id: Int)
+        fun updateNote(note: String?, id: Int)
 
         @Query("SELECT COUNT(*) FROM ${DbConf.TableNames.PLANK_PACKAGES}")
         fun countAll(): Int
@@ -410,7 +419,7 @@ data class Plank(
         fun selectNote(id: Int): String?
 
         @Query("UPDATE ${DbConf.TableNames.WOODEN_LOG_PACKAGES} SET ${DbConf.TablesStruct.WoodenLogPackages.NOTE} = :note WHERE ${DbConf.TablesStruct.WoodenLogPackages.ID} = :id")
-        fun updateNote(note: String, id: Int)
+        fun updateNote(note: String?, id: Int)
 
         @Insert
         fun insert(woodPackages: WoodenLogPackages)

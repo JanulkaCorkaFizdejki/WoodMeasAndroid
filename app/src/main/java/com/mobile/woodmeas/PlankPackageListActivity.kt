@@ -103,12 +103,16 @@ class PlankPackageListActivity : AppCompatActivity(), AppActivityManager {
                     if (plankPackages.isEmpty()) {
                         this.runOnUiThread {
                             constraintLayoutNoDataLayer.visibility = View.VISIBLE
+                            editTextAddingAndSearching.visibility = View.GONE
+                            editTextAddingAndSearching.isClickable = false
                         }
                     }
                     else {
                         this.runOnUiThread {
                             recyclerViewPlankPackageListItem.adapter = PlankPackagesListAdapter(plankPackages)
                             constraintLayoutNoDataLayer.visibility = View.GONE
+                            editTextAddingAndSearching.visibility = View.VISIBLE
+                            editTextAddingAndSearching.isClickable = true
                         }
                     }
                 }

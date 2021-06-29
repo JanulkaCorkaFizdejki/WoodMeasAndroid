@@ -106,12 +106,16 @@ class LogPackageListActivity : AppCompatActivity(), AppActivityManager {
                     if (woodenLogPackages.isEmpty()) {
                         this.runOnUiThread {
                             constraintLayoutNoDataLayer.visibility = View.VISIBLE
+                            editTextAddingAndSearching.visibility = View.GONE
+                            editTextAddingAndSearching.isClickable = false
                         }
                     }
                     else {
                         this.runOnUiThread {
                             recyclerViewWoodenLogPackageListItem.adapter = WoodenPackagesListAdapter(woodenLogPackages)
                             constraintLayoutNoDataLayer.visibility = View.GONE
+                            editTextAddingAndSearching.visibility = View.VISIBLE
+                            editTextAddingAndSearching.isClickable = true
                         }
                     }
                 }

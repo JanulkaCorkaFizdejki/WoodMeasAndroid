@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -24,6 +25,11 @@ import kotlin.concurrent.thread
 class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageManager {
     private var plankPackages: PlankPackages? = null
     private var unitsMeasurement = UnitsMeasurement.CM
+    private lateinit var textViewMultiplierPanelVal: TextView
+    private var multiplierVal = 1
+    private lateinit var imageButtonMultiplierPanelMinus: ImageButton
+    private lateinit var imageButtonMultiplierPanelPlus: ImageButton
+    private lateinit var seekBarMultiplier: SeekBar
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +37,11 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
         setContentView(R.layout.activity_plank_calculator)
         NavigationManager.topNavigation(this, MenuData(MenuType.CALCULATORS, MenuItemsType.PLANK))
         super.setSpinnerTrees(this)
+        textViewMultiplierPanelVal = findViewById(R.id.textViewMultiplierPanelVal)
+        imageButtonMultiplierPanelMinus = findViewById(R.id.imageButtonMultiplierPanelMinus)
+        imageButtonMultiplierPanelPlus = findViewById(R.id.imageButtonMultiplierPanelPlus)
+        seekBarMultiplier = findViewById(R.id.seekBarMultiplierPanel)
+
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                 unitsMeasurement  = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
@@ -38,6 +49,76 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
             this.runOnUiThread { super.calculationManager(this, unitsMeasurement) }
         }
         loadView()
+
+        seekBarMultiplier.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {
+                multiplierVal = progress + 1
+                val multiplierValTextFormat = "x$multiplierVal"
+                textViewMultiplierPanelVal.text = multiplierValTextFormat
+            }
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
+        })
+
+        imageButtonMultiplierPanelPlus.setOnClickListener {
+            if (seekBarMultiplier.progress < seekBarMultiplier.max) {
+                seekBarMultiplier.progress = seekBarMultiplier.progress + 1
+            }
+        }
+
+        imageButtonMultiplierPanelPlus.setOnLongClickListener {
+            var timer: CountDownTimer? = null
+            fun timerCancel() {
+                timer?.cancel()
+                timer = null
+            }
+            timer = object : CountDownTimer(1000000, 10) {
+                override fun onTick(p0: Long) {
+                    if (imageButtonMultiplierPanelMinus.isPressed && imageButtonMultiplierPanelPlus.isPressed) {
+                        timerCancel()
+                    }
+
+                    if (!imageButtonMultiplierPanelPlus.isPressed) { timerCancel() }
+
+                    if (seekBarMultiplier.progress < seekBarMultiplier.max) {
+                        seekBarMultiplier.progress = seekBarMultiplier.progress + 1
+                    }
+                    else {timerCancel()}
+                }
+                override fun onFinish() {}
+            }.start()
+            return@setOnLongClickListener true
+        }
+
+        imageButtonMultiplierPanelMinus.setOnClickListener {
+            if (seekBarMultiplier.progress > 0) {
+                seekBarMultiplier.progress = seekBarMultiplier.progress - 1
+            }
+        }
+
+        imageButtonMultiplierPanelMinus.setOnLongClickListener {
+            var timer: CountDownTimer? = null
+            fun timerCancel() {
+                timer?.cancel()
+                timer = null
+            }
+            timer = object : CountDownTimer(1000000, 10) {
+                override fun onTick(p0: Long) {
+                    if (imageButtonMultiplierPanelMinus.isPressed && imageButtonMultiplierPanelPlus.isPressed) {
+                        timerCancel()
+                    }
+
+                    if (!imageButtonMultiplierPanelMinus.isPressed) { timerCancel() }
+
+                    if (seekBarMultiplier.progress > 0) {
+                        seekBarMultiplier.progress = seekBarMultiplier.progress - 1
+                    }
+                    else { timerCancel() }
+                }
+                override fun onFinish() {}
+            }.start()
+            return@setOnLongClickListener true
+        }
     }
 
     override fun onStart() {
@@ -181,18 +262,20 @@ class PlankCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
                 plankPackages?.id?.let { plankPackagesId ->
-                    databaseManagerDao.plankDao().insert(
-                        Plank(
-                            0,
-                            plankPackagesId,
-                            length,
-                            width,
-                            height,
-                            Calculator.rectangular(length, width, height),
-                            tree.id,
-                            Date()
+                    for (i in 1..multiplierVal) {
+                        databaseManagerDao.plankDao().insert(
+                            Plank(
+                                0,
+                                plankPackagesId,
+                                length,
+                                width,
+                                height,
+                                Calculator.rectangular(length, width, height),
+                                tree.id,
+                                Date()
+                            )
                         )
-                    )
+                    }
                     this.runOnUiThread {
                         Toast.makeText(this, R.string.added_to_package, Toast.LENGTH_SHORT).show()
                     }

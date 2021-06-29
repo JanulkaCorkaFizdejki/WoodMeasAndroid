@@ -64,6 +64,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <include
+                layout="@layout/multiplier_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <include
                 layout="@layout/measurement_result"
                 android:layout_width="match_parent"

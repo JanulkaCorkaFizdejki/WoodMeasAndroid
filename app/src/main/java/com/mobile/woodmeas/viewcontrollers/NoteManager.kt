@@ -26,7 +26,7 @@ object NoteManager {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun set(appCompatActivity: AppCompatActivity, packageId: Int) {
         var firstTechChanged = false
-        val maxText = 1000
+        val maxText = 500
         var visibilityNotePanel = false
         val imageButtonNoteMain = appCompatActivity.findViewById<ImageButton>(R.id.imageButtonNoteMain)
         val editTextTextMultiLineNotePanelDesc = appCompatActivity.findViewById<EditText>(R.id.editTextTextMultiLineNotePanelDesc)
@@ -84,12 +84,12 @@ object NoteManager {
         }
 
         imageButtonAddNote.setOnClickListener {
-            if (editTextTextMultiLineNotePanelDesc.text.isNotEmpty()) {
+            val note = if(editTextTextMultiLineNotePanelDesc.text.isNotEmpty()) editTextTextMultiLineNotePanelDesc.text.toString().trim() else null
                 when(appCompatActivity) {
                     is PlankPackageDetailsActivity  -> {
                         thread {
                             DatabaseManagerDao.getDataBase(appCompatActivity)?.let { databaseManagerDao ->
-                                databaseManagerDao.plankPackagesDao().updateNote(editTextTextMultiLineNotePanelDesc.text.toString().trim(), packageId)
+                                databaseManagerDao.plankPackagesDao().updateNote(note, packageId)
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
@@ -100,7 +100,7 @@ object NoteManager {
                     is StackPackageDetailsActivity -> {
                         thread {
                             DatabaseManagerDao.getDataBase(appCompatActivity)?.let { databaseManagerDao ->
-                                databaseManagerDao.stackPackagesDao().updateNote(editTextTextMultiLineNotePanelDesc.text.toString().trim(), packageId)
+                                databaseManagerDao.stackPackagesDao().updateNote(note, packageId)
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
@@ -111,7 +111,7 @@ object NoteManager {
                     is LogPackageDetailsActivity -> {
                         thread {
                             DatabaseManagerDao.getDataBase(appCompatActivity)?.let { databaseManagerDao ->
-                                databaseManagerDao.woodenLogPackagesDao().updateNote(editTextTextMultiLineNotePanelDesc.text.toString().trim(), packageId)
+                                databaseManagerDao.woodenLogPackagesDao().updateNote(note, packageId)
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
@@ -120,7 +120,6 @@ object NoteManager {
                         }
                     }
                 }
-            }
         }
 
         editTextTextMultiLineNotePanelDesc.addTextChangedListener(object : TextWatcher{
@@ -129,11 +128,12 @@ object NoteManager {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
                 textViewNotePanelCharCounter.text = (maxText - editTextTextMultiLineNotePanelDesc.text.length).toString()
                 if (!firstTechChanged) {
-                    if (editTextTextMultiLineNotePanelDesc.text.isNotEmpty()) {
-                        setAddButton(appCompatActivity, imageButtonAddNote, false)
-                    } else {
-                        setAddButton(appCompatActivity, imageButtonAddNote, true)
-                    }
+//                    if (editTextTextMultiLineNotePanelDesc.text.isNotEmpty()) {
+//                        setAddButton(appCompatActivity, imageButtonAddNote, false)
+//                    } else {
+//                        setAddButton(appCompatActivity, imageButtonAddNote, true)
+//                    }
+                    setAddButton(appCompatActivity, imageButtonAddNote, false)
 
                 } else {
                     setAddButton(appCompatActivity, imageButtonAddNote, true)

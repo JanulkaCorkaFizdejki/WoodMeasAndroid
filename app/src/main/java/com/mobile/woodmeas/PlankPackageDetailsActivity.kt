@@ -97,12 +97,31 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 PdfPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { pdf->
                     XlsPrinter.create(this, currentPackageId, directory, unitsMeasurement)?.let { xls->
                         val intentEmail = EmailManager.sendWithMultipleAttachments(applicationContext, listOf(pdf, xls))
+                        val db = DatabaseManagerDao.getDataBase(this)
+                        val settings = db?.settingsDbDao()?.select()
+                        val appNoteFooter = resources.getString(R.string.sent_from_app)
+                        if (settings != null) {
+                            if (settings.addNoteToEmail > 0) {
+                                val woodLogPackage = db.plankPackagesDao().selectItem(currentPackageId)
+                                if (woodLogPackage.note != null) {
+                                    intentEmail.putExtra(Intent.EXTRA_TEXT, EmailManager.getTextBody(woodLogPackage.note, appNoteFooter))
+                                    intentEmail.putExtra(Intent.EXTRA_HTML_TEXT, EmailManager.getTextHtml(woodLogPackage.note, appNoteFooter))
+                                }
+                                else {
+                                    intentEmail.putExtra(Intent.EXTRA_TEXT, EmailManager.getTextBodyFooter(appNoteFooter))
+                                    intentEmail.putExtra(Intent.EXTRA_HTML_TEXT, EmailManager.getTextHtmlFooter(appNoteFooter))
+                                }
+                            }
+                            else {
+                                intentEmail.putExtra(Intent.EXTRA_TEXT, EmailManager.getTextBodyFooter(appNoteFooter))
+                                intentEmail.putExtra(Intent.EXTRA_HTML_TEXT, EmailManager.getTextHtmlFooter(appNoteFooter))
+                            }
+                        }
                         startActivity(intentEmail)
                     }
                 }
             }
         }
-
     }
 
     override fun loadView() {

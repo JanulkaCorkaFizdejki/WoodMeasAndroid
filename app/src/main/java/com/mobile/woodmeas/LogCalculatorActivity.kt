@@ -27,7 +27,9 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
 
     private var logPackages: WoodenLogPackages? = null
     private var unitsMeasurement = UnitsMeasurement.CM
+    private var logMeasUpperMethod = false
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +38,20 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
         super.setSpinnerTrees(this)
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
-                unitsMeasurement  = databaseManagerDao.settingsDbDao().select().getUnitMeasurement()
+                val settings = databaseManagerDao.settingsDbDao().select()
+                unitsMeasurement  = settings.getUnitMeasurement()
+                logMeasUpperMethod = settings.logMeasMethod > 0
+                println("log1:::$logMeasUpperMethod")
             }
-            this.runOnUiThread { super.calculationManager(this, unitsMeasurement) }
+            this.runOnUiThread {
+                if (logMeasUpperMethod) {
+                    findViewById<ImageView>(R.id.imageViewCenterEndMeasMethod)
+                        .setImageDrawable(resources.getDrawable(R.drawable.ic_top_meas, null))
+
+                    (findViewById<Switch>(R.id.switchTreeModule).parent as ConstraintLayout).visibility = View.GONE
+                }
+                super.calculationManager(this, unitsMeasurement)
+            }
         }
 
         loadView()
@@ -184,8 +197,15 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
 
         val treeForCalc: Trees? = if (switchBarkOn.isChecked) { tree } else null
 
-        val calculateResult = Calculator.logFormat(length, diameter, treeForCalc).replace(",", ".")
-        val resultCm = (calculateResult.toFloat() * 1000000.0F).toInt()
+        val resultCm = if (logMeasUpperMethod) {
+            ("%.2f".format(Calculator.thicknessUpperMethod(length.toDouble() / 100.0, diameter))
+                .replace(",", ".")
+                .toFloat() * 1000000.0F).toInt()
+        }
+        else {
+            val calculateResult = Calculator.logFormat(length, diameter, treeForCalc).replace(",", ".")
+            (calculateResult.toFloat() * 1000000.0F).toInt()
+        }
 
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->
@@ -220,5 +240,7 @@ class LogCalculatorActivity : AppCompatActivity(), AppActivityManager, PackageMa
             findViewById<TextView>(R.id.textViewMeasResultPackageName).text = applicationContext.getString(R.string.absence)
         }
     }
+
+    fun getLogMeasUpperMethod() = logMeasUpperMethod
 
 }

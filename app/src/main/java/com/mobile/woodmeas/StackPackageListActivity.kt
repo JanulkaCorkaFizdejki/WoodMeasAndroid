@@ -103,12 +103,16 @@ class StackPackageListActivity : AppCompatActivity(), AppActivityManager {
                     if (stackPackages.isEmpty()) {
                         this.runOnUiThread {
                             constraintLayoutNoDataLayer.visibility = View.VISIBLE
+                            editTextAddingAndSearching.visibility = View.GONE
+                            editTextAddingAndSearching.isClickable = false
                         }
                     }
                     else {
                         this.runOnUiThread {
                             recyclerViewStackPackageListItem.adapter = StackPackagesListAdapter(stackPackages)
                             constraintLayoutNoDataLayer.visibility = View.GONE
+                            editTextAddingAndSearching.visibility = View.VISIBLE
+                            editTextAddingAndSearching.isClickable = true
                         }
                     }
                 }

@@ -20,7 +20,6 @@ import java.io.FileOutputStream
 import java.lang.Exception
 import java.text.DateFormat
 import java.util.*
-import kotlin.concurrent.thread
 
 object PdfPrinter {
     private const val maxFirst: Int     = 55
@@ -29,6 +28,8 @@ object PdfPrinter {
     private const val intervalSize: Int = 10
     private const val lengthA4: Int     = 595
     private const val widthA4: Int      = 841
+    private const val maxLineChar       = 160
+    private const val noteInterval      = 10
 
     @RequiresApi(Build.VERSION_CODES.N)
     fun create(context: Context, packageId: Int, directory: String, unitsMeasurement: UnitsMeasurement): String? {
@@ -38,6 +39,10 @@ object PdfPrinter {
                     DatabaseManagerDao.getDataBase(context)?.let { databaseManagerDao ->
                         val packageDao = databaseManagerDao.woodenLogPackagesDao().selectItem(packageId)
                         val trees = databaseManagerDao.treesDao().selectAll()
+                        var note: String? = null
+                        if (databaseManagerDao.settingsDbDao().select().addNoteToPdf > 0) {
+                            note = packageDao.note
+                        }
                         databaseManagerDao.woodenLogDao().selectWithWoodPackageId(packageId).let { woodenLogList ->
                             val lastUpdateDate = woodenLogList.maxByOrNull { it.id }?.addDate
                             val sum: Long = woodenLogList.sumOf { it.cubicCm.toLong() }
@@ -47,7 +52,7 @@ object PdfPrinter {
                             else {
                                 UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
                             }
-                            val document = createPages(context, setListParts(woodenLogList) as List<List<WoodenLog>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
+                            val document = createPages(context, setListParts(woodenLogList) as List<List<WoodenLog>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement, note)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -63,6 +68,10 @@ object PdfPrinter {
                     DatabaseManagerDao.getDataBase(context)?.let { databaseManagerDao ->
                         val packageDao = databaseManagerDao.stackPackagesDao().selectItem(packageId)
                         val trees = databaseManagerDao.treesDao().selectAll()
+                        var note: String? = null
+                        if (databaseManagerDao.settingsDbDao().select().addNoteToPdf > 0) {
+                            note = packageDao.note
+                        }
                         databaseManagerDao.stackDao().selectWithPackageId(packageId).let { stackList ->
                             val lastUpdateDate = stackList.maxByOrNull { it.id }?.addDate
                             val sum: Long = stackList.sumOf { it.cubicCm.toLong() }
@@ -72,7 +81,7 @@ object PdfPrinter {
                             else {
                                 UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 100.00F).replace(",", ".").toFloat())
                             }
-                            val document = createPages(context, setListParts(stackList) as List<List<Stack>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
+                            val document = createPages(context, setListParts(stackList) as List<List<Stack>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement, note)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -88,6 +97,10 @@ object PdfPrinter {
                     DatabaseManagerDao.getDataBase(context)?.let { databaseManagerDao ->
                         val packageDao = databaseManagerDao.plankPackagesDao().selectItem(packageId)
                         val trees = databaseManagerDao.treesDao().selectAll()
+                        var note: String? = null
+                        if (databaseManagerDao.settingsDbDao().select().addNoteToPdf > 0) {
+                            note = packageDao.note
+                        }
                         databaseManagerDao.plankDao().selectWithPackageId(packageId).let { plankList ->
                             val lastUpdateDate = plankList.maxByOrNull { it.id }?.addDate
                             val sum: Long = plankList.sumOf { it.cubicCm.toLong() }
@@ -97,7 +110,7 @@ object PdfPrinter {
                             else {
                                 UnitsMeasurement.convertToFootToString("%.2f".format(sum.toFloat() / 1000000F).replace(",", ".").toFloat())
                             }
-                            val document = createPages(context, setListParts(plankList) as List<List<Plank>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement)
+                            val document = createPages(context, setListParts(plankList) as List<List<Plank>>, trees, packageDao, lastUpdateDate, sumFormat, unitsMeasurement, note)
                             val file = File(filePath)
                             try {
                                 document.writeTo(FileOutputStream(file))
@@ -121,7 +134,9 @@ object PdfPrinter {
         packageDao: WoodenLogPackages,
         lastUpdateDate: Date?,
         m3Sum: String,
-        unitsMeasurement: UnitsMeasurement): PdfDocument {
+        unitsMeasurement: UnitsMeasurement,
+        note: String?
+    ): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -286,6 +301,37 @@ object PdfPrinter {
                 }.let {
                     page.canvas.drawText(m3Sum, margin.toFloat() + 320f, intervalSizeIterator.toFloat() + 20f, it)
                 }
+
+                note?.let { noteIn ->
+                    val countLine = note.length / maxLineChar
+                    if (countLine < 1) {
+                        TextPaint().apply {
+                            textSize = 6f
+                            color = Color.DKGRAY
+                            typeface = Typeface.create("Arial", Typeface.NORMAL)
+                        }.let {
+                            page.canvas.drawText(noteIn, margin.toFloat(), intervalSizeIterator + 30f, it)
+                        }
+                    }
+                    else {
+                        var start = 0
+                        var stop = maxLineChar
+                        var noteLinePosition = intervalSizeIterator + 30
+                        for (i in 1..countLine + 1) {
+                            val subStr = noteIn.subSequence(start, stop)
+                            TextPaint().apply {
+                                textSize = 6f
+                                color = Color.DKGRAY
+                                typeface = Typeface.create("Arial", Typeface.NORMAL)
+                            }.let {
+                                page.canvas.drawText(subStr.toString(), margin.toFloat(), noteLinePosition.toFloat(), it)
+                            }
+                            start += maxLineChar
+                            stop = if (maxLineChar + stop >= note.length) note.length else maxLineChar + stop
+                            noteLinePosition += noteInterval
+                        }
+                    }
+                }
             }
             // _____________________________________________________________________________________
             document.finishPage(page)
@@ -302,7 +348,8 @@ object PdfPrinter {
         packageDao: StackPackages,
         lastUpdateDate: Date?,
         m3Sum: String,
-        unitsMeasurement: UnitsMeasurement): PdfDocument {
+        unitsMeasurement: UnitsMeasurement,
+        note: String?): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -380,6 +427,7 @@ object PdfPrinter {
                     val stopX = lengthA4.toFloat() - margin.toFloat()
                     page.canvas.drawLine(margin.toFloat(), 150f, stopX, 150f, it)
                 }
+
 
                 // _________________________________________________________________________________________
 
@@ -471,6 +519,37 @@ object PdfPrinter {
                 }.let {
                     page.canvas.drawText(m3Sum, margin.toFloat() + 380f, intervalSizeIterator.toFloat() + 20f, it)
                 }
+
+                note?.let { noteIn ->
+                    val countLine = note.length / maxLineChar
+                    if (countLine < 1) {
+                        TextPaint().apply {
+                            textSize = 6f
+                            color = Color.DKGRAY
+                            typeface = Typeface.create("Arial", Typeface.NORMAL)
+                        }.let {
+                            page.canvas.drawText(noteIn, margin.toFloat(), intervalSizeIterator + 30f, it)
+                        }
+                    }
+                    else {
+                        var start = 0
+                        var stop = maxLineChar
+                        var noteLinePosition = intervalSizeIterator + 30
+                        for (i in 1..countLine + 1) {
+                            val subStr = noteIn.subSequence(start, stop)
+                            TextPaint().apply {
+                                textSize = 6f
+                                color = Color.DKGRAY
+                                typeface = Typeface.create("Arial", Typeface.NORMAL)
+                            }.let {
+                                page.canvas.drawText(subStr.toString(), margin.toFloat(), noteLinePosition.toFloat(), it)
+                            }
+                            start += maxLineChar
+                            stop = if (maxLineChar + stop >= note.length) note.length else maxLineChar + stop
+                            noteLinePosition += noteInterval
+                        }
+                    }
+                }
             }
             // _____________________________________________________________________________________
             document.finishPage(page)
@@ -487,7 +566,8 @@ object PdfPrinter {
         packageDao: PlankPackages,
         lastUpdateDate: Date?,
         m3Sum: String,
-        unitsMeasurement: UnitsMeasurement): PdfDocument {
+        unitsMeasurement: UnitsMeasurement,
+        note: String?): PdfDocument {
 
         val document = PdfDocument()
         var rowIndex = 1
@@ -648,6 +728,36 @@ object PdfPrinter {
                     typeface = Typeface.create("Arial", Typeface.BOLD)
                 }.let {
                     page.canvas.drawText(m3Sum, margin.toFloat() + 320f, intervalSizeIterator.toFloat() + 20f, it)
+                }
+                note?.let { noteIn ->
+                    val countLine = note.length / maxLineChar
+                    if (countLine < 1) {
+                        TextPaint().apply {
+                            textSize = 6f
+                            color = Color.DKGRAY
+                            typeface = Typeface.create("Arial", Typeface.NORMAL)
+                        }.let {
+                            page.canvas.drawText(noteIn, margin.toFloat(), intervalSizeIterator + 30f, it)
+                        }
+                    }
+                    else {
+                        var start = 0
+                        var stop = maxLineChar
+                        var noteLinePosition = intervalSizeIterator + 30
+                        for (i in 1..countLine + 1) {
+                            val subStr = noteIn.subSequence(start, stop)
+                            TextPaint().apply {
+                                textSize = 6f
+                                color = Color.DKGRAY
+                                typeface = Typeface.create("Arial", Typeface.NORMAL)
+                            }.let {
+                                page.canvas.drawText(subStr.toString(), margin.toFloat(), noteLinePosition.toFloat(), it)
+                            }
+                            start += maxLineChar
+                            stop = if (maxLineChar + stop >= note.length) note.length else maxLineChar + stop
+                            noteLinePosition += noteInterval
+                        }
+                    }
                 }
             }
             // _____________________________________________________________________________________

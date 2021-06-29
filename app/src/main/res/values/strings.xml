@@ -25,8 +25,8 @@
     <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
     <string name="add_to_wood_package">Dodaj do pakietu</string>
     <string name="added_to_package">Dodano do pakietu</string>
-    <string name="select_or_create_wood_package">Wybierz lub stwórz pakiet drewna.</string>
-    <string name="length_width_log_min_info">Długość oraz szerokość kłody powinna być większa od zera.</string>
+    <string name="select_or_create_wood_package">Wybierz lub stwórz pakiet drewna</string>
+    <string name="length_width_log_min_info">Długość oraz szerokość kłody powinna być większa od zera</string>
     <string name="your_wood_packages_list">Twoje pakiety drewna</string>
     <string name="creation_date">Data utworzenia:</string>
     <string name="last_update_date">Data ostatniej modyfikacji</string>
@@ -134,4 +134,42 @@
     <string name="float_0_1">0,1</string>
     <string name="custom_factor">Własny współczynnik</string>
     <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Notatki pakietów</string>
+    <string name="add_to_emails">Dołączaj do emaili</string>
+    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
+    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
+    <string name="_x1">x1</string>
+    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
+    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
+    <string name="end_diameter">Średnica końcowa</string>
+    <string name="center_diameter">Średnica środkowa</string>
+    <string name="slash">/</string>
+    <string name="application_description">
+        Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.
+    </string>
+    <string name="application_features">Funkcje aplikacji</string>
+    <string-array name="application_features_list">
+        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
+        <item>dokonywanie obliczeń pomiarów tarcicy</item>
+        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
+        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
+        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
+        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
+        <item>dokonywanie obliczeń pomiarów w systemie metrycznym oraz imperialnym</item>
+        <item>tworzenie notatek dla pakietów</item>
+    </string-array>
+    <string name="measurement_logs">A. POMIAR KŁÓD</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Metody obliczeń</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory. </string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2.</string>
+    <string name="learn_more">[Zobacz więcej]</string>
+    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
 </resources>
