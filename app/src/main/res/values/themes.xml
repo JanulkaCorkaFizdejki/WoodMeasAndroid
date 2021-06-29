@@ -22,6 +22,14 @@
         <item name="android:background">@drawable/radio_button_white_style</item>
         <item name="android:button">@null</item>
     </style>
+    <style name="SettingsHeader" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/wm_other_yellow_1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="InfoHeader" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@color/wm_green_light</item>
         <item name="android:textSize">14sp</item>

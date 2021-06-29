@@ -55,6 +55,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/application_description" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/buttonInfoGoToWoodMeas"
+                        style="@style/ButtonGrayLearnMore"
+                        android:layout_width="140dp"
+                        android:layout_height="32dp"
+                        android:onClick="goToWoodMeasWebsite"
+                        android:text="@string/woodmeascom"
+                        android:textAllCaps="false"
+                        app:backgroundTint="@color/button_gray_dark"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="UsingOnClickInXml" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -107,7 +125,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature2"
@@ -132,7 +151,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature3"
@@ -157,7 +177,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature4"
@@ -182,7 +203,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature5"
@@ -207,7 +229,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature6"
@@ -232,7 +255,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:id="@+id/imageViewAppFeature7"
@@ -320,7 +344,7 @@
                         style="@style/ButtonGrayLearnMore"
                         android:layout_width="120dp"
                         android:layout_height="32dp"
-                        android:onClick="learnMoreActions"
+                        android:onClick="goToWoodMeasWebsite"
                         android:text="@string/learn_more"
                         android:textAllCaps="false"
                         app:backgroundTint="@color/button_gray_dark"
@@ -392,7 +416,7 @@
                         style="@style/ButtonGrayLearnMore"
                         android:layout_width="120dp"
                         android:layout_height="32dp"
-                        android:onClick="learnMoreActions"
+                        android:onClick="goToWoodMeasWebsite"
                         android:text="@string/learn_more"
                         android:textAllCaps="false"
                         app:backgroundTint="@color/button_gray_dark"
@@ -406,7 +430,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingTop="24dp"
@@ -418,13 +442,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:id="@+id/imageView18"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_qwerty_media" />
+                        app:srcCompat="@drawable/ic_qwerty_media"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/textView31"
@@ -436,7 +462,8 @@
                         android:text="@string/design_and_implementation"
                         android:textAllCaps="true"
                         android:textColor="@color/black"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
 
                     <TextView
                         android:id="@+id/textView30"
@@ -447,7 +474,8 @@
                         android:text="@string/qwertymediacom"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textSize="8sp" />
+                        android:textSize="8sp"
+                        tools:ignore="SmallSp" />
                 </LinearLayout>
 
             </LinearLayout>

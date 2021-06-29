@@ -58,13 +58,10 @@
 
                     <TextView
                         android:id="@+id/textView"
+                        style="@style/SettingsHeader"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/unit_of_measurement"
-                        android:textAllCaps="true"
-                        android:textColor="@color/wm_other_yellow_1"
-                        android:textSize="14sp"
-                        tools:ignore="SmallSp" />
+                        android:text="@string/unit_of_measurement" />
                 </LinearLayout>
 
                 <RadioGroup
@@ -152,13 +149,10 @@
 
                     <TextView
                         android:id="@+id/textView11"
+                        style="@style/SettingsHeader"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/method_measuring_logs"
-                        android:textAllCaps="true"
-                        android:textColor="@color/wm_other_yellow_1"
-                        android:textSize="14sp"
-                        tools:ignore="SmallSp" />
+                        android:text="@string/method_measuring_logs" />
 
                 </LinearLayout>
 
@@ -338,13 +332,10 @@
 
                     <TextView
                         android:id="@+id/textView8"
+                        style="@style/SettingsHeader"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/package_notes"
-                        android:textAllCaps="true"
-                        android:textColor="@color/wm_other_yellow_1"
-                        android:textSize="14sp"
-                        tools:ignore="SmallSp" />
+                        android:text="@string/package_notes" />
                 </LinearLayout>
 
                 <CheckBox

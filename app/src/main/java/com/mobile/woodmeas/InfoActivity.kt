@@ -86,7 +86,7 @@ class InfoActivity : AppCompatActivity() {
 
     }
 
-    fun learnMoreActions(view: View) {
+    fun goToWoodMeasWebsite(view: View) {
         (view as? Button)?.let {
             when(it.id) {
                 R.id.buttonInfoLearnMoreLog -> {
