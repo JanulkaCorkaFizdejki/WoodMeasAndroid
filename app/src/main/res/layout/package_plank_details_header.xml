@@ -6,17 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="2dp"
-    android:background="@drawable/rectangle_white_bg"
-    android:paddingTop="4dp"
-    android:paddingBottom="4dp">
+    android:background="@color/black"
+    android:paddingBottom="4dp"
+    android:paddingTop="4dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,13 +24,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textViewLogPackageDetailsId"
+        <ImageView
+            android:id="@+id/imageView25"
             android:layout_width="16dp"
             android:layout_height="wrap_content"
-            android:text="@string/default_number"
-            android:textSize="6sp"
-            tools:ignore="SmallSp" />
+            app:srcCompat="@drawable/ic_triangle_down"
+            tools:ignore="ContentDescription" />
 
         <Space
             android:layout_width="wrap_content"
@@ -46,23 +45,11 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/imageViewPackageLogDetailsTreeIco"
-                android:layout_width="wrap_content"
+                android:id="@+id/imageView21"
+                android:layout_width="46dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_tree_leafy_green_8"
+                app:srcCompat="@drawable/ic_tree_double"
                 tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/textViewPackageLogDetailsTreeName"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:text="@string/default_number"
-                android:textColor="@color/wm_green_medium"
-                android:textSize="7sp"
-                android:textStyle="bold"
-                tools:ignore="SmallSp" />
         </LinearLayout>
 
         <Space
@@ -70,15 +57,36 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textViewPackageLogDetailsLength"
+        <ImageView
+            android:id="@+id/imageView22"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/default_number"
-            android:textColor="@color/wm_gray_dark"
-            android:textSize="8sp"
-            tools:ignore="SmallSp" />
+            app:srcCompat="@drawable/ic_length_ico_8_white"
+            tools:ignore="ContentDescription" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_width_ico_8_white"
+            tools:ignore="ContentDescription" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageViewPackagePlankDetailsBarOnOff"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_height_ico_8_white"
+            tools:ignore="ContentDescription" />
 
         <Space
             android:layout_width="wrap_content"
@@ -86,12 +94,12 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/textViewPackageLogDetailsDiameter"
+            android:id="@+id/textViewPackageDetailsHeaderUnitPlank"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/default_number"
-            android:textColor="@color/wm_gray_dark"
+            android:text="@string/m3_short"
+            android:textColor="@color/white"
             android:textSize="8sp"
             tools:ignore="SmallSp" />
 
@@ -101,39 +109,10 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/imageViewPackageLogDetailsBarOnOff"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_bark_off_8"
-            tools:ignore="ContentDescription" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textViewLogPackageDetailsCubic"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/default_number"
-            android:textColor="@color/wm_gray_dark"
-            android:textSize="8sp"
-            android:textStyle="bold"
-            tools:ignore="SmallSp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/imageButtonPackageLogDetailsDelete"
+            android:id="@+id/imageView26"
             android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/oval_white_smoke"
-            app:srcCompat="@drawable/ic_cancel_10"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_cancel_8"
             tools:ignore="ContentDescription" />
 
     </LinearLayout>

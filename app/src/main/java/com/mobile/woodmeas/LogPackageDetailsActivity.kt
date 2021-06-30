@@ -64,7 +64,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             currentPackageId = packageId
         }
 
-        NoteManager.set(this, currentPackageId)
+        NoteManager.set(this, currentPackageId, findViewById(R.id.linearLayoutPackageDetailsLogHeader))
 
         loadView()
 
@@ -147,6 +147,12 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
                 databaseManagerDao.woodenLogPackagesDao().selectItem(currentPackageId).let {
                     this.runOnUiThread {
+                        if (unitsMeasurement == UnitsMeasurement.CM) {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitLog).text = resources.getText(R.string.m3_short)
+                        }
+                        else {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitLog).text = resources.getText(R.string.ft3_short)
+                        }
                         textViewActivityLogPackageDetailsPackageName.text = it.name
                         it.addDate?.let { _ ->
                             textViewActivityLogDetailsCreationDate

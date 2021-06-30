@@ -3,7 +3,6 @@ package com.mobile.woodmeas.controller
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
-import android.graphics.Paint
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -22,81 +21,80 @@ import com.mobile.woodmeas.model.Plank
 import com.mobile.woodmeas.model.Stack
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.model.WoodenLog
-import java.text.DateFormat
 
-class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
-                            private val treesList: List<Trees>,
-                            private val appActivityManager: AppActivityManager):
-    RecyclerView.Adapter<WoodPackageListSelectViewHolder>(){
-
-    private lateinit var context: Context
-    private val deleteOnList: ArrayList<Boolean> = arrayListOf()
-
-    init {
-        for (i in woodenLogList.indices) { deleteOnList.add(false) }
-    }
-
-    override fun onCreateViewHolder(
-        viewGroup: ViewGroup,
-        viewType: Int
-    ): WoodPackageListSelectViewHolder {
-        val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
-        val woodLogListItem: View = layoutInflater.inflate(R.layout.wooden_log_list_item, viewGroup, false)
-        context = viewGroup.context
-        return WoodPackageListSelectViewHolder(woodLogListItem)
-    }
-
-    @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
-    override fun onBindViewHolder(holder: WoodPackageListSelectViewHolder, position: Int) {
-        val constraintLayoutWoodenLogListItem: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutWoodenLogListItem)
-        val textViewWoodenLogListId: TextView       = holder.itemView.findViewById(R.id.textViewWoodenLogListId)
-        val textViewWoodenLogListLength: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListLength)
-        val textViewWoodenLogListWidth: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListWidth)
-        val textViewWoodenLogListCubic: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListCubic)
-        val textViewTypeOfTree: TextView            = holder.itemView.findViewById(R.id.textViewTypeOfTree)
-        val textViewWoodenLogListBarkOn: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListBarkOn)
-        val textViewWoodenLogListAddDate: TextView  = holder.itemView.findViewById(R.id.textView101)
-        val imageButtonDeleteWoodenLogItem: ImageButton      = holder.itemView.findViewById(R.id.imageButtonDeleteWoodenLogItem)
-
-        textViewWoodenLogListId.text = "${position + 1}. "
-        textViewWoodenLogListLength.text = woodenLogList[position].logLengthCm.toString()
-        textViewWoodenLogListWidth.text = woodenLogList[position].logWidthCm.toString()
-        textViewWoodenLogListCubic.text = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 100.0F)
-
-        treesList.first { it.id == woodenLogList[position].treeId}.let { tree ->
-            textViewTypeOfTree.text = tree.name
-        }
-
-        textViewWoodenLogListBarkOn.text = if (woodenLogList[position].barkOn > 0) "Tak" else "Nie"
-        woodenLogList[position].addDate?.let {
-            val dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(it)
-            textViewWoodenLogListAddDate.text = dateFormat
-        }
-
-        imageButtonDeleteWoodenLogItem.isEnabled = false
-
-        imageButtonDeleteWoodenLogItem.setOnClickListener {
-            appActivityManager.removeItem(woodenLogList[position].id)
-            appActivityManager.loadView()
-        }
-
-        constraintLayoutWoodenLogListItem.setOnClickListener {
-            if (deleteOnList[position]) {
-                imageButtonDeleteWoodenLogItem.isEnabled = false
-                imageButtonDeleteWoodenLogItem.alpha = 0.0F
-            }
-            else {
-                imageButtonDeleteWoodenLogItem.isEnabled = true
-                imageButtonDeleteWoodenLogItem.alpha = 1.0F
-            }
-            deleteOnList[position] = !deleteOnList[position]
-        }
-
-    }
-
-    override fun getItemCount(): Int = woodenLogList.size
-
-}
+//class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
+//                            private val treesList: List<Trees>,
+//                            private val appActivityManager: AppActivityManager):
+//    RecyclerView.Adapter<WoodPackageListSelectViewHolder>(){
+//
+//    private lateinit var context: Context
+//    private val deleteOnList: ArrayList<Boolean> = arrayListOf()
+//
+//    init {
+//        for (i in woodenLogList.indices) { deleteOnList.add(false) }
+//    }
+//
+//    override fun onCreateViewHolder(
+//        viewGroup: ViewGroup,
+//        viewType: Int
+//    ): WoodPackageListSelectViewHolder {
+//        val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
+//        val woodLogListItem: View = layoutInflater.inflate(R.layout.wooden_log_list_item, viewGroup, false)
+//        context = viewGroup.context
+//        return WoodPackageListSelectViewHolder(woodLogListItem)
+//    }
+//
+//    @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
+//    override fun onBindViewHolder(holder: WoodPackageListSelectViewHolder, position: Int) {
+//        val constraintLayoutWoodenLogListItem: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutWoodenLogListItem)
+//        val textViewWoodenLogListId: TextView       = holder.itemView.findViewById(R.id.textViewWoodenLogListId)
+//        val textViewWoodenLogListLength: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListLength)
+//        val textViewWoodenLogListWidth: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListWidth)
+//        val textViewWoodenLogListCubic: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListCubic)
+//        val textViewTypeOfTree: TextView            = holder.itemView.findViewById(R.id.textViewTypeOfTree)
+//        val textViewWoodenLogListBarkOn: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListBarkOn)
+//        val textViewWoodenLogListAddDate: TextView  = holder.itemView.findViewById(R.id.textView101)
+//        val imageButtonDeleteWoodenLogItem: ImageButton      = holder.itemView.findViewById(R.id.imageButtonDeleteWoodenLogItem)
+//
+//        textViewWoodenLogListId.text = "${position + 1}. "
+//        textViewWoodenLogListLength.text = woodenLogList[position].logLengthCm.toString()
+//        textViewWoodenLogListWidth.text = woodenLogList[position].logWidthCm.toString()
+//        textViewWoodenLogListCubic.text = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 100.0F)
+//
+//        treesList.first { it.id == woodenLogList[position].treeId}.let { tree ->
+//            textViewTypeOfTree.text = tree.name
+//        }
+//
+//        textViewWoodenLogListBarkOn.text = if (woodenLogList[position].barkOn > 0) "Tak" else "Nie"
+//        woodenLogList[position].addDate?.let {
+//            val dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(it)
+//            textViewWoodenLogListAddDate.text = dateFormat
+//        }
+//
+//        imageButtonDeleteWoodenLogItem.isEnabled = false
+//
+//        imageButtonDeleteWoodenLogItem.setOnClickListener {
+//            appActivityManager.removeItem(woodenLogList[position].id)
+//            appActivityManager.loadView()
+//        }
+//
+//        constraintLayoutWoodenLogListItem.setOnClickListener {
+//            if (deleteOnList[position]) {
+//                imageButtonDeleteWoodenLogItem.isEnabled = false
+//                imageButtonDeleteWoodenLogItem.alpha = 0.0F
+//            }
+//            else {
+//                imageButtonDeleteWoodenLogItem.isEnabled = true
+//                imageButtonDeleteWoodenLogItem.alpha = 1.0F
+//            }
+//            deleteOnList[position] = !deleteOnList[position]
+//        }
+//
+//    }
+//
+//    override fun getItemCount(): Int = woodenLogList.size
+//
+//}
 
 class PackagePlankDetailsItemAdapter(
     private val plankList: List<Plank>,
@@ -115,6 +113,10 @@ class PackagePlankDetailsItemAdapter(
     @SuppressLint("UseCompatLoadingForDrawables")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: PackagesItemListViewHolder, position: Int) {
+        val constraintLayoutPackagePlankDetails = holder.itemView.findViewById<ConstraintLayout>(R.id.constraintLayoutPackagePlankDetails)
+
+        // SET Background layout
+        PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackagePlankDetails, position, plankList.size)
 
         holder.itemView.findViewById<TextView>(R.id.textViewPlankPackageDetailsId).apply {
             val textFormat = "${position + 1}."
@@ -123,27 +125,27 @@ class PackagePlankDetailsItemAdapter(
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsLength).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${plankList[position].length} ${unitsMeasurement.getNameUnit(context)}"
+                "${plankList[position].length}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(plankList[position].length)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(plankList[position].length)
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsWidth).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${plankList[position].width} ${unitsMeasurement.getNameUnit(context)}"
+                "${plankList[position].width}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(plankList[position].width)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(plankList[position].width)
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsHeight).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${plankList[position].height} ${unitsMeasurement.getNameUnit(context)}"
+                "${plankList[position].height}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(plankList[position].height)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(plankList[position].height)
             }
             text = textFormat
         }
@@ -154,6 +156,11 @@ class PackagePlankDetailsItemAdapter(
                     setImageDrawable(context.resources.getDrawable(R.drawable.ic_tree_conifer_green_8, null))
                 }
             }
+            else {
+                holder.itemView.findViewById<ImageView>(R.id.imageViewPackagePlankDetailsTreeIco).apply {
+                    setImageDrawable(context.resources.getDrawable(R.drawable.ic_tree_leafy_green_8, null))
+                }
+            }
             holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsTreeName)
                 .text = it.name
         }
@@ -161,18 +168,18 @@ class PackagePlankDetailsItemAdapter(
         holder.itemView.findViewById<TextView>(R.id.textViewPlankPackageDetailsCubic).apply {
             val cubicCm = "%.2f".format(plankList[position].cubicCm.toFloat() / 1000000.00F)
             val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+                cubicCm.replace(".", ",")
             } else {
-                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+                UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackagePlankDetailsDelete).apply {
-            val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageLogDetails)
+
 
             setOnClickListener {
-                constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_red_bg, null)
+                PackagesItemListViewHolder.setPotentialItemRemoval(constraintLayoutPackagePlankDetails, position, plankList.size)
 
                 val alertBuilder = AlertDialog.Builder(context)
                 alertBuilder.setTitle(R.string.do_you_want_delete_element_question)
@@ -181,7 +188,7 @@ class PackagePlankDetailsItemAdapter(
                     appActivityManager.removeItem(plankList[position].id)
                 }
                 alertBuilder.setOnDismissListener {
-                    constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_white_bg, null)
+                    PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackagePlankDetails, position, plankList.size)
                 }
                 alertBuilder.show()
             }
@@ -212,6 +219,11 @@ class PackageLogDetailsItemAdapter(
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: PackagesItemListViewHolder, position: Int) {
 
+        val constraintLayoutPackageLogDetails = holder.itemView.findViewById<ConstraintLayout>(R.id.constraintLayoutPackageLogDetails)
+
+        // SET Background layout
+        PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackageLogDetails, position, woodenLogList.size)
+
         holder.itemView.findViewById<TextView>(R.id.textViewLogPackageDetailsId).apply {
             val textFormat = "${position + 1}."
             text = textFormat
@@ -220,18 +232,18 @@ class PackageLogDetailsItemAdapter(
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsLength).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${woodenLogList[position].logLengthCm} ${unitsMeasurement.getNameUnit(context)}"
+                "${woodenLogList[position].logLengthCm}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(woodenLogList[position].logLengthCm)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(woodenLogList[position].logLengthCm)
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsDiameter).apply {
             val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${woodenLogList[position].logWidthCm} ${unitsMeasurement.getNameUnit(context)}"
+                "${woodenLogList[position].logWidthCm}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(woodenLogList[position].logWidthCm)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(woodenLogList[position].logWidthCm)
             }
             text = textFormat
         }
@@ -243,6 +255,11 @@ class PackageLogDetailsItemAdapter(
                     setImageDrawable(context.resources.getDrawable(R.drawable.ic_tree_conifer_green_8, null))
                 }
             }
+            else {
+                holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsTreeIco).apply {
+                    setImageDrawable(context.resources.getDrawable(R.drawable.ic_tree_leafy_green_8, null))
+                }
+            }
             holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsTreeName)
                 .text = it.name
         }
@@ -250,9 +267,9 @@ class PackageLogDetailsItemAdapter(
         holder.itemView.findViewById<TextView>(R.id.textViewLogPackageDetailsCubic).apply {
             val cubicCm = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 1000000.00F)
             val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+                cubicCm.replace(".", ",")
             } else {
-                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+                UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())
             }
           text = textFormat
         }
@@ -260,20 +277,24 @@ class PackageLogDetailsItemAdapter(
         holder.itemView.findViewById<ImageView>(R.id.imageViewPackageLogDetailsBarOnOff).let {
             if (woodenLogList[position].barkOn > 0) {
                 it.setImageDrawable(context.getDrawable(R.drawable.ic_bark_on_8))
+                it.alpha = 1.0F
+            }
+            else {
+                it.setImageDrawable(context.getDrawable(R.drawable.ic_bark_off_8))
+                it.alpha = 0.5F
             }
         }
 
-        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
-            if (woodenLogList[position].barkOn < 1) {
-                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-            }
-        }
+//        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
+//            if (woodenLogList[position].barkOn < 1) {
+//                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+//            }
+//        }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageLogDetailsDelete).apply {
-            val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageLogDetails)
 
             setOnClickListener {
-                constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_red_bg, null)
+                PackagesItemListViewHolder.setPotentialItemRemoval(constraintLayoutPackageLogDetails, position, woodenLogList.size)
 
                 val alertBuilder = AlertDialog.Builder(context)
                 alertBuilder.setTitle(R.string.do_you_want_delete_element_question)
@@ -282,15 +303,29 @@ class PackageLogDetailsItemAdapter(
                     appActivityManager.removeItem(woodenLogList[position].id)
                 }
                 alertBuilder.setOnDismissListener {
-                    constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_white_bg, null)
+                    PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackageLogDetails, position, woodenLogList.size)
                 }
                 alertBuilder.show()
             }
         }
-
     }
 
     override fun getItemCount(): Int = woodenLogList.size
+
+    private fun setBaseBackgroundLayout(constraintLayout: ConstraintLayout, position: Int) {
+        if (woodenLogList.size == 1) { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bg) }
+        else if (woodenLogList.size == 2) {
+            if (position == 0) { constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg) }
+            else { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg) }
+        }
+        else {
+            when (position) {
+                0 -> constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg)
+                woodenLogList.size - 1 -> constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg)
+                else -> constraintLayout.setBackgroundResource(R.drawable.rectangle_white_bg)
+            }
+        }
+    }
 
 }
 
@@ -404,4 +439,38 @@ class PackageStackDetailsItemAdapter(
 }
 
 
-class PackagesItemListViewHolder(view: View): RecyclerView.ViewHolder(view)
+class PackagesItemListViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    companion object {
+        fun setBaseBackgroundLayout(constraintLayout: ConstraintLayout, position: Int, packageSize:  Int) {
+            if (packageSize == 1) { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bg) }
+            else if (packageSize == 2) {
+                if (position == 0) { constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg) }
+                else { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg) }
+            }
+            else {
+                when (position) {
+                    0 -> constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg)
+                    packageSize - 1 -> constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg)
+                    else -> constraintLayout.setBackgroundResource(R.drawable.rectangle_white_bg)
+                }
+            }
+        }
+
+        fun setPotentialItemRemoval(constraintLayout: ConstraintLayout, position: Int, packageSize:  Int) {
+            if (packageSize == 1) {
+                constraintLayout.setBackgroundResource(R.drawable.rounded_red_light)
+            }
+            else if (packageSize == 2) {
+                if (position == 0) { constraintLayout.setBackgroundResource(R.drawable.rounded_red_light_top_bg) }
+                else { constraintLayout.setBackgroundResource(R.drawable.rounded_red_light_bottom_bg) }
+            }
+            else {
+                when (position) {
+                    0 -> constraintLayout.setBackgroundResource(R.drawable.rounded_red_light_top_bg)
+                    packageSize - 1 -> constraintLayout.setBackgroundResource(R.drawable.rounded_red_light_bottom_bg)
+                    else ->  constraintLayout.setBackgroundResource(R.drawable.rectangle_red_light_bg)
+                }
+            }
+        }
+    }
+}

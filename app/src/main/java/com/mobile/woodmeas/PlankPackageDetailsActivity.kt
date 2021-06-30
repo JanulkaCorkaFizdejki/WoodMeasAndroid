@@ -62,7 +62,7 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             currentPackageId = packageId
         }
 
-        NoteManager.set(this, currentPackageId)
+        NoteManager.set(this, currentPackageId, findViewById(R.id.linearLayoutPackageDetailsPlankHeader))
 
         loadView()
 
@@ -137,6 +137,12 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
                 databaseManagerDao.plankPackagesDao().selectItem(currentPackageId).let {
                     this.runOnUiThread {
+                        if (unitsMeasurement == UnitsMeasurement.CM) {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitPlank).text = resources.getText(R.string.m3_short)
+                        }
+                        else {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitPlank).text = resources.getText(R.string.ft3_short)
+                        }
                         textViewActivityPlankPackageDetailsPackageName.text = it.name
                         it.addDate?.let { _ ->
                             textViewActivityPlankDetailsCreationDate

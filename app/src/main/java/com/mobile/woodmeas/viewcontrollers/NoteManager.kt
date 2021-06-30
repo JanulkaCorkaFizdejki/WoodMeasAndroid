@@ -24,7 +24,7 @@ import kotlin.math.max
 object NoteManager {
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun set(appCompatActivity: AppCompatActivity, packageId: Int) {
+    fun set(appCompatActivity: AppCompatActivity, packageId: Int, linearLayoutHeader: LinearLayout? = null) {
         var firstTechChanged = false
         val maxText = 500
         var visibilityNotePanel = false
@@ -75,10 +75,12 @@ object NoteManager {
             if (visibilityNotePanel) {
                 imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note, null))
                 (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(it.windowToken, 0)
+                linearLayoutHeader?.visibility = View.VISIBLE
             } else {
                 imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note_light_green, null))
                 editTextTextMultiLineNotePanelDesc.requestFocus(editTextTextMultiLineNotePanelDesc.text.length)
                (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+                linearLayoutHeader?.visibility = View.GONE
             }
             visibilityNotePanel = !visibilityNotePanel
         }
