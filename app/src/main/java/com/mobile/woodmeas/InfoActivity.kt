@@ -2,25 +2,25 @@ package com.mobile.woodmeas
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Spannable
 import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.text.bold
 import androidx.core.text.italic
 import androidx.core.view.children
+import java.util.*
+import kotlin.collections.ArrayList
 
 class InfoActivity : AppCompatActivity() {
 
     private lateinit var textViewInfoMeasurementDesc: TextView
     private val featuresAppTextViewList: ArrayList<TextView> = arrayListOf()
+    private val woodMeasUrl = "http://woodmeas.com"
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -90,10 +90,24 @@ class InfoActivity : AppCompatActivity() {
         (view as? Button)?.let {
             when(it.id) {
                 R.id.buttonInfoLearnMoreLog -> {
-                    println("llxclxlclcxcxc")
+                    Intent(Intent.ACTION_VIEW).let { intent ->
+                        val url = "${woodMeasUrl}/?site=wood-measurement&lang=${Locale.getDefault().language}"
+                        intent.data = Uri.parse(url)
+                        startActivity(intent)
+                    }
                 }
                 R.id.buttonInfoLearnMoreStack -> {
-                    println("kdkjdkkdkkd")
+                    Intent(Intent.ACTION_VIEW).let { intent ->
+                        val url = "${woodMeasUrl}/?site=wood-measurement&lang=${Locale.getDefault().language}"
+                        intent.data = Uri.parse(url)
+                        startActivity(intent)
+                    }
+                }
+                R.id.buttonInfoGoToWoodMeas -> {
+                    Intent(Intent.ACTION_VIEW).let { intent ->
+                        intent.data = Uri.parse(woodMeasUrl)
+                        startActivity(intent)
+                    }
                 }
             }
         }

@@ -36,10 +36,10 @@ enum class UnitsMeasurement {
             return "%.2f".format(cm.toFloat() / 2.54F).replace(",", ".").toFloat()
         }
         fun convertToFootToString(m: Float): String {
-            return "%.2f".format(m / 0.3048F).replace(".", ",")
+            return "%.2f".format(m * 35.315F).replace(".", ",")
         }
         fun convertToFootToFloat(m: Float): Float {
-            return "%.2f".format(m / 0.3048F).replace(",", ".").toFloat()
+            return "%.2f".format(m * 35.315F).replace(",", ".").toFloat()
         }
     }
 }

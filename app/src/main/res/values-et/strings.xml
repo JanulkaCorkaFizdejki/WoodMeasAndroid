@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Vaiketekst</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Pomiar z korą</string>
+    <string name="measurement_without_bark">Pomiar bez kory</string>
+    <string name="select">Valige</string>
+    <string name="create">Loo</string>
+    <string name="delete">Kustuta</string>
+    <string name="cancel">Tühista</string>
+    <string name="yes">Jah</string>
+    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
+    <string name="absence">Puudus</string>
+    <string name="create_package">Utwórz pakiet</string>
+    <string name="created_package">Pakiet został utworzony</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
+    <string name="add_to_wood_package">Dodaj do pakietu</string>
+    <string name="added_to_package">Dodano do pakietu</string>
+    <string name="select_or_create_wood_package">Wybierz lub utwórz pakiet drewna</string>
+    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Pakiety drewna</string>
+    <string name="menu_name_calculators">Kalkulaatorid</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Andmed puuduvad</string>
+    <string name="search">Otsi</string>
+    <string name="id">Id</string>
+    <string name="package_name">Nazwa Pakietu</string>
+    <string name="created_date">Data utworzenia</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
+    <string name="package_has_been_removed">Pakiet został usunięty</string>
+    <string name="package_is_empty">Pakiet jest pusty</string>
+    <string name="remove_all_packages">Usuń pakiety</string>
+    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
+    <string name="length">Pikkus</string>
+    <string name="width">Laius</string>
+    <string name="height">Kõrgus</string>
+    <string name="diameter">Läbimõõt</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Dodaj do pakietu</string>
+    <string name="hold_down_to_add">Aby dodać przytrzymaj przycisk</string>
+    <string name="packages">Pakett</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Wprowadź wszystkie wymiary</string>
+    <string name="create_and_use">Utwórz i użyj</string>
+    <string name="no_packages">Brak pakietów</string>
+    <string name="print">Prindi</string>
+    <string name="send">Saada</string>
+    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
+    <string name="package_details">Zawartość pakietu</string>
+    <string name="bark">Koor</string>
+    <string name="plank_package">Pakiet tarcicy</string>
+    <string name="log_package">Pakiet kłód</string>
+    <string name="stack_package">Pakiet stosów</string>
+    <string name="cross_stack">Stos krzyżowy</string>
+    <string name="no_cross_stack">Stos nie krzyżowy</string>
+    <string-array name="trees">
+        <item>Kuusk(1)</item>
+        <item>Kuusk(2)</item>
+        <item>Mänd</item>
+        <item>Lehis</item>
+        <item>Kask</item>
+        <item>Pöök</item>
+        <item>Sarvik</item>
+        <item>Kloon</item>
+        <item>Ash</item>
+        <item>Sycamore</item>
+        <item>Linden</item>
+        <item>Lepp</item>
+        <item>Haab</item>
+        <item>Pappel</item>
+        <item>Elm</item>
+        <item>Tamm</item>
+        <item>Akaatsia</item>
+    </string-array>
+    <string name="yes_short">J</string>
+    <string name="no_short">E</string>
+    <string name="length_short_cm">P/CM</string>
+    <string name="width_short_cm">L/CM</string>
+    <string name="height_short_cm">K/CM</string>
+    <string name="diameter_short_cm">Lä/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">P/IN</string>
+    <string name="width_short_in">L/IN</string>
+    <string name="height_short_in">K/IN</string>
+    <string name="diameter_short_in">Lä/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">KOOR</string>
+    <string name="tree">PUU</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">KUUPÄEV</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Jednostki miar</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">System metryczny</string>
+    <string name="imperial_system">System imperialny</string>
+    <string name="updated">Zaktualizowano</string>
+    <string name="apply">Rakenda</string>
+    <string name="settings">Seaded</string>
+    <string name="information">Teave</string>
+    <string name="sortyment">Sortyment</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Własny współczynnik</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Notatki pakietów</string>
+    <string name="add_to_emails">Dołączaj do emaili</string>
+    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
+    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
+    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
+    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
+    <string name="end_diameter">Średnica końcowa</string>
+    <string name="center_diameter">Średnica środkowa</string>
+    <string name="slash">/</string>
+    <string name="application_description">Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.</string>
+    <string name="application_features">Funkcje aplikacji</string>
+    <string-array name="application_features_list">
+        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
+        <item>dokonywanie obliczeń pomiarów tarcicy</item>
+        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
+        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
+        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
+        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
+        <item>dokonywanie obliczeń pomiarów w systemie metrycznym (centymetr [cm], metr [m] = 100cm) oraz imperialnym (cal [in], stopa [ft] = 12in) (*)</item>
+        <item>tworzenie notatek dla pakietów</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. POMIAR KŁÓD</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Metody obliczeń</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Zobacz więcej]</string>
+    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legend</string>
+    <string name="monetary_units">Jednostki monetarne</string>
+    <string name="package_value">Wartość pakietu</string>
+</resources>

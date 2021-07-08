@@ -71,7 +71,9 @@ class StackPackagesListAdapter (private val stackPackagesList: List<StackPackage
                     constraintLayoutLogPackageItemListWrapper.background = context.resources.getDrawable(R.drawable.rounded_green_medium_bg, null)
                 }
                 alertDialog.show()
+
             }
+
         }
 
     }

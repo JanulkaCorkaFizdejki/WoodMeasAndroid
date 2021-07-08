@@ -22,6 +22,7 @@ import com.mobile.woodmeas.helpers.XlsPrinter
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
+import com.mobile.woodmeas.viewcontrollers.CubicToMoney
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
@@ -121,6 +122,14 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     }
                 }
             }
+        }
+
+        // Cubic to Money __________________________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtomBottomNavigationCubicToMoney).setOnClickListener {
+            val m3 = textViewActivityPlankPackageDetailsSum.text.toString()
+                .replace(",", ".")
+                .toFloat()
+            CubicToMoney.run(this, m3, unitsMeasurement)
         }
     }
 

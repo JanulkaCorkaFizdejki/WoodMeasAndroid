@@ -10,6 +10,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -100,6 +101,12 @@ class PlankPackageListActivity : AppCompatActivity(), AppActivityManager {
         thread {
             DatabaseManagerDao.getDataBase(applicationContext)?.let { databaseManagerDao ->
                 databaseManagerDao.plankPackagesDao().selectAll().let { plankPackages: List<PlankPackages> ->
+                    this.runOnUiThread {
+                        (editTextAddingAndSearching.parent as? LinearLayout)?.let { linearLayout ->
+                            linearLayout.visibility = if (plankPackages.size > 10) View.VISIBLE else View.GONE
+                        }
+                    }
+
                     if (plankPackages.isEmpty()) {
                         this.runOnUiThread {
                             constraintLayoutNoDataLayer.visibility = View.VISIBLE

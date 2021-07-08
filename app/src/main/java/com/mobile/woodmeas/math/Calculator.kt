@@ -12,14 +12,14 @@ object Calculator {
 
     fun logFormat(length: Int, width: Int, tree: Trees?): String {
         if (tree == null) {
-            val v = Math.PI * (width * width).toFloat() * (length.toFloat() / 100.0F) / 40000.0F
+            val v = Math.PI * (width * width).toLong()* (length.toLong() / 100.0) / 40000.0
             return "%.2f".format(v)
         }
 
         else {
             val widthMinusBark = setWidthMinusBark(width, tree)
             return if (widthMinusBark > 0) {
-                val v = Math.PI * (widthMinusBark * widthMinusBark).toFloat() * (length.toFloat() / 100.0F) / 40000.0F
+                val v = Math.PI * (widthMinusBark * widthMinusBark).toLong() * (length.toLong() / 100.0) / 40000.0
                 return "%.2f".format(v)
             } else {
                 "0.00"
@@ -28,16 +28,15 @@ object Calculator {
     }
 
     fun thicknessUpperMethod(lengthM: Double, diameterUpper: Int): Double {
-        val mod1Cov = 6.2 + 74.0 * lengthM.pow(-3.0)
-        val mod2Cov = (0.48 / sqrt(diameterUpper.toDouble())) - 0.12
-        val mod3Cov = diameterUpper - 22 - 0.3 * lengthM
+        val diameterUpperToDouble = diameterUpper.toDouble()
+        val mod1Cov:Double = 6.2 + (74.0 * lengthM.pow(-3))
+        val mod2Cov:Double = (0.48 / sqrt(lengthM)) - 0.12
+        val mod3Cov:Double = diameterUpperToDouble - 22.0 + (0.3 * lengthM)
         // z
-        val logConvergence = (mod1Cov + (mod2Cov * mod3Cov)) / 10.0
+        val logConvergence:Double = (mod1Cov + (mod2Cov * mod3Cov)) / 10.0
         // ___________________________________________
-
-        val modThick = ((lengthM / 2.0) * logConvergence) + diameterUpper
-
-        return ((modThick * modThick) * lengthM * Math.PI) / 40000.0
+        val modThick:Double = (((logConvergence * lengthM)/ 2.0) + diameterUpper.toDouble()).pow(2)
+        return (modThick * lengthM * Math.PI) / 40000.0
     }
 
     private fun setWidthMinusBark(width: Int, tree: Trees): Int {

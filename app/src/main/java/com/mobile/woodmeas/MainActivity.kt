@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
@@ -24,6 +25,7 @@ import com.mobile.woodmeas.helpers.PdfPrinter
 import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.DatabaseManager
 import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
+import java.util.*
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -51,6 +53,10 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
 
+        println("****************************")
+        println(Resources.getSystem().displayMetrics.widthPixels)
+
+
         Resources.getSystem().displayMetrics.heightPixels.also {
             if (it < 900) {
                 recyclerViewMenuItems.layoutParams.height = 100
@@ -58,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         setCurrencyMenu(MenuType.CALCULATORS, null)
+
 
         thread { dbManager() }
 

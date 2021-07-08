@@ -6,227 +6,151 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="2dp"
-    android:background="@drawable/rounded_white_bg">
-
-    <ImageButton
-        android:id="@+id/imageButtonPackageStackDetailsDelete"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/oval_gray_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cancel_10"
-        tools:ignore="ContentDescription" />
+    android:background="@drawable/rectangle_white_bg"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
 
     <LinearLayout
-        android:id="@+id/linearLayout11"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewStackPackageDetailsId"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            android:id="@+id/imageViewPackageStackDetailsTreeIco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_tree_leafy_green_8"
-            tools:ignore="ContentDescription" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewPackageStackDetailsTreeName"
-            android:layout_width="0dp"
+            android:id="@+id/textViewStackPackageDetailsId"
+            android:layout_width="16dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
             android:text="@string/default_number"
-            android:textColor="@color/wm_green_medium"
             android:textSize="6sp"
-            android:textStyle="bold"
             tools:ignore="SmallSp" />
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewStackPackageDetailsId"
-        android:layout_width="12dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/default_number"
-        android:textSize="5sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SmallSp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonPackageStackDetailsDelete"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout11"
-        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:id="@+id/linearLayout11"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/imageViewPackageStackDetailsTreeIco"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                app:srcCompat="@drawable/ic_tree_leafy_green_8"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textViewPackageStackDetailsTreeName"
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:text="@string/default_number"
+                android:textColor="@color/wm_green_medium"
+                android:textSize="7sp"
+                android:textStyle="bold"
+                tools:ignore="SmallSp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewPackageStackDetailsLength"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_number"
+            android:textColor="@color/wm_gray_dark"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewPackageStackDetailsWidth"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_number"
+            android:textColor="@color/wm_gray_dark"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewPackageStackDetailsHeight"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_number"
+            android:textColor="@color/wm_gray_dark"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/imageViewPackageStackDetailsCrossIco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_cross_off_8"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            app:srcCompat="@drawable/ic_cross_on_8"
             tools:ignore="ContentDescription" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout10"
-            android:layout_width="46dp"
-            android:layout_height="match_parent"
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textViewStackPackageDetailsCubic"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewPackageStackDetailsCrossIco"
-            app:layout_constraintTop_toTopOf="parent">
+            android:text="@string/default_number"
+            android:textColor="@color/wm_gray_dark"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            tools:ignore="SmallSp" />
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_height_ico_8"
-                tools:ignore="ContentDescription" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/textViewPackageStackDetailsHeight"
-                android:layout_width="36dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_weight="1"
-                android:text="@string/default_number_float"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                tools:ignore="SmallSp" />
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/imageButtonPackageStackDetailsDelete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/oval_white_smoke"
+            app:srcCompat="@drawable/ic_cancel_10"
+            tools:ignore="ContentDescription" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout9"
-            android:layout_width="46dp"
-            android:layout_height="match_parent"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout10"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout7"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlHardcoded">
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_width_ico_8"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/textViewPackageStackDetailsWidth"
-                android:layout_width="36dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_weight="1"
-                android:text="@string/default_number_float"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                tools:ignore="SmallSp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="46dp"
-            android:layout_height="match_parent"
-            android:clickable="false"
-            android:clipChildren="false"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_length_ico_8"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                android:id="@+id/textViewPackageStackDetailsLength"
-                android:layout_width="36dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_weight="1"
-                android:text="@string/default_number_float"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                tools:ignore="SmallSp" />
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
-            android:layout_width="46dp"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textViewStackPackageDetailsCubic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:text="@string/default_number"
-                android:textColor="@color/wm_gray_dark"
-                android:textSize="8sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView24"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SmallSp" />
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/_3"
-                android:textSize="5sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SmallSp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

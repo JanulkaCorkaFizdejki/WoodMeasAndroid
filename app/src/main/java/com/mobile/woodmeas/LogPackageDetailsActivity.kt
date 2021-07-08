@@ -128,7 +128,7 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             val m3 = textViewActivityLogPackageDetailsSum.text.toString()
                 .replace(",", ".")
                 .toFloat()
-            CubicToMoney.run(this, m3)
+            CubicToMoney.run(this, m3, unitsMeasurement)
         }
     }
 

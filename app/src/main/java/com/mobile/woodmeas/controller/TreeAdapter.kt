@@ -23,7 +23,7 @@ class TreeAdapter(context: Context, resource: Int, treeList: List<Trees>) :
 
         getItem(position)?.let { tree ->
             val treeName: TextView = layout.findViewById(R.id.textViewLayoutSpinnerName)
-            treeName.text = tree.name
+            treeName.text = tree.getNameFromRes(context)
 
             val icon: ImageView = layout.findViewById(R.id.imageViewLayoutSpinnerIco)
             if (tree.type > 0) {
@@ -41,7 +41,7 @@ class TreeAdapter(context: Context, resource: Int, treeList: List<Trees>) :
         val treeDropdown = LayoutInflater.from(context).inflate(R.layout.tree_dropdown_spinner, parent, false)
         getItem(position)?.let { tree ->
             val treeName: TextView = treeDropdown.findViewById(R.id.textViewTreeDropdownName)
-            treeName.text = tree.name
+            treeName.text = tree.getNameFromRes(context)
 
             val icon: ImageView = treeDropdown.findViewById(R.id.imageViewTreeDropdownIco)
             if (tree.type > 0) {

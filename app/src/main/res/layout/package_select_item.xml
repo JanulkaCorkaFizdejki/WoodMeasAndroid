@@ -5,9 +5,9 @@
     android:id="@+id/constraintLayoutPackageSelect"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:background="@drawable/package_select_list_shape">
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/package_select_list_shape_light_blue">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/default_text"
         android:textColor="@color/wm_gray_dark"
         android:textSize="10sp"
@@ -47,7 +47,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/default_text"
-        android:textColor="@color/wm_gray_dark"
+        android:textColor="@color/white"
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

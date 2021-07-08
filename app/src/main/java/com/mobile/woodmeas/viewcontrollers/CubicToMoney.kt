@@ -14,11 +14,12 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.mobile.woodmeas.R
+import com.mobile.woodmeas.datamodel.UnitsMeasurement
 
 object CubicToMoney {
     @RequiresApi(Build.VERSION_CODES.N)
     @SuppressLint("ResourceAsColor", "UseCompatLoadingForDrawables")
-    fun run(context: Context, m3: Float) {
+    fun run(context: Context, m3: Float, unitsMeasurement: UnitsMeasurement = UnitsMeasurement.CM) {
         var multiplier = 1
 
         val alertDialog = AlertDialog.Builder(context)
@@ -27,6 +28,7 @@ object CubicToMoney {
         val seekBar = viewAlertInflate.findViewById<SeekBar>(R.id.seekBarMeasureCubicToMoney)
 
         val baseMaxProgress = seekBar.max
+
 
         val textViewMeasureCubicToMoneyM3 = viewAlertInflate.findViewById<TextView>(R.id.textViewMeasureCubicToMoneyM3)
         val textViewMeasureCubicToMoneyResult = viewAlertInflate.findViewById<TextView>(R.id.textViewMeasureCubicToMoneyResult)
@@ -44,6 +46,8 @@ object CubicToMoney {
 
         textViewMeasureCubicToMoneyM3.text = m3.toString().replace(".", ",")
         textViewMeasureCubicToMoneyMax.text = numDecimalFormat(baseMaxProgress.toString())
+
+        viewAlertInflate.findViewById<TextView>(R.id.textViewCubicToMoneyUnit).text = unitsMeasurement.getNameUnitCubic(context)
 
         seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, progress: Int, p2: Boolean) {

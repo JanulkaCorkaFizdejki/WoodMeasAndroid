@@ -22,80 +22,6 @@ import com.mobile.woodmeas.model.Stack
 import com.mobile.woodmeas.model.Trees
 import com.mobile.woodmeas.model.WoodenLog
 
-//class WoodenLogListAdapter (private val woodenLogList: List<WoodenLog>,
-//                            private val treesList: List<Trees>,
-//                            private val appActivityManager: AppActivityManager):
-//    RecyclerView.Adapter<WoodPackageListSelectViewHolder>(){
-//
-//    private lateinit var context: Context
-//    private val deleteOnList: ArrayList<Boolean> = arrayListOf()
-//
-//    init {
-//        for (i in woodenLogList.indices) { deleteOnList.add(false) }
-//    }
-//
-//    override fun onCreateViewHolder(
-//        viewGroup: ViewGroup,
-//        viewType: Int
-//    ): WoodPackageListSelectViewHolder {
-//        val layoutInflater : LayoutInflater = LayoutInflater.from(viewGroup.context)
-//        val woodLogListItem: View = layoutInflater.inflate(R.layout.wooden_log_list_item, viewGroup, false)
-//        context = viewGroup.context
-//        return WoodPackageListSelectViewHolder(woodLogListItem)
-//    }
-//
-//    @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
-//    override fun onBindViewHolder(holder: WoodPackageListSelectViewHolder, position: Int) {
-//        val constraintLayoutWoodenLogListItem: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutWoodenLogListItem)
-//        val textViewWoodenLogListId: TextView       = holder.itemView.findViewById(R.id.textViewWoodenLogListId)
-//        val textViewWoodenLogListLength: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListLength)
-//        val textViewWoodenLogListWidth: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListWidth)
-//        val textViewWoodenLogListCubic: TextView    = holder.itemView.findViewById(R.id.textViewWoodenLogListCubic)
-//        val textViewTypeOfTree: TextView            = holder.itemView.findViewById(R.id.textViewTypeOfTree)
-//        val textViewWoodenLogListBarkOn: TextView   = holder.itemView.findViewById(R.id.textViewWoodenLogListBarkOn)
-//        val textViewWoodenLogListAddDate: TextView  = holder.itemView.findViewById(R.id.textView101)
-//        val imageButtonDeleteWoodenLogItem: ImageButton      = holder.itemView.findViewById(R.id.imageButtonDeleteWoodenLogItem)
-//
-//        textViewWoodenLogListId.text = "${position + 1}. "
-//        textViewWoodenLogListLength.text = woodenLogList[position].logLengthCm.toString()
-//        textViewWoodenLogListWidth.text = woodenLogList[position].logWidthCm.toString()
-//        textViewWoodenLogListCubic.text = "%.2f".format(woodenLogList[position].cubicCm.toFloat() / 100.0F)
-//
-//        treesList.first { it.id == woodenLogList[position].treeId}.let { tree ->
-//            textViewTypeOfTree.text = tree.name
-//        }
-//
-//        textViewWoodenLogListBarkOn.text = if (woodenLogList[position].barkOn > 0) "Tak" else "Nie"
-//        woodenLogList[position].addDate?.let {
-//            val dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(it)
-//            textViewWoodenLogListAddDate.text = dateFormat
-//        }
-//
-//        imageButtonDeleteWoodenLogItem.isEnabled = false
-//
-//        imageButtonDeleteWoodenLogItem.setOnClickListener {
-//            appActivityManager.removeItem(woodenLogList[position].id)
-//            appActivityManager.loadView()
-//        }
-//
-//        constraintLayoutWoodenLogListItem.setOnClickListener {
-//            if (deleteOnList[position]) {
-//                imageButtonDeleteWoodenLogItem.isEnabled = false
-//                imageButtonDeleteWoodenLogItem.alpha = 0.0F
-//            }
-//            else {
-//                imageButtonDeleteWoodenLogItem.isEnabled = true
-//                imageButtonDeleteWoodenLogItem.alpha = 1.0F
-//            }
-//            deleteOnList[position] = !deleteOnList[position]
-//        }
-//
-//    }
-//
-//    override fun getItemCount(): Int = woodenLogList.size
-//
-//}
-
 class PackagePlankDetailsItemAdapter(
     private val plankList: List<Plank>,
     private val trees: List<Trees>,
@@ -162,7 +88,7 @@ class PackagePlankDetailsItemAdapter(
                 }
             }
             holder.itemView.findViewById<TextView>(R.id.textViewPackagePlankDetailsTreeName)
-                .text = it.name
+                .text = it.getNameFromRes(context)
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPlankPackageDetailsCubic).apply {
@@ -261,7 +187,7 @@ class PackageLogDetailsItemAdapter(
                 }
             }
             holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsTreeName)
-                .text = it.name
+                .text = it.getNameFromRes(context)
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewLogPackageDetailsCubic).apply {
@@ -312,21 +238,6 @@ class PackageLogDetailsItemAdapter(
 
     override fun getItemCount(): Int = woodenLogList.size
 
-    private fun setBaseBackgroundLayout(constraintLayout: ConstraintLayout, position: Int) {
-        if (woodenLogList.size == 1) { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bg) }
-        else if (woodenLogList.size == 2) {
-            if (position == 0) { constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg) }
-            else { constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg) }
-        }
-        else {
-            when (position) {
-                0 -> constraintLayout.setBackgroundResource(R.drawable.rounded_top_white_bg)
-                woodenLogList.size - 1 -> constraintLayout.setBackgroundResource(R.drawable.rounded_white_bottom_bg)
-                else -> constraintLayout.setBackgroundResource(R.drawable.rectangle_white_bg)
-            }
-        }
-    }
-
 }
 
 class PackageStackDetailsItemAdapter(
@@ -346,6 +257,9 @@ class PackageStackDetailsItemAdapter(
     @SuppressLint("UseCompatLoadingForDrawables")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: PackagesItemListViewHolder, position: Int) {
+        val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageStackDetails)
+
+        PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackagePlankDetails, position, stackList.size)
 
         holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsId).apply {
             val textFormat = "${position + 1}."
@@ -354,27 +268,27 @@ class PackageStackDetailsItemAdapter(
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsLength).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${stackList[position].length} ${unitsMeasurement.getNameUnit(context)}"
+                "${stackList[position].length}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(stackList[position].length)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(stackList[position].length)
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsWidth).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${stackList[position].width} ${unitsMeasurement.getNameUnit(context)}"
+                "${stackList[position].width}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(stackList[position].width)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(stackList[position].width)
             }
             text = textFormat
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsHeight).apply {
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${stackList[position].height} ${unitsMeasurement.getNameUnit(context)}"
+                "${stackList[position].height}"
             } else {
-                "${UnitsMeasurement.convertToInchToString(stackList[position].height)} ${unitsMeasurement.getNameUnit(context)}"
+                UnitsMeasurement.convertToInchToString(stackList[position].height)
             }
             text = textFormat
         }
@@ -399,25 +313,23 @@ class PackageStackDetailsItemAdapter(
                 }
             }
             holder.itemView.findViewById<TextView>(R.id.textViewPackageStackDetailsTreeName)
-                .text = it.name
+                .text = it.getNameFromRes(context)
         }
 
         holder.itemView.findViewById<TextView>(R.id.textViewStackPackageDetailsCubic).apply {
             val cubicCm = "%.2f".format(stackList[position].cubicCm.toFloat() / 100.00F)
-            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
-                "${cubicCm.replace(".", ",")} ${unitsMeasurement.getNameUnitCubic(context)}"
+            val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) { cubicCm.replace(".", ",")
             } else {
-                "${UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())} ${unitsMeasurement.getNameUnitCubic(context)}"
+                UnitsMeasurement.convertToFootToString(cubicCm.replace(",", ".").toFloat())
             }
             text = textFormat
         }
 
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageStackDetailsDelete).apply {
-            val constraintLayoutPackagePlankDetails: ConstraintLayout = holder.itemView.findViewById(R.id.constraintLayoutPackageStackDetails)
 
             setOnClickListener {
-                constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_red_bg, null)
+                PackagesItemListViewHolder.setPotentialItemRemoval(constraintLayoutPackagePlankDetails, position, stackList.size)
 
                 val alertBuilder = AlertDialog.Builder(context)
                 alertBuilder.setTitle(R.string.do_you_want_delete_element_question)
@@ -426,7 +338,7 @@ class PackageStackDetailsItemAdapter(
                     appActivityManager.removeItem(stackList[position].id)
                 }
                 alertBuilder.setOnDismissListener {
-                    constraintLayoutPackagePlankDetails.background = context.resources.getDrawable(R.drawable.rounded_white_bg, null)
+                    PackagesItemListViewHolder.setBaseBackgroundLayout(constraintLayoutPackagePlankDetails, position, stackList.size)
                 }
                 alertBuilder.show()
             }

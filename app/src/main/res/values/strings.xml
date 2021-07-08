@@ -1,101 +1,93 @@
 <resources>
     <string name="app_name">Wood Meas</string>
-    <string name="log_length">Długość kłody</string>
-    <string name="log_width">Szerokość kłody</string>
     <string name="default_number">0</string>
     <string name="default_number_float">0,00</string>
-    <string name="default_text">Tekst domyślny</string>
+    <string name="default_text">Default text</string>
     <string name="centimeters_short">cm</string>
     <string name="inch_short">in</string>
     <string name="meters_short">m</string>
     <string name="foot_short">ft</string>
     <string name="meters_decimal_short">m3</string>
-    <string name="volume_calculator">Kalkulator miąższości</string>
-    <string name="measurement_width_bark">Pomiar z korą</string>
-    <string name="wood_packages">Pakiet drewna</string>
-    <string name="select">Wybierz</string>
-    <string name="create">Utwórz</string>
-    <string name="delete">Usuń</string>
-    <string name="cancel">Anuluj</string>
-    <string name="yes">Tak</string>
-    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
-    <string name="absence">Brak</string>
-    <string name="create_package">Utwórz pakiet</string>
-    <string name="created_package">Pakiet został utworzony</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
-    <string name="add_to_wood_package">Dodaj do pakietu</string>
-    <string name="added_to_package">Dodano do pakietu</string>
-    <string name="select_or_create_wood_package">Wybierz lub stwórz pakiet drewna</string>
-    <string name="length_width_log_min_info">Długość oraz szerokość kłody powinna być większa od zera</string>
-    <string name="your_wood_packages_list">Twoje pakiety drewna</string>
-    <string name="creation_date">Data utworzenia:</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
-    <string name="count_log">Ilość kłód:</string>
-    <string name="sum">Suma:</string>
+    <string name="measurement_width_bark">Measurement with bark</string>
+    <string name="measurement_without_bark">Measurement without bark</string>
+    <string name="select">Choose</string>
+    <string name="create">Create</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="add_wood_package_name">Enter the package name:</string>
+    <string name="absence">Absence</string>
+    <string name="create_package">Create a package</string>
+    <string name="created_package">The package has been created</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Do you want to remove the wood bundle from the current view?</string>
+    <string name="add_to_wood_package">Add to package</string>
+    <string name="added_to_package">Added to package</string>
+    <string name="select_or_create_wood_package">Choose or create a wood package</string>
+    <string name="last_update_date">Date of last modification</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Pakiety drewna</string>
-    <string name="menu_name_calculators">Kalkulatory</string>
+    <string name="menu_name_packages">Wood packages</string>
+    <string name="menu_name_calculators">Calculators</string>
     <string name="activity_default_name">Activity</string>
-    <string name="no_data">Brak danych</string>
-    <string name="search">Wyszukaj</string>
+    <string name="no_data">No data</string>
+    <string name="search">Search</string>
     <string name="id">Id</string>
-    <string name="package_name">Nazwa Pakietu</string>
-    <string name="created_date">Data utworzenia</string>
+    <string name="package_name">Package name</string>
+    <string name="created_date">Creation date</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Log measurement</item>
+        <item>Timber measurement</item>
+        <item>Measurement of piles</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Log packs</item>
+        <item>Lumber packages</item>
+        <item>Stack packages</item>
     </string-array>
-    <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
-    <string name="package_has_been_removed">Pakiet został usunięty</string>
-    <string name="package_is_empty">Pakiet jest pusty</string>
-    <string name="remove_all_packages">Usuń pakiety</string>
-    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
-    <string name="length">Długość</string>
-    <string name="width">Szerokość</string>
-    <string name="thickness">Grubość</string>
+    <string name="delete_package_question">Do you want to remove the package?</string>
+    <string name="package_has_been_removed">The package has been removed</string>
+    <string name="package_is_empty">The package is empty</string>
+    <string name="remove_all_packages">Remove packages</string>
+    <string name="delete_all_packages_question">Do you want to remove all packages?</string>
+    <string name="length">Length</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="diameter">Diameter</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Dodaj do pakietu</string>
-    <string name="hold_down_to_add">Aby dodać przyprzymaj przycisk</string>
-    <string name="packages">Pakiet</string>
+    <string name="add_to_package">+ Add to package</string>
+    <string name="hold_down_to_add">To add hold the button</string>
+    <string name="packages">Package</string>
     <string name="ok">OK</string>
-    <string name="enter_all_dimensions">Wprowadź wszystkie wymiary.</string>
-    <string name="create_and_use">Utwórz i użyj</string>
-    <string name="no_packages">Brak pakietów.</string>
-    <string name="print">Drukuj</string>
-    <string name="height">Wysokość</string>
-    <string name="send">Wyślij</string>
-    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
-    <string name="diameter">Średnica</string>
-    <string name="package_details">Zawartość pakietu</string>
-    <string name="bark">Kora</string>
-    <string name="plank_package">Pakiet tarcicy</string>
-    <string name="log_package">Pakiet kłód</string>
-    <string name="stack_package">Pakiet stosów</string>
-    <string name="cross_stack">Stos krzyżowy</string>
+    <string name="enter_all_dimensions">Enter all dimensions</string>
+    <string name="create_and_use">Create and use</string>
+    <string name="no_packages">No packages</string>
+    <string name="print">Print</string>
+    <string name="send">Send</string>
+    <string name="do_you_want_delete_element_question">Do you want to delete an item?</string>
+    <string name="package_details">Package Contents</string>
+    <string name="bark">Bark</string>
+    <string name="plank_package">Lumber package</string>
+    <string name="log_package">Log package</string>
+    <string name="stack_package">Stacks package</string>
+    <string name="cross_stack">Cross stack</string>
+    <string name="no_cross_stack">Not cross stack</string>
     <string-array name="trees">
-        <item>Świerk</item>
-        <item>Jodła</item>
-        <item>Sosna</item>
-        <item>Modrzew</item>
-        <item>Brzoza</item>
-        <item>Buk</item>
-        <item>Grab</item>
-        <item>Klon</item>
-        <item>Jesion</item>
-        <item>Jawor</item>
-        <item>Lipa</item>
-        <item>Olcha</item>
-        <item>Osika</item>
-        <item>Topola</item>
-        <item>Wiąz</item>
-        <item>Dąb</item>
-        <item>Akacja</item>
+        <item>Spruce</item>
+        <item>Fir</item>
+        <item>Pine</item>
+        <item>Larch</item>
+        <item>Birch</item>
+        <item>Beech</item>
+        <item>Hornbeam</item>
+        <item>Clone</item>
+        <item>Ash</item>
+        <item>Sycamore</item>
+        <item>Linden</item>
+        <item>Alder</item>
+        <item>Aspen</item>
+        <item>Poplar</item>
+        <item>Elm</item>
+        <item>Oak</item>
+        <item>Acacia</item>
     </string-array>
     <string name="yes_short">T</string>
     <string name="no_short">N</string>
@@ -110,67 +102,67 @@
     <string name="diameter_short_in">Ś/IN</string>
     <string name="ft3_short">FT3</string>
     <string name="cross_short">X</string>
-    <string name="bark_short">KORA</string>
-    <string name="tree">DRZEWO</string>
+    <string name="bark_short">BARK</string>
+    <string name="tree">TREE</string>
     <string name="id_short">ID</string>
-    <string name="date_short">DATA</string>
+    <string name="date_short">DATE</string>
     <string name="thousand">1000</string>
-    <string name="plus_10">+10</string>
-    <string name="plus_100">+100</string>
-    <string name="plus_1000">+1000</string>
-    <string name="unit_of_measurement">Jednostki miar</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Units of Measure</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
-    <string name="metric_system">System metryczny</string>
-    <string name="imperial_system">System imperialny</string>
-    <string name="use_location_info">Użyj swojej lokalizacji podczas tworzenia pakietów.</string>
-    <string name="location">lokalizacja</string>
-    <string name="location_on">użyj lokalizacji</string>
-    <string name="updated">Zaktualizowano</string>
-    <string name="apply">zastosuj</string>
-    <string name="settings">Ustawienia</string>
-    <string name="information">Informacje</string>
-    <string name="sortyment">Sortyment</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in</string>
+    <string name="metric_system">Metric system</string>
+    <string name="imperial_system">Imperial system</string>
+    <string name="updated">Updated</string>
+    <string name="apply">apply</string>
+    <string name="settings">Settings</string>
+    <string name="information">Information</string>
+    <string name="sortyment">Assortment</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Własny współczynnik</string>
+    <string name="custom_factor">Own factor</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Notatki pakietów</string>
-    <string name="add_to_emails">Dołączaj do emaili</string>
-    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
-    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
-    <string name="_x1">x1</string>
-    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
-    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
-    <string name="end_diameter">Średnica końcowa</string>
-    <string name="center_diameter">Średnica środkowa</string>
+    <string name="package_notes">Package Notes</string>
+    <string name="add_to_emails">Join emails</string>
+    <string name="add_to_pdf">Place in pdf documents</string>
+    <string name="sent_from_app">Posted from the Wood Meas</string>
+    <string name="method_measuring_logs">Log measurement method</string>
+    <string name="end_diameter_center_diameter">End Diameter / Center Diameter</string>
+    <string name="end_diameter">ŚEnd diameter</string>
+    <string name="center_diameter">Center Diameter</string>
     <string name="slash">/</string>
-    <string name="application_description">
-        Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.
-    </string>
-    <string name="application_features">Funkcje aplikacji</string>
+    <string name="application_description">The Wood Means app is a measurement calculation tool for measuring logs, lumber and wood piles.</string>
+    <string name="application_features">Application features</string>
     <string-array name="application_features_list">
-        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
-        <item>dokonywanie obliczeń pomiarów tarcicy</item>
-        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
-        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
-        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
-        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
-        <item>dokonywanie obliczeń pomiarów w systemie metrycznym oraz imperialnym</item>
-        <item>tworzenie notatek dla pakietów</item>
+        <item>making calculations of measurements of wooden logs</item>
+        <item>making calculations of sawn timber measurements</item>
+        <item>making calculations for measuring piles of wood</item>
+        <item>creating packages of logs, lumber and piles</item>
+        <item>generating reports for packages in the form of spreadsheets (xls) and pdf documents</item>
+        <item>converting packet sizes into monetary units</item>
+        <item>making calculations of measurements in the metric system (centimeter [cm], meter [m] = 100cm) and imperial (inch [in], foot [ft] = 12in) (*)</item>
+        <item>creating notes for packages</item>
     </string-array>
-    <string name="measurement_logs">A. POMIAR KŁÓD</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) when choosing the imperial system, the step for the entered dimensions is 1 cm, not 1 inch!</string>
+    <string name="measurement_logs">A. MEASUREMENT OF LOGS</string>
+    <string name="measurement_logs_desc">Calculation of log measurements is made using the method ___ (with and without bark) and ___ (without bark).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>center diameter</item>
+        <item>top diameter</item>
     </string-array>
-    <string name="calculation_methods">Metody obliczeń</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory. </string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2.</string>
-    <string name="learn_more">[Zobacz więcej]</string>
-    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="calculation_methods">Calculation methods</string>
+    <string name="measurement_plank">B. SAWING MEASUREMENT</string>
+    <string name="measurement_plank_desc">For the calculation of the measurement of sawn timber, the formula for the volume of the cuboid is used. Measurements should be taken without taking into account the bark.</string>
+    <string name="measurement_stacks">C. STACK MEASUREMENT</string>
+    <string name="measurement_stacks_desc">Calculations for the measurements of piles are made with regard to a given assortment and type of wood. The assortments provided for the calculations (conversion factors for timber measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
+    <string name="learn_more">[Learn more]</string>
+    <string name="design_and_implementation">Design and execution</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>
     <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legend</string>
+    <string name="monetary_units">Monetary units</string>
+    <string name="package_value">Value of the package</string>
 </resources>

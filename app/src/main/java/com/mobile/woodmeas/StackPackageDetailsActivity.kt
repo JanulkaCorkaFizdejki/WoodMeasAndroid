@@ -22,6 +22,7 @@ import com.mobile.woodmeas.helpers.XlsPrinter
 import com.mobile.woodmeas.model.DatabaseManagerDao
 import com.mobile.woodmeas.model.Settings
 import com.mobile.woodmeas.model.Trees
+import com.mobile.woodmeas.viewcontrollers.CubicToMoney
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
@@ -30,10 +31,10 @@ import kotlin.concurrent.thread
 
 class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
     private lateinit var recyclerViewStackPackageDetailsList: RecyclerView
-    private lateinit var textViewActivityLogPackageDetailsPackageName: TextView
-    private lateinit var textViewActivityLogDetailsCreationDate: TextView
-    private lateinit var textViewActivityLogDetailsUpdateDate: TextView
-    private lateinit var textViewActivityLogPackageDetailsSum: TextView
+    private lateinit var textViewActivityStackPackageDetailsPackageName: TextView
+    private lateinit var textViewActivityStackDetailsCreationDate: TextView
+    private lateinit var textViewActivityStackDetailsUpdateDate: TextView
+    private lateinit var textViewActivityStackPackageDetailsSum: TextView
     private var currentPackageId: Int = 0
     private var unitsMeasurement = UnitsMeasurement.CM
 
@@ -42,12 +43,12 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stack_package_details)
 
-        recyclerViewStackPackageDetailsList                 = findViewById(R.id.recyclerViewStackPackageDetailsList)
-        textViewActivityLogPackageDetailsPackageName        = findViewById(R.id.textViewActivityStackPackageDetailsPackageName)
-        textViewActivityLogDetailsCreationDate              = findViewById(R.id.textViewActivityStackDetailsCreationDate)
-        textViewActivityLogDetailsUpdateDate                = findViewById(R.id.textViewActivityStackDetailsUpdateDate)
-        textViewActivityLogPackageDetailsSum                = findViewById(R.id.textViewActivityStackPackageDetailsSum)
-        recyclerViewStackPackageDetailsList.layoutManager   = LinearLayoutManager(this)
+        recyclerViewStackPackageDetailsList                     = findViewById(R.id.recyclerViewStackPackageDetailsList)
+        textViewActivityStackPackageDetailsPackageName          = findViewById(R.id.textViewActivityStackPackageDetailsPackageName)
+        textViewActivityStackDetailsCreationDate                = findViewById(R.id.textViewActivityStackDetailsCreationDate)
+        textViewActivityStackDetailsUpdateDate                  = findViewById(R.id.textViewActivityStackDetailsUpdateDate)
+        textViewActivityStackPackageDetailsSum                  = findViewById(R.id.textViewActivityStackPackageDetailsSum)
+        recyclerViewStackPackageDetailsList.layoutManager       = LinearLayoutManager(this)
 
         NavigationManager.let {
             it.topNavigation(this, null)
@@ -62,7 +63,7 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
             currentPackageId = packageId
         }
 
-        NoteManager.set(this, currentPackageId)
+        NoteManager.set(this, currentPackageId, findViewById(R.id.linearLayoutPackageDetailsStackHeader))
 
         loadView()
 
@@ -122,6 +123,13 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 }
             }
         }
+        // Cubic to Money __________________________________________________________________________
+        findViewById<ImageButton>(R.id.imageButtomBottomNavigationCubicToMoney).setOnClickListener {
+            val m3 = textViewActivityStackPackageDetailsSum.text.toString()
+                .replace(",", ".")
+                .toFloat()
+            CubicToMoney.run(this, m3, unitsMeasurement)
+        }
     }
 
     override fun loadView() {
@@ -137,9 +145,15 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
 
                 databaseManagerDao.stackPackagesDao().selectItem(currentPackageId).let {
                     this.runOnUiThread {
-                        textViewActivityLogPackageDetailsPackageName.text = it.name
+                        if (unitsMeasurement == UnitsMeasurement.CM) {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitStack).text = resources.getText(R.string.m3_short)
+                        }
+                        else {
+                            findViewById<TextView>(R.id.textViewPackageDetailsHeaderUnitStack).text = resources.getText(R.string.ft3_short)
+                        }
+                        textViewActivityStackPackageDetailsPackageName.text = it.name
                         it.addDate?.let { _ ->
-                            textViewActivityLogDetailsCreationDate
+                            textViewActivityStackDetailsCreationDate
                                 .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(it.addDate)
                         }
                     }
@@ -154,12 +168,12 @@ class StackPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                 this.runOnUiThread {
                     stackList.maxByOrNull { it.id }?.let { woodenLog ->
                         woodenLog.addDate?.let { _ ->
-                            textViewActivityLogDetailsUpdateDate
+                            textViewActivityStackDetailsUpdateDate
                                 .text = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).format(woodenLog.addDate)
                         }
                     }
                     findViewById<TextView>(R.id.textViewUnitMeasurmentLog).text = unitsMeasurement.getNameUnitCubic(this)
-                    textViewActivityLogPackageDetailsSum.text = sumFormat
+                    textViewActivityStackPackageDetailsSum.text = sumFormat
                     recyclerViewStackPackageDetailsList.adapter = PackageStackDetailsItemAdapter(stackList, treeList, this, unitsMeasurement)
                 }
             }

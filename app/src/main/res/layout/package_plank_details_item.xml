@@ -39,7 +39,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout11"
-            android:layout_width="46dp"
+            android:layout_width="52dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
@@ -47,14 +47,14 @@
 
             <ImageView
                 android:id="@+id/imageViewPackagePlankDetailsTreeIco"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
                 app:srcCompat="@drawable/ic_tree_leafy_green_8"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/textViewPackagePlankDetailsTreeName"
-                android:layout_width="30dp"
+                android:layout_width="44dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginLeft="2dp"
@@ -72,7 +72,7 @@
 
         <TextView
             android:id="@+id/textViewPackagePlankDetailsLength"
-            android:layout_width="50dp"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/default_number"
@@ -87,7 +87,7 @@
 
         <TextView
             android:id="@+id/textViewPackagePlankDetailsWidth"
-            android:layout_width="50dp"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/default_number"
@@ -102,7 +102,7 @@
 
         <TextView
             android:id="@+id/textViewPackagePlankDetailsHeight"
-            android:layout_width="50dp"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/default_number"
@@ -117,7 +117,7 @@
 
         <TextView
             android:id="@+id/textViewPlankPackageDetailsCubic"
-            android:layout_width="50dp"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/default_number"

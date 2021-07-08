@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
-    android:background="@drawable/rounded_white_bg"
+    android:background="@color/white"
     android:orientation="vertical"
     android:paddingLeft="8dp"
     android:paddingTop="16dp"
@@ -31,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:paddingLeft="8dp"
         android:paddingStart="8dp"
+        android:paddingLeft="8dp"
         tools:ignore="RtlSymmetry">
 
         <TextView
@@ -42,32 +42,31 @@
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
             android:text="@string/default_number_float"
-            android:textColor="@color/wm_green_dark"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:textColor="@color/wm_gray"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintEnd_toStartOf="@+id/textViewCubicToMoneyUnit"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textViewCubicToMoneyUnit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginEnd="2dp"
             android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
             android:text="@string/meters_short"
             android:textColor="@color/wm_green_dark"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SmallSp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:text="@string/_3"
             android:textColor="@color/wm_green_dark"
             android:textSize="6sp"
@@ -79,6 +78,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         android:orientation="vertical">
 
         <TextView
@@ -90,14 +91,26 @@
             android:paddingBottom="8dp"
             android:text="@string/default_number_float"
             android:textColor="@color/wm_gray_dark"
-            android:textSize="20sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/package_value"
+            android:textAllCaps="true"
+            android:textColor="@color/wm_gray"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
@@ -108,6 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:alpha="0.25"
             android:gravity="left"
             android:text="@string/default_number"
             android:textColor="@color/wm_gray_dark"
@@ -122,7 +136,7 @@
             android:gravity="center"
             android:text="@string/default_number"
             android:textColor="@color/wm_green_medium"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -131,12 +145,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:alpha="0.25"
             android:text="@string/thousand"
             android:textColor="@color/wm_gray_dark"
             android:textSize="10sp"
             tools:ignore="NestedWeights,SmallSp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/monetary_units"
+        android:textAllCaps="true"
+        android:textColor="@color/wm_green_medium"
+        android:textSize="8sp"
+        tools:ignore="SmallSp" />
 
     <SeekBar
         android:id="@+id/seekBarMeasureCubicToMoney"
@@ -187,6 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -206,7 +233,7 @@
                 android:layout_width="80dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_left"
-                android:text="@string/plus_10"
+                android:text="@string/_x10"
                 android:textColor="@color/wm_gray"
                 android:textSize="8sp"
                 app:backgroundTint="@color/button_white_smoke"
@@ -220,7 +247,7 @@
                 android:layout_width="80dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rectangle"
-                android:text="@string/plus_100"
+                android:text="@string/_x100"
                 android:textColor="@color/wm_gray"
                 android:textSize="8sp"
                 app:backgroundTint="@color/button_white_smoke"
@@ -235,7 +262,7 @@
                 android:layout_width="80dp"
                 android:layout_height="36dp"
                 android:background="@drawable/rounded_right"
-                android:text="@string/plus_1000"
+                android:text="@string/_x1000"
                 android:textColor="@color/wm_gray"
                 android:textSize="8sp"
                 app:backgroundTint="@color/button_white_smoke"
