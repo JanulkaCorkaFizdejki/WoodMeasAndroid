@@ -8,31 +8,31 @@
     <string name="meters_short">m</string>
     <string name="foot_short">ft</string>
     <string name="meters_decimal_short">m3</string>
-    <string name="measurement_width_bark">Pomiar z korą</string>
-    <string name="measurement_without_bark">Pomiar bez kory</string>
+    <string name="measurement_width_bark">Măsurarea cu scoarță</string>
+    <string name="measurement_without_bark">Măsurare fără scoarță</string>
     <string name="select">Alege</string>
     <string name="create">Creați</string>
     <string name="delete">Șterge</string>
     <string name="cancel">Anulare</string>
     <string name="yes">Da</string>
-    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
+    <string name="add_wood_package_name">" Introduceți numele pachetului:"</string>
     <string name="absence">Lipsa</string>
-    <string name="create_package">Utwórz pakiet</string>
-    <string name="created_package">Pakiet został utworzony</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
-    <string name="add_to_wood_package">Dodaj do pakietu</string>
-    <string name="added_to_package">Dodano do pakietu</string>
-    <string name="select_or_create_wood_package">Wybierz lub utwórz pakiet drewna</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="create_package">Creați un pachet</string>
+    <string name="created_package">A fost creat pachetul</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Doriți să eliminați un pachet de lemn din vizualizarea curentă?</string>
+    <string name="add_to_wood_package">Adăugați la pachet</string>
+    <string name="added_to_package">Adăugat la pachet</string>
+    <string name="select_or_create_wood_package">Alegeți sau creați pachetul de lemn</string>
+    <string name="last_update_date">Data ultimei modificări</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Pakiety drewna</string>
+    <string name="menu_name_packages">Pachetele de lemn</string>
     <string name="menu_name_calculators">Calculatoare</string>
     <string name="activity_default_name">Activity</string>
     <string name="no_data">Brak danych</string>
     <string name="search">Căutare</string>
     <string name="id">Id</string>
-    <string name="package_name">Nazwa Pakietu</string>
-    <string name="created_date">Data utworzenia</string>
+    <string name="package_name">Numele pachetului</string>
+    <string name="created_date">Data crearii</string>
     <string-array name="menu_calculators">
         <item>Pomiar kłód</item>
         <item>Pomiar tarcicy</item>
@@ -43,33 +43,33 @@
         <item>Pakiety tarcicy</item>
         <item>Pakiety stosów</item>
     </string-array>
-    <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
-    <string name="package_has_been_removed">Pakiet został usunięty</string>
-    <string name="package_is_empty">Pakiet jest pusty</string>
-    <string name="remove_all_packages">Usuń pakiety</string>
-    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
+    <string name="delete_package_question">Doriți să eliminați pachetul?</string>
+    <string name="package_has_been_removed">Pachetul a fost eliminat</string>
+    <string name="package_is_empty">Pachetul este gol</string>
+    <string name="remove_all_packages">Scoateți pachetele</string>
+    <string name="delete_all_packages_question">Doriți să eliminați toate pachetele?</string>
     <string name="length">Lungime</string>
     <string name="width">Lăţime</string>
     <string name="height">Înălţime</string>
     <string name="diameter">Diametru</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Dodaj do pakietu</string>
-    <string name="hold_down_to_add">Aby dodać przytrzymaj przycisk</string>
+    <string name="add_to_package">+ Adăugați la pachet</string>
+    <string name="hold_down_to_add">Pentru a adăuga, țineți apăsat butonul</string>
     <string name="packages">Pachet</string>
     <string name="ok">OK</string>
-    <string name="enter_all_dimensions">Wprowadź wszystkie wymiary</string>
-    <string name="create_and_use">Utwórz i użyj</string>
-    <string name="no_packages">Brak pakietów</string>
+    <string name="enter_all_dimensions">Introduceți toate dimensiunile</string>
+    <string name="create_and_use">Creați și utilizați</string>
+    <string name="no_packages">Fără pachete</string>
     <string name="print">Imprimare</string>
     <string name="send">Trimite</string>
-    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
-    <string name="package_details">Zawartość pakietu</string>
+    <string name="do_you_want_delete_element_question">Doriți să eliminați elementul?</string>
+    <string name="package_details">Pachetul de conținut</string>
     <string name="bark">Latra</string>
-    <string name="plank_package">Pakiet tarcicy</string>
-    <string name="log_package">Pakiet kłód</string>
-    <string name="stack_package">Pakiet stosów</string>
-    <string name="cross_stack">Stos krzyżowy</string>
-    <string name="no_cross_stack">Stos nie krzyżowy</string>
+    <string name="plank_package">Pachet de cherestea</string>
+    <string name="log_package">Pachet de jurnal</string>
+    <string name="stack_package">Pachet de piloți de lemn</string>
+    <string name="cross_stack">Grămadă de lemn încrucișată</string>
+    <string name="no_cross_stack">Grămadă de lemn paralelă</string>
     <string-array name="trees">
         <item>Molid</item>
         <item>Brad</item>
@@ -111,58 +111,59 @@
     <string name="_x10">x10</string>
     <string name="_x100">x100</string>
     <string name="_x1000">x1000</string>
-    <string name="unit_of_measurement">Jednostki miar</string>
+    <string name="unit_of_measurement">Unitate de măsură</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
-    <string name="metric_system">System metryczny</string>
-    <string name="imperial_system">System imperialny</string>
-    <string name="updated">Zaktualizowano</string>
+    <string name="metric_system">Sistem metric</string>
+    <string name="imperial_system">Sistem imperial</string>
+    <string name="updated">Actualizat</string>
     <string name="apply">Aplica</string>
     <string name="settings">Setări</string>
     <string name="information">Informație</string>
-    <string name="sortyment">Sortyment</string>
+    <string name="sortyment">Sortiment</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Własny współczynnik</string>
+    <string name="custom_factor">Raport personalizat</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Notatki pakietów</string>
-    <string name="add_to_emails">Dołączaj do emaili</string>
-    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
-    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
-    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
-    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
-    <string name="end_diameter">Średnica końcowa</string>
-    <string name="center_diameter">Średnica środkowa</string>
+    <string name="package_notes">Note de pachet</string>
+    <string name="add_to_emails">Adăugați la e-mailuri</string>
+    <string name="add_to_pdf">Plasați în documente pdf</string>
+    <string name="sent_from_app">Trimis din aplicația Wood Meas</string>
+    <string name="method_measuring_logs">Metoda de măsurare a buștenilor de lemn</string>
+    <string name="end_diameter_center_diameter">Diametru final / Diametru mediu</string>
+    <string name="end_diameter">Diametrul final</string>
+    <string name="center_diameter">Diametrul mediu</string>
     <string name="slash">/</string>
-    <string name="application_description">Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.</string>
-    <string name="application_features">Funkcje aplikacji</string>
+    <string name="application_description">Aplicația Wood Meas este un instrument de măsurare pentru măsurarea buștenilor, cherestelei și grămezilor de lemn.</string>
+    <string name="application_features">Funcțiile aplicației</string>
     <string-array name="application_features_list">
-        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
-        <item>dokonywanie obliczeń pomiarów tarcicy</item>
-        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
-        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
-        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
-        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
-        <item>dokonywanie obliczeń pomiarów w systemie metrycznym (centymetr [cm], metr [m] = 100cm) oraz imperialnym (cal [in], stopa [ft] = 12in) (*)</item>
-        <item>tworzenie notatek dla pakietów</item>
+        <item>efectuarea calculelor măsurătorilor buștenilor din lemn</item>
+        <item>efectuarea de calcule ale măsurătorilor de cherestea</item>
+        <item>efectuarea de calcule ale măsurătorilor de stâlpi de lemn</item>
+        <item>crearea de pachete de bușteni, cherestea și grămezi</item>
+        <item>generarea de rapoarte pentru pachete sub formă de foi de calcul (xls) și documente pdf</item>
+        <item>convertirea dimensiunilor pachetelor în unități monetare</item>
+        <item>efectuarea calculelor măsurătorilor în sistemul metric (centimetru [cm], metru [m] = 100cm) și imperial (inch [în], picior [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>crearea de note pentru pachete</item>
     </string-array>
     <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. POMIAR KŁÓD</string>
+    <string name="measurement_logs">A. MĂSURAREA JURNALULUI</string>
     <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
     <string-array name="measurement_logs_swap">
         <item>średnicy środkowej</item>
         <item>średnicy górnej</item>
     </string-array>
-    <string name="calculation_methods">Metody obliczeń</string>
+    <string name="calculation_methods">Metode de calcul</string>
     <string name="measurement_plank">B. POMIAR TARCICY</string>
     <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
     <string name="measurement_stacks">C. POMIAR STOSÓW</string>
     <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
-    <string name="learn_more">[Zobacz więcej]</string>
-    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="learn_more">[Vezi mai mult]</string>
+    <string name="design_and_implementation">Design si implementare</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legendă</string>
-    <string name="monetary_units">Jednostki monetarne</string>
-    <string name="package_value">Wartość pakietu</string>
+    <string name="monetary_units">Unități monetare</string>
+    <string name="package_value">Iepakojuma vērtība</string>
+    <string name="open_file">" Deschide fișierul"</string>
 </resources>

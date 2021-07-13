@@ -137,14 +137,14 @@
     <string name="application_description">Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.</string>
     <string name="application_features">Funkcje aplikacji</string>
     <string-array name="application_features_list">
-        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
-        <item>dokonywanie obliczeń pomiarów tarcicy</item>
-        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
-        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
-        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
-        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
-        <item>dokonywanie obliczeń pomiarów w systemie metrycznym (centymetr [cm], metr [m] = 100cm) oraz imperialnym (cal [in], stopa [ft] = 12in) (*)</item>
-        <item>tworzenie notatek dla pakietów</item>
+        <item>लकड़ी के लॉग माप की गणना करना</item>
+        <item>लकड़ी के माप की गणना करना</item>
+        <item>लकड़ी के ढेर के माप की गणना करना</item>
+        <item>लॉग, लकड़ी और ढेर के पैकेज बनाना</item>
+        <item>स्प्रेडशीट (xls) और pdf दस्तावेज़ों के रूप में बंडलों के लिए रिपोर्ट तैयार करना</item>
+        <item>बंडल आकार को मौद्रिक इकाइयों में परिवर्तित करना</item>
+        <item>मीट्रिक प्रणाली (सेंटीमीटर [सेमी], मीटर [एम] = 100 सेमी) और इंपीरियल (इंच [इन], फुट [फीट] = 12 इंच) / 1 एम 3 = 35,315 x 1FT3 (*) में माप की गणना करना</item>
+        <item>बंडलों के लिए नोट्स बनाना</item>
     </string-array>
     <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
     <string name="measurement_logs">A. POMIAR KŁÓD</string>
@@ -165,4 +165,5 @@
     <string name="legend">Legenda</string>
     <string name="monetary_units">Jednostki monetarne</string>
     <string name="package_value">Wartość pakietu</string>
+    <string name="open_file">खुली फाइल</string>
 </resources>

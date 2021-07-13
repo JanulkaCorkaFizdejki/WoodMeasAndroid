@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">ნაგულისხმევი ტექსტი</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">გაზომვა ქერქით</string>
+    <string name="measurement_without_bark">გაზომვა ქერქის გარეშე</string>
+    <string name="select">არჩევა</string>
+    <string name="create">Შექმნა</string>
+    <string name="delete">წაშლა</string>
+    <string name="cancel">გაუქმება</string>
+    <string name="yes">დიახ</string>
+    <string name="add_wood_package_name">შეიყვანეთ პაკეტის სახელი:</string>
+    <string name="absence">ნაკლებობა</string>
+    <string name="create_package">შექმენით პაკეტი</string>
+    <string name="created_package">პაკეტი შეიქმნა</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">გსურთ ხის შეკვრის ამოღება ამჟამინდელი ხედიდან?</string>
+    <string name="add_to_wood_package">დაამატეთ პაკეტი</string>
+    <string name="added_to_package">პაკეტს დაემატა</string>
+    <string name="select_or_create_wood_package">შეარჩიეთ ან შექმენით ხის შეკვრა</string>
+    <string name="last_update_date">ბოლო ცვლილების თარიღი</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">ხის შეკვრა</string>
+    <string name="menu_name_calculators">კალკულატორები</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Მონაცემები არ არის</string>
+    <string name="search">ძებნა</string>
+    <string name="id">Id</string>
+    <string name="package_name">პაკეტის სახელი</string>
+    <string name="created_date">xxx</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">გსურთ პაკეტის ამოღება?</string>
+    <string name="package_has_been_removed">შეკვრა ამოიღეს</string>
+    <string name="package_is_empty">შეკვრა ცარიელია</string>
+    <string name="remove_all_packages">ამოიღეთ ჩალიჩები</string>
+    <string name="delete_all_packages_question">გსურთ წაშალოთ ყველა პაკეტი?</string>
+    <string name="length">სიგრძე</string>
+    <string name="width">Szerokość</string>
+    <string name="height">სიგანე</string>
+    <string name="diameter">დიამეტრი</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ დაამატეთ პაკეტი</string>
+    <string name="hold_down_to_add">დასამატებლად დააჭირეთ ღილაკს</string>
+    <string name="packages">პაკეტი</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">შეიყვანეთ ყველა ზომა</string>
+    <string name="create_and_use">შექმნა და გამოყენება</string>
+    <string name="no_packages">ჩალიჩების გარეშე</string>
+    <string name="print">ბეჭდვა</string>
+    <string name="send">გაგზავნა</string>
+    <string name="do_you_want_delete_element_question">გსურთ ამოიღოთ ელემენტი?</string>
+    <string name="package_details">პაკეტის შინაარსი</string>
+    <string name="bark">Ქერქი</string>
+    <string name="plank_package">ხის შეკვრა</string>
+    <string name="log_package">შესვლის პაკეტი</string>
+    <string name="stack_package">მერქნის შეკვრა</string>
+    <string name="cross_stack">ჯვრის ჯვარი ხის წყობით</string>
+    <string name="no_cross_stack">პარალელური ხის წყობა</string>
+    <string-array name="trees">
+        <item>ნაძვი</item>
+        <item>ნაძვი</item>
+        <item>ფიჭვი</item>
+        <item>ლარქი</item>
+        <item>არყი</item>
+        <item>წიფელი</item>
+        <item>რცხილა</item>
+        <item>კლონი</item>
+        <item>ნაცარი</item>
+        <item>ბუჩქნარი</item>
+        <item>ლინდენი</item>
+        <item>უფროსი</item>
+        <item>ასპენი</item>
+        <item>ვერხვი</item>
+        <item>თელა</item>
+        <item>მუხა</item>
+        <item>აკაცია</item>
+    </string-array>
+    <string name="yes_short">დ</string>
+    <string name="no_short">ა</string>
+    <string name="length_short_cm">სიგრძე/CM</string>
+    <string name="width_short_cm">სიგანე/CM</string>
+    <string name="height_short_cm">სიმაღლე/CM</string>
+    <string name="diameter_short_cm">დიამეტრი/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">სიგრძე/IN</string>
+    <string name="width_short_in">სიგანე/IN</string>
+    <string name="height_short_in">სიმაღლე/IN</string>
+    <string name="diameter_short_in">დიამეტრი/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">ᲥᲔᲠᲥᲘ</string>
+    <string name="tree">ხე</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">თარიღი</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">საზომი ერთეული</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">მეტრული სისტემა</string>
+    <string name="imperial_system">საიმპერატორო სისტემა</string>
+    <string name="updated">განახლებულია</string>
+    <string name="apply">მიმართვა</string>
+    <string name="settings">პარამეტრები</string>
+    <string name="information">ინფორმაცია</string>
+    <string name="sortyment">ასორტიმენტი</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">მორგებული თანაფარდობა</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">შეკვრის შენიშვნები</string>
+    <string name="add_to_emails">ელ.ფოსტაში დამატება</string>
+    <string name="add_to_pdf">მოათავსეთ pdf დოკუმენტებში</string>
+    <string name="sent_from_app">გაგზავნილია Wood Meas აპიდან</string>
+    <string name="method_measuring_logs">ხის მორების გაზომვის მეთოდი</string>
+    <string name="end_diameter_center_diameter">საბოლოო დიამეტრი / შუა დიამეტრი</string>
+    <string name="end_diameter">საბოლოო დიამეტრი</string>
+    <string name="center_diameter">შუა დიამეტრი</string>
+    <string name="slash">/</string>
+    <string name="application_description">Wood Meas აპლიკაცია არის ჟურნალების, ხის და ხის გროვების გაზომვის საზომი ინსტრუმენტი.</string>
+    <string name="application_features">აპის ფუნქციები</string>
+    <string-array name="application_features_list">
+        <item>ხის მორების გაზომვების გაანგარიშება</item>
+        <item>მერქნის გაზომვების გაანგარიშება</item>
+        <item>მერქნის გაზომვების გაანგარიშება</item>
+        <item>ჟურნალების, მერქნისა და წყობების ჩალიჩების შექმნა</item>
+        <item>პაკეტებისთვის ანგარიშების შექმნა ცხრილების (xls) და pdf დოკუმენტების სახით</item>
+        <item>პაკეტის ზომის მონეტარული ერთეულებად გადაქცევა</item>
+        <item>გაზომვების გაანგარიშება მეტრულ სისტემაში (სანტიმეტრი [სმ], მეტრი [მ] = 100 სმ) და იმპერიული (დიუმი [დიუმი], ფუტი [ფუტი] = 12 დიუმი) / 1 მ 3 = 35,315 x 1FT3 (*)</item>
+        <item>შენიშვნების შექმნა ჩალიჩებისთვის</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. ლოგის გაზომვა</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">გაანგარიშების მეთოდები</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Მეტის ნახვა]</string>
+    <string name="design_and_implementation">დიზაინი და განხორციელება</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">ლეგენდა</string>
+    <string name="monetary_units">ფულადი ერთეულები</string>
+    <string name="package_value">პაკეტის ღირებულება</string>
+    <string name="open_file">Გახსენი ფაილი</string>
+</resources>

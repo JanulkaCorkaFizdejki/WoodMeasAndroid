@@ -4,9 +4,11 @@ package com.mobile.woodmeas
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.inputmethod.InputMethodManager
 
 import android.widget.ImageButton
@@ -26,6 +28,7 @@ import com.mobile.woodmeas.viewcontrollers.CubicToMoney
 import com.mobile.woodmeas.viewcontrollers.NavigationManager
 import com.mobile.woodmeas.viewcontrollers.NoteManager
 import java.io.File
+import java.net.URI
 import java.text.DateFormat
 import kotlin.concurrent.thread
 
@@ -81,8 +84,10 @@ class LogPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     val intent =   Intent(Intent.ACTION_VIEW).apply {
                         type = "application/pdf"
                         data = fileProvider
+                        flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+                        flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                     }
-                    try { startActivity(Intent.createChooser(intent, "Open  file"))
+                    try { startActivity(Intent.createChooser(intent, resources.getText(R.string.open_file)))
                     } catch (ex: ActivityNotFoundException) { }
                 }
             }

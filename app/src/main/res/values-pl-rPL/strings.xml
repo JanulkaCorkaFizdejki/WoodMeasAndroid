@@ -23,7 +23,7 @@
     <string name="add_to_wood_package">Dodaj do pakietu</string>
     <string name="added_to_package">Dodano do pakietu</string>
     <string name="select_or_create_wood_package">Wybierz lub utwórz pakiet drewna</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="last_update_date">Dato for siste endring</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
     <string name="menu_name_packages">Pakiety drewna</string>
     <string name="menu_name_calculators">Kalkulatory</string>
@@ -165,4 +165,5 @@
     <string name="legend">Legenda</string>
     <string name="monetary_units">Jednostki monetarne</string>
     <string name="package_value">Wartość pakietu</string>
+    <string name="open_file">Otwórz plik</string>
 </resources>

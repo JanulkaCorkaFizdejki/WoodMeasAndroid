@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Standardtext</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Mätning med bark</string>
+    <string name="measurement_without_bark">Mätning utan bark</string>
+    <string name="select">Välja</string>
+    <string name="create">Skapa</string>
+    <string name="delete">Radera</string>
+    <string name="cancel">Avbryt</string>
+    <string name="yes">Ja</string>
+    <string name="add_wood_package_name">" Ange paketnamnet:"</string>
+    <string name="absence">Brak</string>
+    <string name="create_package">Skapa ett paket</string>
+    <string name="created_package">Paketet skapades</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Vill du ta bort en träbunt från den aktuella vyn?</string>
+    <string name="add_to_wood_package">Lägg till i paketet</string>
+    <string name="added_to_package">Lagt till i paketet</string>
+    <string name="select_or_create_wood_package">Välj eller skapa träbunten</string>
+    <string name="last_update_date">Datum för den senaste ändringen</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Träbuntar</string>
+    <string name="menu_name_calculators">Miniräknare</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Inga data</string>
+    <string name="search">Sök</string>
+    <string name="id">Id</string>
+    <string name="package_name">Paketnamn</string>
+    <string name="created_date">Skapelsedagen</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Vill du ta bort paketet?</string>
+    <string name="package_has_been_removed">Paketet togs bort</string>
+    <string name="package_is_empty">Paketet är tomt</string>
+    <string name="remove_all_packages">Ta bort buntarna</string>
+    <string name="delete_all_packages_question">Vill du ta bort alla buntar?</string>
+    <string name="length">Längd</string>
+    <string name="width">Bredd</string>
+    <string name="height">Höjd</string>
+    <string name="diameter">Diameter</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Lägg till i paketet</string>
+    <string name="hold_down_to_add">Håll ned knappen för att lägga till</string>
+    <string name="packages">Paket</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Ange alla mått</string>
+    <string name="create_and_use">Skapa och använd</string>
+    <string name="no_packages">Inga buntar</string>
+    <string name="print">Skriva ut</string>
+    <string name="send">WSkicka</string>
+    <string name="do_you_want_delete_element_question">Vill du ta bort elementet?</string>
+    <string name="package_details">Buntinnehåll</string>
+    <string name="bark">Bark</string>
+    <string name="plank_package">Träbunt</string>
+    <string name="log_package">Loggbunt</string>
+    <string name="stack_package">Stackpaket</string>
+    <string name="cross_stack">Kors-kors trä hög</string>
+    <string name="no_cross_stack">Parallell vedhög</string>
+    <string-array name="trees">
+        <item>Gran(1)</item>
+        <item>Gran(2)</item>
+        <item>Tall</item>
+        <item>Lärkträd</item>
+        <item>Björk</item>
+        <item>Bok</item>
+        <item>Avenbok</item>
+        <item>Klona</item>
+        <item>Aska</item>
+        <item>Platan</item>
+        <item>Lind</item>
+        <item>Al</item>
+        <item>Asp</item>
+        <item>Poppel</item>
+        <item>Alm</item>
+        <item>Ek</item>
+        <item>Akacia</item>
+    </string-array>
+    <string name="yes_short">J</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">L/CM</string>
+    <string name="width_short_cm">B/CM</string>
+    <string name="height_short_cm">H/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">L/IN</string>
+    <string name="width_short_in">B/IN</string>
+    <string name="height_short_in">H/IN</string>
+    <string name="diameter_short_in">D/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">BARK</string>
+    <string name="tree">TRÄD</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATUM</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Måttenhet</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Metriska systemet</string>
+    <string name="imperial_system">Kejserligt system</string>
+    <string name="updated">Uppdaterad</string>
+    <string name="apply">Tillämpa</string>
+    <string name="settings">Inställningar</string>
+    <string name="information">Information</string>
+    <string name="sortyment">Sortiment</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Anpassat förhållande</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Buntanteckningar</string>
+    <string name="add_to_emails">Lägg till i e-postmeddelanden</string>
+    <string name="add_to_pdf">Placera i pdf-dokument</string>
+    <string name="sent_from_app">Skickat från Wood Meas-appen</string>
+    <string name="method_measuring_logs">Metod för mätning av trä stockar</string>
+    <string name="end_diameter_center_diameter">Slutlig diameter / Medeldiameter</string>
+    <string name="end_diameter">Slutlig diameter</string>
+    <string name="center_diameter">Medeldiameter</string>
+    <string name="slash">/</string>
+    <string name="application_description">Appen Wood Meas är ett mätverktyg för att mäta stockar, virke och vedhögar.</string>
+    <string name="application_features">Appfunktioner</string>
+    <string-array name="application_features_list">
+        <item>göra beräkningar av trä stockar mätningar</item>
+        <item>göra beräkningar av virkesmätningar</item>
+        <item>göra beräkningar av trähögmätningar</item>
+        <item>skapa buntar av stockar, virke och högar</item>
+        <item>generera rapporter för buntar i form av kalkylark (xls) och pdf-dokument</item>
+        <item>konvertera buntstorlekar till monetära enheter</item>
+        <item>göra beräkningar av mätningar i det metriska systemet (centimeter [cm], meter [m] = 100 cm) och imperial (tum [tum], fot [ft] = 12 tum) / 1 m3 = 35,315 x 1FT3 (*)</item>
+        <item>skapa anteckningar för buntar</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. LOGGMÄTNING</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Beräkningsmetoder</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Se mer]</string>
+    <string name="design_and_implementation">Design och implementering</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legend</string>
+    <string name="monetary_units">Monetära enheter</string>
+    <string name="package_value">Värdet på paketet</string>
+    <string name="open_file">Öppna fil</string>
+</resources>

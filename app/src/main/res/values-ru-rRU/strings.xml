@@ -20,12 +20,12 @@
     <string name="create_package">Создать пакет</string>
     <string name="created_package">Пакет создан</string>
     <string name="do_you_want_to_delete_wood_package_from_currency_view">Вы хотите удалить деревянную связку из текущего вида?</string>
-    <string name="add_to_wood_package">Добавить в пакет</string>
-    <string name="added_to_package">Добавлено в пакет</string>
-    <string name="select_or_create_wood_package">Выберите или создайте деревянную упаковку</string>
+    <string name="add_to_wood_package">Добавить в комплект</string>
+    <string name="added_to_package">Добавлено в комплект</string>
+    <string name="select_or_create_wood_package">Выберите или создайте пучок дерева</string>
     <string name="last_update_date">Дата последней модификации</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Пакеты из дерева</string>
+    <string name="menu_name_packages">Связки древесины</string>
     <string name="menu_name_calculators">Калькуляторы</string>
     <string name="activity_default_name">Activity</string>
     <string name="no_data">Нет данных</string>
@@ -43,17 +43,17 @@
         <item>Пакеты пиломатериалов</item>
         <item>Пакеты стека</item>
     </string-array>
-    <string name="delete_package_question">Вы хотите удалить пакет?</string>
-    <string name="package_has_been_removed">Пакет удален</string>
-    <string name="package_is_empty">Пакет пуст</string>
-    <string name="remove_all_packages">Удалить пакеты</string>
+    <string name="delete_package_question">Вы хотите удалить связку?</string>
+    <string name="package_has_been_removed">Связку удалили</string>
+    <string name="package_is_empty">Комплект пуст</string>
+    <string name="remove_all_packages">Удалите связки</string>
     <string name="delete_all_packages_question">Вы хотите удалить все пакеты?</string>
     <string name="length">Длина</string>
     <string name="width">Ширина</string>
     <string name="height">Высота</string>
     <string name="diameter">Диаметр</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Добавить в пакет</string>
+    <string name="add_to_package">+ Добавить в комплект</string>
     <string name="hold_down_to_add">Чтобы добавить, удерживайте кнопку</string>
     <string name="packages">Упаковка</string>
     <string name="ok">OK</string>
@@ -62,14 +62,14 @@
     <string name="no_packages">Нет пакетов</string>
     <string name="print">Распечатать</string>
     <string name="send">послать</string>
-    <string name="do_you_want_delete_element_question">Вы хотите удалить объект?</string>
-    <string name="package_details">содержимое пакета</string>
+    <string name="do_you_want_delete_element_question">Вы хотите удалить элемент?</string>
+    <string name="package_details">Группировать контент</string>
     <string name="bark">Лаять</string>
-    <string name="plank_package">Пакет пиломатериалов</string>
+    <string name="plank_package">Пачка пиломатериалов</string>
     <string name="log_package">Пакет журнала</string>
-    <string name="stack_package">Пакет стеки</string>
-    <string name="cross_stack">Перекрестный стек</string>
-    <string name="no_cross_stack">Не перекрестный стек</string>
+    <string name="stack_package">Связка поленницы</string>
+    <string name="cross_stack">Куча древесины крест-накрест</string>
+    <string name="no_cross_stack">Параллельная свая</string>
     <string-array name="trees">
         <item>Ель</item>
         <item>Пихта</item>
@@ -123,31 +123,31 @@
     <string name="information">IИнформация</string>
     <string name="sortyment">Ассортимент</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Собственный фактор</string>
+    <string name="custom_factor">Пользовательское соотношение</string>
     <string name="float_0_0_1">0,01</string>
     <string name="package_notes">Примечания к пакету</string>
-    <string name="add_to_emails">Присоединяйтесь к рассылкам</string>
+    <string name="add_to_emails">Добавить в электронную почту</string>
     <string name="add_to_pdf">Поместить в pdf документы</string>
-    <string name="sent_from_app">Отправлено из Wood Meas</string>
-    <string name="method_measuring_logs">Метод измерения бревна</string>
-    <string name="end_diameter_center_diameter">Конечный диаметр / центральный диаметр</string>
+    <string name="sent_from_app">Отправлено из приложения Wood Meas</string>
+    <string name="method_measuring_logs">Метод измерения деревянных бревен</string>
+    <string name="end_diameter_center_diameter">Конечный диаметр / Cредний диаметр</string>
     <string name="end_diameter">Конечный диаметр</string>
-    <string name="center_diameter">Диаметр центра</string>
+    <string name="center_diameter">Средний диаметр</string>
     <string name="slash">/</string>
-    <string name="application_description">Приложение Wood MeAs - это инструмент для расчета размеров бревен, пиломатериалов и деревянных свай.</string>
-    <string name="application_features">Funkcje aplikacji</string>
+    <string name="application_description">Приложение Wood Meas - это измерительный инструмент для измерения бревен, пиломатериалов и деревянных свай.</string>
+    <string name="application_features">Функции приложения</string>
     <string-array name="application_features_list">
-        <item>расчеты обмеров деревянных бревен</item>
-        <item>расчет размеров пиломатериалов</item>
-        <item>делать расчеты для измерения свай из дерева</item>
-        <item>создание пакетов бревен, пиломатериалов и свай</item>
+        <item>расчет размеров деревянных бревен</item>
+        <item>выполнение расчетов обмеров пиломатериалов</item>
+        <item>расчет размеров поленницы</item>
+        <item>создание связок бревен, пиломатериалов и свай</item>
         <item>формирование отчетов для пакетов в виде электронных таблиц (xls) и документов pdf</item>
-        <item>преобразование размеров пакетов в денежные единицы</item>
-        <item>выполнение расчетов измерений в метрической системе (сантиметр [см], метр [м] = 100 см) и британской системе (дюйм [дюйм], фут [фут] = 12 дюймов) (*)</item>
-        <item>создание заметок для пакетов</item>
+        <item>преобразование размеров пачки в денежные единицы</item>
+        <item>выполнение расчетов измерений в метрической системе (сантиметр [см], метр [м] = 100 см) и британской системе мер (дюйм [дюйм], фут [фут] = 12 дюймов) / 1 м3 = 35,315 x 1FT3 (*)</item>
+        <item>создание заметок для связок</item>
     </string-array>
     <string name="legend_app_fun_1">(*) при выборе английской системы мер шаг для вводимых размеров составляет 1 см, а не 1 дюйм!</string>
-    <string name="measurement_logs">A. Измерение бревен</string>
+    <string name="measurement_logs">A. ЖУРНАЛ ИЗМЕРЕНИЯ</string>
     <string name="measurement_logs_desc">Расчет промеров бревна производится методом ___ (с корой и без коры) и ___ (без коры).</string>
     <string-array name="measurement_logs_swap">
         <item>śцентральный диаметр</item>
@@ -165,4 +165,5 @@
     <string name="legend">Legenda</string>
     <string name="monetary_units">Денежные единицы</string>
     <string name="package_value">Стоимость пакета</string>
+    <string name="open_file">" Открыть файл"</string>
 </resources>

@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Texto padrão</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Medição com casca</string>
+    <string name="measurement_without_bark">Medição sem casca</string>
+    <string name="select">Escolher</string>
+    <string name="create">Crio</string>
+    <string name="delete">Excluir</string>
+    <string name="cancel">Cancelar</string>
+    <string name="yes">Sim</string>
+    <string name="add_wood_package_name">" Insira o nome do pacote:"</string>
+    <string name="absence">Falta</string>
+    <string name="create_package">Crie um pacote</string>
+    <string name="created_package">O pacote foi criado</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Quer remover um feixe de madeira da vista atual?</string>
+    <string name="add_to_wood_package">Adicionar ao pacote</string>
+    <string name="added_to_package">Adicionado ao pacote</string>
+    <string name="select_or_create_wood_package">Escolha ou crie o feixe de madeira</string>
+    <string name="last_update_date">Data da última modificação</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Feixes de madeira</string>
+    <string name="menu_name_calculators">Calculadoras</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Sem dados</string>
+    <string name="search">Procurar</string>
+    <string name="id">Id</string>
+    <string name="package_name">Nome do pacote</string>
+    <string name="created_date">Data de criação</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Você quer remover o pacote?</string>
+    <string name="package_has_been_removed">O pacote foi removido</string>
+    <string name="package_is_empty">O pacote está vazio</string>
+    <string name="remove_all_packages">Remova os pacotes</string>
+    <string name="delete_all_packages_question">Você quer remover todos os pacotes?</string>
+    <string name="length">Comprimento</string>
+    <string name="width">Largura</string>
+    <string name="height">Altura</string>
+    <string name="diameter">Diâmetro</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Adicionar ao pacote</string>
+    <string name="hold_down_to_add">Para adicionar, mantenha pressionado o botão</string>
+    <string name="packages">Pacote</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Insira todas as dimensões</string>
+    <string name="create_and_use">Criar e usar</string>
+    <string name="no_packages">Sem pacotes</string>
+    <string name="print">Impressão</string>
+    <string name="send">Mandar</string>
+    <string name="do_you_want_delete_element_question">Você quer remover o elemento?</string>
+    <string name="package_details">Conteúdo do pacote</string>
+    <string name="bark">Latido</string>
+    <string name="plank_package">Feixe de madeira</string>
+    <string name="log_package">Pacote de toras</string>
+    <string name="stack_package">Pacote de pilhas de madeira</string>
+    <string name="cross_stack">Pilha de madeira cruzada</string>
+    <string name="no_cross_stack">Pilha de madeira paralela</string>
+    <string-array name="trees">
+        <item>Abeto(1)</item>
+        <item>>Abeto(2)</item>
+        <item>Pinho</item>
+        <item>Larício</item>
+        <item>Bétula</item>
+        <item>Faia</item>
+        <item>Hornbeam</item>
+        <item>Clone</item>
+        <item>Cinzas</item>
+        <item>Sicômoro</item>
+        <item>Linden</item>
+        <item>Amieiro</item>
+        <item>Aspen</item>
+        <item>Álamo</item>
+        <item>Olmo</item>
+        <item>Carvalho</item>
+        <item>Acácia</item>
+    </string-array>
+    <string name="yes_short">S</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">C/CM</string>
+    <string name="width_short_cm">L/CM</string>
+    <string name="height_short_cm">A/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">C/IN</string>
+    <string name="width_short_in">L/IN</string>
+    <string name="height_short_in">A/IN</string>
+    <string name="diameter_short_in">D/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">LATIDO</string>
+    <string name="tree">ÁRVORE</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATA</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Unidade de medida</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Sistema métrico</string>
+    <string name="imperial_system">Sistema imperial</string>
+    <string name="updated">Atualizada</string>
+    <string name="apply">Aplicar</string>
+    <string name="settings">Definições</string>
+    <string name="information">Em formação</string>
+    <string name="sortyment">Sortimento</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Proporção personalizada</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Notas do pacote</string>
+    <string name="add_to_emails">Adicionar a e-mails</string>
+    <string name="add_to_pdf">Coloque em documentos pdf</string>
+    <string name="sent_from_app">Enviado do app Wood Meas</string>
+    <string name="method_measuring_logs">Método de medição de toras de madeira</string>
+    <string name="end_diameter_center_diameter">Diâmetro final / Diâmetro médio</string>
+    <string name="end_diameter">Diâmetro final</string>
+    <string name="center_diameter">Diâmetro médio</string>
+    <string name="slash">/</string>
+    <string name="application_description">O aplicativo Wood Meas é uma ferramenta de medição para medir toras, madeira serrada e pilhas de madeira.</string>
+    <string name="application_features">Funções de aplicativos</string>
+    <string-array name="application_features_list">
+        <item>fazendo cálculos de medições de toras de madeira</item>
+        <item>fazendo cálculos de medidas de madeira</item>
+        <item>fazendo cálculos de medidas de pilhas de madeira</item>
+        <item>criando feixes de toras, madeira e pilhas</item>
+        <item>geração de relatórios para pacotes na forma de planilhas (xls) e documentos PDF</item>
+        <item>conversão de tamanhos de pacotes em unidades monetárias</item>
+        <item>fazendo cálculos de medições no sistema métrico (centímetro [cm], metro [m] = 100cm) e imperial (polegada [pol], pé [pé] = 12 pol.) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>criando notas para pacotes</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. MEDIÇÃO DE REGISTRO</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Métodos de cálculo</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Ver mais]</string>
+    <string name="design_and_implementation">Design e implementação</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Lenda</string>
+    <string name="monetary_units">Unidades monetárias</string>
+    <string name="package_value">Valor do pacote</string>
+    <string name="open_file">Abrir arquivo</string>
+</resources>

@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Noklusējuma teksts</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Mērīšana ar mizu</string>
+    <string name="measurement_without_bark">Mērīšana bez mizas</string>
+    <string name="select">Izvēlieties</string>
+    <string name="create">Izveidot</string>
+    <string name="delete">Dzēst</string>
+    <string name="cancel">Atcelt</string>
+    <string name="yes">Jā</string>
+    <string name="add_wood_package_name">Ievadiet pakotnes nosaukumu:</string>
+    <string name="absence">Trūkst</string>
+    <string name="create_package">Izveidojiet paketi</string>
+    <string name="created_package">Pakete ir izveidota</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Vai vēlaties noņemt koka saišķi no pašreizējā skata?</string>
+    <string name="add_to_wood_package">Pievienojiet komplektam</string>
+    <string name="added_to_package">Pievienots komplektam</string>
+    <string name="select_or_create_wood_package">Izvēlieties vai izveidojiet koka saišķi</string>
+    <string name="last_update_date">Pēdējās modifikācijas datums</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Koka saišķi</string>
+    <string name="menu_name_calculators">Kalkulatori</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Nav datu</string>
+    <string name="search">Meklēt</string>
+    <string name="id">Id</string>
+    <string name="package_name">Lepakojuma nosaukums</string>
+    <string name="created_date">Izveidošanas datums</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Vai vēlaties noņemt saišķi?</string>
+    <string name="package_has_been_removed">Komplekts tika noņemts</string>
+    <string name="package_is_empty">Komplekts ir tukšs</string>
+    <string name="remove_all_packages">Noņemiet saišķus</string>
+    <string name="delete_all_packages_question">Vai vēlaties noņemt visus saišķus?</string>
+    <string name="length">Garums</string>
+    <string name="width">Platums</string>
+    <string name="height">Augstums</string>
+    <string name="diameter">Diametri</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Pievienojiet komplektam</string>
+    <string name="hold_down_to_add">Lai pievienotu, turiet nospiestu pogu</string>
+    <string name="packages">Iepakojums</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Ievadiet visas dimensijas</string>
+    <string name="create_and_use">Izveidojiet un izmantojiet</string>
+    <string name="no_packages">Nav saišķu</string>
+    <string name="print">Drukāt</string>
+    <string name="send">Nosūtīt</string>
+    <string name="do_you_want_delete_element_question">Vai vēlaties noņemt elementu?</string>
+    <string name="package_details">Paketes saturs</string>
+    <string name="bark">Miza</string>
+    <string name="plank_package">Kokmateriālu saišķis</string>
+    <string name="log_package">Baļķu saišķis</string>
+    <string name="stack_package">Koka saišķis</string>
+    <string name="cross_stack">Krosa krusta koka kaudze</string>
+    <string name="no_cross_stack">Paralēla koka kaudze</string>
+    <string-array name="trees">
+        <item>Egle(1)</item>
+        <item>Egle(2)</item>
+        <item>Priede</item>
+        <item>Lapegle</item>
+        <item>Bērzs</item>
+        <item>Dižskābardis</item>
+        <item>Skābenis</item>
+        <item>Klons</item>
+        <item>Pelni</item>
+        <item>Sycamore</item>
+        <item>Liepa</item>
+        <item>Alksnis</item>
+        <item>Apse</item>
+        <item>Papele</item>
+        <item>Goba</item>
+        <item>Ozols</item>
+        <item>Akācija</item>
+    </string-array>
+    <string name="yes_short">J</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">G/CM</string>
+    <string name="width_short_cm">P/CM</string>
+    <string name="height_short_cm">A/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">G/IN</string>
+    <string name="width_short_in">P/IN</string>
+    <string name="height_short_in">A/IN</string>
+    <string name="diameter_short_in">D/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">MIZA</string>
+    <string name="tree">KOKS</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATUMS</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Mērvienība</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Metriskā sistēma</string>
+    <string name="imperial_system">Imperiālā sistēma</string>
+    <string name="updated">Atjaunināts</string>
+    <string name="apply">Piesakies</string>
+    <string name="settings">Iestatījumi</string>
+    <string name="information">Informācija</string>
+    <string name="sortyment">Sortiments</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Pielāgota attiecība</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Komplekta piezīmes</string>
+    <string name="add_to_emails">Pievienot e-pastiem</string>
+    <string name="add_to_pdf">Vieta pdf dokumentos</string>
+    <string name="sent_from_app">Nosūtīts no lietotnes Wood Meas</string>
+    <string name="method_measuring_logs">Koka baļķu mērīšanas metode</string>
+    <string name="end_diameter_center_diameter">Galīgais diametrs / Vidējais diametrs</string>
+    <string name="end_diameter">Galīgais diametrs</string>
+    <string name="center_diameter">Vidējais diametrs</string>
+    <string name="slash">/</string>
+    <string name="application_description">Lietotne Wood Meas ir mērīšanas rīks apaļkoku, zāģmateriālu un koka pāļu mērīšanai.</string>
+    <string name="application_features">Lietotnes funkcijas</string>
+    <string-array name="application_features_list">
+        <item>koka baļķu mērījumu aprēķinu veikšana</item>
+        <item>zāģmateriālu mērījumu aprēķinu veikšana</item>
+        <item>veicot kalnu mērījumu aprēķinu veikšanu</item>
+        <item>veidojot baļķu, zāģmateriālu un pāļu saiņus</item>
+        <item>ģenerējot atskaites paketēm izklājlapu (xls) un pdf dokumentu veidā</item>
+        <item>saišu lielumu konvertēšana naudas vienībās</item>
+        <item>mērījumu aprēķinu veikšana metriskajā sistēmā (centimetrs [cm], metrs [m] = 100 cm) un impērijas (collas [collā], pēdas [pēdas] = 12 collas) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>piezīmju veidošana saišķiem</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. Žurnāla mērīšana</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Aprēķina metodes</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Redzēt vairāk]</string>
+    <string name="design_and_implementation">Projektēšana un ieviešana</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Leģenda</string>
+    <string name="monetary_units">Naudas vienības</string>
+    <string name="package_value">Iepakojuma vērtība</string>
+    <string name="open_file">Atver failu</string>
+</resources>

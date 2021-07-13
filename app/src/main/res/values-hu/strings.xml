@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Alapértelmezett szöveg</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Mérés kéreggel</string>
+    <string name="measurement_without_bark">Mérés kéreg nélkül</string>
+    <string name="select">Választ</string>
+    <string name="create">Teremt</string>
+    <string name="delete">Töröl</string>
+    <string name="cancel">Megszünteti</string>
+    <string name="yes">Igen</string>
+    <string name="add_wood_package_name">Írja be a csomag nevét:</string>
+    <string name="absence">Hiánya</string>
+    <string name="create_package">Hozzon létre egy csomagot</string>
+    <string name="created_package">A csomag létrejött</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">El akarja távolítani a fatáblát az aktuális nézetből?</string>
+    <string name="add_to_wood_package">Adja hozzá a csomaghoz</string>
+    <string name="added_to_package">Hozzáadva a csomaghoz</string>
+    <string name="select_or_create_wood_package">Válassza ki vagy hozza létre a fa csomagot</string>
+    <string name="last_update_date">Az utolsó módosítás dátuma</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Fa kötegek</string>
+    <string name="menu_name_calculators">Számológépek</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Nincs adat</string>
+    <string name="search">Keresés</string>
+    <string name="id">Id</string>
+    <string name="package_name">Csomag név</string>
+    <string name="created_date">Létrehozás dátuma</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">El akarja távolítani a csomagot?</string>
+    <string name="package_has_been_removed">A csomagot eltávolították</string>
+    <string name="package_is_empty">A csomag üres</string>
+    <string name="remove_all_packages">Távolítsa el a kötegeket</string>
+    <string name="delete_all_packages_question">El akarja távolítani az összes csomagot?</string>
+    <string name="length">Hossz</string>
+    <string name="width">Szélesség</string>
+    <string name="height">Magasság</string>
+    <string name="diameter">Átmérő</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Adja hozzá a csomaghoz</string>
+    <string name="hold_down_to_add">A hozzáadáshoz tartsa lenyomva a gombot</string>
+    <string name="packages">Csomag</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Adja meg az összes dimenziót</string>
+    <string name="create_and_use">Hozzon létre és használjon</string>
+    <string name="no_packages">Nincsenek kötegek</string>
+    <string name="print">Nyomtatás</string>
+    <string name="send">Küld</string>
+    <string name="do_you_want_delete_element_question">El akarja távolítani az elemet?</string>
+    <string name="package_details">Csomag tartalma</string>
+    <string name="bark">Ugat</string>
+    <string name="plank_package">Fűrészáru köteg</string>
+    <string name="log_package">Rönkköteg</string>
+    <string name="stack_package">Fa halom csomag</string>
+    <string name="cross_stack">Keresztbe kerülő fa halom</string>
+    <string name="no_cross_stack">Párhuzamos fa halom</string>
+    <string-array name="trees">
+        <item>Lucfenyő</item>
+        <item>Fenyő(1)</item>
+        <item>Fenyő(2)</item>
+        <item>Vörösfenyő</item>
+        <item>Nyír</item>
+        <item>Bükkfa</item>
+        <item>Gyertyán</item>
+        <item>Klón</item>
+        <item>Hamu</item>
+        <item>Platán</item>
+        <item>Hársfa</item>
+        <item>Égerfa</item>
+        <item>Aspen</item>
+        <item>Nyárfa</item>
+        <item>Szilfa</item>
+        <item>Tölgy</item>
+        <item>Akác</item>
+    </string-array>
+    <string name="yes_short">I</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">H/CM</string>
+    <string name="width_short_cm">S/CM</string>
+    <string name="height_short_cm">M/CM</string>
+    <string name="diameter_short_cm">Á/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">H/IN</string>
+    <string name="width_short_in">S/IN</string>
+    <string name="height_short_in">M/IN</string>
+    <string name="diameter_short_in">Á/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">UGAT</string>
+    <string name="tree">FA</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DÁTUM</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Mértékegység</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Metrikus rendszer</string>
+    <string name="imperial_system">Birodalmi rendszer</string>
+    <string name="updated">Frissítve</string>
+    <string name="apply">Alkalmaz</string>
+    <string name="settings">Beállítások</string>
+    <string name="information">Információ</string>
+    <string name="sortyment">Választék</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Egyéni arány</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Csomagjegyek</string>
+    <string name="add_to_emails">Hozzáadás az e-mailekhez</string>
+    <string name="add_to_pdf">Helyezze a pdf dokumentumokat</string>
+    <string name="sent_from_app">A Wood Meas alkalmazásból küldte</string>
+    <string name="method_measuring_logs">A fatuskók mérési módszere</string>
+    <string name="end_diameter_center_diameter">Végső átmérő / Középső átmérő</string>
+    <string name="end_diameter">Végső átmérő</string>
+    <string name="center_diameter">Középső átmérő</string>
+    <string name="slash">/</string>
+    <string name="application_description">A Wood Meas alkalmazás egy mérőeszköz a rönkök, a fűrészáru és a fa cölöpök mérésére.</string>
+    <string name="application_features">App funkciók</string>
+    <string-array name="application_features_list">
+        <item>fahasáb mérések számításainak elvégzése</item>
+        <item>a faanyag méréseinek számítása</item>
+        <item>fatuskók méréseinek számítása</item>
+        <item>farönkök, fűrészáru és cölöpkötegek készítése</item>
+        <item>jelentések készítése a csomagok számára táblázatok (xls) és pdf dokumentumok formájában</item>
+        <item>a csomagméretek pénzegységekre való átszámítása</item>
+        <item>számítások elvégzése a metrikus rendszerben (centiméter [cm], méter [m] = 100 cm) és az angolszász (hüvelyk [hüvelyk], láb [ft] = 12 hüvelyk) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>jegyzetek készítése a kötegekhez</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. Naplómérés</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Számítási módszerek</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Többet látni]</string>
+    <string name="design_and_implementation">Tervezés és kivitelezés</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legenda</string>
+    <string name="monetary_units">Monetáris egységek</string>
+    <string name="package_value">A csomag értéke</string>
+    <string name="open_file">Fájl megnyitása</string>
+</resources>

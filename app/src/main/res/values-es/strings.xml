@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Texto predeterminado</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Medición con corteza</string>
+    <string name="measurement_without_bark">Medida sin corteza</string>
+    <string name="select">Escoger</string>
+    <string name="create">Crear</string>
+    <string name="delete">Borrar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="yes">Sí</string>
+    <string name="add_wood_package_name">Ingrese el nombre del paquete:</string>
+    <string name="absence">Falta</string>
+    <string name="create_package">Crea un paquete</string>
+    <string name="created_package">Se creó el paquete</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">¿Quiere eliminar un paquete de madera de la vista actual?</string>
+    <string name="add_to_wood_package">Agregar al paquete</string>
+    <string name="added_to_package">Agregado al paquete</string>
+    <string name="select_or_create_wood_package">Elija o cree el paquete de madera</string>
+    <string name="last_update_date">Fecha de la última modificación</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Paquetes de madera</string>
+    <string name="menu_name_calculators">Calculadoras</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Sin datos</string>
+    <string name="search">Buscar</string>
+    <string name="id">Id</string>
+    <string name="package_name">Nombre del paquete</string>
+    <string name="created_date">Fecha de creación</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">¿Quieres quitar el paquete?</string>
+    <string name="package_has_been_removed">El paquete fue eliminado</string>
+    <string name="package_is_empty">El paquete esta vacio</string>
+    <string name="remove_all_packages">Retire los paquetes</string>
+    <string name="delete_all_packages_question">¿Quieres eliminar todos los paquetes?</string>
+    <string name="length">Largo</string>
+    <string name="width">Ancho</string>
+    <string name="height">Altura</string>
+    <string name="diameter">Diámetro</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Agregar al paquete</string>
+    <string name="hold_down_to_add">Para agregar, mantenga presionado el botón</string>
+    <string name="packages">Paquete</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Ingrese todas las dimensiones</string>
+    <string name="create_and_use">Crea y usa</string>
+    <string name="no_packages">Sin paquetes</string>
+    <string name="print">Impresión</string>
+    <string name="send">Enviar</string>
+    <string name="do_you_want_delete_element_question">¿Quieres eliminar el elemento?</string>
+    <string name="package_details">Contenido del paquete</string>
+    <string name="bark">Ladrar</string>
+    <string name="plank_package">Paquete de madera</string>
+    <string name="log_package">Paquete de registro</string>
+    <string name="stack_package">Paquete de pilas de leña</string>
+    <string name="cross_stack">Pila de madera cruzada</string>
+    <string name="no_cross_stack">Pila de madera paralela</string>
+    <string-array name="trees">
+        <item>Abeto(1)</item>
+        <item>Abeto(2)</item>
+        <item>Pino</item>
+        <item>Alerce</item>
+        <item>Abedul</item>
+        <item>Haya</item>
+        <item>Carpe</item>
+        <item>Clon</item>
+        <item>Ceniza</item>
+        <item>Sicomoro</item>
+        <item>Lipa</item>
+        <item>Tilo</item>
+        <item>Álamo temblón</item>
+        <item>Álamo</item>
+        <item>Olmo</item>
+        <item>Roble</item>
+        <item>Acacia</item>
+    </string-array>
+    <string name="yes_short">S</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">L/CM</string>
+    <string name="width_short_cm">An/CM</string>
+    <string name="height_short_cm">Al/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">L/IN</string>
+    <string name="width_short_in">An/IN</string>
+    <string name="height_short_in">Al/IN</string>
+    <string name="diameter_short_in">D/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">LADRAR</string>
+    <string name="tree">ÁRBOL</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">FECHA</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Unidad de medida</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Sistema métrico</string>
+    <string name="imperial_system">Sistema imperial</string>
+    <string name="updated">Actualizado</string>
+    <string name="apply">Solicitar</string>
+    <string name="settings">Ajustes</string>
+    <string name="information">Información</string>
+    <string name="sortyment">Surtido</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Vlastný pomer</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Notas del paquete</string>
+    <string name="add_to_emails">Agregar a correos electrónicos</string>
+    <string name="add_to_pdf">Colocar en documentos pdf</string>
+    <string name="sent_from_app">Enviado desde la aplicación Wood Meas</string>
+    <string name="method_measuring_logs">Método de medición de troncos de madera.</string>
+    <string name="end_diameter_center_diameter">Diámetro final / Diámetro medio</string>
+    <string name="end_diameter">Diámetro final</string>
+    <string name="center_diameter">Diámetro medio</string>
+    <string name="slash">/</string>
+    <string name="application_description">La aplicación Wood Meas es una herramienta de medición para medir troncos, madera y pilas de madera.</string>
+    <string name="application_features">Funciones de la aplicación</string>
+    <string-array name="application_features_list">
+        <item>haciendo cálculos de medidas de troncos de madera</item>
+        <item>haciendo cálculos de medidas de madera</item>
+        <item>haciendo cálculos de las medidas de las pilas de leña</item>
+        <item>creando paquetes de troncos, madera y pilas</item>
+        <item>generar informes para paquetes en forma de hojas de cálculo (xls) y documentos pdf</item>
+        <item>convertir tamaños de paquetes en unidades monetarias</item>
+        <item>haciendo cálculos de medidas en el sistema métrico (centímetro [cm], metro [m] = 100 cm) e imperial (pulgada [pulgada], pie [pie] = 12 pulgada) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>creando notas para paquetes</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. MEDICIÓN DE REGISTRO</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Métodos de cálculo</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">Ver más]</string>
+    <string name="design_and_implementation">Diseño e implementación</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Leyenda</string>
+    <string name="monetary_units">Unidades monetarias</string>
+    <string name="package_value">Valor del paquete</string>
+    <string name="open_file">" Abrir documento"</string>
+</resources>

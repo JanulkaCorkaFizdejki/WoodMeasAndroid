@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Standardtekst</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Måling med bark</string>
+    <string name="measurement_without_bark">Måling uten bark</string>
+    <string name="select">Velge</string>
+    <string name="create">Skape</string>
+    <string name="delete">Slett</string>
+    <string name="cancel">Avbryt</string>
+    <string name="yes">Ja</string>
+    <string name="add_wood_package_name">Skriv inn pakkenavnet:</string>
+    <string name="absence">Mangel på</string>
+    <string name="create_package">Lag en pakke</string>
+    <string name="created_package">Pakke ble opprettet</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Vil du fjerne en trebunt fra gjeldende visning?</string>
+    <string name="add_to_wood_package">Legg til i pakken</string>
+    <string name="added_to_package">Lagt til i pakken</string>
+    <string name="select_or_create_wood_package">Velg eller lag trebunten</string>
+    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Trebunter</string>
+    <string name="menu_name_calculators">Kalkulatorer</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Ingen data</string>
+    <string name="search">Søk</string>
+    <string name="id">Id</string>
+    <string name="package_name">Pakkens navn</string>
+    <string name="created_date">Opprettelsesdato</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Vil du fjerne pakken?</string>
+    <string name="package_has_been_removed">Bunten ble fjernet</string>
+    <string name="package_is_empty">Bunten er tom</string>
+    <string name="remove_all_packages">Fjern buntene</string>
+    <string name="delete_all_packages_question">Vil du fjerne alle pakkene?</string>
+    <string name="length">Lengde</string>
+    <string name="width">Bredde</string>
+    <string name="height">Høyde</string>
+    <string name="diameter">Diameter</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Legg til i pakken</string>
+    <string name="hold_down_to_add">For å legge til, hold nede knappen</string>
+    <string name="packages">Pakke</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Angi alle dimensjoner</string>
+    <string name="create_and_use">Opprett og bruk</string>
+    <string name="no_packages">Ingen bunter</string>
+    <string name="print">Skrive ut</string>
+    <string name="send">Sende</string>
+    <string name="do_you_want_delete_element_question">Vil du fjerne elementet?</string>
+    <string name="package_details">Pakke innhold</string>
+    <string name="bark">Bark</string>
+    <string name="plank_package">Tømmerbunt</string>
+    <string name="log_package">Loggpakke</string>
+    <string name="stack_package">Stabler-pakke</string>
+    <string name="cross_stack">Kryss og trebunke</string>
+    <string name="no_cross_stack">Parallell trehaug</string>
+    <string-array name="trees">
+        <item>Gran</item>
+        <item>Fir</item>
+        <item>Furu</item>
+        <item>Lerk</item>
+        <item>Bjørk</item>
+        <item>Bøk</item>
+        <item>Hornbeam</item>
+        <item>Klon</item>
+        <item>Aske</item>
+        <item>Sycamore</item>
+        <item>Linden</item>
+        <item>Alder</item>
+        <item>Aspen</item>
+        <item>Poppel</item>
+        <item>Elm</item>
+        <item>Eik</item>
+        <item>Acacia</item>
+    </string-array>
+    <string name="yes_short">J</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">L/CM</string>
+    <string name="width_short_cm">B/CM</string>
+    <string name="height_short_cm">H/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">L/IN</string>
+    <string name="width_short_in">B/IN</string>
+    <string name="height_short_in">H/IN</string>
+    <string name="diameter_short_in">D/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">BARK</string>
+    <string name="tree">TRE</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATO</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Måleenhet</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Metrisk system</string>
+    <string name="imperial_system">Keiserlig system</string>
+    <string name="updated">Oppdatert</string>
+    <string name="apply">Søke om</string>
+    <string name="settings">Innstillinger</string>
+    <string name="information">Informasjon</string>
+    <string name="sortyment">Sortiment</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Tilpasset forhold</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Buntnotater</string>
+    <string name="add_to_emails">Legg til e-post</string>
+    <string name="add_to_pdf">Plasser i pdf-dokumenter</string>
+    <string name="sent_from_app">Sendt fra Wood Meas-appen</string>
+    <string name="method_measuring_logs">Metode for måling av trestokker</string>
+    <string name="end_diameter_center_diameter">Endelig diameter / Midtre diameter</string>
+    <string name="end_diameter">Endelig diameter</string>
+    <string name="center_diameter">Midtdiameter</string>
+    <string name="slash">/</string>
+    <string name="application_description">Wood Meas-appen er et måleverktøy for måling av tømmerstokker, tømmer og trehauger.</string>
+    <string name="application_features">App-funksjoner</string>
+    <string-array name="application_features_list">
+        <item>gjøre beregninger av målinger av trestokker</item>
+        <item>gjøre beregninger av tømmermål</item>
+        <item>gjøre beregninger av trehauger</item>
+        <item>lage bunter med tømmer, tømmer og hauger</item>
+        <item>generere rapporter for bunter i form av regneark (xls) og pdf-dokumenter</item>
+        <item>konvertere buntstørrelser til monetære enheter</item>
+        <item>gjøre beregninger av målinger i det metriske systemet (centimeter [cm], meter [m] = 100 cm) og imperial (tomme [tommer], fot [ft] = 12 tommer) / 1 m3 = 35,315 x 1FT3 (*)</item>
+        <item>lage notater for bunter</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. LOGGEMÅLING</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Beregningsmetoder</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Se mer]</string>
+    <string name="design_and_implementation">Design og implementering</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legende</string>
+    <string name="monetary_units">Monetære enheter</string>
+    <string name="package_value">Verdien av pakken</string>
+    <string name="open_file">Åpen fil</string>
+</resources>

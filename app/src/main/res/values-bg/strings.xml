@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Текст по подразбиране</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Измерване с кора</string>
+    <string name="measurement_without_bark">Измерване без кора</string>
+    <string name="select">Избирам</string>
+    <string name="create">Създайте</string>
+    <string name="delete">Изтрий</string>
+    <string name="cancel">Отказ</string>
+    <string name="yes">Да</string>
+    <string name="add_wood_package_name">Въведете името на пакета:</string>
+    <string name="absence">Липса</string>
+    <string name="create_package">Създайте пакет</string>
+    <string name="created_package">Създаден е пакет</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Искате ли да премахнете дървения пакет от текущия изглед?</string>
+    <string name="add_to_wood_package">Добавете към пакета</string>
+    <string name="added_to_package">Добавено към пакета</string>
+    <string name="select_or_create_wood_package">Изберете или създайте дървения пакет</string>
+    <string name="last_update_date">Дата на последната промяна</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Снопове от дърво</string>
+    <string name="menu_name_calculators">Калкулатори</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Няма данни</string>
+    <string name="search">Търсене</string>
+    <string name="id">Id</string>
+    <string name="package_name">Име на пакета</string>
+    <string name="created_date">Дата на създаване</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Искате ли да премахнете пакета?</string>
+    <string name="package_has_been_removed">Пакетът беше премахнат</string>
+    <string name="package_is_empty">Пакетът е празен</string>
+    <string name="remove_all_packages">Премахнете сноповете</string>
+    <string name="delete_all_packages_question">Видалити всі пакети?</string>
+    <string name="length">Дължина</string>
+    <string name="width">Ширина</string>
+    <string name="height">Височина</string>
+    <string name="diameter">Диаметър</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Добавете към пакета</string>
+    <string name="hold_down_to_add">За да добавите, задръжте бутона</string>
+    <string name="packages">Пакет</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Въведете всички размери</string>
+    <string name="create_and_use">Създаване и използване</string>
+    <string name="no_packages">Няма снопове</string>
+    <string name="print">Печат</string>
+    <string name="send">Изпрати</string>
+    <string name="do_you_want_delete_element_question">Искате ли да премахнете елемента?</string>
+    <string name="package_details">Съдържание на пакета</string>
+    <string name="bark">Кора</string>
+    <string name="plank_package">Пакет дървен материал</string>
+    <string name="log_package">Входен пакет</string>
+    <string name="stack_package">Пакет дървени купчини</string>
+    <string name="cross_stack">Кръстосана дървена купчина</string>
+    <string name="no_cross_stack">Паралелна дървена купчина</string>
+    <string-array name="trees">
+        <item>Смърч</item>
+        <item>Ела</item>
+        <item>Бор</item>
+        <item>Лиственица</item>
+        <item>Бреза</item>
+        <item>Бук</item>
+        <item>Габър</item>
+        <item>Клониране</item>
+        <item>Пепел</item>
+        <item>Явор</item>
+        <item>Липа</item>
+        <item>Елша</item>
+        <item>Аспен</item>
+        <item>Топола</item>
+        <item>Бряст</item>
+        <item>Дъб</item>
+        <item>Акация</item>
+    </string-array>
+    <string name="yes_short">Д</string>
+    <string name="no_short">Н</string>
+    <string name="length_short_cm">Д/CM</string>
+    <string name="width_short_cm">Ш/CM</string>
+    <string name="height_short_cm">В/CM</string>
+    <string name="diameter_short_cm">Ди/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">Д/IN</string>
+    <string name="width_short_in">Ш/IN</string>
+    <string name="height_short_in">В/IN</string>
+    <string name="diameter_short_in">Ди/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">ЛАЙКА</string>
+    <string name="tree">ДЪРВО</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">ДАТА</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Мерна единица</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Метрична система</string>
+    <string name="imperial_system">Имперска система</string>
+    <string name="updated">Актуализирано</string>
+    <string name="apply">Приложи</string>
+    <string name="settings">Настройки</string>
+    <string name="information">Информация</string>
+    <string name="sortyment">Асортимент</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Персонализирано съотношение</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Бележки по пакета</string>
+    <string name="add_to_emails">Добавяне към имейли</string>
+    <string name="add_to_pdf">Поставете в PDF документи</string>
+    <string name="sent_from_app">Изпратено от приложението Wood Meas</string>
+    <string name="method_measuring_logs">Метод за измерване на дървени трупи</string>
+    <string name="end_diameter_center_diameter">Краен диаметър / Среден диаметър</string>
+    <string name="end_diameter">Краен диаметър</string>
+    <string name="center_diameter">Среден диаметър</string>
+    <string name="slash">/</string>
+    <string name="application_description">Приложението Wood Meas е инструмент за измерване за измерване на трупи, дървен материал и дървени купчини.</string>
+    <string name="application_features">Функции на приложението</string>
+    <string-array name="application_features_list">
+        <item>извършване на изчисления на измервания на дървени трупи</item>
+        <item>извършване на изчисления на измерванията на дървен материал</item>
+        <item>извършване на изчисления на измервания на дървени купчини</item>
+        <item>създаване на снопове от трупи, дървен материал и купчини</item>
+        <item>генериране на отчети за пакети под формата на електронни таблици (xls) и pdf документи</item>
+        <item>преобразуване на размера на пакета в парични единици</item>
+        <item>извършване на изчисления на измерванията в метричната система (сантиметър [см], метър [м] = 100 см) и имперски (инч [в], крак [фута] = 12 инча) / 1m3 = 35 315 x 1FT3 (*)</item>
+        <item>създаване на бележки за снопове</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. ИЗМЕРВАНЕ НА ДНЕВНИК</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Методи за изчисление</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Виж повече]</string>
+    <string name="design_and_implementation">Проектиране и изпълнение</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Легенда</string>
+    <string name="monetary_units">Парични единици</string>
+    <string name="package_value">Стойност на пакета</string>
+    <string name="open_file">Отвори файл</string>
+</resources>

@@ -80,8 +80,10 @@ class PlankPackageDetailsActivity : AppCompatActivity(), AppActivityManager {
                     val intent =   Intent(Intent.ACTION_VIEW).apply {
                         type = "application/pdf"
                         data = fileProvider
+                        flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+                        flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                     }
-                    try { startActivity(Intent.createChooser(intent, "Open  file"))
+                    try { startActivity(Intent.createChooser(intent, resources.getText(R.string.open_file)))
                     } catch (ex: ActivityNotFoundException) { }
                 }
             }

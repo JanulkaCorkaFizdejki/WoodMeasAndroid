@@ -36,6 +36,21 @@ object NoteManager {
         }
         val linearLayoutNoteWrapper = editTextTextMultiLineNotePanelDesc.parent as LinearLayout
 
+        fun showOrHideNote(imageButton: ImageButton) {
+            linearLayoutNoteWrapper.visibility = if(visibilityNotePanel) View.GONE else View.VISIBLE
+            if (visibilityNotePanel) {
+                imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note, null))
+                (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(imageButton.windowToken, 0)
+                linearLayoutHeader?.visibility = View.VISIBLE
+            } else {
+                imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note_light_green, null))
+                editTextTextMultiLineNotePanelDesc.requestFocus(editTextTextMultiLineNotePanelDesc.text.length)
+                (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+                linearLayoutHeader?.visibility = View.GONE
+            }
+            visibilityNotePanel = !visibilityNotePanel
+        }
+
         thread {
             DatabaseManagerDao.getDataBase(appCompatActivity)?.let {databaseManagerDao ->
                 when (appCompatActivity) {
@@ -71,18 +86,7 @@ object NoteManager {
         }
 
         imageButtonNoteMain.setOnClickListener {
-            linearLayoutNoteWrapper.visibility = if(visibilityNotePanel) View.GONE else View.VISIBLE
-            if (visibilityNotePanel) {
-                imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note, null))
-                (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.hideSoftInputFromWindow(it.windowToken, 0)
-                linearLayoutHeader?.visibility = View.VISIBLE
-            } else {
-                imageButtonNoteMain.setImageDrawable(appCompatActivity.resources.getDrawable(R.drawable.ic_note_light_green, null))
-                editTextTextMultiLineNotePanelDesc.requestFocus(editTextTextMultiLineNotePanelDesc.text.length)
-               (appCompatActivity.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager)?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-                linearLayoutHeader?.visibility = View.GONE
-            }
-            visibilityNotePanel = !visibilityNotePanel
+            showOrHideNote(it as ImageButton)
         }
 
         imageButtonAddNote.setOnClickListener {
@@ -95,6 +99,7 @@ object NoteManager {
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
+                                    showOrHideNote(it as ImageButton)
                                 }
                             }
                         }
@@ -106,6 +111,7 @@ object NoteManager {
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
+                                    showOrHideNote(it as ImageButton)
                                 }
                             }
                         }
@@ -117,6 +123,7 @@ object NoteManager {
                                 appCompatActivity.runOnUiThread {
                                     setAddButton(appCompatActivity, imageButtonAddNote, true)
                                     Toast.makeText(appCompatActivity, R.string.updated, Toast.LENGTH_SHORT).show()
+                                    showOrHideNote(it as ImageButton)
                                 }
                             }
                         }
@@ -130,22 +137,11 @@ object NoteManager {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
                 textViewNotePanelCharCounter.text = (maxText - editTextTextMultiLineNotePanelDesc.text.length).toString()
                 if (!firstTechChanged) {
-//                    if (editTextTextMultiLineNotePanelDesc.text.isNotEmpty()) {
-//                        setAddButton(appCompatActivity, imageButtonAddNote, false)
-//                    } else {
-//                        setAddButton(appCompatActivity, imageButtonAddNote, true)
-//                    }
                     setAddButton(appCompatActivity, imageButtonAddNote, false)
-
-                } else {
-                    setAddButton(appCompatActivity, imageButtonAddNote, true)
-                }
+                } else { setAddButton(appCompatActivity, imageButtonAddNote, true) }
                 firstTechChanged = false
             }
-
-            override fun afterTextChanged(p0: Editable?) {
-            }
-
+            override fun afterTextChanged(p0: Editable?) {}
         })
     }
 
@@ -161,4 +157,5 @@ object NoteManager {
             imageButton.isEnabled = true
         }
     }
+
 }

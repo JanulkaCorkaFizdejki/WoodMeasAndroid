@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageButtonMenuItemPackages: ImageButton
     private lateinit var imageButtonMenuItemCalculators: ImageButton
     private lateinit var imageViewMenuItemIcon: ImageView
-    private var rotateAnimation: RotateAnimation? = null
+    //private var rotateAnimation: RotateAnimation? = null
     private lateinit var recyclerViewMenuItems: RecyclerView
 
 
@@ -52,40 +52,34 @@ class MainActivity : AppCompatActivity() {
         recyclerViewMenuItems = findViewById(R.id.recyclerViewMenuItems)
 
         recyclerViewMenuItems.layoutManager = LinearLayoutManager(applicationContext)
-
-        println("****************************")
-        println(Resources.getSystem().displayMetrics.widthPixels)
-
+        
 
         Resources.getSystem().displayMetrics.heightPixels.also {
-            if (it < 900) {
-                recyclerViewMenuItems.layoutParams.height = 100
-            }
+            if (it < 900) { recyclerViewMenuItems.layoutParams.height = 100 }
         }
 
         setCurrencyMenu(MenuType.CALCULATORS, null)
-
 
         thread { dbManager() }
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        rotateAnimation = RotateAnimation(0F, 360f,
-            Animation.RELATIVE_TO_SELF, 0.5f,
-            Animation.RELATIVE_TO_SELF, 0.5f).apply {
-            interpolator = LinearInterpolator()
-            duration = 5000
-            repeatCount = Animation.INFINITE
-        }
-        imageViewWoodMain.startAnimation(rotateAnimation)
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        rotateAnimation = RotateAnimation(0F, 360f,
+//            Animation.RELATIVE_TO_SELF, 0.5f,
+//            Animation.RELATIVE_TO_SELF, 0.5f).apply {
+//            interpolator = LinearInterpolator()
+//            duration = 5000
+//            repeatCount = Animation.INFINITE
+//        }
+//        imageViewWoodMain.startAnimation(rotateAnimation)
+//    }
 
-    override fun onBackPressed() {
-        imageViewWoodMain.clearAnimation()
-        rotateAnimation = null
-    }
+//    override fun onBackPressed() {
+//        imageViewWoodMain.clearAnimation()
+//        rotateAnimation = null
+//    }
 
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

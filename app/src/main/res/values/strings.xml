@@ -18,14 +18,14 @@
     <string name="add_wood_package_name">Enter the package name:</string>
     <string name="absence">Absence</string>
     <string name="create_package">Create a package</string>
-    <string name="created_package">The package has been created</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Do you want to remove the wood bundle from the current view?</string>
-    <string name="add_to_wood_package">Add to package</string>
-    <string name="added_to_package">Added to package</string>
-    <string name="select_or_create_wood_package">Choose or create a wood package</string>
-    <string name="last_update_date">Date of last modification</string>
+    <string name="created_package">Bundle was created</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Do you went to remove a wood bundle from the current view?</string>
+    <string name="add_to_wood_package">Add to the bundle</string>
+    <string name="added_to_package">Added to the bundle</string>
+    <string name="select_or_create_wood_package">Choose or create the wood bundle</string>
+    <string name="last_update_date">Date of the last modification</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Wood packages</string>
+    <string name="menu_name_packages">Wood bundles</string>
     <string name="menu_name_calculators">Calculators</string>
     <string name="activity_default_name">Activity</string>
     <string name="no_data">No data</string>
@@ -35,41 +35,41 @@
     <string name="created_date">Creation date</string>
     <string-array name="menu_calculators">
         <item>Log measurement</item>
-        <item>Timber measurement</item>
-        <item>Measurement of piles</item>
+        <item>Lumber measurement</item>
+        <item>Piles measurement</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Log packs</item>
-        <item>Lumber packages</item>
-        <item>Stack packages</item>
+        <item>Log bundles</item>
+        <item>Lumber bundles</item>
+        <item>Woodpiles bundles</item>
     </string-array>
-    <string name="delete_package_question">Do you want to remove the package?</string>
-    <string name="package_has_been_removed">The package has been removed</string>
-    <string name="package_is_empty">The package is empty</string>
-    <string name="remove_all_packages">Remove packages</string>
-    <string name="delete_all_packages_question">Do you want to remove all packages?</string>
+    <string name="delete_package_question">Do you want to remove the bundle?</string>
+    <string name="package_has_been_removed">The bundle was removed</string>
+    <string name="package_is_empty">The bundle is empty</string>
+    <string name="remove_all_packages">Remove the bundles</string>
+    <string name="delete_all_packages_question">Do you want to remove all bundles?</string>
     <string name="length">Length</string>
     <string name="width">Width</string>
     <string name="height">Height</string>
     <string name="diameter">Diameter</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Add to package</string>
-    <string name="hold_down_to_add">To add hold the button</string>
-    <string name="packages">Package</string>
+    <string name="add_to_package">+ Add to the bundle</string>
+    <string name="hold_down_to_add">To add, hold down the button</string>
+    <string name="packages">Bundles</string>
     <string name="ok">OK</string>
     <string name="enter_all_dimensions">Enter all dimensions</string>
     <string name="create_and_use">Create and use</string>
-    <string name="no_packages">No packages</string>
+    <string name="no_packages">No bundles</string>
     <string name="print">Print</string>
     <string name="send">Send</string>
-    <string name="do_you_want_delete_element_question">Do you want to delete an item?</string>
-    <string name="package_details">Package Contents</string>
+    <string name="do_you_want_delete_element_question">Do you want to remove the element?</string>
+    <string name="package_details">Bundle content</string>
     <string name="bark">Bark</string>
-    <string name="plank_package">Lumber package</string>
-    <string name="log_package">Log package</string>
-    <string name="stack_package">Stacks package</string>
-    <string name="cross_stack">Cross stack</string>
-    <string name="no_cross_stack">Not cross stack</string>
+    <string name="plank_package">Lumber bundle</string>
+    <string name="log_package">Log bundle</string>
+    <string name="stack_package">Woodpiles bundle</string>
+    <string name="cross_stack">Criss-cross wood pile</string>
+    <string name="no_cross_stack">Parallel wood pile</string>
     <string-array name="trees">
         <item>Spruce</item>
         <item>Fir</item>
@@ -89,17 +89,17 @@
         <item>Oak</item>
         <item>Acacia</item>
     </string-array>
-    <string name="yes_short">T</string>
+    <string name="yes_short">Y</string>
     <string name="no_short">N</string>
-    <string name="length_short_cm">D/CM</string>
-    <string name="width_short_cm">S/CM</string>
-    <string name="height_short_cm">W/CM</string>
-    <string name="diameter_short_cm">Ś/CM</string>
+    <string name="length_short_cm">L/CM</string>
+    <string name="width_short_cm">W/CM</string>
+    <string name="height_short_cm">H/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
     <string name="m3_short">M3</string>
-    <string name="length_short_in">D/IN</string>
-    <string name="width_short_in">S/IN</string>
-    <string name="height_short_in">W/IN</string>
-    <string name="diameter_short_in">Ś/IN</string>
+    <string name="length_short_in">L/IN</string>
+    <string name="width_short_in">W/IN</string>
+    <string name="height_short_in">H/IN</string>
+    <string name="diameter_short_in">D/IN</string>
     <string name="ft3_short">FT3</string>
     <string name="cross_short">X</string>
     <string name="bark_short">BARK</string>
@@ -111,58 +111,59 @@
     <string name="_x10">x10</string>
     <string name="_x100">x100</string>
     <string name="_x1000">x1000</string>
-    <string name="unit_of_measurement">Units of Measure</string>
+    <string name="unit_of_measurement">Unit of measurement</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in</string>
     <string name="metric_system">Metric system</string>
     <string name="imperial_system">Imperial system</string>
     <string name="updated">Updated</string>
-    <string name="apply">apply</string>
+    <string name="apply">Apply</string>
     <string name="settings">Settings</string>
     <string name="information">Information</string>
     <string name="sortyment">Assortment</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Own factor</string>
+    <string name="custom_factor">Custom ratio</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Package Notes</string>
-    <string name="add_to_emails">Join emails</string>
-    <string name="add_to_pdf">Place in pdf documents</string>
-    <string name="sent_from_app">Posted from the Wood Meas</string>
-    <string name="method_measuring_logs">Log measurement method</string>
-    <string name="end_diameter_center_diameter">End Diameter / Center Diameter</string>
-    <string name="end_diameter">ŚEnd diameter</string>
-    <string name="center_diameter">Center Diameter</string>
+    <string name="package_notes">Bundle notes</string>
+    <string name="add_to_emails">Add to emails</string>
+    <string name="add_to_pdf">Place in PDF documents</string>
+    <string name="sent_from_app">Sent from Wood Meas app</string>
+    <string name="method_measuring_logs">Method of measuring wooden logs</string>
+    <string name="end_diameter_center_diameter">Final diameter / Middle diameter</string>
+    <string name="end_diameter">Final diameter</string>
+    <string name="center_diameter">Middle diameter</string>
     <string name="slash">/</string>
-    <string name="application_description">The Wood Means app is a measurement calculation tool for measuring logs, lumber and wood piles.</string>
-    <string name="application_features">Application features</string>
+    <string name="application_description">The Wood Meas app is a measurement tool for measuring logs, lumber, and wood piles.</string>
+    <string name="application_features">App functions</string>
     <string-array name="application_features_list">
-        <item>making calculations of measurements of wooden logs</item>
-        <item>making calculations of sawn timber measurements</item>
-        <item>making calculations for measuring piles of wood</item>
-        <item>creating packages of logs, lumber and piles</item>
-        <item>generating reports for packages in the form of spreadsheets (xls) and pdf documents</item>
-        <item>converting packet sizes into monetary units</item>
-        <item>making calculations of measurements in the metric system (centimeter [cm], meter [m] = 100cm) and imperial (inch [in], foot [ft] = 12in) (*)</item>
-        <item>creating notes for packages</item>
+        <item>making calculations of wooden logs measurements</item>
+        <item>making calculations of lumber measurements</item>
+        <item>making calculations of woodpiles measurements</item>
+        <item>creating bundles of logs, lumber and piles</item>
+        <item>generating reports for bundles in the form of spreadsheets (xls) and pdf documents</item>
+        <item>converting bundle sizes into monetary units</item>
+        <item>making calculations of measurements in the metric system (centimeter [cm], meter [m] = 100cm) and imperial (inch [in], foot [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>creating notes for bundles</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) when choosing the imperial system, the step for the entered dimensions is 1 cm, not 1 inch!</string>
-    <string name="measurement_logs">A. MEASUREMENT OF LOGS</string>
-    <string name="measurement_logs_desc">Calculation of log measurements is made using the method ___ (with and without bark) and ___ (without bark).</string>
+    <string name="legend_app_fun_1">(*) when selecting the imperial system, the increment for the entered dimensions is 1 centimeter (cm), not 1 inch (in)!</string>
+    <string name="measurement_logs">A. LOG MEASUREMENT</string>
+    <string name="measurement_logs_desc">Calculation of the measurement of logs are made with the following methods: method ___ (with and without bark) and ___ (without bark).</string>
     <string-array name="measurement_logs_swap">
-        <item>center diameter</item>
-        <item>top diameter</item>
+        <item>middle diameter</item>
+        <item>upper diameter</item>
     </string-array>
     <string name="calculation_methods">Calculation methods</string>
-    <string name="measurement_plank">B. SAWING MEASUREMENT</string>
-    <string name="measurement_plank_desc">For the calculation of the measurement of sawn timber, the formula for the volume of the cuboid is used. Measurements should be taken without taking into account the bark.</string>
-    <string name="measurement_stacks">C. STACK MEASUREMENT</string>
-    <string name="measurement_stacks_desc">Calculations for the measurements of piles are made with regard to a given assortment and type of wood. The assortments provided for the calculations (conversion factors for timber measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
-    <string name="learn_more">[Learn more]</string>
+    <string name="measurement_plank">B. LUMBER MEASUREMENT</string>
+    <string name="measurement_plank_desc">For the calculation of the lumber measurement, the formula for the volume of the cuboid is used. Measurements should be taken without taking into account the bark.</string>
+    <string name="measurement_stacks">C. PILES MEASUREMENT</string>
+    <string name="measurement_stacks_desc">Calculations for the measurements of piles are made with regard to a given assortment and type of wood. The ranges provided for the calculations (conversion factors for wood measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
+    <string name="learn_more">[See more]</string>
     <string name="design_and_implementation">Design and execution</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legend</string>
     <string name="monetary_units">Monetary units</string>
-    <string name="package_value">Value of the package</string>
+    <string name="package_value">Value of the bundle</string>
+    <string name="open_file">Open file</string>
 </resources>

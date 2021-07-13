@@ -8,31 +8,31 @@
     <string name="meters_short">m</string>
     <string name="foot_short">ft</string>
     <string name="meters_decimal_short">m3</string>
-    <string name="measurement_width_bark">Pomiar z korą</string>
-    <string name="measurement_without_bark">Pomiar bez kory</string>
+    <string name="measurement_width_bark">樹皮による測定</string>
+    <string name="measurement_without_bark">樹皮なしの測定</string>
     <string name="select">選択</string>
     <string name="create">作成する</string>
     <string name="delete">削除</string>
     <string name="cancel">キャンセル</string>
     <string name="yes">はい</string>
-    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
+    <string name="add_wood_package_name">" パッケージ名を入力してください:"</string>
     <string name="absence">欠如</string>
-    <string name="create_package">Utwórz pakiet</string>
-    <string name="created_package">Pakiet został utworzony</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
-    <string name="add_to_wood_package">Dodaj do pakietu</string>
-    <string name="added_to_package">Dodano do pakietu</string>
-    <string name="select_or_create_wood_package">Wybierz lub utwórz pakiet drewna</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="create_package">パッケージを作成する</string>
+    <string name="created_package">バンドルが作成されました</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">現在のビューから木の束を削除しますか？</string>
+    <string name="add_to_wood_package">バンドルに追加</string>
+    <string name="added_to_package">バンドルに追加</string>
+    <string name="select_or_create_wood_package">木の束を選択または作成します</string>
+    <string name="last_update_date">最終変更日</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Pakiety drewna</string>
+    <string name="menu_name_packages">木の束</string>
     <string name="menu_name_calculators">電卓</string>
     <string name="activity_default_name">Activity</string>
     <string name="no_data">データなし</string>
     <string name="search">探す</string>
     <string name="id">Id</string>
-    <string name="package_name">Nazwa Pakietu</string>
-    <string name="created_date">Data utworzenia</string>
+    <string name="package_name">パッケージ名</string>
+    <string name="created_date">作成日</string>
     <string-array name="menu_calculators">
         <item>Pomiar kłód</item>
         <item>Pomiar tarcicy</item>
@@ -43,33 +43,33 @@
         <item>Pakiety tarcicy</item>
         <item>Pakiety stosów</item>
     </string-array>
-    <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
-    <string name="package_has_been_removed">Pakiet został usunięty</string>
-    <string name="package_is_empty">Pakiet jest pusty</string>
-    <string name="remove_all_packages">Usuń pakiety</string>
-    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
+    <string name="delete_package_question">バンドルを削除しますか？</string>
+    <string name="package_has_been_removed">バンドルが削除されました</string>
+    <string name="package_is_empty">バンドルは空です</string>
+    <string name="remove_all_packages">バンドルを削除します</string>
+    <string name="delete_all_packages_question">すべてのバンドルを削除しますか？</string>
     <string name="length">長さ</string>
     <string name="width">幅</string>
     <string name="height">高さ</string>
     <string name="diameter">直径</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Dodaj do pakietu</string>
-    <string name="hold_down_to_add">Aby dodać przytrzymaj przycisk</string>
+    <string name="add_to_package">+ バンドルに追加</string>
+    <string name="hold_down_to_add">追加するには、ボタンを押し続けます</string>
     <string name="packages">パッケージ</string>
     <string name="ok">OK</string>
-    <string name="enter_all_dimensions">Wprowadź wszystkie wymiary</string>
-    <string name="create_and_use">Utwórz i użyj</string>
-    <string name="no_packages">Brak pakietów</string>
+    <string name="enter_all_dimensions">すべての寸法を入力してください</string>
+    <string name="create_and_use">作成して使用する</string>
+    <string name="no_packages">バンドルなし</string>
     <string name="print">印刷</string>
     <string name="send">送信</string>
-    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
-    <string name="package_details">Zawartość pakietu</string>
+    <string name="do_you_want_delete_element_question">要素を削除しますか？</string>
+    <string name="package_details">コンテンツをバンドルする</string>
     <string name="bark">吠える</string>
-    <string name="plank_package">Pakiet tarcicy</string>
-    <string name="log_package">Pakiet kłód</string>
-    <string name="stack_package">Pakiet stosów</string>
-    <string name="cross_stack">Stos krzyżowy</string>
-    <string name="no_cross_stack">Stos nie krzyżowy</string>
+    <string name="plank_package">材木バンドル</string>
+    <string name="log_package">ログバンドル</string>
+    <string name="stack_package">ウッドパイルバンドル</string>
+    <string name="cross_stack">クリスクロスウッドパイル</string>
+    <string name="no_cross_stack">平行な木の山</string>
     <string-array name="trees">
         <item>スプルース</item>
         <item>モミ</item>
@@ -111,58 +111,59 @@
     <string name="_x10">x10</string>
     <string name="_x100">x100</string>
     <string name="_x1000">x1000</string>
-    <string name="unit_of_measurement">Jednostki miar</string>
+    <string name="unit_of_measurement">測定の単位</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
-    <string name="metric_system">System metryczny</string>
-    <string name="imperial_system">System imperialny</string>
-    <string name="updated">Zaktualizowano</string>
+    <string name="metric_system">メートル法</string>
+    <string name="imperial_system">帝国システム</string>
+    <string name="updated">更新しました</string>
     <string name="apply">適用する</string>
     <string name="settings">設定a</string>
     <string name="information">情報</string>
-    <string name="sortyment">Sortyment</string>
+    <string name="sortyment">品揃え</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Własny współczynnik</string>
+    <string name="custom_factor">カスタム比率</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Notatki pakietów</string>
-    <string name="add_to_emails">Dołączaj do emaili</string>
-    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
-    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
-    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
-    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
-    <string name="end_diameter">Średnica końcowa</string>
-    <string name="center_diameter">Średnica środkowa</string>
+    <string name="package_notes">バンドルノート</string>
+    <string name="add_to_emails">メールに追加</string>
+    <string name="add_to_pdf">PDFドキュメントに配置</string>
+    <string name="sent_from_app">WoodMeasアプリから送信</string>
+    <string name="method_measuring_logs">木の丸太の測定方法</string>
+    <string name="end_diameter_center_diameter">最終径 / 中径</string>
+    <string name="end_diameter">最終直径</string>
+    <string name="center_diameter">中径</string>
     <string name="slash">/</string>
-    <string name="application_description">Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.</string>
-    <string name="application_features">Funkcje aplikacji</string>
+    <string name="application_description">Wood Measアプリは、丸太、材木、および木材の山を測定するための測定ツールです。</string>
+    <string name="application_features">アプリの機能</string>
     <string-array name="application_features_list">
-        <item>dokonywanie obliczeń pomiarów kłód drewnianych</item>
-        <item>dokonywanie obliczeń pomiarów tarcicy</item>
-        <item>dokonywanie obliczeń pomiarów stosów drewna</item>
-        <item>tworzenie pakietów kłód, tarcicy oraz stosów</item>
-        <item>generowanie raportów dla pakietów w formie arkuszy kalkulacyjnych (xls) oraz dokumentów pdf</item>
-        <item>przeliczanie wielkości pakietów na jednostki monetarne</item>
-        <item>dokonywanie obliczeń pomiarów w systemie metrycznym (centymetr [cm], metr [m] = 100cm) oraz imperialnym (cal [in], stopa [ft] = 12in) (*)</item>
-        <item>tworzenie notatek dla pakietów</item>
+        <item>木製の丸太の測定値の計算を行う</item>
+        <item>材木の測定値の計算</item>
+        <item>ウッドパイル測定の計算を行う</item>
+        <item>丸太、材木、山の束を作成する</item>
+        <item>スプレッドシート（xls）およびPDFドキュメントの形式でバンドルのレポートを生成する</item>
+        <item>バンドルサイズを通貨単位に変換する</item>
+        <item>メートル法（センチメートル[cm]、メートル[m] = 100cm）およびインペリアル（インチ[in]、フィート[ft] = 12in）/ 1m3 = 35,315 x 1FT3（*）で測定値を計算します。</item>
+        <item>バンドルのメモを作成する</item>
     </string-array>
     <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. POMIAR KŁÓD</string>
+    <string name="measurement_logs">A. ログ測定</string>
     <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
     <string-array name="measurement_logs_swap">
         <item>średnicy środkowej</item>
         <item>średnicy górnej</item>
     </string-array>
-    <string name="calculation_methods">Metody obliczeń</string>
+    <string name="calculation_methods">計算方法</string>
     <string name="measurement_plank">B. POMIAR TARCICY</string>
     <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
     <string name="measurement_stacks">C. POMIAR STOSÓW</string>
     <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
-    <string name="learn_more">[Zobacz więcej]</string>
-    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="learn_more">[続きを見る]</string>
+    <string name="design_and_implementation">設計と実装</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">伝説</string>
-    <string name="monetary_units">Jednostki monetarne</string>
-    <string name="package_value">Wartość pakietu</string>
+    <string name="monetary_units">通貨単位</string>
+    <string name="package_value">パッケージの価値</string>
+    <string name="open_file">ファイルを開く</string>
 </resources>

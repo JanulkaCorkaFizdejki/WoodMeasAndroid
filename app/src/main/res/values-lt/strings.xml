@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">Wood Meas</string>
+    <string name="default_number">0</string>
+    <string name="default_number_float">0,00</string>
+    <string name="default_text">Numatytasis tekstas</string>
+    <string name="centimeters_short">cm</string>
+    <string name="inch_short">in</string>
+    <string name="meters_short">m</string>
+    <string name="foot_short">ft</string>
+    <string name="meters_decimal_short">m3</string>
+    <string name="measurement_width_bark">Matavimas žieve</string>
+    <string name="measurement_without_bark">Matavimas be žievės</string>
+    <string name="select">Pasirinkite</string>
+    <string name="create">Kurti</string>
+    <string name="delete">Ištrinti</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="yes">Taip</string>
+    <string name="add_wood_package_name">Įveskite paketo pavadinimą:</string>
+    <string name="absence">Trūksta</string>
+    <string name="create_package">Sukurkite paketą</string>
+    <string name="created_package">Sukurtas paketas</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Ar norite pašalinti medienos ryšulį iš dabartinio rodinio?</string>
+    <string name="add_to_wood_package">Pridėti į ryšulį</string>
+    <string name="added_to_package">Pridėta prie paketo</string>
+    <string name="select_or_create_wood_package">Pasirinkite arba sukurkite medienos ryšulį</string>
+    <string name="last_update_date">Paskutinio pakeitimo data</string>
+    <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
+    <string name="menu_name_packages">Medienos ryšuliai</string>
+    <string name="menu_name_calculators">Skaičiuoklės</string>
+    <string name="activity_default_name">Activity</string>
+    <string name="no_data">Nėra duomenų</string>
+    <string name="search">Paieška</string>
+    <string name="id">Id</string>
+    <string name="package_name">Pakuotės pavadinimas</string>
+    <string name="created_date">Sukūrimo data</string>
+    <string-array name="menu_calculators">
+        <item>Pomiar kłód</item>
+        <item>Pomiar tarcicy</item>
+        <item>Pomiar stosów</item>
+    </string-array>
+    <string-array name="menu_packages">
+        <item>Pakiety kłód</item>
+        <item>Pakiety tarcicy</item>
+        <item>Pakiety stosów</item>
+    </string-array>
+    <string name="delete_package_question">Ar norite pašalinti ryšulį?</string>
+    <string name="package_has_been_removed">Paketas buvo pašalintas</string>
+    <string name="package_is_empty">Rinkinys tuščias</string>
+    <string name="remove_all_packages">Nuimkite ryšulius</string>
+    <string name="delete_all_packages_question">Ar norite pašalinti visus paketus?</string>
+    <string name="length">Ilgis</string>
+    <string name="width">Plotis</string>
+    <string name="height">Aukštis</string>
+    <string name="diameter">Skersmuo</string>
+    <string name="_3">3</string>
+    <string name="add_to_package">+ Pridėti į ryšulį</string>
+    <string name="hold_down_to_add">Norėdami pridėti, palaikykite nuspaudę mygtuką</string>
+    <string name="packages">Pakuotė</string>
+    <string name="ok">OK</string>
+    <string name="enter_all_dimensions">Įveskite visus matmenis</string>
+    <string name="create_and_use">Kurkite ir naudokite</string>
+    <string name="no_packages">Nėra ryšulių</string>
+    <string name="print">Spausdinti</string>
+    <string name="send">Siųsti</string>
+    <string name="do_you_want_delete_element_question">Ar norite pašalinti elementą?</string>
+    <string name="package_details">Grupės turinys</string>
+    <string name="bark">Žievė</string>
+    <string name="plank_package">Medienos ryšulys</string>
+    <string name="log_package">Rąstų ryšulys</string>
+    <string name="stack_package">Medienos paketai</string>
+    <string name="cross_stack">Kryžminio medžio krūva</string>
+    <string name="no_cross_stack">Lygiagretus medienos krūva</string>
+    <string-array name="trees">
+        <item>Eglė(1)</item>
+        <item>Eglė(2)</item>
+        <item>Pušis</item>
+        <item>Maumedis</item>
+        <item>Beržas</item>
+        <item>Bukas</item>
+        <item>Ragas</item>
+        <item>Klonas</item>
+        <item>Pelenai</item>
+        <item>Sycamore</item>
+        <item>Liepa</item>
+        <item>Alksnis</item>
+        <item>Drebulė</item>
+        <item>Tuopa</item>
+        <item>Guoba</item>
+        <item>Ąžuolas</item>
+        <item>Akacija</item>
+    </string-array>
+    <string name="yes_short">T</string>
+    <string name="no_short">N</string>
+    <string name="length_short_cm">I/CM</string>
+    <string name="width_short_cm">P/CM</string>
+    <string name="height_short_cm">A/CM</string>
+    <string name="diameter_short_cm">S/CM</string>
+    <string name="m3_short">M3</string>
+    <string name="length_short_in">I/IN</string>
+    <string name="width_short_in">P/IN</string>
+    <string name="height_short_in">A/IN</string>
+    <string name="diameter_short_in">S/IN</string>
+    <string name="ft3_short">FT3</string>
+    <string name="cross_short">X</string>
+    <string name="bark_short">Žievė</string>
+    <string name="tree">MEDIS</string>
+    <string name="id_short">ID</string>
+    <string name="date_short">DATA</string>
+    <string name="thousand">1000</string>
+    <string name="_x1">x1</string>
+    <string name="_x10">x10</string>
+    <string name="_x100">x100</string>
+    <string name="_x1000">x1000</string>
+    <string name="unit_of_measurement">Matavimo vienetas</string>
+    <string name="unit_measurement_cm_m">cm / m</string>
+    <string name="unit_measurement_in_ft">in / ft</string>
+    <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
+    <string name="metric_system">Metrinė sistema</string>
+    <string name="imperial_system">Imperatoriškoji sistema</string>
+    <string name="updated">Atnaujinta</string>
+    <string name="apply">Taikyti</string>
+    <string name="settings">Nustatymai</string>
+    <string name="information">Informacija</string>
+    <string name="sortyment">Asortimentas</string>
+    <string name="float_0_1">0,1</string>
+    <string name="custom_factor">Pasirinktinis santykis</string>
+    <string name="float_0_0_1">0,01</string>
+    <string name="package_notes">Paketų užrašai</string>
+    <string name="add_to_emails">Pridėti prie el. Laiškų</string>
+    <string name="add_to_pdf">Vieta pdf dokumentuose</string>
+    <string name="sent_from_app">Išsiųsta iš „Wood Meas“ programos</string>
+    <string name="method_measuring_logs">Medinių rąstų matavimo metodas</string>
+    <string name="end_diameter_center_diameter">Galutinis skersmuo / Vidurinis skersmuo</string>
+    <string name="end_diameter">Galutinis skersmuo</string>
+    <string name="center_diameter">Vidurinis skersmuo</string>
+    <string name="slash">/</string>
+    <string name="application_description">Programa „Wood Meas“ yra matavimo priemonė, skirta matuoti rąstus, medieną ir medienos krūvas.</string>
+    <string name="application_features">Programos funkcijos</string>
+    <string-array name="application_features_list">
+        <item>medinių rąstų matavimų skaičiavimai</item>
+        <item>atlikti medienos matavimų skaičiavimus</item>
+        <item>skaičiuojant medienos polių matavimus</item>
+        <item>kuriant rąstų, medienos ir polių ryšulius</item>
+        <item>generuoti rinkinių ataskaitų skaičiuokles (xls) ir pdf dokumentus</item>
+        <item>paketo dydžių konvertavimas į piniginius vienetus</item>
+        <item>skaičiuojant matavimus metrinėje sistemoje (centimetras [cm], metras [m] = 100 cm) ir imperijos (colis [colyje], pėda [ft] = 12 colių) / 1m3 = 35,315 x 1FT3 (*)</item>
+        <item>kuriant užrašus ryšuliams</item>
+    </string-array>
+    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
+    <string name="measurement_logs">A. Žurnalo matavimas</string>
+    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string-array name="measurement_logs_swap">
+        <item>średnicy środkowej</item>
+        <item>średnicy górnej</item>
+    </string-array>
+    <string name="calculation_methods">Skaičiavimo metodai</string>
+    <string name="measurement_plank">B. POMIAR TARCICY</string>
+    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
+    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
+    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="learn_more">[Žiūrėti daugiau]</string>
+    <string name="design_and_implementation">Projektavimas ir įgyvendinimas</string>
+    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="woodmeascom">www.woodmeas.com</string>
+    <string name="legend">Legenda</string>
+    <string name="monetary_units">Piniginiai vienetai</string>
+    <string name="package_value">Pakuotės vertė</string>
+    <string name="open_file">Atidaryti failą</string>
+</resources>
