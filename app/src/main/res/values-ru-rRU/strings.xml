@@ -34,14 +34,14 @@
     <string name="package_name">Имя пакета</string>
     <string name="created_date">Дата создания</string>
     <string-array name="menu_calculators">
-        <item>Измерение журнала</item>
-        <item>Измерение древесины</item>
-        <item>Измерение свай</item>
+        <item>Измерение бревна</item>
+        <item>Измерение пиломатериалов</item>
+        <item>Измерение деревянных свай</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Пакеты журналов</item>
         <item>Пакеты пиломатериалов</item>
-        <item>Пакеты стека</item>
+        <item>Пакеты пиломатериалов</item>
+        <item>Пакеты деревянных штабелей</item>
     </string-array>
     <string name="delete_package_question">Вы хотите удалить связку?</string>
     <string name="package_has_been_removed">Связку удалили</string>
@@ -146,18 +146,18 @@
         <item>выполнение расчетов измерений в метрической системе (сантиметр [см], метр [м] = 100 см) и британской системе мер (дюйм [дюйм], фут [фут] = 12 дюймов) / 1 м3 = 35,315 x 1FT3 (*)</item>
         <item>создание заметок для связок</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) при выборе английской системы мер шаг для вводимых размеров составляет 1 см, а не 1 дюйм!</string>
-    <string name="measurement_logs">A. ЖУРНАЛ ИЗМЕРЕНИЯ</string>
-    <string name="measurement_logs_desc">Расчет промеров бревна производится методом ___ (с корой и без коры) и ___ (без коры).</string>
+    <string name="legend_app_fun_1">(*) при выборе британской системы мер приращение введенных размеров составляет 1 сантиметр (см), а не 1 дюйм (in)!</string>
+    <string name="measurement_logs">A. Измерение бревна</string>
+    <string name="measurement_logs_desc">Расчет размеров бревен производятся следующими методами: метод ___ (с корой и без коры) и ___ (без коры).</string>
     <string-array name="measurement_logs_swap">
-        <item>śцентральный диаметр</item>
+        <item>средний диаметр</item>
         <item>верхний диаметр</item>
     </string-array>
     <string name="calculation_methods">Методы расчета</string>
-    <string name="measurement_plank">B. Измерение пильного диска</string>
-    <string name="measurement_plank_desc">Для расчета обмера пиломатериалов используется формула объема кубовида. Замеры следует проводить без учета коры.</string>
-    <string name="measurement_stacks">C. ИЗМЕРЕНИЕ СТЕКА</string>
-    <string name="measurement_stacks_desc">Расчеты обмеров свай производятся с учетом сортимента и породы древесины. Для расчетов предусмотрены сортименты (коэффициенты пересчета для древесины, измеренной в сваях): S2, S3, S4, M1, M2. Вы также можете использовать собственный коэффициент от 0,1 до 1,0.</string>
+    <string name="measurement_plank">B. Измерение пиломатериалов</string>
+    <string name="measurement_plank_desc">Для расчета обмера пиломатериалов используется формула объема кубоида. Замеры следует проводить без учета коры.</string>
+    <string name="measurement_stacks">C. Измерение деревянных свай</string>
+    <string name="measurement_stacks_desc">Расчеты обмеров деревянных свай производятся с учетом сортамента и породы древесины. Для расчетов предусмотрены диапазоны (коэффициенты пересчета для древесины, измеренной в сваях): S2, S3, S4, M1, M2. Вы также можете использовать собственный коэффициент от 0,1 до 1,0.</string>
     <string name="learn_more">[Узнать больше]</string>
     <string name="design_and_implementation">Дизайн и исполнение</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

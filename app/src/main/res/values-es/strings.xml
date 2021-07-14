@@ -34,14 +34,14 @@
     <string name="package_name">Nombre del paquete</string>
     <string name="created_date">Fecha de creación</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Medición de troncos de madera</item>
+        <item>Medida de madera</item>
+        <item>Medición de pilotes de madera</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Paquetes de troncos de madera</item>
+        <item>Paquetes de madera</item>
+        <item>Paquetes de pila de madera</item>
     </string-array>
     <string name="delete_package_question">¿Quieres quitar el paquete?</string>
     <string name="package_has_been_removed">El paquete fue eliminado</string>
@@ -146,18 +146,18 @@
         <item>haciendo cálculos de medidas en el sistema métrico (centímetro [cm], metro [m] = 100 cm) e imperial (pulgada [pulgada], pie [pie] = 12 pulgada) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>creando notas para paquetes</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. MEDICIÓN DE REGISTRO</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) al seleccionar el sistema imperial, el incremento para las dimensiones ingresadas es de 1 centímetro (cm), no de 1 pulgada (in).</string>
+    <string name="measurement_logs">A. Medición de troncos de madera</string>
+    <string name="measurement_logs_desc">El cálculo de la medición de los troncos se realiza con los siguientes métodos: método ___ (con y sin corteza) y ___ (sin corteza).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>diámetro medio</item>
+        <item>diámetro superior</item>
     </string-array>
     <string name="calculation_methods">Métodos de cálculo</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Medida de madera</string>
+    <string name="measurement_plank_desc">Saematerjali mõõtmise arvutamiseks kasutatakse risttahuka mahu valemit. Mõõtmised tuleks teha ilma koort arvestamata.</string>
+    <string name="measurement_stacks">C. Medición de pilotes de madera</string>
+    <string name="measurement_stacks_desc">Los cálculos para las medidas de las pilas de madera se realizan con respecto a un surtido y tipo de madera determinados. Los rangos proporcionados para los cálculos (factores de conversión para madera medida en pilotes) son S2, S3, S4, M1, M2. También puede utilizar su propio factor de 0,1 a 1,0.</string>
     <string name="learn_more">Ver más]</string>
     <string name="design_and_implementation">Diseño e implementación</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

@@ -34,14 +34,14 @@
     <string name="package_name">Název balíčku</string>
     <string name="created_date">Datum vzniku</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Měření kmene dřeva</item>
+        <item>Měření řeziva</item>
+        <item>Měření hromád dřeva</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Balíčky dřeva</item>
+        <item>Dřevěné obaly</item>
+        <item>Balíčky dřevěných stohů</item>
     </string-array>
     <string name="delete_package_question">Chcete balíček odebrat?</string>
     <string name="package_has_been_removed">Balíček byl odstraněn</string>
@@ -146,18 +146,18 @@
         <item>provádění výpočtů měření v metrickém systému (centimetr [cm], metr [m] = 100 cm) a imperiální (palec [in], stopa [ft] = 12 palců) / 1 m3 = 35,315 x 1FT3 (*)</item>
         <item>vytváření poznámek pro svazky</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. MĚŘENÍ ZÁZNAMU</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) při výběru imperiálního systému je přírůstek pro zadané rozměry 1 centimetr (cm), ne 1 palec (in)!</string>
+    <string name="measurement_logs">A. Měření kmene dřeva</string>
+    <string name="measurement_logs_desc">Výpočet měření kulatiny se provádí pomocí následujících metod: metoda ___ (s kůrou a bez ní) a ___ (bez kůry).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>střední průměr</item>
+        <item>horní průměr</item>
     </string-array>
     <string name="calculation_methods">Výpočtové metody</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Měření řeziva</string>
+    <string name="measurement_plank_desc">Pro výpočet měření řeziva se používá vzorec pro objem kvádru. Měření by měla být prováděna bez zohlednění kůry.</string>
+    <string name="measurement_stacks">C. Měření hromád dřeva</string>
+    <string name="measurement_stacks_desc">Výpočty pro měření dřevěných hromádek jsou prováděny s ohledem na daný sortiment a druh dřeva. Rozsahy poskytované pro výpočty (převodní faktory pro dřevo měřené v hromadách) jsou S2, S3, S4, M1, M2. Můžete také použít vlastní faktor v rozsahu od 0,1 do 1,0.</string>
     <string name="learn_more">[Vidět víc]</string>
     <string name="design_and_implementation">Návrh a implementace</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

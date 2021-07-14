@@ -34,14 +34,14 @@
     <string name="package_name">პაკეტის სახელი</string>
     <string name="created_date">xxx</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>ხის მორების გაზომვა</item>
+        <item>ხის ზომა</item>
+        <item>ხის გროვების გაზომვა</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>ხის შესვლის პაკეტები</item>
+        <item>შეშის პაკეტები</item>
+        <item>ხის დასტის პაკეტები</item>
     </string-array>
     <string name="delete_package_question">გსურთ პაკეტის ამოღება?</string>
     <string name="package_has_been_removed">შეკვრა ამოიღეს</string>
@@ -146,18 +146,18 @@
         <item>გაზომვების გაანგარიშება მეტრულ სისტემაში (სანტიმეტრი [სმ], მეტრი [მ] = 100 სმ) და იმპერიული (დიუმი [დიუმი], ფუტი [ფუტი] = 12 დიუმი) / 1 მ 3 = 35,315 x 1FT3 (*)</item>
         <item>შენიშვნების შექმნა ჩალიჩებისთვის</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. ლოგის გაზომვა</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) საიმპერატორო სისტემის არჩევისას, შეყვანილი ზომების ზრდა არის 1 სანტიმეტრი (cm) და არა 1 ინჩი (in)!</string>
+    <string name="measurement_logs">A. ხის მორების გაზომვა</string>
+    <string name="measurement_logs_desc">ჟურნალების გაზომვის გაანგარიშება ხდება შემდეგი მეთოდებით: მეთოდი ___ (ქერქით და მის გარეშე) და ___ (ქერქის გარეშე).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>შუა დიამეტრი</item>
+        <item>ზედა დიამეტრი</item>
     </string-array>
     <string name="calculation_methods">გაანგარიშების მეთოდები</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. ხის ზომა</string>
+    <string name="measurement_plank_desc">ხის ზომის გაზომვისთვის გამოიყენება კუბოიდის მოცულობის ფორმულა. გაზომვები უნდა იქნას მიღებული ქერქის გაუთვალისწინებლად.</string>
+    <string name="measurement_stacks">C. ხის გროვების გაზომვა</string>
+    <string name="measurement_stacks_desc">ხის გროვების გაზომვების გაანგარიშება ხდება მოცემული ასორტიმენტისა და ხის ტიპის გათვალისწინებით. გამოთვლებისთვის გათვალისწინებული დიაპაზონები (გროვებად იზომება ხის გადაკეთების ფაქტორები) არის S2, S3, S4, M1, M2. ასევე შეგიძლიათ გამოიყენოთ თქვენი საკუთარი ფაქტორი, დაწყებული 0,1-დან 1,0-მდე.</string>
     <string name="learn_more">[Მეტის ნახვა]</string>
     <string name="design_and_implementation">დიზაინი და განხორციელება</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

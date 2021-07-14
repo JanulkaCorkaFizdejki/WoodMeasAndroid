@@ -34,14 +34,14 @@
     <string name="package_name">Csomag név</string>
     <string name="created_date">Létrehozás dátuma</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Fatörzsek mérése</item>
+        <item>Fűrészáru mérése</item>
+        <item>Fa cölöpök mérése</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Fa rönk csomagolás</item>
+        <item>Fa rönk csomagolás</item>
+        <item>Fa verem csomagok</item>
     </string-array>
     <string name="delete_package_question">El akarja távolítani a csomagot?</string>
     <string name="package_has_been_removed">A csomagot eltávolították</string>
@@ -146,18 +146,18 @@
         <item>számítások elvégzése a metrikus rendszerben (centiméter [cm], méter [m] = 100 cm) és az angolszász (hüvelyk [hüvelyk], láb [ft] = 12 hüvelyk) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>jegyzetek készítése a kötegekhez</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. Naplómérés</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) a birodalmi rendszer kiválasztásakor a megadott méretek növekménye 1 centiméter (cm), nem pedig 1 hüvelyk (in)!</string>
+    <string name="measurement_logs">A. Fatörzsek mérése</string>
+    <string name="measurement_logs_desc">A rönkök mérésének kiszámítása a következő módszerekkel történik: ___ (kéreggel és kéreg nélkül) és ___ (kéreg nélkül) módszer.</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>középső átmérő</item>
+        <item>felső átmérő</item>
     </string-array>
     <string name="calculation_methods">Számítási módszerek</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Fűrészáru mérése</string>
+    <string name="measurement_plank_desc">A faanyag mérésének kiszámításához a négyszög térfogatának képletét kell használni. A méréseket a kéreg figyelembevétele nélkül kell elvégezni.</string>
+    <string name="measurement_stacks">C. Fa cölöpök mérése</string>
+    <string name="measurement_stacks_desc">A fatelepek mérésére vonatkozó számításokat egy adott fa választék és típus szerint végezzük. A számításokhoz biztosított tartományok (a cölöpökön mért fa konverziós tényezői): S2, S3, S4, M1, M2. Használhatja saját tényezőjét is 0,1 és 1,0 között.</string>
     <string name="learn_more">[Többet látni]</string>
     <string name="design_and_implementation">Tervezés és kivitelezés</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

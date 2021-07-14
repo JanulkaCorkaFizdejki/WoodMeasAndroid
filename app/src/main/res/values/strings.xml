@@ -34,16 +34,16 @@
     <string name="package_name">Package name</string>
     <string name="created_date">Creation date</string>
     <string-array name="menu_calculators">
-        <item>Log measurement</item>
+        <item>Timber log measurement</item>
         <item>Lumber measurement</item>
-        <item>Piles measurement</item>
+        <item>Measurement of wood piles</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Log bundles</item>
-        <item>Lumber bundles</item>
-        <item>Woodpiles bundles</item>
+        <item>Timber logs packages</item>
+        <item>Lumber packages</item>
+        <item>Wood stack packages</item>
     </string-array>
-    <string name="delete_package_question">Do you want to remove the bundle?</string>
+    <string name="delete_package_question">Do you want to remove the package?</string>
     <string name="package_has_been_removed">The bundle was removed</string>
     <string name="package_is_empty">The bundle is empty</string>
     <string name="remove_all_packages">Remove the bundles</string>
@@ -67,7 +67,7 @@
     <string name="bark">Bark</string>
     <string name="plank_package">Lumber bundle</string>
     <string name="log_package">Log bundle</string>
-    <string name="stack_package">Woodpiles bundle</string>
+    <string name="stack_package">Wood piles bundle</string>
     <string name="cross_stack">Criss-cross wood pile</string>
     <string name="no_cross_stack">Parallel wood pile</string>
     <string-array name="trees">
@@ -89,17 +89,17 @@
         <item>Oak</item>
         <item>Acacia</item>
     </string-array>
-    <string name="yes_short">Y</string>
+    <string name="yes_short">T</string>
     <string name="no_short">N</string>
-    <string name="length_short_cm">L/CM</string>
-    <string name="width_short_cm">W/CM</string>
-    <string name="height_short_cm">H/CM</string>
-    <string name="diameter_short_cm">D/CM</string>
+    <string name="length_short_cm">D/CM</string>
+    <string name="width_short_cm">S/CM</string>
+    <string name="height_short_cm">W/CM</string>
+    <string name="diameter_short_cm">Ś/CM</string>
     <string name="m3_short">M3</string>
-    <string name="length_short_in">L/IN</string>
-    <string name="width_short_in">W/IN</string>
-    <string name="height_short_in">H/IN</string>
-    <string name="diameter_short_in">D/IN</string>
+    <string name="length_short_in">D/IN</string>
+    <string name="width_short_in">S/IN</string>
+    <string name="height_short_in">W/IN</string>
+    <string name="diameter_short_in">Ś/IN</string>
     <string name="ft3_short">FT3</string>
     <string name="cross_short">X</string>
     <string name="bark_short">BARK</string>
@@ -157,7 +157,7 @@
     <string name="measurement_plank">B. LUMBER MEASUREMENT</string>
     <string name="measurement_plank_desc">For the calculation of the lumber measurement, the formula for the volume of the cuboid is used. Measurements should be taken without taking into account the bark.</string>
     <string name="measurement_stacks">C. PILES MEASUREMENT</string>
-    <string name="measurement_stacks_desc">Calculations for the measurements of piles are made with regard to a given assortment and type of wood. The ranges provided for the calculations (conversion factors for wood measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
+    <string name="measurement_stacks_desc">Calculations for the measurements of wood piles are made with regard to a given assortment and type of wood. The ranges provided for the calculations (conversion factors for wood measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
     <string name="learn_more">[See more]</string>
     <string name="design_and_implementation">Design and execution</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

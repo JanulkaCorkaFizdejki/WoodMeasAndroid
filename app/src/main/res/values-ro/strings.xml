@@ -34,14 +34,14 @@
     <string name="package_name">Numele pachetului</string>
     <string name="created_date">Data crearii</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Măsurarea buștenilor de cherestea</item>
+        <item>Măsurarea cherestelei</item>
+        <item>Măsurarea grămezilor de lemn</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Pachete de bușteni de cherestea</item>
+        <item>Pachete de cherestea</item>
+        <item>Pachete de stive de lemn</item>
     </string-array>
     <string name="delete_package_question">Doriți să eliminați pachetul?</string>
     <string name="package_has_been_removed">Pachetul a fost eliminat</string>
@@ -146,18 +146,18 @@
         <item>efectuarea calculelor măsurătorilor în sistemul metric (centimetru [cm], metru [m] = 100cm) și imperial (inch [în], picior [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>crearea de note pentru pachete</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. MĂSURAREA JURNALULUI</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) la selectarea sistemului imperial, creșterea pentru dimensiunile introduse este de 1 centimetru (cm), nu de 1 inch (in)!</string>
+    <string name="measurement_logs">A. Măsurarea buștenilor de cherestea</string>
+    <string name="measurement_logs_desc">Calculul măsurării buștenilor se face cu următoarele metode: metoda ___ (cu și fără scoarță) și ___ (fără scoarță).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>diametru mediu</item>
+        <item>diametru superior</item>
     </string-array>
     <string name="calculation_methods">Metode de calcul</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Măsurarea cherestelei</string>
+    <string name="measurement_plank_desc">Pentru calcularea măsurării cherestelei, se folosește formula pentru volumul cuboidului. Măsurătorile trebuie luate fără a lua în considerare scoarța.</string>
+    <string name="measurement_stacks">C. Măsurarea grămezilor de lemn</string>
+    <string name="measurement_stacks_desc">Calculele pentru măsurătorile grămezilor de lemn se fac cu privire la un sortiment dat și tipul de lemn. Intervalele prevăzute pentru calcule (factorii de conversie pentru lemn măsurați în grămezi) sunt S2, S3, S4, M1, M2. Puteți utiliza, de asemenea, propriul factor care variază de la 0,1 la 1,0.</string>
     <string name="learn_more">[Vezi mai mult]</string>
     <string name="design_and_implementation">Design si implementare</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

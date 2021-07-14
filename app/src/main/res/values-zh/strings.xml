@@ -34,14 +34,14 @@
     <string name="package_name">包裹名字</string>
     <string name="created_date">创建日期</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>木材原木测量</item>
+        <item>木材测量</item>
+        <item>木桩测量</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>木材原木包</item>
+        <item>木材包装</item>
+        <item>木栈包</item>
     </string-array>
     <string name="delete_package_question">您要刪除捆綁包嗎？</string>
     <string name="package_has_been_removed">捆绑包已移除</string>
@@ -146,18 +146,18 @@
         <item>计算公制（厘米 [cm]、米 [m] = 100cm）和英制（英寸 [in]、英尺 [ft] = 12in）/1m3 = 35,315 x 1FT3 (*)</item>
         <item>为捆绑创建注释</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. 日志测量</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) 选择英制时, 输入尺寸的增量是 1 厘米 (cm), 而不是 1 英寸 (in)!</string>
+    <string name="measurement_logs">A. 木材原木测量</string>
+    <string name="measurement_logs_desc">原木测量的计算采用以下方法：方法___（有和无树皮）和___（无树皮）。</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>中径</item>
+        <item>上径</item>
     </string-array>
     <string name="calculation_methods">计算方法</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. 木材测量</string>
+    <string name="measurement_plank_desc">对于木材测量的计算，使用长方体的体积公式。 测量时不应考虑树皮。</string>
+    <string name="measurement_stacks">C. 木桩测量</string>
+    <string name="measurement_stacks_desc">木桩的测量计算是根据给定的木材种类和类型进行的。 为计算提供的范围（以桩为单位测量的木材换算系数）为 S2、S3、S4、M1、M2。 您也可以使用您自己的系数，范围从 0.1 到 1.0。</string>
     <string name="learn_more">[查看更多]</string>
     <string name="design_and_implementation">设计与实现</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

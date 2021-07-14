@@ -341,7 +341,8 @@
                     style="@style/InfoListItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/measurement_logs" />
+                    android:text="@string/measurement_logs"
+                    android:textAllCaps="true" />
 
                 <TextView
                     android:id="@+id/textViewInfoMeasurementDesc"
@@ -388,7 +389,8 @@
                     style="@style/InfoListItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/measurement_plank" />
+                    android:text="@string/measurement_plank"
+                    android:textAllCaps="true" />
 
                 <TextView
                     android:id="@+id/textView26"
@@ -416,7 +418,8 @@
                     style="@style/InfoListItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/measurement_stacks" />
+                    android:text="@string/measurement_stacks"
+                    android:textAllCaps="true" />
 
                 <TextView
                     android:id="@+id/textView29"

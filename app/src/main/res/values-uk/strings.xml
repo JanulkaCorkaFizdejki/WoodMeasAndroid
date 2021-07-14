@@ -34,14 +34,14 @@
     <string name="package_name">Назва пакета</string>
     <string name="created_date">Дата створення</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Вимірювання колоди деревини</item>
+        <item>Вимірювання пиломатеріалів</item>
+        <item>Вимірювання дерев’яних паль</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Пакети дерев’яних колод</item>
+        <item>Пиломатеріали</item>
+        <item>Пакети деревної стопки</item>
     </string-array>
     <string name="delete_package_question">Видалити пакет?</string>
     <string name="package_has_been_removed">Пачку було видалено</string>
@@ -146,18 +146,18 @@
         <item>проведення розрахунків вимірювань у метричній системі (сантиметр [см], метр [м] = 100 см) та імперській (дюйм [дюйм], фут [фут] = 12 дюймів) / 1м3 = 35,315 х 1FT3 (*)</item>
         <item>створення приміток для пучків</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. ВИМІРЮВАННЯ ЧАСОВИКА</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) при виборі імперської системи приріст введених розмірів становить 1 сантиметр (см), а не 1 дюйм (in)!</string>
+    <string name="measurement_logs">A. Вимірювання колоди деревини</string>
+    <string name="measurement_logs_desc">Розрахунок вимірювань колод проводять такими методами: метод ___ (з корою і без неї) та ___ (без кори).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>середній діаметр</item>
+        <item>верхній діаметр</item>
     </string-array>
     <string name="calculation_methods">Методи розрахунку</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Вимірювання пиломатеріалів</string>
+    <string name="measurement_plank_desc">Для розрахунку вимірювання пиломатеріалів використовується формула об’єму кубоїда. Вимірювання слід проводити без урахування кори.</string>
+    <string name="measurement_stacks">C. Вимірювання дерев’яних паль</string>
+    <string name="measurement_stacks_desc">Розрахунки для вимірів деревних паль проводяться з урахуванням заданого асортименту та виду деревини. Діапазони, передбачені для розрахунків (коефіцієнти перерахунку деревини, виміряні в палі), складають S2, S3, S4, M1, M2. Ви також можете використовувати свій власний коефіцієнт від 0,1 до 1,0.</string>
     <string name="learn_more">[Побачити більше]</string>
     <string name="design_and_implementation">Розробка та впровадження</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

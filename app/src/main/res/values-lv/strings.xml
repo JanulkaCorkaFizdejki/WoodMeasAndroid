@@ -34,14 +34,14 @@
     <string name="package_name">Lepakojuma nosaukums</string>
     <string name="created_date">Izveidošanas datums</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Kokmateriālu baļķu mērīšana</item>
+        <item>Kokmateriālu mērīšana</item>
+        <item>Koka pāļu mērīšana</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Kokmateriālu baļķu pakas</item>
+        <item>Kokmateriālu iepakojumi</item>
+        <item>Koka kaudzes iepakojumi</item>
     </string-array>
     <string name="delete_package_question">Vai vēlaties noņemt saišķi?</string>
     <string name="package_has_been_removed">Komplekts tika noņemts</string>
@@ -146,18 +146,18 @@
         <item>mērījumu aprēķinu veikšana metriskajā sistēmā (centimetrs [cm], metrs [m] = 100 cm) un impērijas (collas [collā], pēdas [pēdas] = 12 collas) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>piezīmju veidošana saišķiem</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. Žurnāla mērīšana</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) izvēloties impērijas sistēmu, ievadīto izmēru pieaugums ir 1 centimetrs (cm), nevis 1 colla (in)!</string>
+    <string name="measurement_logs">A. Kokmateriālu baļķu mērīšana</string>
+    <string name="measurement_logs_desc">Apaļkoku mērījumu aprēķins tiek veikts ar šādām metodēm: metode ___ (ar mizu un bez tās) un ___ (bez mizas).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>vidējais diametrs</item>
+        <item>augšējais diametrs</item>
     </string-array>
     <string name="calculation_methods">Aprēķina metodes</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Kokmateriālu mērīšana</string>
+    <string name="measurement_plank_desc">Zāģmateriālu mērījuma aprēķināšanai tiek izmantota kvadrātā esošā tilpuma formula. Mērījumi jāveic, neņemot vērā mizu.</string>
+    <string name="measurement_stacks">C. Koka pāļu mērīšana</string>
+    <string name="measurement_stacks_desc">Aprēķini koka pāļu mērījumiem tiek veikti attiecībā uz konkrēto koksnes sortimentu un veidu. Aprēķiniem paredzētie diapazoni (koksnes konversijas koeficienti, kas mērīti pāļos) ir S2, S3, S4, M1, M2. Varat arī izmantot savu koeficientu diapazonā no 0,1 līdz 1,0.</string>
     <string name="learn_more">[Redzēt vairāk]</string>
     <string name="design_and_implementation">Projektēšana un ieviešana</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

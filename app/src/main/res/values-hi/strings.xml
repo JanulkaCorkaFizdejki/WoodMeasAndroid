@@ -2,74 +2,73 @@
     <string name="app_name">Wood Meas</string>
     <string name="default_number">0</string>
     <string name="default_number_float">0,00</string>
-    <string name="default_text">Tekst domyślny</string>
     <string name="centimeters_short">cm</string>
     <string name="inch_short">in</string>
     <string name="meters_short">m</string>
     <string name="foot_short">ft</string>
     <string name="meters_decimal_short">m3</string>
-    <string name="measurement_width_bark">Pomiar z korą</string>
-    <string name="measurement_without_bark">Pomiar bez kory</string>
-    <string name="select">Wybierz</string>
-    <string name="create">Utwórz</string>
-    <string name="delete">Usuń</string>
-    <string name="cancel">Anuluj</string>
-    <string name="yes">Tak</string>
-    <string name="add_wood_package_name">Wprowadź nazwę pakietu:</string>
-    <string name="absence">Brak</string>
-    <string name="create_package">Utwórz pakiet</string>
-    <string name="created_package">Pakiet został utworzony</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Czy chcesz usunąć pakiet drewna z bieżącego widoku?</string>
-    <string name="add_to_wood_package">Dodaj do pakietu</string>
-    <string name="added_to_package">Dodano do pakietu</string>
-    <string name="select_or_create_wood_package">Wybierz lub utwórz pakiet drewna</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="measurement_width_bark">छाल के साथ माप</string>
+    <string name="measurement_without_bark">छाल के बिना माप</string>
+    <string name="select">का चयन करें</string>
+    <string name="create">सृजन करना</string>
+    <string name="delete">हटाएं</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="yes">हाँ</string>
+    <string name="add_wood_package_name">पैकेज का नाम दर्ज करें:</string>
+    <string name="absence">अभाव</string>
+    <string name="create_package">एक पैकेज बनाएं</string>
+    <string name="created_package">बंडल बनाया गया</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">क्या आप वर्तमान दृश्य से लकड़ी के बंडल को हटाने गए थे?</string>
+    <string name="add_to_wood_package">बंडल में जोड़ें</string>
+    <string name="added_to_package">बंडल में जोड़ा गया</string>
+    <string name="select_or_create_wood_package">लकड़ी का बंडल चुनें या बनाएं</string>
+    <string name="last_update_date">अंतिम संशोधन की तिथि</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Pakiety drewna</string>
-    <string name="menu_name_calculators">Kalkulatory</string>
+    <string name="menu_name_packages">लकड़ी के बंडल</string>
+    <string name="menu_name_calculators">कैलकुलेटर</string>
     <string name="activity_default_name">Activity</string>
-    <string name="no_data">Brak danych</string>
-    <string name="search">Wyszukaj</string>
+    <string name="no_data">कोई आकड़ा उपलब्ध नहीं है</string>
+    <string name="search">खोज</string>
     <string name="id">Id</string>
-    <string name="package_name">Nazwa Pakietu</string>
-    <string name="created_date">Data utworzenia</string>
+    <string name="package_name">पैकेज का नाम</string>
+    <string name="created_date">निर्माण तिथि</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>लकड़ी लॉग माप</item>
+        <item>लकड़ी माप</item>
+        <item>लकड़ी के ढेर का मापन</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>लकड़ी लॉग पैक</item>
+        <item>लकड़ी के पैकेज</item>
+        <item>लकड़ी के ढेर पैकेज</item>
     </string-array>
-    <string name="delete_package_question">Czy chcesz usunąć pakiet?</string>
-    <string name="package_has_been_removed">Pakiet został usunięty</string>
-    <string name="package_is_empty">Pakiet jest pusty</string>
-    <string name="remove_all_packages">Usuń pakiety</string>
-    <string name="delete_all_packages_question">Czy chcesz usunąć wszystkie pakiety?</string>
-    <string name="length">Długość</string>
-    <string name="width">Szerokość</string>
-    <string name="height">Wysokość</string>
-    <string name="diameter">Średnica</string>
+    <string name="delete_package_question">क्या आप पैकेज को हटाना चाहते हैं?</string>
+    <string name="package_has_been_removed">बंडल हटा दिया गया था</string>
+    <string name="package_is_empty">बंडल खाली है</string>
+    <string name="remove_all_packages">बंडलों को हटा दें</string>
+    <string name="delete_all_packages_question">क्या आप सभी बंडल हटाना चाहते हैं?</string>
+    <string name="length">लंबाई</string>
+    <string name="width">चौड़ाई</string>
+    <string name="height">ऊंचाई</string>
+    <string name="diameter">व्यास</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Dodaj do pakietu</string>
-    <string name="hold_down_to_add">Aby dodać przytrzymaj przycisk</string>
-    <string name="packages">Pakiet</string>
+    <string name="add_to_package">+ बंडल में जोड़ें</string>
+    <string name="hold_down_to_add">जोड़ने के लिए, बटन दबाए रखें</string>
+    <string name="packages">बंडल</string>
     <string name="ok">OK</string>
-    <string name="enter_all_dimensions">Wprowadź wszystkie wymiary</string>
-    <string name="create_and_use">Utwórz i użyj</string>
-    <string name="no_packages">Brak pakietów</string>
-    <string name="print">Drukuj</string>
-    <string name="send">Wyślij</string>
-    <string name="do_you_want_delete_element_question">Czy chcesz usunąć element?</string>
-    <string name="package_details">Zawartość pakietu</string>
-    <string name="bark">Kora</string>
-    <string name="plank_package">Pakiet tarcicy</string>
-    <string name="log_package">Pakiet kłód</string>
-    <string name="stack_package">Pakiet stosów</string>
-    <string name="cross_stack">Stos krzyżowy</string>
-    <string name="no_cross_stack">Stos nie krzyżowy</string>
+    <string name="enter_all_dimensions">सभी आयाम दर्ज करें</string>
+    <string name="create_and_use">बनाएं और उपयोग करें</string>
+    <string name="no_packages">कोई बंडल नहीं</string>
+    <string name="print">छाप</string>
+    <string name="send">संदेश</string>
+    <string name="do_you_want_delete_element_question">क्या आप तत्व को हटाना चाहते हैं?</string>
+    <string name="package_details">बंडल सामग्री</string>
+    <string name="bark">छाल</string>
+    <string name="plank_package">लकड़ी का बंडल</string>
+    <string name="log_package">लॉग बंडल</string>
+    <string name="stack_package">लकड़ी के ढेर बंडल</string>
+    <string name="cross_stack">क्रिस-क्रॉस लकड़ी का ढेर</string>
+    <string name="no_cross_stack">समानांतर लकड़ी का ढेर</string>
     <string-array name="trees">
         <item>स्प्रूस</item>
         <item>देवदार</item>
@@ -89,53 +88,53 @@
         <item>बलूत</item>
         <item>बबूल</item>
     </string-array>
-    <string name="yes_short">T</string>
-    <string name="no_short">N</string>
-    <string name="length_short_cm">D/CM</string>
-    <string name="width_short_cm">S/CM</string>
-    <string name="height_short_cm">W/CM</string>
-    <string name="diameter_short_cm">Ś/CM</string>
+    <string name="yes_short">हाँ</string>
+    <string name="no_short">नहीं न</string>
+    <string name="length_short_cm">लं/CM</string>
+    <string name="width_short_cm">चौ/CM</string>
+    <string name="height_short_cm">ऊं/CM</string>
+    <string name="diameter_short_cm">व्या/CM</string>
     <string name="m3_short">M3</string>
-    <string name="length_short_in">D/IN</string>
-    <string name="width_short_in">S/IN</string>
-    <string name="height_short_in">W/IN</string>
-    <string name="diameter_short_in">Ś/IN</string>
+    <string name="length_short_in">लं/IN</string>
+    <string name="width_short_in">चौ/IN</string>
+    <string name="height_short_in">ऊं/IN</string>
+    <string name="diameter_short_in">व्या/IN</string>
     <string name="ft3_short">FT3</string>
     <string name="cross_short">X</string>
-    <string name="bark_short">KORA</string>
-    <string name="tree">DRZEWO</string>
+    <string name="bark_short">छाल</string>
+    <string name="tree">वृक्ष</string>
     <string name="id_short">ID</string>
-    <string name="date_short">DATA</string>
+    <string name="date_short">तारीख</string>
     <string name="thousand">1000</string>
     <string name="_x1">x1</string>
     <string name="_x10">x10</string>
     <string name="_x100">x100</string>
     <string name="_x1000">x1000</string>
-    <string name="unit_of_measurement">Jednostki miar</string>
+    <string name="unit_of_measurement">माप की इकाई</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
-    <string name="metric_system">System metryczny</string>
-    <string name="imperial_system">System imperialny</string>
-    <string name="updated">Zaktualizowano</string>
-    <string name="apply">Zastosuj</string>
-    <string name="settings">Ustawienia</string>
-    <string name="information">Informacje</string>
-    <string name="sortyment">Sortyment</string>
+    <string name="metric_system">मीट्रिक प्रणाली</string>
+    <string name="imperial_system">शाही व्यवस्था</string>
+    <string name="updated">अद्यतन</string>
+    <string name="apply">लागू</string>
+    <string name="settings">समायोजन</string>
+    <string name="information">जानकारी</string>
+    <string name="sortyment">वर्गीकरण</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Własny współczynnik</string>
+    <string name="custom_factor">कस्टम अनुपात</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Notatki pakietów</string>
-    <string name="add_to_emails">Dołączaj do emaili</string>
-    <string name="add_to_pdf">Umieszczaj w dokumentach pdf</string>
-    <string name="sent_from_app">Wysłano z aplikacji Wood Meas</string>
-    <string name="method_measuring_logs">Metoda pomiaru kłód</string>
-    <string name="end_diameter_center_diameter">Średnica końcowa / średnica środkowa</string>
-    <string name="end_diameter">Średnica końcowa</string>
-    <string name="center_diameter">Średnica środkowa</string>
+    <string name="package_notes">बंडल नोट्स</string>
+    <string name="add_to_emails">ईमेल में जोड़ें</string>
+    <string name="add_to_pdf">पीडीएफ दस्तावेजों में रखें</string>
+    <string name="sent_from_app">वुड मीज़ ऐप से भेजा गया</string>
+    <string name="method_measuring_logs">लकड़ी के लट्ठों को मापने की विधि</string>
+    <string name="end_diameter_center_diameter">अंतिम व्यास / मध्य व्यास</string>
+    <string name="end_diameter">अंतिम व्यास</string>
+    <string name="center_diameter">मध्य व्यास</string>
     <string name="slash">/</string>
-    <string name="application_description">Aplikacja Wood Meas to narzędzie do obliczeń pomiarów, mające zastosowanie w pomiarze kłód drewnianych, tarcicy oraz stosów drewna.</string>
-    <string name="application_features">Funkcje aplikacji</string>
+    <string name="application_description">लकड़ी का माप ऐप लॉग, लकड़ी और लकड़ी के ढेर को मापने के लिए एक माप उपकरण है।</string>
+    <string name="application_features">ऐप के कार्य</string>
     <string-array name="application_features_list">
         <item>लकड़ी के लॉग माप की गणना करना</item>
         <item>लकड़ी के माप की गणना करना</item>
@@ -146,24 +145,25 @@
         <item>मीट्रिक प्रणाली (सेंटीमीटर [सेमी], मीटर [एम] = 100 सेमी) और इंपीरियल (इंच [इन], फुट [फीट] = 12 इंच) / 1 एम 3 = 35,315 x 1FT3 (*) में माप की गणना करना</item>
         <item>बंडलों के लिए नोट्स बनाना</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. POMIAR KŁÓD</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) शाही प्रणाली का चयन करते समय, दर्ज किए गए आयामों के लिए वृद्धि 1 सेंटीमीटर (cm) है, न कि 1 इंच (in)!</string>
+    <string name="measurement_logs">A. लकड़ी लॉग माप</string>
+    <string name="measurement_logs_desc">लट्ठों की माप की गणना निम्नलिखित विधियों से की जाती है: विधि ___ (छाल के साथ और बिना) और ___ (छाल के बिना)।</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>मध्य व्यास</item>
+        <item>ऊपरी व्यास</item>
     </string-array>
-    <string name="calculation_methods">Metody obliczeń</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
-    <string name="learn_more">[Zobacz więcej]</string>
-    <string name="design_and_implementation">Projekt i wykonanie</string>
+    <string name="calculation_methods">गणना के तरीके</string>
+    <string name="measurement_plank">B. लकड़ी माप</string>
+    <string name="measurement_plank_desc">लकड़ी के माप की गणना के लिए, घनाभ के आयतन के सूत्र का उपयोग किया जाता है। छाल को ध्यान में रखे बिना माप लिया जाना चाहिए।</string>
+    <string name="measurement_stacks">C. लकड़ी के ढेर का मापन</string>
+    <string name="measurement_stacks_desc">लकड़ी के ढेर के माप की गणना किसी दिए गए वर्गीकरण और लकड़ी के प्रकार के संबंध में की जाती है। गणना के लिए प्रदान की गई श्रेणियां (ढेर में मापी गई लकड़ी के लिए रूपांतरण कारक) S2, S3, S4, M1, M2 हैं। आप 0.1 से 1.0 तक के अपने स्वयं के कारक का भी उपयोग कर सकते हैं।</string>
+    <string name="learn_more">[और देखें]</string>
+    <string name="design_and_implementation">डिजाइन और निष्पादन</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>
     <string name="woodmeascom">www.woodmeas.com</string>
-    <string name="legend">Legenda</string>
-    <string name="monetary_units">Jednostki monetarne</string>
-    <string name="package_value">Wartość pakietu</string>
+    <string name="legend">किंवदंती</string>
+    <string name="monetary_units">मौद्रिक इकाइयाँ</string>
+    <string name="package_value">बंडल का मूल्य</string>
     <string name="open_file">खुली फाइल</string>
+    <string name="default_text">Default text</string>
 </resources>

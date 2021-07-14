@@ -34,14 +34,14 @@
     <string name="package_name">Pakuotės pavadinimas</string>
     <string name="created_date">Sukūrimo data</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Medienos rąstų matavimas</item>
+        <item>Medienos matavimas</item>
+        <item>Medienos polių matavimas</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Medienos rąstų pakuotės</item>
+        <item>Medienos paketai</item>
+        <item>Medienos kamino paketai</item>
     </string-array>
     <string name="delete_package_question">Ar norite pašalinti ryšulį?</string>
     <string name="package_has_been_removed">Paketas buvo pašalintas</string>
@@ -146,18 +146,18 @@
         <item>skaičiuojant matavimus metrinėje sistemoje (centimetras [cm], metras [m] = 100 cm) ir imperijos (colis [colyje], pėda [ft] = 12 colių) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>kuriant užrašus ryšuliams</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. Žurnalo matavimas</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) pasirenkant imperijos sistemą, įvestų matmenų prieaugis yra 1 centimetras (cm), o ne 1 colis (in)!</string>
+    <string name="measurement_logs">A. Medienos rąstų matavimas</string>
+    <string name="measurement_logs_desc">Rąstų matavimas apskaičiuojamas taikant šiuos metodus: metodas ___ (su žieve ir be jos) ir ___ (be žievės).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>vidurinis skersmuo</item>
+        <item>viršutinis skersmuo</item>
     </string-array>
     <string name="calculation_methods">Skaičiavimo metodai</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Medienos matavimas</string>
+    <string name="measurement_plank_desc">Skaičiuojant medienos matavimą, naudojama stačiakampio tūrio formulė. Matavimai turėtų būti atliekami neatsižvelgiant į žievę.</string>
+    <string name="measurement_stacks">C. Medienos polių matavimas</string>
+    <string name="measurement_stacks_desc">Skaičiavimai medienos poliams matuoti atliekami atsižvelgiant į pateiktą medienos asortimentą ir rūšį. Skaičiavimams pateikti diapazonai (medienos, apskaičiuotos poliais, perskaičiavimo koeficientai) yra S2, S3, S4, M1, M2. Taip pat galite naudoti savo koeficientą nuo 0,1 iki 1,0.</string>
     <string name="learn_more">[Žiūrėti daugiau]</string>
     <string name="design_and_implementation">Projektavimas ir įgyvendinimas</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

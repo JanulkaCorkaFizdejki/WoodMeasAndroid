@@ -34,14 +34,14 @@
     <string name="package_name">Nom du paquet</string>
     <string name="created_date">Date de création</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Mesure de grumes de bois</item>
+        <item>Mesure du bois</item>
+        <item>Mesure de pieux de bois</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Packs de bûches de bois</item>
+        <item>Paquets de bois</item>
+        <item>Paquets de pile de bois</item>
     </string-array>
     <string name="delete_package_question">Voulez-vous supprimer le forfait ?</string>
     <string name="package_has_been_removed">Le paquet a été retiré</string>
@@ -146,18 +146,18 @@
         <item>faire des calculs de mesures dans le système métrique (centimètre [cm], mètre [m] = 100cm) et impérial (pouce [in], pied [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>création de notes pour les liasses</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. MESURE DE BCHE</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) lors de la sélection du système impérial, l\'incrément pour les dimensions saisies est de 1 centimètre (cm) et non de 1 pouce (in)!</string>
+    <string name="measurement_logs">A. Mesure de grumes de bois</string>
+    <string name="measurement_logs_desc">Le calcul de la mesure des grumes se fait avec les méthodes suivantes : méthode ___ (avec et sans écorce) et ___ (sans écorce).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>diamètre moyen</item>
+        <item>diamètre supérieur</item>
     </string-array>
     <string name="calculation_methods">Méthodes de calcul</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Mesure du bois</string>
+    <string name="measurement_plank_desc">Pour le calcul de la mesure du bois, la formule du volume du cuboïde est utilisée. Les mesures doivent être prises sans tenir compte de l\'écorce.</string>
+    <string name="measurement_stacks">C. Mesure de pieux de bois</string>
+    <string name="measurement_stacks_desc">Les calculs pour les mesures des pieux en bois sont effectués par rapport à un assortiment et un type de bois donnés. Les plages fournies pour les calculs (facteurs de conversion pour le bois mesurés en pieux) sont S2, S3, S4, M1, M2. Vous pouvez également utiliser votre propre facteur allant de 0,1 à 1,0.Les calculs pour les mesures des pieux en bois sont effectués par rapport à un assortiment et un type de bois donnés. Les plages fournies pour les calculs (facteurs de conversion pour le bois mesurés en pieux) sont S2, S3, S4, M1, M2. Vous pouvez également utiliser votre propre facteur allant de 0,1 à 1,0.</string>
     <string name="learn_more">[Voir plus]</string>
     <string name="design_and_implementation">Conception et mise en œuvre</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

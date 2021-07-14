@@ -34,14 +34,14 @@
     <string name="package_name">Paketnamen</string>
     <string name="created_date">Erstellungsdatum</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Holzstammmessung</item>
+        <item>Holzvermessung</item>
+        <item>Messung von Holzstapeln</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Holzblockpakete</item>
+        <item>Holzpakete</item>
+        <item>Holzstapelpakete</item>
     </string-array>
     <string name="delete_package_question">Möchten Sie das Paket entfernen?</string>
     <string name="package_has_been_removed">Das Bündel wurde entfernt</string>
@@ -146,18 +146,18 @@
         <item>Durchführen von Berechnungen von Maßen im metrischen System (Zentimeter [cm], Meter [m] = 100cm) und imperial (Zoll [in], Fuß [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>Notizen für Bundles erstellen</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. LOG-MESSUNG</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) Bei Auswahl des imperialen Systems beträgt die Schrittweite für die eingegebenen Maße 1 Zentimeter (cm), nicht 1 Zoll (in)!</string>
+    <string name="measurement_logs">A. Holzstammmessung</string>
+    <string name="measurement_logs_desc">Die Berechnung der Messung von Stämmen erfolgt mit den folgenden Methoden: Methode ___ (mit und ohne Rinde) und ___ (ohne Rinde).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>mittlerer Durchmesser</item>
+        <item>oberer Durchmesser</item>
     </string-array>
     <string name="calculation_methods">Berechnungsmethoden</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Holzvermessung</string>
+    <string name="measurement_plank_desc">Für die Berechnung des Holzmaßes wird die Formel für das Volumen des Quaders verwendet. Messungen sollten ohne Berücksichtigung der Rinde durchgeführt werden.</string>
+    <string name="measurement_stacks">C. Messung von Holzstapeln</string>
+    <string name="measurement_stacks_desc">Berechnungen für die Vermessung von Holzpfählen werden in Bezug auf ein bestimmtes Sortiment und eine bestimmte Holzart durchgeführt. Die für die Berechnungen vorgesehenen Bereiche (Umrechnungsfaktoren für Holz gemessen in Pfählen) sind S2, S3, S4, M1, M2. Sie können auch Ihren eigenen Faktor im Bereich von 0,1 bis 1,0 verwenden.</string>
     <string name="learn_more">[Mehr sehen]</string>
     <string name="design_and_implementation">Konzeption und Umsetzung</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

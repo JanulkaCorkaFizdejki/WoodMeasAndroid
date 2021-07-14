@@ -34,14 +34,14 @@
     <string name="package_name">Pakendi nimi</string>
     <string name="created_date">Loomise kuupäev</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Puitpalgi mõõtmine</item>
+        <item>Saematerjali mõõtmine</item>
+        <item>Puidust vaiade mõõtmine</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Puitpalgipakid</item>
+        <item>Saematerjali pakendid</item>
+        <item>Puidust virna pakendid</item>
     </string-array>
     <string name="delete_package_question">Kas soovite kimbu eemaldada?</string>
     <string name="package_has_been_removed">Kimp eemaldati</string>
@@ -146,18 +146,18 @@
         <item>mõõtmete arvutuste tegemine meetrilises süsteemis (sentimeeter [cm], meeter [m] = 100 cm) ja imperiaalne (toll [tolli], jalg [jalga] = 12 tolli) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>kimpude jaoks märkmete loomine</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. PALGIMÕÕTMINE</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) imperiaalse süsteemi valimisel on sisestatud mõõtmete juurdekasv 1 sentimeeter (cm), mitte 1 toll (in)!</string>
+    <string name="measurement_logs">A. Puitpalgi mõõtmine</string>
+    <string name="measurement_logs_desc">Palkide mõõtmine arvutatakse järgmiste meetoditega: meetod ___ (koorega ja ilma) ja ___ (kooreta).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>keskmine läbimõõt</item>
+        <item>ülemine läbimõõt</item>
     </string-array>
     <string name="calculation_methods">Arvutusmeetodid</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Saematerjali mõõtmine</string>
+    <string name="measurement_plank_desc">Para el cálculo de la medida de la madera, se utiliza la fórmula para el volumen del cuboide. Las medidas deben tomarse sin tener en cuenta la corteza.</string>
+    <string name="measurement_stacks">C. Puidust vaiade mõõtmine</string>
+    <string name="measurement_stacks_desc">Puidust vaiade mõõtmiseks tehakse arvutused antud sortimendi ja puiduliigi kohta. Arvutusteks ettenähtud vahemikud (vaiadena mõõdetud puidu ümberarvestustegurid) on S2, S3, S4, M1, M2. Võite kasutada ka oma tegurit vahemikus 0,1 kuni 1,0.</string>
     <string name="learn_more">[Näe rohkem]</string>
     <string name="design_and_implementation">Kujundus ja teostus</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

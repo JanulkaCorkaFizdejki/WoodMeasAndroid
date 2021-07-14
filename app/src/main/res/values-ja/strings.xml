@@ -34,14 +34,14 @@
     <string name="package_name">パッケージ名</string>
     <string name="created_date">作成日</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>材木ログ測定</item>
+        <item>材木測定</item>
+        <item>木の杭の測定</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>材木ログパック</item>
+        <item>材木パッケージ</item>
+        <item>ウッドスタックパッケージ</item>
     </string-array>
     <string name="delete_package_question">バンドルを削除しますか？</string>
     <string name="package_has_been_removed">バンドルが削除されました</string>
@@ -146,18 +146,18 @@
         <item>メートル法（センチメートル[cm]、メートル[m] = 100cm）およびインペリアル（インチ[in]、フィート[ft] = 12in）/ 1m3 = 35,315 x 1FT3（*）で測定値を計算します。</item>
         <item>バンドルのメモを作成する</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. ログ測定</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) インペリアルシステムを選択する場合、入力された寸法の増分は1インチ（in）ではなく1センチメートル（cm）です。!</string>
+    <string name="measurement_logs">A. 材木ログ測定</string>
+    <string name="measurement_logs_desc">ログの測定値の計算は、次の方法で行われます：方法___（樹皮ありとなし）および___（樹皮なし）。</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>中径</item>
+        <item>上径</item>
     </string-array>
     <string name="calculation_methods">計算方法</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. 材木測定</string>
+    <string name="measurement_plank_desc">材木の測定値の計算には、直方体の体積の式が使用されます。 樹皮を考慮せずに測定を行う必要があります。</string>
+    <string name="measurement_stacks">C. 木の杭の測定</string>
+    <string name="measurement_stacks_desc">木材の山の測定のための計算は、与えられた品揃えと木材の種類に関して行われます。 計算に提供される範囲（パイルで測定された木材の変換係数）は、S2、S3、S4、M1、M2です。 0.1から1.0の範囲の独自の係数を使用することもできます。</string>
     <string name="learn_more">[続きを見る]</string>
     <string name="design_and_implementation">設計と実装</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

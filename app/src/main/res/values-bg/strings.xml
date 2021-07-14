@@ -34,14 +34,14 @@
     <string name="package_name">Име на пакета</string>
     <string name="created_date">Дата на създаване</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Измерване на дървени трупи</item>
+        <item>Измерване на дървен материал</item>
+        <item>Измерване на дървени купчини</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Дървени опаковки</item>
+        <item>Опаковки от дървен материал</item>
+        <item>Пакети дървени стекове</item>
     </string-array>
     <string name="delete_package_question">Искате ли да премахнете пакета?</string>
     <string name="package_has_been_removed">Пакетът беше премахнат</string>
@@ -146,18 +146,18 @@
         <item>извършване на изчисления на измерванията в метричната система (сантиметър [см], метър [м] = 100 см) и имперски (инч [в], крак [фута] = 12 инча) / 1m3 = 35 315 x 1FT3 (*)</item>
         <item>създаване на бележки за снопове</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. ИЗМЕРВАНЕ НА ДНЕВНИК</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) при избора на императорската система, нарастването за въведените размери е 1 сантиметър (cm), а не 1 инч (in)!</string>
+    <string name="measurement_logs">A. Измерване на дървени трупи</string>
+    <string name="measurement_logs_desc">Изчисляването на измерването на трупи се извършва със следните методи: метод ___ (със и без кора) и ___ (без кора).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>среден диаметър</item>
+        <item>горен диаметър</item>
     </string-array>
     <string name="calculation_methods">Методи за изчисление</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Измерване на дървен материал</string>
+    <string name="measurement_plank_desc">За изчисляване на измерването на дървения материал се използва формулата за обема на кубоида. Измерванията трябва да се извършват без да се взема предвид кората.</string>
+    <string name="measurement_stacks">C. Измерване на дървени купчини</string>
+    <string name="measurement_stacks_desc">Изчисленията за измерванията на дървените пилоти се правят по отношение на даден асортимент и вид дървесина. Диапазоните, предвидени за изчисленията (коефициенти на преобразуване за дървесина, измерени в купчини) са S2, S3, S4, M1, M2. Можете също така да използвате свой собствен коефициент, вариращ от 0,1 до 1,0.</string>
     <string name="learn_more">[Виж повече]</string>
     <string name="design_and_implementation">Проектиране и изпълнение</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

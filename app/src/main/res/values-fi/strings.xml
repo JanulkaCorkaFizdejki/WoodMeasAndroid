@@ -34,14 +34,14 @@
     <string name="package_name">Paketin nimi</string>
     <string name="created_date">Luomispäivä</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Sahatavaran mittaus</item>
+        <item>Puun mittaus</item>
+        <item>Puun paalujen mittaus</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Puutavarapaketit</item>
+        <item>Puutavarapaketit</item>
+        <item>Puun paketit</item>
     </string-array>
     <string name="delete_package_question">Haluatko poistaa nipun?</string>
     <string name="package_has_been_removed">Nippu poistettiin</string>
@@ -146,18 +146,18 @@
         <item>laskelmien tekeminen mittauksista metrijärjestelmässä (senttimetri [cm], metri [m] = 100 cm) ja brittiläisessä (tuuma [tuumaa], jalka [ft] = 12 tuumaa) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>luoda muistiinpanoja nippuille</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. LOKIMITTAUS</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) kun valitaan keisarillinen järjestelmä, syötettyjen mittojen lisäys on 1 senttimetri (cm), ei 1 tuuma (in)!</string>
+    <string name="measurement_logs">A. Sahatavaran mittaus</string>
+    <string name="measurement_logs_desc">Tukkien mittaus lasketaan seuraavilla menetelmillä: menetelmä ___ (kuoren kanssa ja ilman) ja ___ (ilman kuorta).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>keskihalkaisija</item>
+        <item>ylempi halkaisija</item>
     </string-array>
     <string name="calculation_methods">Laskentamenetelmät</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Puun mittaus</string>
+    <string name="measurement_plank_desc">Puunmittauksen laskemiseen käytetään nelikulmaisen tilavuuden kaavaa. Mittaukset tulisi suorittaa ottamatta huomioon kuorta.</string>
+    <string name="measurement_stacks">C. Puun paalujen mittaus</string>
+    <string name="measurement_stacks_desc">Laskelmat puupinojen mittauksille tehdään tietyn lajikkeen ja puulajin suhteen. Laskelmiin tarjotut alueet (paaluina mitatut puun muuntokertoimet) ovat S2, S3, S4, M1, M2. Voit myös käyttää omaa kerrointa 0,1–1,0.</string>
     <string name="learn_more">[Katso lisää]</string>
     <string name="design_and_implementation">Suunnittelu ja toteutus</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

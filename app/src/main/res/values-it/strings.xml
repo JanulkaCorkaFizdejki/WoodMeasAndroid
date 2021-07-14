@@ -34,14 +34,14 @@
     <string name="package_name">Nome del pacchetto</string>
     <string name="created_date">Data di creazione</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Misurazione del tronco di legname</item>
+        <item>Misurazione del legname</item>
+        <item>Misurazione pali</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Pacchi di tronchi di legno</item>
+        <item>Pacchetto di legname</item>
+        <item>Pacchetti impilati in legno</item>
     </string-array>
     <string name="delete_package_question">Vuoi rimuovere il pacchetto?</string>
     <string name="package_has_been_removed">Il pacco è stato rimosso</string>
@@ -146,18 +146,18 @@
         <item>effettuare calcoli di misurazioni nel sistema metrico (centimetro [cm], metro [m] = 100 cm) e imperiale (inch [in], piede [ft] = 12in) / 1m3 = 35,315 x 1FT3 (*)</item>
         <item>creazione di note per i bundle</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. MISURAZIONE DEL REGISTRO</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) quando si seleziona il sistema imperiale, l\'incremento per le dimensioni immesse è 1 centimetro (cm), non 1 pollice (in)!</string>
+    <string name="measurement_logs">A. Misurazione del tronco di legname</string>
+    <string name="measurement_logs_desc">Il calcolo della misura dei tronchi viene effettuato con i seguenti metodi: metodo ___ (con e senza corteccia) e ___ (senza corteccia).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>diametro medio</item>
+        <item>diametro superiore</item>
     </string-array>
     <string name="calculation_methods">Metodi di calcolo</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Misurazione del legname</string>
+    <string name="measurement_plank_desc">Per il calcolo della misurazione del legname, viene utilizzata la formula per il volume del parallelepipedo. Le misurazioni dovrebbero essere prese senza prendere in considerazione la corteccia.</string>
+    <string name="measurement_stacks">C. Misurazione pali</string>
+    <string name="measurement_stacks_desc">I calcoli per le misurazioni dei pali di legno vengono effettuati in relazione a un determinato assortimento e tipo di legno. I range previsti per i calcoli (fattori di conversione per legno misurati in cataste) sono S2, S3, S4, M1, M2. Puoi anche usare il tuo fattore che va da 0,1 a 1,0.</string>
     <string name="learn_more">[Vedi altro]</string>
     <string name="design_and_implementation">Progettazione e realizzazione</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

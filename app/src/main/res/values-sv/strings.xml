@@ -34,14 +34,14 @@
     <string name="package_name">Paketnamn</string>
     <string name="created_date">Skapelsedagen</string>
     <string-array name="menu_calculators">
-        <item>Pomiar kłód</item>
-        <item>Pomiar tarcicy</item>
-        <item>Pomiar stosów</item>
+        <item>Mätning av timmer</item>
+        <item>Virkesmätning</item>
+        <item>Mätning av trähögar</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Pakiety kłód</item>
-        <item>Pakiety tarcicy</item>
-        <item>Pakiety stosów</item>
+        <item>Trästockar</item>
+        <item>Virkespaket</item>
+        <item>Trästackpaket</item>
     </string-array>
     <string name="delete_package_question">Vill du ta bort paketet?</string>
     <string name="package_has_been_removed">Paketet togs bort</string>
@@ -146,18 +146,18 @@
         <item>göra beräkningar av mätningar i det metriska systemet (centimeter [cm], meter [m] = 100 cm) och imperial (tum [tum], fot [ft] = 12 tum) / 1 m3 = 35,315 x 1FT3 (*)</item>
         <item>skapa anteckningar för buntar</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) przy wyborze systemu imperialnego skokiem dla wprowadzanych wymiarów jest 1 centymetr (cm) a nie 1 cal (in)!</string>
-    <string name="measurement_logs">A. LOGGMÄTNING</string>
-    <string name="measurement_logs_desc">Obliczenia pomiaru kłód dokonywane są przy zastosowaniu metody ___ (z korą oraz bez kory) oraz ___ (bez kory).</string>
+    <string name="legend_app_fun_1">(*) när du väljer det kejserliga systemet är inkrementet för de angivna dimensionerna 1 centimeter (cm), inte 1 tum (in)!</string>
+    <string name="measurement_logs">A. Mätning av timmer</string>
+    <string name="measurement_logs_desc">Beräkning av mätningen av stockar görs med följande metoder: metod ___ (med och utan bark) och ___ (utan bark).</string>
     <string-array name="measurement_logs_swap">
-        <item>średnicy środkowej</item>
-        <item>średnicy górnej</item>
+        <item>mittdiameter</item>
+        <item>övre diameter</item>
     </string-array>
     <string name="calculation_methods">Beräkningsmetoder</string>
-    <string name="measurement_plank">B. POMIAR TARCICY</string>
-    <string name="measurement_plank_desc">Do obliczeń pomiaru tarcicy używany jest wzór na objętość prostopadłościanu. Pomiarów należy dokonywać bez uwzględniania kory.</string>
-    <string name="measurement_stacks">C. POMIAR STOSÓW</string>
-    <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
+    <string name="measurement_plank">B. Virkesmätning</string>
+    <string name="measurement_plank_desc">För beräkning av virkesmätningen används formeln för kuboidens volym. Mätningar bör göras utan att barken beaktas.</string>
+    <string name="measurement_stacks">C. Mätning av trähögar</string>
+    <string name="measurement_stacks_desc">Beräkningar för mätningar av vedar görs med avseende på ett givet sortiment och träslag. Områdena för beräkningarna (omvandlingsfaktorer för trä uppmätt i pålar) är S2, S3, S4, M1, M2. Du kan också använda din egen faktor från 0,1 till 1,0.</string>
     <string name="learn_more">[Se mer]</string>
     <string name="design_and_implementation">Design och implementering</string>
     <string name="qwertymediacom">www.qwertymedia.com</string>

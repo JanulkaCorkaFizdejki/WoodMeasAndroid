@@ -6,26 +6,16 @@ import android.content.res.Resources
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.woodmeas.controller.MenuItemsAdapter
 import com.mobile.woodmeas.datamodel.MenuType
-import com.mobile.woodmeas.helpers.PdfPrinter
-import com.mobile.woodmeas.math.Calculator
 import com.mobile.woodmeas.model.DatabaseManager
-import com.mobile.woodmeas.viewcontrollers.OnSwipeTouchListener
-import java.util.*
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
