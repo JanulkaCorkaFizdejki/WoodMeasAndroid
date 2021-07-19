@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Розрахунки для вимірів деревних паль проводяться з урахуванням заданого асортименту та виду деревини. Діапазони, передбачені для розрахунків (коефіцієнти перерахунку деревини, виміряні в палі), складають S2, S3, S4, M1, M2. Ви також можете використовувати свій власний коефіцієнт від 0,1 до 1,0.</string>
     <string name="learn_more">[Побачити більше]</string>
     <string name="design_and_implementation">Розробка та впровадження</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Легенда</string>
     <string name="monetary_units">Грошові одиниці</string>

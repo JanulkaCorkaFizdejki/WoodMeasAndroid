@@ -2,6 +2,7 @@ package com.mobile.woodmeas.datamodel
 
 import android.content.Context
 import com.mobile.woodmeas.R
+import kotlin.math.roundToInt
 
 enum class UnitsMeasurement {
     CM{
@@ -32,6 +33,15 @@ enum class UnitsMeasurement {
         fun convertToInchToString(cm: Int): String {
             return "%.2f".format(cm.toFloat() / 2.54F).replace(".", ",")
         }
+
+        fun convertToInchToIntToString(cm: Int): String {
+            return (cm.toFloat() / 2.54F).roundToInt().toString()
+        }
+
+        fun convertToInchToInt(cm: Int): Int {
+            return (cm.toFloat() / 2.54F).roundToInt()
+        }
+
         fun convertToInchToFloat(cm: Int): Float {
             return "%.2f".format(cm.toFloat() / 2.54F).replace(",", ".").toFloat()
         }
@@ -40,6 +50,9 @@ enum class UnitsMeasurement {
         }
         fun convertToFootToFloat(m: Float): Float {
             return "%.2f".format(m * 35.315F).replace(",", ".").toFloat()
+        }
+        fun convertCmToFootToString(cm: Int): String {
+            return "%.2f".format((cm.toFloat() / 2.54) * 0.083).replace(".", ",")
         }
     }
 }

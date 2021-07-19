@@ -261,8 +261,8 @@ object PdfPrinter {
                     page.canvas.drawText(woodenLog.logLengthCm.toString(), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                     page.canvas.drawText(woodenLog.logWidthCm.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 } else {
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(woodenLog.logLengthCm), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(woodenLog.logWidthCm), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(woodenLog.logLengthCm), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(woodenLog.logWidthCm), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 }
 
 
@@ -478,9 +478,9 @@ object PdfPrinter {
                     page.canvas.drawText(stack.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                     page.canvas.drawText(stack.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 } else {
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(stack.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(stack.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(stack.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(stack.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                 }
 
 
@@ -661,11 +661,13 @@ object PdfPrinter {
                     page.canvas.drawText(context.resources.getString(R.string.length_short_cm), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
                     page.canvas.drawText(context.resources.getString(R.string.width_short_cm), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
                     page.canvas.drawText(context.resources.getString(R.string.height_short_cm), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.m3_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
                 }
                 else {
                     page.canvas.drawText(context.resources.getString(R.string.length_short_in), margin.toFloat() + 160f, 160f, textPaintHeaderTable)
                     page.canvas.drawText(context.resources.getString(R.string.width_short_in), margin.toFloat() + 220f, 160f, textPaintHeaderTable)
                     page.canvas.drawText(context.resources.getString(R.string.height_short_in), margin.toFloat() + 280f, 160f, textPaintHeaderTable)
+                    page.canvas.drawText(context.resources.getString(R.string.ft3_short), margin.toFloat() + 320f, 160f, textPaintHeaderTable)
                 }
 
                 // _____________________________________________________________________________________
@@ -692,9 +694,9 @@ object PdfPrinter {
                     page.canvas.drawText(plank.width.toString(), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
                     page.canvas.drawText(plank.height.toString(), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
                 } else {
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
-                    page.canvas.drawText(UnitsMeasurement.convertToInchToString(plank.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(plank.length), margin.toFloat() + 160f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(plank.width), margin.toFloat() + 220f, intervalSizeIterator.toFloat(),textPaintDarkGray6)
+                    page.canvas.drawText(UnitsMeasurement.convertToInchToIntToString(plank.height), margin.toFloat() + 280f, intervalSizeIterator.toFloat(), textPaintDarkGray6)
                 }
 
                 val format = if(unitsMeasurement == UnitsMeasurement.CM)

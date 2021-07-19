@@ -28,7 +28,7 @@
     <string name="menu_name_packages">Pachetele de lemn</string>
     <string name="menu_name_calculators">Calculatoare</string>
     <string name="activity_default_name">Activity</string>
-    <string name="no_data">Brak danych</string>
+    <string name="no_data">Nu există date</string>
     <string name="search">Căutare</string>
     <string name="id">Id</string>
     <string name="package_name">Numele pachetului</string>
@@ -160,10 +160,10 @@
     <string name="measurement_stacks_desc">Calculele pentru măsurătorile grămezilor de lemn se fac cu privire la un sortiment dat și tipul de lemn. Intervalele prevăzute pentru calcule (factorii de conversie pentru lemn măsurați în grămezi) sunt S2, S3, S4, M1, M2. Puteți utiliza, de asemenea, propriul factor care variază de la 0,1 la 1,0.</string>
     <string name="learn_more">[Vezi mai mult]</string>
     <string name="design_and_implementation">Design si implementare</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legendă</string>
     <string name="monetary_units">Unități monetare</string>
     <string name="package_value">Iepakojuma vērtība</string>
-    <string name="open_file">" Deschide fișierul"</string>
+    <string name="open_file">Deschide fișierul</string>
 </resources>

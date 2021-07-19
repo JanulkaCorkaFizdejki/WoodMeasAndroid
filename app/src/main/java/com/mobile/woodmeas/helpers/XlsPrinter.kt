@@ -182,17 +182,11 @@ object XlsPrinter {
                 else {
                     hssfRow
                         .createCell(3)
-                        .setCellValue(
-                            "%.2f".format(UnitsMeasurement.convertToFootToFloat(woodenLogItem.logLengthCm.toFloat()))
-                                .replace(",", ".")
-                                .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(woodenLogItem.logLengthCm).toDouble())
 
                     hssfRow
                         .createCell(4)
-                        .setCellValue(
-                            "%.2f".format(UnitsMeasurement.convertToFootToFloat(woodenLogItem.logWidthCm.toFloat()))
-                                .replace(",", ".")
-                                .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(woodenLogItem.logWidthCm).toDouble())
                 }
 
 
@@ -212,8 +206,8 @@ object XlsPrinter {
                 else {
                     "%.2f".format(UnitsMeasurement
                         .convertToFootToFloat(woodenLogItem.cubicCm.toFloat() / 1000000f))
-                        .replace(",", ".").
-                        toDouble()
+                        .replace(",", ".")
+                        .toDouble()
                 }
                 hssfRow.createCell(6).apply {
                     setCellValue(m3)
@@ -383,21 +377,15 @@ object XlsPrinter {
                 else {
                     hssfRow
                         .createCell(3)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.length))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(plankItem.length).toDouble())
 
                     hssfRow
                         .createCell(4)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.width))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(plankItem.width).toDouble())
 
                     hssfRow
                         .createCell(5)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(plankItem.height))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(plankItem.height).toDouble())
                 }
 
 
@@ -580,19 +568,13 @@ object XlsPrinter {
                 } else {
                     hssfRow
                         .createCell(3)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.length))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(stackItem.length).toDouble())
                     hssfRow
                         .createCell(4)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.width))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(stackItem.width).toDouble())
                     hssfRow
                         .createCell(5)
-                        .setCellValue("%.2f".format(UnitsMeasurement.convertToInchToFloat(stackItem.height))
-                            .replace(",", ".")
-                            .toDouble())
+                        .setCellValue(UnitsMeasurement.convertToInchToInt(stackItem.height).toDouble())
                 }
 
 

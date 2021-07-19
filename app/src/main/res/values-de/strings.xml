@@ -54,7 +54,7 @@
     <string name="diameter">Durchmesser</string>
     <string name="_3">3</string>
     <string name="add_to_package">+ Zum Bundle hinzufügen</string>
-    <string name="hold_down_to_add">Halten Sie zum Hinzufügen die Taste . gedrückt</string>
+    <string name="hold_down_to_add">Halten Sie zum Hinzufügen die Taste</string>
     <string name="packages">Pakiet</string>
     <string name="ok">OK</string>
     <string name="enter_all_dimensions">Geben Sie alle Abmessungen ein</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Berechnungen für die Vermessung von Holzpfählen werden in Bezug auf ein bestimmtes Sortiment und eine bestimmte Holzart durchgeführt. Die für die Berechnungen vorgesehenen Bereiche (Umrechnungsfaktoren für Holz gemessen in Pfählen) sind S2, S3, S4, M1, M2. Sie können auch Ihren eigenen Faktor im Bereich von 0,1 bis 1,0 verwenden.</string>
     <string name="learn_more">[Mehr sehen]</string>
     <string name="design_and_implementation">Konzeption und Umsetzung</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legende</string>
     <string name="monetary_units">Währungseinheiten</string>

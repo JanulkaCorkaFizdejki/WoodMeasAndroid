@@ -15,8 +15,8 @@
     <string name="delete">Radera</string>
     <string name="cancel">Avbryt</string>
     <string name="yes">Ja</string>
-    <string name="add_wood_package_name">" Ange paketnamnet:"</string>
-    <string name="absence">Brak</string>
+    <string name="add_wood_package_name">Ange paketnamnet:</string>
+    <string name="absence">Brist</string>
     <string name="create_package">Skapa ett paket</string>
     <string name="created_package">Paketet skapades</string>
     <string name="do_you_want_to_delete_wood_package_from_currency_view">Vill du ta bort en träbunt från den aktuella vyn?</string>
@@ -61,7 +61,7 @@
     <string name="create_and_use">Skapa och använd</string>
     <string name="no_packages">Inga buntar</string>
     <string name="print">Skriva ut</string>
-    <string name="send">WSkicka</string>
+    <string name="send">Skicka</string>
     <string name="do_you_want_delete_element_question">Vill du ta bort elementet?</string>
     <string name="package_details">Buntinnehåll</string>
     <string name="bark">Bark</string>
@@ -71,8 +71,8 @@
     <string name="cross_stack">Kors-kors trä hög</string>
     <string name="no_cross_stack">Parallell vedhög</string>
     <string-array name="trees">
-        <item>Gran(1)</item>
-        <item>Gran(2)</item>
+        <item>Gran(s-ce)</item>
+        <item>Gran(fir)</item>
         <item>Tall</item>
         <item>Lärkträd</item>
         <item>Björk</item>
@@ -116,7 +116,7 @@
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
     <string name="metric_system">Metriska systemet</string>
-    <string name="imperial_system">Kejserligt system</string>
+    <string name="imperial_system">Brittiska måttenheter</string>
     <string name="updated">Uppdaterad</string>
     <string name="apply">Tillämpa</string>
     <string name="settings">Inställningar</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Beräkningar för mätningar av vedar görs med avseende på ett givet sortiment och träslag. Områdena för beräkningarna (omvandlingsfaktorer för trä uppmätt i pålar) är S2, S3, S4, M1, M2. Du kan också använda din egen faktor från 0,1 till 1,0.</string>
     <string name="learn_more">[Se mer]</string>
     <string name="design_and_implementation">Design och implementering</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legend</string>
     <string name="monetary_units">Monetära enheter</string>

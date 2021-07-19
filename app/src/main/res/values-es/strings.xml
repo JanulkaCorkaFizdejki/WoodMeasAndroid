@@ -71,8 +71,8 @@
     <string name="cross_stack">Pila de madera cruzada</string>
     <string name="no_cross_stack">Pila de madera paralela</string>
     <string-array name="trees">
-        <item>Abeto(1)</item>
-        <item>Abeto(2)</item>
+        <item>Abeto(s-ce)</item>
+        <item>Abeto(fir)</item>
         <item>Pino</item>
         <item>Alerce</item>
         <item>Abedul</item>
@@ -158,9 +158,9 @@
     <string name="measurement_plank_desc">Saematerjali mõõtmise arvutamiseks kasutatakse risttahuka mahu valemit. Mõõtmised tuleks teha ilma koort arvestamata.</string>
     <string name="measurement_stacks">C. Medición de pilotes de madera</string>
     <string name="measurement_stacks_desc">Los cálculos para las medidas de las pilas de madera se realizan con respecto a un surtido y tipo de madera determinados. Los rangos proporcionados para los cálculos (factores de conversión para madera medida en pilotes) son S2, S3, S4, M1, M2. También puede utilizar su propio factor de 0,1 a 1,0.</string>
-    <string name="learn_more">Ver más]</string>
+    <string name="learn_more">[Seguir leyendo]</string>
     <string name="design_and_implementation">Diseño e implementación</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Leyenda</string>
     <string name="monetary_units">Unidades monetarias</string>

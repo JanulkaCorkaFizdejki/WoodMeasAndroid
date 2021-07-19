@@ -159,7 +159,7 @@
     <string name="measurement_stacks_desc">लकड़ी के ढेर के माप की गणना किसी दिए गए वर्गीकरण और लकड़ी के प्रकार के संबंध में की जाती है। गणना के लिए प्रदान की गई श्रेणियां (ढेर में मापी गई लकड़ी के लिए रूपांतरण कारक) S2, S3, S4, M1, M2 हैं। आप 0.1 से 1.0 तक के अपने स्वयं के कारक का भी उपयोग कर सकते हैं।</string>
     <string name="learn_more">[और देखें]</string>
     <string name="design_and_implementation">डिजाइन और निष्पादन</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">किंवदंती</string>
     <string name="monetary_units">मौद्रिक इकाइयाँ</string>

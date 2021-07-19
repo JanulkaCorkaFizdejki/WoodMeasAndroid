@@ -23,7 +23,7 @@
     <string name="add_to_wood_package">Legg til i pakken</string>
     <string name="added_to_package">Lagt til i pakken</string>
     <string name="select_or_create_wood_package">Velg eller lag trebunten</string>
-    <string name="last_update_date">Data ostatniej modyfikacji</string>
+    <string name="last_update_date">Dato for siste endring</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
     <string name="menu_name_packages">Trebunter</string>
     <string name="menu_name_calculators">Kalkulatorer</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Beregninger for måling av trepeler gjøres med tanke på et gitt sortiment og treslag. Områdene som er gitt for beregningene (konverteringsfaktorer for tre målt i peler) er S2, S3, S4, M1, M2. Du kan også bruke din egen faktor fra 0,1 til 1,0.</string>
     <string name="learn_more">[Se mer]</string>
     <string name="design_and_implementation">Design og implementering</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legende</string>
     <string name="monetary_units">Monetære enheter</string>

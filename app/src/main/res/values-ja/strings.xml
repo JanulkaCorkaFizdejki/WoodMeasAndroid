@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">木材の山の測定のための計算は、与えられた品揃えと木材の種類に関して行われます。 計算に提供される範囲（パイルで測定された木材の変換係数）は、S2、S3、S4、M1、M2です。 0.1から1.0の範囲の独自の係数を使用することもできます。</string>
     <string name="learn_more">[続きを見る]</string>
     <string name="design_and_implementation">設計と実装</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">伝説</string>
     <string name="monetary_units">通貨単位</string>

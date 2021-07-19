@@ -8,25 +8,25 @@
     <string name="meters_short">m</string>
     <string name="foot_short">ft</string>
     <string name="meters_decimal_short">m3</string>
-    <string name="measurement_width_bark">Meranie pomocou kôry</string>
+    <string name="measurement_width_bark">Meranie s kôrou</string>
     <string name="measurement_without_bark">Meranie bez kôry</string>
     <string name="select">Vyberte si</string>
     <string name="create">Vytvoriť</string>
     <string name="delete">Odstrániť</string>
     <string name="cancel">Zrušiť</string>
     <string name="yes">Áno</string>
-    <string name="add_wood_package_name">" Zadajte názov balíka:"</string>
+    <string name="add_wood_package_name">Zadaj názov balíka:</string>
     <string name="absence">Nedostatok</string>
-    <string name="create_package">Vytvorte balíček</string>
-    <string name="created_package">Balík bol vytvorený</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Chcete z aktuálneho zobrazenia odstrániť zväzok dreva?</string>
-    <string name="add_to_wood_package">Pridajte do zväzku</string>
-    <string name="added_to_package">Pridané do zväzku</string>
-    <string name="select_or_create_wood_package">Vyberte alebo vytvorte zväzok dreva</string>
-    <string name="last_update_date">Dátum poslednej úpravy</string>
+    <string name="create_package">Vytvor balík</string>
+    <string name="created_package">Balík bol úspešne vytvorený</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Chceš odstrániť balík dreva zo zobrazených?</string>
+    <string name="add_to_wood_package">Pridaj do balíka</string>
+    <string name="added_to_package">Pridané do balíka</string>
+    <string name="select_or_create_wood_package">Vyber alebo vytvor balík dreva</string>
+    <string name="last_update_date">Dátum poslednej zmeny</string>
     <string name="copyright">Copyright Qwerty Media 2021 All rights reserved</string>
-    <string name="menu_name_packages">Zväzky dreva</string>
-    <string name="menu_name_calculators">Kalkulatory</string>
+    <string name="menu_name_packages">Balíky dreva</string>
+    <string name="menu_name_calculators">Kalkulačky</string>
     <string name="activity_default_name">Activity</string>
     <string name="no_data">Žiadne dáta</string>
     <string name="search">Vyhľadávanie</string>
@@ -34,42 +34,42 @@
     <string name="package_name">Názov balenia</string>
     <string name="created_date">Dátum vytvorenia</string>
     <string-array name="menu_calculators">
-        <item>Meranie guľatiny z dreva</item>
+        <item>Meranie guľatiny</item>
         <item>Meranie reziva</item>
-        <item>Meranie drevených hromád</item>
+        <item>Meranie dtohov</item>
     </string-array>
     <string-array name="menu_packages">
-        <item>Drevené guľatiny</item>
+        <item>Balíky guľatiny</item>
         <item>Balíky reziva</item>
-        <item>Balíky drevených stohov</item>
+        <item>Balíky stohov</item>
     </string-array>
-    <string name="delete_package_question">Chcete odstrániť balík?</string>
-    <string name="package_has_been_removed">Zväzok bol odstránený</string>
+    <string name="delete_package_question">Chceš odstrániť balík?</string>
+    <string name="package_has_been_removed">Balík bol odstránený</string>
     <string name="package_is_empty">Balík je prázdny</string>
-    <string name="remove_all_packages">Odstráňte zväzky</string>
-    <string name="delete_all_packages_question">Chcete odstrániť všetky balíky?</string>
+    <string name="remove_all_packages">Odstrániť balíky</string>
+    <string name="delete_all_packages_question">Chceš odstrániť všetky balíky?</string>
     <string name="length">Dĺžka</string>
     <string name="width">Šírka</string>
     <string name="height">Výška</string>
     <string name="diameter">Priemer</string>
     <string name="_3">3</string>
-    <string name="add_to_package">+ Pridajte do zväzku</string>
-    <string name="hold_down_to_add">Ak ju chcete pridať, podržte stlačené tlačidlo</string>
+    <string name="add_to_package">+ Pridaj do balíka</string>
+    <string name="hold_down_to_add">Pre pridanie podrž tlačidlo</string>
     <string name="packages">Balenie</string>
     <string name="ok">OK</string>
-    <string name="enter_all_dimensions">Zadajte všetky rozmery</string>
-    <string name="create_and_use">Tvorte a používajte</string>
-    <string name="no_packages">Žiadne zväzky</string>
+    <string name="enter_all_dimensions">Zadaj všetky rozmery</string>
+    <string name="create_and_use">Vytvor a použi</string>
+    <string name="no_packages">Žiadne nájdené balíky</string>
     <string name="print">Tlač</string>
     <string name="send">Pošli</string>
-    <string name="do_you_want_delete_element_question">Chcete odstrániť prvok?</string>
-    <string name="package_details">Zbaliť obsah</string>
-    <string name="bark">Štekať</string>
-    <string name="plank_package">Zväzok reziva</string>
-    <string name="log_package">Balík denníkov</string>
-    <string name="stack_package">Zväzok drevných hromád</string>
-    <string name="cross_stack">Krížová drevená hromada</string>
-    <string name="no_cross_stack">Paralelná drevená hromada</string>
+    <string name="do_you_want_delete_element_question">Chceš odstraniť prvok?</string>
+    <string name="package_details">Obsah balíka</string>
+    <string name="bark">Kôra</string>
+    <string name="plank_package">Balík reziva</string>
+    <string name="log_package">Balík guľatiny</string>
+    <string name="stack_package">Balík stohov</string>
+    <string name="cross_stack">Priečny stoh dreva</string>
+    <string name="no_cross_stack">Stoh dreva</string>
     <string-array name="trees">
         <item>Smrek</item>
         <item>Jedľa</item>
@@ -111,56 +111,56 @@
     <string name="_x10">x10</string>
     <string name="_x100">x100</string>
     <string name="_x1000">x1000</string>
-    <string name="unit_of_measurement">Jednotka merania</string>
+    <string name="unit_of_measurement">Merné jednotky</string>
     <string name="unit_measurement_cm_m">cm / m</string>
     <string name="unit_measurement_in_ft">in / ft</string>
     <string name="unit_measurement_legend_1">1m = 100cm / 1ft = 12in / 1m3 = 35.315 x1FT3</string>
     <string name="metric_system">Metrický systém</string>
-    <string name="imperial_system">Cisársky systém</string>
+    <string name="imperial_system">Imperiálny systém</string>
     <string name="updated">Aktualizované</string>
     <string name="apply">Podať žiadosť</string>
     <string name="settings">Nastavenie</string>
     <string name="information">Informácie</string>
     <string name="sortyment">Sortyment</string>
     <string name="float_0_1">0,1</string>
-    <string name="custom_factor">Własny współczynnik</string>
+    <string name="custom_factor">Vlastný koeficient</string>
     <string name="float_0_0_1">0,01</string>
-    <string name="package_notes">Zväzok poznámok</string>
-    <string name="add_to_emails">Pridať do e-mailov</string>
-    <string name="add_to_pdf">Miesto v dokumentoch pdf</string>
+    <string name="package_notes">Poznámky k balíkom</string>
+    <string name="add_to_emails">Pridávaj k emailom</string>
+    <string name="add_to_pdf">Umiestňuj v dokumentech PDF</string>
     <string name="sent_from_app">Odoslané z aplikácie Wood Meas</string>
-    <string name="method_measuring_logs">Metóda merania drevených kmeňov</string>
-    <string name="end_diameter_center_diameter">Konečný priemer / Stredný priemer</string>
-    <string name="end_diameter">Konečný priemer</string>
-    <string name="center_diameter">Stredný priemer</string>
+    <string name="method_measuring_logs">Spôsob merania guľatiny</string>
+    <string name="end_diameter_center_diameter">Priemer na konci / Priemer uprostred</string>
+    <string name="end_diameter">Priemer na konci</string>
+    <string name="center_diameter">Priemer uprostred</string>
     <string name="slash">/</string>
-    <string name="application_description">Aplikácia Wood Meas je merací nástroj na meranie guľatiny, reziva a drevených hromád.</string>
+    <string name="application_description">Wood Meas je náradie na výpočet merania, ktoré má svoje využitie pri meraní guľatiny, reziva a stohov.</string>
     <string name="application_features">Funkcie aplikácie</string>
     <string-array name="application_features_list">
-        <item>vykonávanie výpočtov meraní drevených kmeňov</item>
+        <item>vykonávanie výpočtov meraní guľatiny</item>
         <item>vykonávanie výpočtov meraní reziva</item>
-        <item>vykonávanie výpočtov meraní drevnej hmoty</item>
-        <item>vytváranie zväzkov guľatiny, reziva a hromád</item>
-        <item>generovanie správ pre zväzky vo forme tabuliek (xls) a pdf dokumentov</item>
-        <item>prevod veľkostí zväzkov na peňažné jednotky</item>
-        <item>vykonávanie výpočtov meraní v metrickom systéme (centimetre [cm], metre [m] = 100 cm) a imperiálnych rozmeroch (palce [palce], stopy [stopy] = 12 palcov) / 1 m3 = 35,315 x 1FT3 (*)</item>
-        <item>vytváranie poznámok pre zväzky</item>
+        <item>vykonávanie výpočtov meraní stohov dreva</item>
+        <item>tvorba balíkov guľatiny, reziva a stohov</item>
+        <item>generovanie prehľadov pre balíky vo formáte výpočtových tabuliek (xls) a dokumentov PDF</item>
+        <item>prepočet veľkosti balíkov na peňažné jednotky</item>
+        <item>vykonávanie výpočtov meraní v metrickom systéme (centimeter [cm], meter [m]=100cm) a imperiálnom systéme (palec [in], stopa [ft]=12in (*)</item>
+        <item>tvorba poznámok k balíkom</item>
     </string-array>
-    <string name="legend_app_fun_1">(*) pri výbere imperiálneho systému je prírastok pre zadané rozmery 1 centimeter (cm), nie 1 palec (in)!</string>
-    <string name="measurement_logs">A. Meranie guľatiny z dreva</string>
-    <string name="measurement_logs_desc">Výpočet merania guľatiny sa vykonáva pomocou nasledujúcich metód: metóda ___ (s kôrou a bez nej) a ___ (bez kôry).</string>
+    <string name="legend_app_fun_1">(*) pri výbere imperiálneho systému je skokom pre zadávané rozmery centimeter (cm), nie palec (in)!</string>
+    <string name="measurement_logs">A. Meranie guľatiny</string>
+    <string name="measurement_logs_desc">Pri výpočte merania guľatiny sa používa metóda ___ (s kôrou a bez kôry) a ___ (bez kôry).</string>
     <string-array name="measurement_logs_swap">
-        <item>stredný priemer</item>
-        <item>horný priemer</item>
+        <item>priemeru uprostred</item>
+        <item>horného priemeru</item>
     </string-array>
-    <string name="calculation_methods">Metódy výpočtu</string>
+    <string name="calculation_methods">Metódy výpočtov</string>
     <string name="measurement_plank">B. Meranie reziva</string>
-    <string name="measurement_plank_desc">Na výpočet merania reziva sa používa vzorec pre objem kvádra. Merania by sa mali robiť bez zohľadnenia kôry.</string>
-    <string name="measurement_stacks">C. Meranie drevených hromád</string>
-    <string name="measurement_stacks_desc">Výpočty pre merania drevených hromád sa robia so zreteľom na daný sortiment a druh dreva. Rozsahy poskytnuté pre výpočty (prepočítavacie faktory pre drevo merané v hromadách) sú S2, S3, S4, M1, M2. Môžete tiež použiť svoj vlastný faktor v rozmedzí od 0,1 do 1,0.</string>
+    <string name="measurement_plank_desc">Na výpočet merania reziva sa používa vzorec pre výpočet objemu kvádra. Meranie musí byť bez kôry.</string>
+    <string name="measurement_stacks">C. Meranie dtohov</string>
+    <string name="measurement_stacks_desc">Výpočty meraní stohov zohľadňujú sortiment a druh dreva. Sortiment prednastavený vo výpočtoch (prevodné koeficienty pre drevo merané v stohoch): S2, S3, S4, M1, M2. Je možné použiť aj vlastný koeficient v rzomedzí od 0,1 do 1,0.</string>
     <string name="learn_more">[Pozrieť viac]</string>
-    <string name="design_and_implementation">Dizajn a implementácia</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="design_and_implementation">Projekt a realizácia</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legenda</string>
     <string name="monetary_units">Peňažné jednotky</string>

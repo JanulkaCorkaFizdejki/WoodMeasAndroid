@@ -53,7 +53,7 @@ class PackagePlankDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${plankList[position].length}"
             } else {
-                UnitsMeasurement.convertToInchToString(plankList[position].length)
+                UnitsMeasurement.convertToInchToIntToString(plankList[position].length)
             }
             text = textFormat
         }
@@ -62,7 +62,7 @@ class PackagePlankDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${plankList[position].width}"
             } else {
-                UnitsMeasurement.convertToInchToString(plankList[position].width)
+                UnitsMeasurement.convertToInchToIntToString(plankList[position].width)
             }
             text = textFormat
         }
@@ -71,7 +71,7 @@ class PackagePlankDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${plankList[position].height}"
             } else {
-                UnitsMeasurement.convertToInchToString(plankList[position].height)
+                UnitsMeasurement.convertToInchToIntToString(plankList[position].height)
             }
             text = textFormat
         }
@@ -160,7 +160,7 @@ class PackageLogDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${woodenLogList[position].logLengthCm}"
             } else {
-                UnitsMeasurement.convertToInchToString(woodenLogList[position].logLengthCm)
+                UnitsMeasurement.convertToInchToIntToString(woodenLogList[position].logLengthCm)
             }
             text = textFormat
         }
@@ -169,7 +169,7 @@ class PackageLogDetailsItemAdapter(
             val textFormat =  if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${woodenLogList[position].logWidthCm}"
             } else {
-                UnitsMeasurement.convertToInchToString(woodenLogList[position].logWidthCm)
+                UnitsMeasurement.convertToInchToIntToString(woodenLogList[position].logWidthCm)
             }
             text = textFormat
         }
@@ -270,7 +270,7 @@ class PackageStackDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${stackList[position].length}"
             } else {
-                UnitsMeasurement.convertToInchToString(stackList[position].length)
+                UnitsMeasurement.convertToInchToIntToString(stackList[position].length)
             }
             text = textFormat
         }
@@ -279,7 +279,7 @@ class PackageStackDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${stackList[position].width}"
             } else {
-                UnitsMeasurement.convertToInchToString(stackList[position].width)
+                UnitsMeasurement.convertToInchToIntToString(stackList[position].width)
             }
             text = textFormat
         }
@@ -288,7 +288,7 @@ class PackageStackDetailsItemAdapter(
             val textFormat = if(unitsMeasurement == UnitsMeasurement.CM) {
                 "${stackList[position].height}"
             } else {
-                UnitsMeasurement.convertToInchToString(stackList[position].height)
+                UnitsMeasurement.convertToInchToIntToString(stackList[position].height)
             }
             text = textFormat
         }

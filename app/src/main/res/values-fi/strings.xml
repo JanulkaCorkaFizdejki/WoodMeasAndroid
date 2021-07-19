@@ -19,7 +19,7 @@
     <string name="absence">Puute</string>
     <string name="create_package">Luo paketti</string>
     <string name="created_package">Paketti luotiin</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Haluatko poistaa puupaketin nykyisestä näkymästä?</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">aluatko poistaa puupaketin nykyisestä näkymästä?</string>
     <string name="add_to_wood_package">Lisää nippuun</string>
     <string name="added_to_package">Lisätty nippuun</string>
     <string name="select_or_create_wood_package">Valitse tai luo puupaketti</string>
@@ -128,7 +128,7 @@
     <string name="package_notes">Nipun setelit</string>
     <string name="add_to_emails">Lisää sähköposteihin</string>
     <string name="add_to_pdf">Sijoita pdf-tiedostoihin</string>
-    <string name="sent_from_app">Lähetetty Wood Meas -sovelluksesta</string>
+    <string name="sent_from_app">Lähetetty Wood Meas - sovelluksesta</string>
     <string name="method_measuring_logs">Menetelmä puutukkien mittaamiseksi</string>
     <string name="end_diameter_center_diameter">Lopullinen halkaisija / Keskihalkaisija</string>
     <string name="end_diameter">Lopullinen halkaisija</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Laskelmat puupinojen mittauksille tehdään tietyn lajikkeen ja puulajin suhteen. Laskelmiin tarjotut alueet (paaluina mitatut puun muuntokertoimet) ovat S2, S3, S4, M1, M2. Voit myös käyttää omaa kerrointa 0,1–1,0.</string>
     <string name="learn_more">[Katso lisää]</string>
     <string name="design_and_implementation">Suunnittelu ja toteutus</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legenda</string>
     <string name="monetary_units">Rahayksiköt</string>

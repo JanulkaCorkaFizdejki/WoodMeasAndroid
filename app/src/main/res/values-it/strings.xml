@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">I calcoli per le misurazioni dei pali di legno vengono effettuati in relazione a un determinato assortimento e tipo di legno. I range previsti per i calcoli (fattori di conversione per legno misurati in cataste) sono S2, S3, S4, M1, M2. Puoi anche usare il tuo fattore che va da 0,1 a 1,0.</string>
     <string name="learn_more">[Vedi altro]</string>
     <string name="design_and_implementation">Progettazione e realizzazione</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Leggenda</string>
     <string name="monetary_units">Unità monetarie</string>

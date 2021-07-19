@@ -19,7 +19,7 @@
     <string name="absence">Absence</string>
     <string name="create_package">Create a package</string>
     <string name="created_package">Bundle was created</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Do you went to remove a wood bundle from the current view?</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Do you want to remove a wood bundle from the current view?</string>
     <string name="add_to_wood_package">Add to the bundle</string>
     <string name="added_to_package">Added to the bundle</string>
     <string name="select_or_create_wood_package">Choose or create the wood bundle</string>
@@ -91,15 +91,15 @@
     </string-array>
     <string name="yes_short">T</string>
     <string name="no_short">N</string>
-    <string name="length_short_cm">D/CM</string>
-    <string name="width_short_cm">S/CM</string>
-    <string name="height_short_cm">W/CM</string>
-    <string name="diameter_short_cm">Ś/CM</string>
+    <string name="length_short_cm">L/CM</string>
+    <string name="width_short_cm">W/CM</string>
+    <string name="height_short_cm">H/CM</string>
+    <string name="diameter_short_cm">D/CM</string>
     <string name="m3_short">M3</string>
-    <string name="length_short_in">D/IN</string>
-    <string name="width_short_in">S/IN</string>
-    <string name="height_short_in">W/IN</string>
-    <string name="diameter_short_in">Ś/IN</string>
+    <string name="length_short_in">L/IN</string>
+    <string name="width_short_in">W/IN</string>
+    <string name="height_short_in">H/IN</string>
+    <string name="diameter_short_in">D/IN</string>
     <string name="ft3_short">FT3</string>
     <string name="cross_short">X</string>
     <string name="bark_short">BARK</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Calculations for the measurements of wood piles are made with regard to a given assortment and type of wood. The ranges provided for the calculations (conversion factors for wood measured in piles) are S2, S3, S4, M1, M2. You can also use your own factor ranging from 0.1 to 1.0.</string>
     <string name="learn_more">[See more]</string>
     <string name="design_and_implementation">Design and execution</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legend</string>
     <string name="monetary_units">Monetary units</string>

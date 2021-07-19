@@ -72,8 +72,8 @@
     <string name="no_cross_stack">Párhuzamos fa halom</string>
     <string-array name="trees">
         <item>Lucfenyő</item>
-        <item>Fenyő(1)</item>
-        <item>Fenyő(2)</item>
+        <item>Fenyő(fir)</item>
+        <item>Fenyő(pine)</item>
         <item>Vörösfenyő</item>
         <item>Nyír</item>
         <item>Bükkfa</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">A fatelepek mérésére vonatkozó számításokat egy adott fa választék és típus szerint végezzük. A számításokhoz biztosított tartományok (a cölöpökön mért fa konverziós tényezői): S2, S3, S4, M1, M2. Használhatja saját tényezőjét is 0,1 és 1,0 között.</string>
     <string name="learn_more">[Többet látni]</string>
     <string name="design_and_implementation">Tervezés és kivitelezés</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legenda</string>
     <string name="monetary_units">Monetáris egységek</string>

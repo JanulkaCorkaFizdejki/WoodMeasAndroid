@@ -71,8 +71,8 @@
     <string name="cross_stack">Krosa krusta koka kaudze</string>
     <string name="no_cross_stack">Paralēla koka kaudze</string>
     <string-array name="trees">
-        <item>Egle(1)</item>
-        <item>Egle(2)</item>
+        <item>Egle(s-ce)</item>
+        <item>Egle(fir)</item>
         <item>Priede</item>
         <item>Lapegle</item>
         <item>Bērzs</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Aprēķini koka pāļu mērījumiem tiek veikti attiecībā uz konkrēto koksnes sortimentu un veidu. Aprēķiniem paredzētie diapazoni (koksnes konversijas koeficienti, kas mērīti pāļos) ir S2, S3, S4, M1, M2. Varat arī izmantot savu koeficientu diapazonā no 0,1 līdz 1,0.</string>
     <string name="learn_more">[Redzēt vairāk]</string>
     <string name="design_and_implementation">Projektēšana un ieviešana</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Leģenda</string>
     <string name="monetary_units">Naudas vienības</string>

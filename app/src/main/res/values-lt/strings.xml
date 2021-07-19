@@ -71,8 +71,8 @@
     <string name="cross_stack">Kryžminio medžio krūva</string>
     <string name="no_cross_stack">Lygiagretus medienos krūva</string>
     <string-array name="trees">
-        <item>Eglė(1)</item>
-        <item>Eglė(2)</item>
+        <item>Eglė(s-ce)</item>
+        <item>Eglė(fir)</item>
         <item>Pušis</item>
         <item>Maumedis</item>
         <item>Beržas</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Skaičiavimai medienos poliams matuoti atliekami atsižvelgiant į pateiktą medienos asortimentą ir rūšį. Skaičiavimams pateikti diapazonai (medienos, apskaičiuotos poliais, perskaičiavimo koeficientai) yra S2, S3, S4, M1, M2. Taip pat galite naudoti savo koeficientą nuo 0,1 iki 1,0.</string>
     <string name="learn_more">[Žiūrėti daugiau]</string>
     <string name="design_and_implementation">Projektavimas ir įgyvendinimas</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legenda</string>
     <string name="monetary_units">Piniginiai vienetai</string>

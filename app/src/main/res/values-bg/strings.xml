@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Изчисленията за измерванията на дървените пилоти се правят по отношение на даден асортимент и вид дървесина. Диапазоните, предвидени за изчисленията (коефициенти на преобразуване за дървесина, измерени в купчини) са S2, S3, S4, M1, M2. Можете също така да използвате свой собствен коефициент, вариращ от 0,1 до 1,0.</string>
     <string name="learn_more">[Виж повече]</string>
     <string name="design_and_implementation">Проектиране и изпълнение</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Легенда</string>
     <string name="monetary_units">Парични единици</string>

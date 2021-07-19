@@ -71,8 +71,8 @@
     <string name="cross_stack">Pilha de madeira cruzada</string>
     <string name="no_cross_stack">Pilha de madeira paralela</string>
     <string-array name="trees">
-        <item>Abeto(1)</item>
-        <item>>Abeto(2)</item>
+        <item>Abeto(s-ce)</item>
+        <item>>Abeto(fir)</item>
         <item>Pinho</item>
         <item>Larício</item>
         <item>Bétula</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Os cálculos para as medidas de estacas de madeira são feitos em relação a um determinado sortimento e tipo de madeira. Os intervalos fornecidos para os cálculos (fatores de conversão para madeira medidos em pilhas) são S2, S3, S4, M1, M2. Você também pode usar seu próprio fator de 0,1 a 1,0.</string>
     <string name="learn_more">[Ver mais]</string>
     <string name="design_and_implementation">Design e implementação</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Lenda</string>
     <string name="monetary_units">Unidades monetárias</string>

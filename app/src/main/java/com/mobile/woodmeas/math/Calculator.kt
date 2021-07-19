@@ -33,10 +33,9 @@ object Calculator {
         val mod2Cov:Double = (0.48 / sqrt(lengthM)) - 0.12
         val mod3Cov:Double = diameterUpperToDouble - 22.0 + (0.3 * lengthM)
         // z
-        val logConvergence:Double = (mod1Cov + (mod2Cov * mod3Cov)) / 10.0
+        val logConvergence:Double = (mod1Cov + (mod2Cov * mod3Cov)) * 0.1
         // ___________________________________________
-        val modThick:Double = (((logConvergence * lengthM)/ 2.0) + diameterUpper.toDouble()).pow(2)
-        return (modThick * lengthM * Math.PI) / 40000.0
+        return (((logConvergence * 0.5) + diameterUpper.toLong()).pow(2) * lengthM * Math.PI) / 40000.0
     }
 
     private fun setWidthMinusBark(width: Int, tree: Trees): Int {

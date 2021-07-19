@@ -60,7 +60,7 @@
     <string name="enter_all_dimensions">输入所有尺寸</string>
     <string name="create_and_use">创建和使用</string>
     <string name="no_packages">没有捆绑</string>
-    <string name="print">D打印</string>
+    <string name="print">打印</string>
     <string name="send">发送</string>
     <string name="do_you_want_delete_element_question">你想删除元素吗？</string>
     <string name="package_details">捆绑内容</string>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">木桩的测量计算是根据给定的木材种类和类型进行的。 为计算提供的范围（以桩为单位测量的木材换算系数）为 S2、S3、S4、M1、M2。 您也可以使用您自己的系数，范围从 0.1 到 1.0。</string>
     <string name="learn_more">[查看更多]</string>
     <string name="design_and_implementation">设计与实现</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">传奇</string>
     <string name="monetary_units">货币单位</string>

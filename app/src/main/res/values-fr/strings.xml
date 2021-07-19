@@ -11,15 +11,15 @@
     <string name="measurement_width_bark">Mesure avec écorce</string>
     <string name="measurement_without_bark">Mesure sans écorce</string>
     <string name="select">Choisir</string>
-    <string name="create">Utwórz</string>
-    <string name="delete">Créer</string>
+    <string name="create">Créer</string>
+    <string name="delete">Effacer</string>
     <string name="cancel">Annuler</string>
     <string name="yes">Oui</string>
-    <string name="add_wood_package_name">" Entrez le nom du paquet:"</string>
+    <string name="add_wood_package_name">Entrez le nom du paquet:</string>
     <string name="absence">Aucun</string>
     <string name="create_package">Créer un forfait</string>
     <string name="created_package">Le forfait a été créé</string>
-    <string name="do_you_want_to_delete_wood_package_from_currency_view">Voulez-vous supprimer un paquet de bois de la vue actuelle ?</string>
+    <string name="do_you_want_to_delete_wood_package_from_currency_view">Voulez-vous supprimer un paquet de bois de la vue actuelle?</string>
     <string name="add_to_wood_package">Ajouter au forfait</string>
     <string name="added_to_package">Ajouté au forfait</string>
     <string name="select_or_create_wood_package">Choisissez ou créez le paquet de bois</string>
@@ -43,7 +43,7 @@
         <item>Paquets de bois</item>
         <item>Paquets de pile de bois</item>
     </string-array>
-    <string name="delete_package_question">Voulez-vous supprimer le forfait ?</string>
+    <string name="delete_package_question">Voulez-vous supprimer le paquet?</string>
     <string name="package_has_been_removed">Le paquet a été retiré</string>
     <string name="package_is_empty">Le paquet est vide</string>
     <string name="remove_all_packages">Supprimer les paquets</string>
@@ -62,7 +62,7 @@
     <string name="no_packages">Pas de forfaits</string>
     <string name="print">Imprimer</string>
     <string name="send">Envoyer</string>
-    <string name="do_you_want_delete_element_question">Voulez-vous supprimer l\'élément ?</string>
+    <string name="do_you_want_delete_element_question">Voulez-vous supprimer un élément?</string>
     <string name="package_details">Contenu de l\'offre groupée</string>
     <string name="bark">Aboyer</string>
     <string name="plank_package">Paquet de bois</string>
@@ -72,8 +72,8 @@
     <string name="no_cross_stack">Tas de bois parallèle</string>
     <string-array name="trees">
         <item>Épicéa</item>
-        <item>Jodła</item>
         <item>Sapin</item>
+        <item>Pin</item>
         <item>Mélèze</item>
         <item>Bouleau</item>
         <item>Hêtre</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Les calculs pour les mesures des pieux en bois sont effectués par rapport à un assortiment et un type de bois donnés. Les plages fournies pour les calculs (facteurs de conversion pour le bois mesurés en pieux) sont S2, S3, S4, M1, M2. Vous pouvez également utiliser votre propre facteur allant de 0,1 à 1,0.Les calculs pour les mesures des pieux en bois sont effectués par rapport à un assortiment et un type de bois donnés. Les plages fournies pour les calculs (facteurs de conversion pour le bois mesurés en pieux) sont S2, S3, S4, M1, M2. Vous pouvez également utiliser votre propre facteur allant de 0,1 à 1,0.</string>
     <string name="learn_more">[Voir plus]</string>
     <string name="design_and_implementation">Conception et mise en œuvre</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Légende</string>
     <string name="monetary_units">Unités monétaires</string>

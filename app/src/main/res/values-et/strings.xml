@@ -71,8 +71,8 @@
     <string name="cross_stack">Rist-rist puiduhunnik</string>
     <string name="no_cross_stack">Paralleelne puiduhunnik</string>
     <string-array name="trees">
-        <item>Kuusk(1)</item>
-        <item>Kuusk(2)</item>
+        <item>Kuusk(s-ce)</item>
+        <item>Kuusk(fir)</item>
         <item>Mänd</item>
         <item>Lehis</item>
         <item>Kask</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Puidust vaiade mõõtmiseks tehakse arvutused antud sortimendi ja puiduliigi kohta. Arvutusteks ettenähtud vahemikud (vaiadena mõõdetud puidu ümberarvestustegurid) on S2, S3, S4, M1, M2. Võite kasutada ka oma tegurit vahemikus 0,1 kuni 1,0.</string>
     <string name="learn_more">[Näe rohkem]</string>
     <string name="design_and_implementation">Kujundus ja teostus</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legend</string>
     <string name="monetary_units">Rahaühikud</string>

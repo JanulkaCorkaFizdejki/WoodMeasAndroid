@@ -32,7 +32,7 @@
     <string name="search">ძებნა</string>
     <string name="id">Id</string>
     <string name="package_name">პაკეტის სახელი</string>
-    <string name="created_date">xxx</string>
+    <string name="created_date">Შექმნის თარიღი</string>
     <string-array name="menu_calculators">
         <item>ხის მორების გაზომვა</item>
         <item>ხის ზომა</item>
@@ -49,7 +49,7 @@
     <string name="remove_all_packages">ამოიღეთ ჩალიჩები</string>
     <string name="delete_all_packages_question">გსურთ წაშალოთ ყველა პაკეტი?</string>
     <string name="length">სიგრძე</string>
-    <string name="width">Szerokość</string>
+    <string name="width">სიგანე</string>
     <string name="height">სიგანე</string>
     <string name="diameter">დიამეტრი</string>
     <string name="_3">3</string>
@@ -71,8 +71,8 @@
     <string name="cross_stack">ჯვრის ჯვარი ხის წყობით</string>
     <string name="no_cross_stack">პარალელური ხის წყობა</string>
     <string-array name="trees">
-        <item>ნაძვი</item>
-        <item>ნაძვი</item>
+        <item>ნაძვი(s-ce)</item>
+        <item>ნაძვი(fir)</item>
         <item>ფიჭვი</item>
         <item>ლარქი</item>
         <item>არყი</item>
@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">ხის გროვების გაზომვების გაანგარიშება ხდება მოცემული ასორტიმენტისა და ხის ტიპის გათვალისწინებით. გამოთვლებისთვის გათვალისწინებული დიაპაზონები (გროვებად იზომება ხის გადაკეთების ფაქტორები) არის S2, S3, S4, M1, M2. ასევე შეგიძლიათ გამოიყენოთ თქვენი საკუთარი ფაქტორი, დაწყებული 0,1-დან 1,0-მდე.</string>
     <string name="learn_more">[Მეტის ნახვა]</string>
     <string name="design_and_implementation">დიზაინი და განხორციელება</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">ლეგენდა</string>
     <string name="monetary_units">ფულადი ერთეულები</string>

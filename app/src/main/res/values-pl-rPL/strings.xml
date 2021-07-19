@@ -160,7 +160,7 @@
     <string name="measurement_stacks_desc">Obliczenia dla pomiarów stosów drewna wykonywane są ze względu na dany sortyment oraz gatunek drewna. Sortymenty przewidziane do obliczeń (współczynniki zamienne dla drewna mierzonego w stosach), to S2, S3, S4, M1, M2. Można także zastosować własny współczynnik w zakresie od 0,1 do 1,0.</string>
     <string name="learn_more">[Zobacz więcej]</string>
     <string name="design_and_implementation">Projekt i wykonanie</string>
-    <string name="qwertymediacom">www.qwertymedia.com</string>
+    <string name="qwertymediacom">www.qwertymedia.pl</string>
     <string name="woodmeascom">www.woodmeas.com</string>
     <string name="legend">Legenda</string>
     <string name="monetary_units">Jednostki monetarne</string>

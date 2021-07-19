@@ -92,6 +92,8 @@ class InfoActivity : AppCompatActivity() {
                 R.id.buttonInfoLearnMoreLog -> {
                     Intent(Intent.ACTION_VIEW).let { intent ->
                         val url = "${woodMeasUrl}/?site=wood-measurement&lang=${Locale.getDefault().language}"
+                            .trim()
+                            .replace(" ", "")
                         intent.data = Uri.parse(url)
                         startActivity(intent)
                     }
@@ -99,6 +101,8 @@ class InfoActivity : AppCompatActivity() {
                 R.id.buttonInfoLearnMoreStack -> {
                     Intent(Intent.ACTION_VIEW).let { intent ->
                         val url = "${woodMeasUrl}/?site=wood-measurement&lang=${Locale.getDefault().language}"
+                            .trim()
+                            .replace(" ", "")
                         intent.data = Uri.parse(url)
                         startActivity(intent)
                     }

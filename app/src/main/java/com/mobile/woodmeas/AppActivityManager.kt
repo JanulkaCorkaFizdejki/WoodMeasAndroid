@@ -177,7 +177,7 @@ interface AppActivityManager {
             val textViewM: TextView = appCompatActivity.findViewById(measure.getTextViewMVal())
 
             if (unitsMeasurement == UnitsMeasurement.IN) {
-                textViewCm.text = appCompatActivity.resources.getText(R.string.default_number_float)
+               // textViewCm.text = appCompatActivity.resources.getText(R.string.default_number_float)
                 appCompatActivity.findViewById<TextView>(measure.getUnitCm()).text = unitsMeasurement.getNameUnit(appCompatActivity)
                 appCompatActivity.findViewById<TextView>(measure.getUnitM()).text = unitsMeasurement.getNameUnitCubic(appCompatActivity)
             }
@@ -217,18 +217,14 @@ interface AppActivityManager {
                     seekBarsValues[index] = progress
                     val textFormatCm = if(unitsMeasurement == UnitsMeasurement.CM) {
                         "$progress"
-                    } else { UnitsMeasurement.convertToInchToString(progress) }
+                    } else { UnitsMeasurement.convertToInchToIntToString(progress) }
 
                     textViewCm.text = textFormatCm
 
                     val textFormatM = if(unitsMeasurement == UnitsMeasurement.CM) {
                         "%.2f".format(progress.toFloat() /  100.00F).replace(".", ",")
                     } else {
-                        UnitsMeasurement
-                            .convertToFootToString("%.2f"
-                                .format(progress.toFloat() /  100.00F)
-                                .replace(",", ".")
-                                .toFloat())
+                        UnitsMeasurement.convertCmToFootToString(progress)
                     }
 
                     textViewM.text = textFormatM
