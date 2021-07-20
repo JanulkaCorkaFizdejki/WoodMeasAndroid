@@ -174,6 +174,7 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun addItemToPackage() {
+
         val length = findViewById<SeekBar>(R.id.seekBarMeasureLength).progress
         val width = findViewById<SeekBar>(R.id.seekBarMeasureWidth).progress
         val height = findViewById<SeekBar>(R.id.seekBarMeasureThickness).progress
@@ -201,6 +202,8 @@ class StackCalculatorActivity : AppCompatActivity(), AppActivityManager, Package
                 tree,
                 cross.isChecked,
                 customFactor)
+
+        println(m3)
 
         thread {
             DatabaseManagerDao.getDataBase(this)?.let { databaseManagerDao ->

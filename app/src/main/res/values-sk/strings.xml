@@ -36,7 +36,7 @@
     <string-array name="menu_calculators">
         <item>Meranie guľatiny</item>
         <item>Meranie reziva</item>
-        <item>Meranie dtohov</item>
+        <item>Meranie stohov</item>
     </string-array>
     <string-array name="menu_packages">
         <item>Balíky guľatiny</item>
@@ -156,7 +156,7 @@
     <string name="calculation_methods">Metódy výpočtov</string>
     <string name="measurement_plank">B. Meranie reziva</string>
     <string name="measurement_plank_desc">Na výpočet merania reziva sa používa vzorec pre výpočet objemu kvádra. Meranie musí byť bez kôry.</string>
-    <string name="measurement_stacks">C. Meranie dtohov</string>
+    <string name="measurement_stacks">C. Meranie stohov</string>
     <string name="measurement_stacks_desc">Výpočty meraní stohov zohľadňujú sortiment a druh dreva. Sortiment prednastavený vo výpočtoch (prevodné koeficienty pre drevo merané v stohoch): S2, S3, S4, M1, M2. Je možné použiť aj vlastný koeficient v rzomedzí od 0,1 do 1,0.</string>
     <string name="learn_more">[Pozrieť viac]</string>
     <string name="design_and_implementation">Projekt a realizácia</string>

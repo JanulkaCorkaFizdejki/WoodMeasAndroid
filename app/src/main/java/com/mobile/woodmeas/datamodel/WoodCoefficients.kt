@@ -12,6 +12,8 @@ enum class WoodCoefficients {
             cross: Boolean,
             customFactor: Float?
         ): Float {
+            val crossFactor = if (cross) 0.75F else 1.00F
+            println(crossFactor)
             return if (customFactor != null) {
                 "%.2f".format(m3 * customFactor * if (cross) 0.75F else 1.00F).replace(",", ".").toFloat()
             } else {
@@ -22,7 +24,7 @@ enum class WoodCoefficients {
                             in 200..499 ->  if (bark) 0.62F else 0.72F
                             else -> if (bark) 0.60F else 0.72F
                         }
-                        "%.2f".format(m3 * factor * if (cross) 0.75F else 1.00F).replace(",", ".").toFloat()
+                        "%.2f".format(m3 * factor * crossFactor).replace(",", ".").toFloat()
                     }
                     in 1..2 -> {
                         val factor = when(length) {
@@ -30,12 +32,12 @@ enum class WoodCoefficients {
                             in 200..299 ->  if (bark) 0.67F else 0.75F
                             else -> if (bark) 0.65F else 0.75F
                         }
-                        "%.2f".format(m3 * factor * if (cross) 0.75F else 1.00F).replace(",", ".").toFloat()
+                        "%.2f".format(m3 * factor * crossFactor).replace(",", ".").toFloat()
                     }
                     in 6..7 -> {
-                        "%.2f".format(m3 * if(bark) 0.70F else 0.75F * if (cross) 0.75F else 1.00F).replace(",", ".").toFloat()
+                        "%.2f".format(m3 * if(bark) { 0.70F } else { 0.75F } * crossFactor).replace(",", ".").toFloat()
                     }
-                    else -> "%.2f".format(m3 * if(bark) 0.65F else 0.75F * if (cross) 0.75F else 1.00F).replace(",", ".").toFloat()
+                    else -> "%.2f".format(m3 * if(bark) { 0.65F } else { 0.75F } * crossFactor).replace(",", ".").toFloat()
                 }
             }
         }

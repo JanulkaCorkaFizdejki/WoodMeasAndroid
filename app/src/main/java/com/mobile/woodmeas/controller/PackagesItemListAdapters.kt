@@ -211,11 +211,6 @@ class PackageLogDetailsItemAdapter(
             }
         }
 
-//        holder.itemView.findViewById<TextView>(R.id.textViewPackageLogDetailsBark).let {
-//            if (woodenLogList[position].barkOn < 1) {
-//                it.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-//            }
-//        }
 
         holder.itemView.findViewById<ImageButton>(R.id.imageButtonPackageLogDetailsDelete).apply {
 
